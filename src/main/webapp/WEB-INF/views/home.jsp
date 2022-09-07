@@ -1,14 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <html>
 <head>
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	<h1>
+		Goodee Market Project
+	</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+
+	<a href="중고거래"></a>
+	<a href="소모임"></a>
 </body>
 </html>
