@@ -15,6 +15,8 @@ public class MeetingBoardDTO {
 	private Integer meetingBoardCurrentMember;
 	private Integer meetingBoardMaxMember;
 	private String meetingBoardCategory;
+	private String meetingBoardHostDemand;
+	private Integer meetingBoardStatus;
 	
 	public Long getMeetingBoardNum() {
 		return meetingBoardNum;
@@ -81,6 +83,18 @@ public class MeetingBoardDTO {
 	}
 	public void setMeetingBoardCategory(String meetingBoardCategory) {
 		this.meetingBoardCategory = meetingBoardCategory;
+	}
+	public String getMeetingBoardHostDemand() {
+		return meetingBoardHostDemand;
+	}
+	public void setMeetingBoardHostDemand(String meetingBoardHostDemand) {
+		this.meetingBoardHostDemand = meetingBoardHostDemand;
+	}
+	public Integer getMeetingBoardStatus() {
+		return meetingBoardStatus;
+	}
+	public void setMeetingBoardStatus(Integer meetingBoardStatus) {
+		this.meetingBoardStatus = meetingBoardStatus;
 	}
 	
 }
