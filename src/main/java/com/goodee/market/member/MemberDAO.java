@@ -9,7 +9,7 @@ public class MemberDAO implements MemberInterface{
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.goodee.market.MemberDAO.";
+	private final String NAMESPACE = "com.goodee.market.member.MemberDAO.";
 
 	@Override
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception {

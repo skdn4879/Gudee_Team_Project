@@ -13,6 +13,6 @@
 
 	<a href="중고거래"></a>
 	<a href="소모임"></a>
-	<a href="/member/login"></a>
+	<a href="/member/login">로그인</a>
 </body>
 </html>
