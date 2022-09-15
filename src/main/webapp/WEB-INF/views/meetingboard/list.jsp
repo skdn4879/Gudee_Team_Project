@@ -13,7 +13,7 @@
 
 	<section class="container-fluid col-lg-8 mt-4">
 		<div class="row col-lg-3">
-			<button class="btn btn-primary">모집글 작성</button>
+			<a class="btn btn-primary" role="button" href="./add">모집글 작성</a>
 		</div>
 		<div class="row">
 			<table class="table table-primary">
