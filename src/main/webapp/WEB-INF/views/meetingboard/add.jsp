@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<section class="container-fluid col-lg-12 bg-info">
+	<section class="container-fluid col-lg-12">
 		<div class="row">
 			<div class="col-lg-3 col-md-3 bg-danger">side</div>
 			<div class="col-lg-9 col-md-9 bg-primary">map</div>
