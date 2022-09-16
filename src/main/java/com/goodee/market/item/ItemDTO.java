@@ -5,8 +5,8 @@ import java.sql.Date;
 public class ItemDTO {
 
 	
-	private	 Long itemNum;
-	private	 Long memberNum; 
+	private Long itemNum;
+	private Long memberNum; 
 	private	String itemTitle;
 	private	String itemContents;
 	private	String itemCategory;

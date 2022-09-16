@@ -4,5 +4,5 @@ public class PhotoFiles {
 
 	private Long fileNum;
 	private String fileName;
-	private String onriName;
+	private String oriName;
 }
