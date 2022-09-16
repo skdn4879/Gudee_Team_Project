@@ -14,6 +14,11 @@ public class MeetingBoardController {
 	@Autowired
 	private MeetingBoardService meetingBoardService;
 	
+	@GetMapping("home")
+	public String getMeetingHome() throws Exception {
+		return "meetingboard/home";
+	}
+	
 	@GetMapping("list")
 	public ModelAndView getMeetingBoardList() throws Exception{
 		ModelAndView mv = new ModelAndView();
