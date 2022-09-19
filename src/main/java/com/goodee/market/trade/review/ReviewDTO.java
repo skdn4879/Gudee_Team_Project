@@ -1,6 +1,6 @@
-package com.goodee.market.review;
+package com.goodee.market.trade.review;
 
-import com.goodee.market.item.ItemDTO;
+import com.goodee.market.trade.item.ItemDTO;
 
 public class ReviewDTO extends ItemDTO{
 	

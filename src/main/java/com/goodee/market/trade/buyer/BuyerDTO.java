@@ -1,4 +1,4 @@
-package com.goodee.market.buyer;
+package com.goodee.market.trade.buyer;
 
 public class BuyerDTO {
 	

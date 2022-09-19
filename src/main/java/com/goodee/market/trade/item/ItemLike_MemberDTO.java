@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 public class ItemLike_MemberDTO {
 	
@@ -6,6 +6,8 @@ public class ItemLike_MemberDTO {
 	   private Long num;
 	   private Long memberNum;
 	   private Long itemNum;
+	   
+	   
 	public Long getNum() {
 		return num;
 	}

@@ -1,6 +1,6 @@
-package com.goodee.market.buyItemList;
+package com.goodee.market.trade.buyItemList;
 
-import com.goodee.market.tradingItem.TradingItemDTO;
+import com.goodee.market.trade.tradingItem.TradingItemDTO;
 
 public class BuyItemListDTO extends TradingItemDTO{
 

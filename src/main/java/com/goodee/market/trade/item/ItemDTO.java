@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.sql.Date;
 
@@ -12,6 +12,8 @@ public class ItemDTO {
 	   private Integer itemPrice;
 	   private Date itemDueDate;
 	   private Integer itemStatus;
+	   
+	   
 	public Long getItemNum() {
 		return itemNum;
 	}

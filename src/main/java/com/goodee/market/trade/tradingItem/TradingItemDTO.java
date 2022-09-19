@@ -1,4 +1,4 @@
-package com.goodee.market.tradingItem;
+package com.goodee.market.trade.tradingItem;
 
 import java.sql.Date;
 
