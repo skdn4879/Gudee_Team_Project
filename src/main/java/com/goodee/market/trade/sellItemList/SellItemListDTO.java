@@ -1,8 +1,8 @@
-package com.goodee.market.trade.sellItem;
+package com.goodee.market.trade.sellItemList;
 
 import com.goodee.market.trade.tradingItem.TradingItemDTO;
 
-public class SellItemDTO extends TradingItemDTO{
+public class SellItemListDTO extends TradingItemDTO{
 
 	private Long sellItemNum;
 
