@@ -8,8 +8,9 @@ let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 
 let places = new kakao.maps.services.Places();
 
-const inputKeyword = document.querySelector("#inputKeyword");
-const searchIcon = document.querySelector("#searchIcon");
+const inputKeyword = document.querySelector("#inputKeyword");   //검색어
+const searchIcon = document.querySelector("#searchIcon");       //검색아이콘
+const addFormModalOpenBtn = document.querySelector("#addFormModalOpenBtn"); //등록폼 버튼
 
 places.setMap(map);
 
@@ -31,7 +32,7 @@ let imageSize = new kakao.maps.Size(50, 60);  // 마커 이미지의 크기
 let imgOptions =  {
         spriteSize : new kakao.maps.Size(50, 60), // 소스 이미지의 크기
         spriteOrigin : new kakao.maps.Point(0, (markers.length*46)+10),
-        offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+        offset: new kakao.maps.Point(25, 30) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
     };
 let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
 
@@ -41,6 +42,8 @@ let clickMarker = new kakao.maps.Marker({
     position: map.getCenter(),
     image: markerImage
 });
+let mainAddr = "";  //모달폼에 사용할 주소
+let building = "";  //모달폼에 사용할 건물명
 
 /*********************************************************/
 
@@ -54,26 +57,38 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     // 클릭한 위도, 경도 정보를 가져옵니다 
     let latlng = mouseEvent.latLng; 
     
-    let message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    /*let message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
     message += '경도는 ' + latlng.getLng() + ' 입니다';
     
-    console.log(message);
+    console.log(message);*/
 
     searchDetailAddrFromCoords(latlng, function(result, status) {
         if (status === kakao.maps.services.Status.OK) {
-            let detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-            detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+            let template_click_map_marker = document.querySelector("#template-click-map-marker");
+            let content = template_click_map_marker.innerHTML;
             
-            let content = '<div class="bAddr">' +
-                            '<span class="title">법정동 주소정보</span>' + 
-                            detailAddr + 
-                        '</div>';
+            if(result[0].road_address){
+                mainAddr = result[0].road_address.address_name;
+                content = content.replace("{storeAddress}", mainAddr);
+                if(result[0].road_address.building_name != ""){
+                    building = result[0].road_address.building_name;
+                    content = content.replace("{storeTitle}", building);
+                } else{
+                    content = content.replace("{storeTitle}", "건물 이름 없음");
+                }
+            } else{
+                mainAddr = result[0].address.address_name;
+                content = content.replace("{storeAddress}", mainAddr);
+                content = content.replace("{storeTitle}", "건물 이름 없음");
+            }
+
+            
 
             // 마커를 클릭한 위치에 표시합니다 
             clickMarker.setPosition(latlng);
             clickMarker.setMap(map);
 
-            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+            // 인포윈도우에 클릭한 위치에 대한 정보를 표시합니다
             infowindow.setContent(content);
             infowindow.open(map, clickMarker);
         }   
@@ -83,6 +98,24 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     //clickMarker.setMap(map);
     //markers.push(clickMarker);  // 배열에 생성된 마커를 추가합니다
     //console.log(markers);
+});
+
+// 마커에 클릭이벤트 등록
+kakao.maps.event.addListener(clickMarker, 'click', function(){
+    let openAddForm = confirm("이 장소로 모임을 만들까요?");
+
+    if(!openAddForm){
+        return;
+    }
+    
+    const meetingboardMainAddress = document.querySelector("#meetingboardMainAddress");
+    meetingboardMainAddress.value = mainAddr;
+
+    if(building != ""){
+        meetingboardMainAddress.value += " " + building;
+    }
+    clearModalAddr();
+    addFormModalOpenBtn.click();
 });
 
 /**************************************************************/
@@ -102,7 +135,7 @@ searchIcon.addEventListener("click", function(){
 // 장소 검색 완료시 호출되는 함수
 let keywordSearchCallback = function(result, status) {
     if (status === kakao.maps.services.Status.OK) {
-        console.log(result);
+        //console.log(result);
 
         keywordSearchDisplayplace(result);
 
@@ -166,9 +199,66 @@ function keywordSearchDisplayplace(result){
             };
         })(createdMarker, result[i].place_name);
 
-        placesListItem.addEventListener("click", function(index){
-            
-        });
+        // 마커 클릭 함수
+        (function(marker, place) {
+            kakao.maps.event.addListener(marker, 'click', function(){
+                clearModalAddr();
+
+                if(place.road_address_name){
+                    mainAddr = place.road_address_name;
+                } else{
+                    mainAddr = place.address_name;
+                }
+
+                if(place.place_name){
+                    building = place.place_name;
+                }
+
+                let openAddForm = confirm("이 장소로 모임을 만들까요?");
+
+                if(!openAddForm){
+                    return;
+                }
+
+                const meetingboardMainAddress = document.querySelector("#meetingboardMainAddress");
+                meetingboardMainAddress.value = mainAddr;
+
+                if(building){
+                    meetingboardMainAddress.value += " " + building;
+                }
+
+                addFormModalOpenBtn.click();
+            })
+
+            placesListItem.onclick = function(){
+                clearModalAddr();
+
+                if(place.road_address_name){
+                    mainAddr = place.road_address_name;
+                } else{
+                    mainAddr = place.address_name;
+                }
+
+                if(place.place_name){
+                    building = place.place_name;
+                }
+
+                let openAddForm = confirm("이 장소로 모임을 만들까요?");
+
+                if(!openAddForm){
+                    return;
+                }
+
+                const meetingboardMainAddress = document.querySelector("#meetingboardMainAddress");
+                meetingboardMainAddress.value = mainAddr;
+
+                if(building){
+                    meetingboardMainAddress.value += " " + building;
+                }
+
+                addFormModalOpenBtn.click();
+            }
+        })(createdMarker, result[i]);
 
         fragment.appendChild(placesListItem);
 
@@ -227,7 +317,7 @@ function getListItem(index, place) {
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-function addMarker(position, idx, title) {
+function addMarker(position, idx) {
     imgOptions.spriteOrigin = new kakao.maps.Point(0, (idx*46)+10) // 이미지 중 사용할 영역의 좌상단 좌표
     let createdMarker = new kakao.maps.Marker({
         position: position, // 마커의 위치
@@ -236,11 +326,6 @@ function addMarker(position, idx, title) {
 
     createdMarker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(createdMarker);  // 배열에 생성된 마커를 추가합니다
-
-    // 마커에 클릭이벤트를 등록합니다
-    kakao.maps.event.addListener(createdMarker, 'click', function() {
-         console.log(idx + "번 마커 클릭함");
-    });
 
     return createdMarker;
 }
@@ -302,4 +387,103 @@ function displayCenterInfo(result, status) {
             }
         }
     }    
+}
+
+function clearModalAddr(){
+    mainAddr = "";
+    building = "";
+}
+
+/**************************************************/
+//카테고리 추가 관련 부분
+const categoryList = document.querySelector("#categoryList");
+const meetingBoardCategory = document.querySelector("#meetingBoardCategory");
+
+categoryList.addEventListener("click", function(event){
+
+    if(event.target.classList[1] == "categoryListItem"){
+        const categoryValue = event.target.innerText;
+        meetingBoardCategory.value = categoryValue;
+    }
+
+});
+/*****************************************************/
+/*****************************************************/
+// 모집글 작성 버튼 관련
+const addFormModalSendBtn = document.querySelector("#addFormModalSendBtn"); //모달 전송 버튼
+const meetingBoardTitle = document.querySelector("#meetingBoardTitle");             //제목
+const meetingBoardContents = document.querySelector("#meetingBoardContents");       //내용
+const meetingBoardDueDatePre = document.querySelector("#meetingBoardDueDatePre");         //기한
+const meetingBoardTotalCost = document.querySelector("#meetingBoardTotalCost");     //비용
+const meetingBoardLocation = document.querySelector("#meetingBoardLocation");       //장소
+const meetingBoardMaxMember = document.querySelector("#meetingBoardMaxMember");     //최대인원
+const meetingBoardHostDemand = document.querySelector("#meetingBoardHostDemand");   //주최자질문
+
+const addForm = document.querySelector("#addForm");
+
+meetingBoardTotalCost.addEventListener("blur", function(){
+    if(Number(meetingBoardTotalCost.value) % 100 > 0){
+        meetingBoardTotalCost.value -= meetingBoardTotalCost.value % 100;
+    }
+});
+
+addFormModalSendBtn.addEventListener("click", function(){
+
+    const meetingboardMainAddress = document.querySelector("#meetingboardMainAddress");
+    const meetingboardSubAddress = document.querySelector("#meetingboardSubAddress");
+    meetingBoardLocation.value = (meetingboardMainAddress.value + " " + meetingboardSubAddress.value).trim();
+
+    if(meetingBoardTitle.value == ""){
+        alert("제목을 입력하세요");
+        return;
+    }
+
+    if(meetingBoardContents.value == ""){
+        alert("내용을 입력하세요");
+        return;
+    }
+
+    if(meetingBoardDueDatePre.value == ""){
+        alert("만남 예정일을 입력하세요");
+        return;
+    }
+
+    if(meetingBoardTotalCost.value == "" || Number(meetingBoardTotalCost.value) < 10000){
+        alert("비용은 최소 만원 이상입니다");
+        return;
+    }
+
+    if(meetingBoardMaxMember.value == ""){
+        alert("최대 인원을 입력하세요");
+        return;
+    }
+
+    if(meetingBoardCategory.value == ""){
+        alert("카테고리를 입력하세요");
+        return;
+    }
+
+    addForm.submit();
+});
+
+const addFormModalCloseBtn = document.querySelector("#addFormModalCloseBtn");
+addFormModalCloseBtn.addEventListener("click", function(){
+    clearAddModalForm();
+    this.click();
+});
+
+const addFormModalCloseBottomBtn = document.querySelector("#addFormModalCloseBottomBtn");
+addFormModalCloseBottomBtn.addEventListener("click", function(){
+    clearAddModalForm();
+    this.click();
+})
+
+function clearAddModalForm(){
+    meetingBoardTitle.value = "";
+    meetingBoardContents.value = "";
+    meetingBoardDueDatePre.value = "";
+    meetingBoardTotalCost.value = "";
+    meetingBoardMaxMember.value = "";
+    meetingBoardHostDemand.value = "";
+    meetingBoardCategory.value = "";
 }

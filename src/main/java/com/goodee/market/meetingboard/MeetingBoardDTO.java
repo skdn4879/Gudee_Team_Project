@@ -1,6 +1,9 @@
 package com.goodee.market.meetingboard;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class MeetingBoardDTO {
 
@@ -17,6 +20,9 @@ public class MeetingBoardDTO {
 	private String meetingBoardCategory;
 	private String meetingBoardHostDemand;
 	private Integer meetingBoardStatus;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime meetingBoardDueDatePre;
 	
 	public Long getMeetingBoardNum() {
 		return meetingBoardNum;
@@ -95,6 +101,12 @@ public class MeetingBoardDTO {
 	}
 	public void setMeetingBoardStatus(Integer meetingBoardStatus) {
 		this.meetingBoardStatus = meetingBoardStatus;
+	}
+	public LocalDateTime getMeetingBoardDueDatePre() {
+		return meetingBoardDueDatePre;
+	}
+	public void setMeetingBoardDueDatePre(LocalDateTime meetingBoardDueDatePre) {
+		this.meetingBoardDueDatePre = meetingBoardDueDatePre;
 	}
 	
 }

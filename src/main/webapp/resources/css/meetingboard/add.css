@@ -11,6 +11,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'HS-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 #mapFrame {
 	height: 100vh;
@@ -76,6 +82,7 @@
 .placesListItem {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	cursor: pointer;
 }
 
 .placesListItemDivTitle {
@@ -90,3 +97,26 @@
 .placesListItemCategory {
 	float: right;
 }
+
+
+
+#addFormModalLabel {
+	margin: auto;
+	font-family: 'HS-Regular';
+	font-size: 2rem;
+	color: #00EA71;
+}
+#addFormModalCloseBtn {
+	margin: 0;
+}
+.addFormModalSubLabel {
+	font-family: 'HS-Regular';
+}
+#addFormModalOpenBtn {
+	display: none;
+}
+.categoryListItem {
+	cursor: pointer;
+}
+
+

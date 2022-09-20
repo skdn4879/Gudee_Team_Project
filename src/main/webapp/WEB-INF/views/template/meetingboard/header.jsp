@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<header class="header">
-		<nav class="navbar navbar-expand-lg bg-light fixed-top">
+		<nav class="navbar navbar-expand-lg bg-white fixed-top">
 		   <div class="container-fluid">
 		   	<div class="ms-lg-5 ps-lg-5">
 		   		<a class="navbar-brand" href="/" id="mainLogoFrame"><img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo"><span id="logoText">구디마켓</span></a>
