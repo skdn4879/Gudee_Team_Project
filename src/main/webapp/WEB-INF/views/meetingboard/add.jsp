@@ -6,18 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Meeting Add Page</title>
-<c:import url="../template/bootstrapCss.jsp"></c:import>
+<c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
+<link rel="stylesheet" href="/resources/css/meetingboard/add.css">
 </head>
 <body>
 
-	<section class="container-fluid col-lg-12 mt-4">
-		<div class="row">
-			<div class="col-lg-3 col-md-3 bg-danger">side</div>
-			<div class="col-lg-9 col-md-9 bg-primary">
-				<div id="map" style="width:500px;height:400px;"></div>
+	<div class="container-fluid">
+		<div class="row" id="mapFrame">
+			<div class="col-lg-3 col-md-3" id="searchFrame">
+				<div class="searchBox container-fluid">
+					<img alt="" src="/resources/images/meetingboard/map_search_view_icon.svg" id="searchIcon">
+					<input type="text" placeholder="장소검색 ex) 판교 치킨" id="inputKeyword">
+				</div>
+				<div id="placesListFrame">
+					<ul class="list-group" id="placesList"></ul>
+				</div>
 			</div>
+			<div class="map_wrap col-lg-9 col-md-9">
+				<div id="map"></div>
+				<div class="hAddr">
+			        <span id="addrTitle">지도중심기준 행정동 주소정보</span>
+			        <span id="centerAddr"></span>
+			    </div>
+		    </div>
 		</div>
-	</section>
+	</div>
 
 	<section class="container-fluid mt-4">
 		<div class="row">
@@ -35,16 +48,16 @@
 		</div>
 	</section>
 
-	<c:import url="../template/bootstrapJs.jsp"></c:import>
-	<c:import url="../template/kakaoMapApi.jsp"></c:import>
-	<script type="text/javascript">
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
-		};
-	
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
+	<c:import url="../template/meetingboard/kakaoMapApi.jsp"></c:import>
+	<script type="text/javascript" src="/resources/js/meetingboard/add_map.js"></script>
+	<script type="text/template" id="template-map-marker">
+		<div class="ms-2 me-auto placesListItemDivUp d-flex justify-content-between">
+			<div class="placesListItemDivTitle d-inline-block">
+				{storeTitle}
+			</div>
+		</div>
 	</script>
+
 </body>
 </html>

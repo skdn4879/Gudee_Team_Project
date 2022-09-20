@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MeetingBoard List</title>
-<c:import url="../template/bootstrapCss.jsp"></c:import>
+<c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
 </head>
 <body>
 
@@ -53,6 +53,6 @@
 		</div>
 	</section>
 
-	<c:import url="../template/bootstrapJs.jsp"></c:import>
+	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 </body>
 </html>

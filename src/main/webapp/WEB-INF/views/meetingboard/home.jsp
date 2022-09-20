@@ -6,48 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<c:import url="../template/bootstrapCss.jsp"></c:import>
+<c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
+<link rel="stylesheet" href="/resources/css/meetingboard/header.css">
+<link rel="stylesheet" href="/resources/css/meetingboard/footer.css">
+<link rel="stylesheet" href="/resources/css/meetingboard/home.css">
 </head>
+
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-light">
-		<div class="container-fluid">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-	          		<a class="nav-link active" aria-current="page" href="/mb/home">Home</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="/mb/list">모임리스트</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">협력체</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">포인트결제</a>
-			        </li>
-		        </ul>
+	<c:import url="../template/meetingboard/header.jsp"></c:import>
+	
+	<section>
+		<div id="mainSectionDiv">
+			<div id="mainSectionTop">
+				<div id="mainSectionTopTitleContainer">
+					<h1 id="mainSectionTopTitle"></h1>
+				</div>
 			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-			          <a class="nav-link" href="/member/login">로그인</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">회원가입</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">중고거래</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">고객센터</a>
-			        </li>
-		        </ul>
+			<div id="mainSectionBottom">
+				
 			</div>
 		</div>
-	</nav>
-
-	<c:import url="../template/bootstrapJs.jsp"></c:import>
+	</section>
+	
+	<c:import url="../template/meetingboard/footer.jsp"></c:import>
+	
+	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
+	
+	<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+	<script src="/resources/js/meetingboard/home.js"></script>
 
 </body>
+
 </html>

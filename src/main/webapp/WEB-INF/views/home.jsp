@@ -13,7 +13,7 @@
 		<nav class="navbar navbar-expand-lg bg-light">
 			<div class="container-fluid">
 				<img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo">
-			  <a class="navbar-brand" href="#">구디마켓</a>
+			  <a class="navbar-brand" href="/">구디마켓</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
@@ -23,7 +23,7 @@
 					<a class="nav-link" href="#">중고거래</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="#">소셜링</a>
+					<a class="nav-link" href="/mb/home">소셜링</a>
 				  </li>
 				</ul>
 			  </div>
