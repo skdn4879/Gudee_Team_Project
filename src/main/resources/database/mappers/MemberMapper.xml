@@ -8,5 +8,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID, NAME, NICKNAME, MEMBERNUM FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
+	
+	<insert id="setJoin" parameterType="MemberDTO">
+		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, ADDRESS)
+		VALUES(MEMBER_SEQ.NEXTVAL, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address});
+	</insert>
 
 </mapper>

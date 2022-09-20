@@ -16,12 +16,13 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping(value = "login")
+	//로그인
+	@GetMapping("login")
 	public void getLogin()throws Exception{
 		System.out.println("GET 로그인 실행");
 	}
 	
-	@PostMapping(value = "login")
+	@PostMapping("login")
 	public ModelAndView login(MemberDTO memberDTO, HttpSession session)throws Exception{
 		System.out.println("POST 로그인 실행");
 		
@@ -39,6 +40,23 @@ public class MemberController {
 		mv.addObject("url", url);
 		mv.setViewName("common/result");
 		return mv;
+		
+	}
+	
+	//약관동의
+	@GetMapping("agree")
+	public void agree()throws Exception{
+		
+	}
+	
+	//회원가입
+	@GetMapping("join")
+	public void join()throws Exception{
+		System.out.println("GET 회원가입 실행");
+	}
+	
+	@PostMapping("join")
+	public void join(MemberDTO memberDTO)throws Exception{
 		
 	}
 

@@ -34,7 +34,7 @@
 						<a class="nav-link" href="/member/login">로그인</a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="/mb/home">회원가입</a>
+						<a class="nav-link" href="/member/agree">회원가입</a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="/mb/home">고객문의</a>
