@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.util.*" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +48,12 @@
 	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="addFormModalCloseBtn"></button>
 	      </div>
 	      <div class="modal-body">
-	        <form method="post" action="./add" id="addForm">
+	        <form method="post" action="./add" id="addForm" enctype="multipart/form-data">
 	        	<input type="hidden" id="meetingBoardWriter" value="${sessionScope.member.memberNum }" name="meetingBoardWriter">
+	          <div class="mb-3">
+	            <label for="meetingBoardThumnail" class="col-form-label addFormModalSubLabel">썸네일:</label>
+	            <input type="file" class="form-control" id="meetingBoardThumnail" name="meetingBoardThumnail">
+	          </div>
 	          <div class="mb-3">
 	            <label for="meetingBoardTitle" class="col-form-label addFormModalSubLabel">제목:</label>
 	            <input type="text" class="form-control" id="meetingBoardTitle" name="meetingBoardTitle">
@@ -58,7 +64,7 @@
 	          </div>
 	          <div class="mb-3">
 	            <label for="meetingBoardDueDate" class="col-form-label addFormModalSubLabel">만남 예정일:</label>
-	            <input type="datetime-local" class="form-control" id="meetingBoardDueDatePre" name="meetingBoardDueDatePre">
+	            <input type="datetime-local" class="form-control" id="meetingBoardDueDate" name="meetingBoardDueDate">
 	          </div>
 	          <div class="mb-3">
 	            <label for="meetingBoardTotalCost" class="col-form-label addFormModalSubLabel">비용:</label>

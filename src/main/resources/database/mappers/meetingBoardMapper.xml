@@ -8,5 +8,19 @@
 	<select id="getMeetingBoardList" resultType="MeetingBoardDTO">
 		SELECT * FROM meetingboard ORDER BY meetingboardnum DESC
 	</select>
+	
+	<insert id="setMeetingBoardAdd" parameterType="MeetingBoardDTO">
+		<selectKey order="BEFORE" keyProperty="meetingBoardNum" resultType="Long">
+			SELECT MEETINGBOARD_SEQ.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO meetingboard(meetingboardnum, meetingboardwriter, meetingboardtitle, meetingboardcontents, meetingboardduedate, meetingboardtotalcost, 
+		meetingboardlocation, meetingboardmaxmember, meetingboardcategory, meetingboardhostdemand)
+		VALUES (#{meetingBoardNum}, #{meetingBoardWriter}, #{meetingBoardTitle}, #{meetingBoardContents}, #{meetingBoardDueDate}, #{meetingBoardTotalCost}, 
+		#{meetingBoardLocation}, #{meetingBoardMaxMember}, #{meetingBoardCategory}, #{meetingBoardHostDemand})
+	</insert>
+	
+	<insert id="setMeetingBoardThumnailAdd" parameterType="MeetingBoardImageDTO">
+		INSERT INTO meetingboardimage(meetingboardnum, filename, oriname) VALUES (#{meetingBoardNum}, #{fileName}, #{oriName})
+	</insert>
 
 </mapper>

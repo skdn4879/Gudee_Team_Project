@@ -18,4 +18,15 @@ public class MeetingBoardDAO implements MeetingBoardInterface {
 		return sqlSession.selectList(NAMESPACE + "getMeetingBoardList");
 	}
 	
+	@Override
+	public int setMeetingBoardAdd(MeetingBoardDTO meetingBoardDTO) throws Exception {
+		
+		return sqlSession.insert(NAMESPACE + "setMeetingBoardAdd", meetingBoardDTO);
+	}
+	
+	@Override
+	public int setMeetingBoardThumnailAdd(MeetingBoardImageDTO meetingBoardImageDTO) throws Exception {
+		
+		return sqlSession.insert(NAMESPACE + "setMeetingBoardThumnailAdd", meetingBoardImageDTO);
+	}
 }

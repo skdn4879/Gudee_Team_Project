@@ -12,7 +12,10 @@ public class MeetingBoardDTO {
 	private String meetingBoardTitle;
 	private String meetingBoardContents;
 	private Date meetingBoardRegDate;
-	private Date meetingBoardDueDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime meetingBoardDueDate;
+	
 	private Long meetingBoardTotalCost;
 	private String meetingBoardLocation;
 	private Integer meetingBoardCurrentMember;
@@ -21,8 +24,7 @@ public class MeetingBoardDTO {
 	private String meetingBoardHostDemand;
 	private Integer meetingBoardStatus;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-	private LocalDateTime meetingBoardDueDatePre;
+	private MeetingBoardImageDTO meetingBoardImageDTO;
 	
 	public Long getMeetingBoardNum() {
 		return meetingBoardNum;
@@ -54,10 +56,11 @@ public class MeetingBoardDTO {
 	public void setMeetingBoardRegDate(Date meetingBoardRegDate) {
 		this.meetingBoardRegDate = meetingBoardRegDate;
 	}
-	public Date getMeetingBoardDueDate() {
+	
+	public LocalDateTime getMeetingBoardDueDate() {
 		return meetingBoardDueDate;
 	}
-	public void setMeetingBoardDueDate(Date meetingBoardDueDate) {
+	public void setMeetingBoardDueDate(LocalDateTime meetingBoardDueDate) {
 		this.meetingBoardDueDate = meetingBoardDueDate;
 	}
 	public Long getMeetingBoardTotalCost() {
@@ -102,11 +105,11 @@ public class MeetingBoardDTO {
 	public void setMeetingBoardStatus(Integer meetingBoardStatus) {
 		this.meetingBoardStatus = meetingBoardStatus;
 	}
-	public LocalDateTime getMeetingBoardDueDatePre() {
-		return meetingBoardDueDatePre;
+	public MeetingBoardImageDTO getMeetingBoardImageDTO() {
+		return meetingBoardImageDTO;
 	}
-	public void setMeetingBoardDueDatePre(LocalDateTime meetingBoardDueDatePre) {
-		this.meetingBoardDueDatePre = meetingBoardDueDatePre;
+	public void setMeetingBoardImageDTO(MeetingBoardImageDTO meetingBoardImageDTO) {
+		this.meetingBoardImageDTO = meetingBoardImageDTO;
 	}
 	
 }

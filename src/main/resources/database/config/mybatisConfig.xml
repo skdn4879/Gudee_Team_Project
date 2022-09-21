@@ -7,6 +7,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.goodee.market.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardDTO" alias="MeetingBoardDTO"/>
+		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardImageDTO" alias="MeetingBoardImageDTO"/>
+		
+		<typeAlias type="java.lang.String" alias="String"/>
+		<typeAlias type="java.lang.Integer" alias="Integer"/>
+		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="java.lang.Long" alias="Long"/>
 	</typeAliases>
 
 </configuration>

@@ -413,7 +413,7 @@ categoryList.addEventListener("click", function(event){
 const addFormModalSendBtn = document.querySelector("#addFormModalSendBtn"); //모달 전송 버튼
 const meetingBoardTitle = document.querySelector("#meetingBoardTitle");             //제목
 const meetingBoardContents = document.querySelector("#meetingBoardContents");       //내용
-const meetingBoardDueDatePre = document.querySelector("#meetingBoardDueDatePre");         //기한
+const meetingBoardDueDate = document.querySelector("#meetingBoardDueDate");         //기한
 const meetingBoardTotalCost = document.querySelector("#meetingBoardTotalCost");     //비용
 const meetingBoardLocation = document.querySelector("#meetingBoardLocation");       //장소
 const meetingBoardMaxMember = document.querySelector("#meetingBoardMaxMember");     //최대인원
@@ -443,7 +443,7 @@ addFormModalSendBtn.addEventListener("click", function(){
         return;
     }
 
-    if(meetingBoardDueDatePre.value == ""){
+    if(meetingBoardDueDate.value == ""){
         alert("만남 예정일을 입력하세요");
         return;
     }
@@ -481,7 +481,7 @@ addFormModalCloseBottomBtn.addEventListener("click", function(){
 function clearAddModalForm(){
     meetingBoardTitle.value = "";
     meetingBoardContents.value = "";
-    meetingBoardDueDatePre.value = "";
+    meetingBoardDueDate.value = "";
     meetingBoardTotalCost.value = "";
     meetingBoardMaxMember.value = "";
     meetingBoardHostDemand.value = "";

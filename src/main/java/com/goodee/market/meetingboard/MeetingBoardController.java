@@ -10,12 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.goodee.market.member.MemberDTO;
 
 @Controller
-@RequestMapping(value = "/mb/*")
+@RequestMapping(value = "/mb/*", produces = "text/plain;charset=UTF-8")
 public class MeetingBoardController {
 	
 	@Autowired
@@ -51,20 +52,11 @@ public class MeetingBoardController {
 	}
 	
 	@PostMapping("add")
-	public String setAddPage(MeetingBoardDTO meetingBoardDTO) throws Exception {
-		System.out.println(meetingBoardDTO.getMeetingBoardWriter());
-		System.out.println(meetingBoardDTO.getMeetingBoardTitle());
-		System.out.println(meetingBoardDTO.getMeetingBoardContents());
-		System.out.println("------------------------------------------------");
-		//System.out.println(meetingBoardDTO.getMeetingBoardDueDate());
-		System.out.println(meetingBoardDTO.getMeetingBoardDueDatePre());
-		System.out.println("------------------------------------------------");
-		System.out.println(meetingBoardDTO.getMeetingBoardTotalCost());
-		System.out.println(meetingBoardDTO.getMeetingBoardLocation());
-		System.out.println(meetingBoardDTO.getMeetingBoardCategory());
-		System.out.println(meetingBoardDTO.getMeetingBoardMaxMember());
-		System.out.println(meetingBoardDTO.getMeetingBoardHostDemand());
-		return "redirect:/";
+	public String setAddPage(MeetingBoardDTO meetingBoardDTO, MultipartFile meetingBoardThumnail, HttpSession session) throws Exception {
+		
+		meetingBoardService.setMeetingBoardAdd(meetingBoardDTO, meetingBoardThumnail, session.getServletContext());
+		
+		return "redirect:./list";
 	}
 
 }
