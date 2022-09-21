@@ -15,6 +15,12 @@ public class MemberDAO implements MemberInterface{
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getLogin", memberDTO);
 	}
+
+	@Override
+	public int setJoin(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setJoin", memberDTO);
+	}
+	
 	
 	
 
