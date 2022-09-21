@@ -8,3 +8,13 @@
 .box{
     background-color: #FBF7F2;
 }
+
+.m{
+    color: red;
+}
+
+#mainLogo{
+    width: 100px;
+    height: 28px;
+    cursor: pointer;
+}
