@@ -46,7 +46,7 @@ public class MemberController {
 	//약관동의
 	@GetMapping("agree")
 	public void agree()throws Exception{
-		
+		System.out.println("약관동의 실행");
 	}
 	
 	//회원가입
