@@ -15,9 +15,10 @@ public class MyPageDAO implements MyPageInterface{
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.goodee.market.trade.myPage.MyPageDAO";
+	private final String NAMESPACE = "com.goodee.market.trade.myPage.MyPageDAO.";
 	
 	
+		
 	//찜 목록
 	
 	
@@ -29,6 +30,8 @@ public class MyPageDAO implements MyPageInterface{
 	}
 	
 	
+
+
 	//구매 리스트
 	@Override
 	public List<BuyItemListDTO> getBuyItemList() throws Exception {

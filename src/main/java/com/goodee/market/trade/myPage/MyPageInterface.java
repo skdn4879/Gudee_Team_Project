@@ -8,6 +8,7 @@ import com.goodee.market.trade.sellItemList.SellItemListDTO;
 
 public interface MyPageInterface {
 	
+	
 	//찜 리스트
 	//public List<E> getHeartList() throws Exception;
 	

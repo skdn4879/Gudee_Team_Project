@@ -3,15 +3,21 @@ package com.goodee.market.trade.myPage;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.goodee.market.trade.buyItemList.BuyItemListDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 import com.goodee.market.trade.sellItemList.SellItemListDTO;
 
+@Service
 public class MyPageService {
 	
 	@Autowired
 	private MyPageDAO myPageDAO;
+	@Autowired
+	private MyPageService myPageService;
+
+	
 	
 	//판매 리스트
 	public List<SellItemListDTO> getSellItemList () throws Exception{

@@ -41,6 +41,9 @@
 	<a href="중고거래"></a>
 	<a href="소모임"></a>
 	<a href="/member/login">로그인</a>
+	<br>
+	<a href="/mypage/main">중고 마이페이지</a>
+	
 	<script src="/resources/js/home.js"></script>
 </body>
 </html>
