@@ -8,92 +8,76 @@
 <title>Insert title here</title>
 <c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
 <link rel="stylesheet" href="/resources/css/meetingboard/test.css?after" />
+<link rel="stylesheet" href="/resources/css/meetingboard/header.css">
+<link rel="stylesheet" href="/resources/css/meetingboard/footer.css">
 </head>
 <body>
 
-	<%-- <header class="header">
-		<nav class="navbar navbar-expand-lg bg-light fixed-top">
-		   <div class="container-fluid">
-		   	<div class="ms-lg-5 ps-lg-5">
-		   		<a class="navbar-brand" href="/" id="mainLogoFrame"><img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo"><span id="logoText">구디마켓</span></a>
-		   	</div>
-		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkupMeeting" aria-controls="navbarNavAltMarkupMeeting" aria-expanded="false" aria-label="Toggle navigation">
-		      <span class="navbar-toggler-icon"></span>
-		    </button>
-		    <div class="collapse navbar-collapse" id="navbarNavAltMarkupMeeting">
-		    	<div class="container-fluid">
-			      <div class="navbar-nav" id="navMeeting">
-			        <a class="nav-link active" aria-current="page" href="/mb/home">Home</a>
-			        <a class="nav-link" href="/mb/list">모임리스트</a>
-			        <a class="nav-link" href="#">협력체</a>
-			        <a class="nav-link" href="#">포인트결제</a>
-			      </div>
-			    
-			      <div class="navbar-nav" id="navPersonal">
-			      	<c:if test="${sessionScope.member == null }">
-				        <a class="nav-link active" aria-current="page" href="/member/login">로그인</a>
-				        <a class="nav-link" href="#">회원가입</a>
-			        </c:if>
-			        <c:if test="${sessionScope.member != null }">
-			        	<a class="nav-link active" aria-current="page" href="#">로그아웃</a>
-				        <a class="nav-link" href="#">마이페이지</a>
-			        </c:if>
-			        <a class="nav-link" href="#">중고거래</a>
-			        <a class="nav-link" href="#">고객센터</a>
-			      </div>
-		      	</div>
-			</div>
-		   </div>
-		</nav>
-	</header>
-	
-	<section>
-		<div id="mainSectionDiv">
-			<div id="mainSectionTop">
-				<div id="mainSectionTopTitleContainer">
-					<h1 id="mainSectionTopTitle"></h1>
+	<c:import url="../template/meetingboard/header.jsp"></c:import>
+
+	<section class="container-fluid col-10" id="listMainSection">
+		<div id="meetingBoardListFrame">
+			<div class="meetingBoardListItem">
+				<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" class="meetingBoardListItemThumnail">
+				<div>
+					<p class="meetingBoardListItemWriter">닉네임</p>
+					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게</a>
+					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스</p>
+					<div>
+						<p class="meetingBoardListItemTotalCost">
+							<span class="badge text-bg-success">총 비용</span>
+							40000
+						</p>
+						<p class="meetingBoardListItemPersonalCost">
+							<span class="badge text-bg-success">1인 비용</span>
+							10000
+						</p>
+						<p class="meetingBoardListItemEnjoyMember">
+							<span class="badge text-bg-success">참여자</span>
+							1 / 4
+						</p>
+					</div>
+					<p class="meetingBoardListItemCategory">
+						<span class="badge text-bg-success">카테고리</span>
+						운동/액티비티
+					</p>
 				</div>
 			</div>
-			<div id="mainSectionBottom">
-				
+			
+			<div class="meetingBoardListItem">
+				<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" class="meetingBoardListItemThumnail">
+				<div>
+					<p class="meetingBoardListItemWriter">닉네임</p>
+					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게 asdfdsafasdf</a>
+					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스 asdfasdfadsfas</p>
+					<div>
+						<p class="meetingBoardListItemTotalCost">
+							<span class="badge text-bg-success">총 비용</span>
+							4000000000000000
+						</p>
+						<p class="meetingBoardListItemPersonalCost">
+							<span class="badge text-bg-success">1인 비용</span>
+							10000000000000000
+						</p>
+						<p class="meetingBoardListItemEnjoyMember">
+							<span class="badge text-bg-success">참여자</span>
+							1 / 4
+						</p>
+					</div>
+					<p class="meetingBoardListItemCategory">
+						<span class="badge text-bg-success">카테고리</span>
+						운동/액티비티 asdfasdfasdfadsfasd
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
 	
-	<footer class="py-3 my-4 bg-light">
-		<div class="row container-fluid">
-			<div class="container pt-2 px-5 col-lg-7 col-md-12" id="divFooter">
-		        <ul class="nav justify-content-start border-bottom border-top pt-2 pb-2 mb-2 mt-2" id="navFooter">
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">중고거래</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">소셜링</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">자주묻는질문</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">협력체</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">포인트결제</a>
-				  </li>
-				  <li class="nav-item">
-				    <a class="nav-link" href="#">고객센터</a>
-				  </li>
-				</ul>
-	          <p class="text-start text-muted"><span class="footerBoldText">담당자</span> 김남진 권경문 안다은 서소영</p>
-	          <p class="text-start text-muted"><span class="footerBoldText">주소</span> 서울특별시 금천구 가산동 가산디지털2로 115<br>&emsp;&emsp;&ensp;대륭테크노타운3차 1109-1호</p>
-	          <p class="text-start text-muted"><span class="footerBoldText">고객문의</span> goodeemarket@naver.com</p>
-			</div>
-			<div class="container bg-info col-lg-5 d-lg-block d-md-none">
-				<img src="/resources/images/stack-overflow.svg" alt="" id="subLogo"><span id="subLogoText">구디마켓</span>
-			</div>
-		</div>
-	</footer> --%>
+	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 	
-	<p style="margin-top:-12px">
+	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
+	
+	<%-- <p style="margin-top:-12px">
     <b>Chrome 브라우저는 https 환경에서만 geolocation을 지원합니다.</b> 참고해주세요.
 	</p>
 	<div id="map" style="width:100%;height:350px;"></div>
@@ -161,7 +145,7 @@
 		    // 지도 중심좌표를 접속위치로 변경합니다
 		    map.setCenter(locPosition);      
 		}    
-		</script>
+		</script> --%>
 
 </body>
 </html>

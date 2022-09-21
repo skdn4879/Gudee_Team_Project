@@ -11,101 +11,85 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'HS-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-#mainLogoFrame {
+#listMainSection {
+	margin: 4rem auto 0 auto;
+	background-color: aqua;
+	height: 100vh;
+}
+
+#meetingBoardListFrame{
+	width: 50%;
+	padding-top: 1rem;
+}
+
+.meetingBoardListItem {
+	border: 1px solid red;
+	margin: 1rem auto;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.meetingBoardListItem > div {
+	display: flex;
+	flex-direction: column;
+	padding-top: 0.5rem;
+	margin: 0 0 0 0.5rem;
+}
+
+.meetingBoardListItemThumnail {
+	width: 8rem;
+	height: 8rem;
+}
+
+.meetingBoardListItemTitle {
+	font-family: 'MICEGothic Bold';
+	font-size: 1.5rem;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.meetingBoardListItemWriter {
+	display: inline-block;
+	margin: 0 0 0 0;
+	font-family: 'HS-Regular';
+	font-size: 1.3rem;
+}
+
+.meetingBoardListItemAddress {
+	display: inline-block;
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-family: 'MICEMyungjo';
+	font-size: 1rem;
+}
+
+.meetingBoardListItemTotalCost {
+	display: inline-block;
+	margin: 0 0 0 0;
+}
+.meetingBoardListItemPersonalCost {
+	display: inline-block;
+	margin: 0 0 0 0;
+}
+.meetingBoardListItemEnjoyMember {
+	display: inline-block;
+	margin: 0 0 0 0;
+}
+.meetingBoardListItemCategory {
+	display: inline-block;
 	margin: 0 0 0 0;
 }
 
-#mainLogo{
-    width: 100px;
-    height: 50px;
-    cursor: pointer;
-}
 
-#logoText {
-	font-size: large;
-	font-weight: bold;
-}
 
-.header {
-	width: 100%;
-	position: fixed;
-}
 
-#navbarNavAltMarkupMeeting > div {
-	display: flex;
-	justify-content: space-between;
-}
 
-#navMeeting {
-	margin: 0 0 0 20px;
-}
-#navPersonal {
-	margin: 0 20px 0 20px;
-}
-#navbarNavAltMarkupMeeting a {
-	font-size: large;
-	font-weight: bold;
-	font-family: 'MICEGothic Bold';
-}
-#navbarNavAltMarkupMeeting .active {
-	color: lime;
-}
-
-#mainSectionDiv {
-	width: 100%;
-	height: 120vh;
-	background-color: red;
-}
-
-body {
-	padding-top: 70px;
-}
-
-#mainSectionTopTitle {
-	font-family: 'MICEGothic Bold';
-	font-weight: bold;
-	font-size: 3rem;
-	width: 19rem;
-}
-
-#mainSectionTop {
-	width: 80%;
-	height: 60vh;
-	background-color: yellow;
-	margin: auto;
-}
-#mainSectionBottom {
-	width: 80%;
-	height: 60vh;
-	background-color: blue;
-	margin: auto;
-}
-
-#mainSectionTopTitleContainer {
-	padding: 3rem 0 0 3rem;
-}
-
-#navFooter a {
-	font-family: 'MICEGothic Bold';
-	color: #3BDF60;
-}
-
-#divFooter p {
-	font-family: 'MICEMyungjo';
-}
-
-.footerBoldText {
-	font-family: 'MICEGothic Bold';
-}
-
-#subLogo {
-	width: 200px;
-	height: 100px;
-	margin: 50px 0 20px 20px;
-}
-#subLogoText {
-	font-size: 38pt;
-	font-weight: bolder;
-}
 

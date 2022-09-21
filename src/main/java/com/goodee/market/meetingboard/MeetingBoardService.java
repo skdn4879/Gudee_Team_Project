@@ -32,7 +32,7 @@ public class MeetingBoardService {
 			MeetingBoardImageDTO meetingBoardImageDTO = new MeetingBoardImageDTO();
 			meetingBoardImageDTO.setFileName(fileName);
 			meetingBoardImageDTO.setOriName(meetingBoardThumnail.getOriginalFilename());
-			meetingBoardImageDTO.setFileNum(meetingBoardDTO.getMeetingBoardNum());
+			meetingBoardImageDTO.setMeetingBoardNum(meetingBoardDTO.getMeetingBoardNum());
 			meetingBoardDAO.setMeetingBoardThumnailAdd(meetingBoardImageDTO);
 		}
 		

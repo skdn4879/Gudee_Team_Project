@@ -7,9 +7,12 @@
 <meta charset="UTF-8">
 <title>MeetingBoard List</title>
 <c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
+<link rel="stylesheet" href="/resources/css/meetingboard/header.css">
+<link rel="stylesheet" href="/resources/css/meetingboard/footer.css">
 </head>
 <body>
 
+	<c:import url="../template/meetingboard/header.jsp"></c:import>
 
 	<section class="container-fluid col-lg-8 mt-4">
 		<div class="row col-lg-3">
@@ -37,7 +40,7 @@
 			    	<tr>
 			    		<td>${pageScope.mbDto.meetingBoardNum }</td>
 			    		<td>${pageScope.mbDto.meetingBoardWriter }</td>
-			    		<td>${pageScope.mbDto.meetingBoardTitle }</td>
+			    		<td><a href="./detail?meetingBoardNum=${pageScope.mbDto.meetingBoardNum }">${pageScope.mbDto.meetingBoardTitle }</a></td>
 			    		<td>${pageScope.mbDto.meetingBoardContents }</td>
 			    		<td>${pageScope.mbDto.meetingBoardRegDate }</td>
 			    		<td>${pageScope.mbDto.meetingBoardDueDate }</td>
@@ -52,6 +55,8 @@
 			</table>
 		</div>
 	</section>
+
+	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 </body>
