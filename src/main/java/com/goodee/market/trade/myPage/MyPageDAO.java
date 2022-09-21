@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.goodee.market.trade.buyItemList.BuyItemListDTO;
+import com.goodee.market.trade.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 import com.goodee.market.trade.sellItemList.SellItemListDTO;
 
@@ -24,7 +25,7 @@ public class MyPageDAO implements MyPageInterface{
 	
 	//판매 리스트
 	@Override
-	public List<SellItemListDTO> getSellItemList() throws Exception {
+	public List<ItemDTO> getSellItemList() throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(NAMESPACE +"getSellItemList");
 	}
@@ -34,7 +35,7 @@ public class MyPageDAO implements MyPageInterface{
 
 	//구매 리스트
 	@Override
-	public List<BuyItemListDTO> getBuyItemList() throws Exception {
+	public List<ItemDTO> getBuyItemList() throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(NAMESPACE+"getBuyItemList");
 	}

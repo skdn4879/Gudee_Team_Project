@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.goodee.market.trade.buyItemList.BuyItemListDTO;
+import com.goodee.market.trade.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 import com.goodee.market.trade.sellItemList.SellItemListDTO;
 
@@ -20,12 +21,12 @@ public class MyPageService {
 	
 	
 	//판매 리스트
-	public List<SellItemListDTO> getSellItemList () throws Exception{
+	public List<ItemDTO> getSellItemList () throws Exception{
 		return myPageDAO.getSellItemList();
 	}
 	
 	//구매 리스트
-	public List<BuyItemListDTO> getBuyItemList() throws Exception{
+	public List<ItemDTO> getBuyItemList() throws Exception{
 		return myPageDAO.getBuyItemList();
 	}
 	
