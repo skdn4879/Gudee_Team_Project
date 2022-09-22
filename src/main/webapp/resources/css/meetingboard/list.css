@@ -18,23 +18,28 @@
     font-style: normal;
 }
 
+body {
+	background-image: url('/resources/images/meetingboard/circle-scatter-listitem.svg');
+}
+
 #listMainSection {
 	margin: 4rem auto 0 auto;
-	background-color: aqua;
-	height: 100vh;
 }
 
 #meetingBoardListFrame{
-	width: 50%;
+	width: 48%;
 	padding-top: 1rem;
+	display: inline-block;
 }
 
 .meetingBoardListItem {
-	border: 1px solid red;
+	border-radius: 1rem;
+	background-color: #E1FFFA;
 	margin: 1rem auto;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: row;
+	cursor: pointer;
 }
 
 .meetingBoardListItem > div {
@@ -47,6 +52,7 @@
 .meetingBoardListItemThumnail {
 	width: 8rem;
 	height: 8rem;
+	margin-top: 1rem;
 }
 
 .meetingBoardListItemTitle {
@@ -108,8 +114,7 @@
 	height: 1.6rem;
 }
 
-
-
-
-
-
+#addBtn{
+	float: right;
+	margin: 3rem 2rem 0 0;
+}

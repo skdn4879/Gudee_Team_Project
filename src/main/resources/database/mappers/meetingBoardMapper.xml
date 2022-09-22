@@ -5,9 +5,36 @@
 		    
 <mapper namespace="com.goodee.market.meetingboard.MeetingBoardDAO">
 
-	<select id="getMeetingBoardList" resultType="MeetingBoardDTO">
-		SELECT * FROM meetingboard ORDER BY meetingboardnum DESC
+	<select id="getMeetingBoardList" resultMap="getMeetingBoardListResult">
+		SELECT M.nickname, MB.*, MBI.filename 
+		FROM MEMBER M
+		INNER JOIN MEETINGBOARD MB
+		ON(M.membernum = MB.meetingboardwriter)
+		LEFT JOIN MEETINGBOARDIMAGE MBI
+		ON(MB.meetingboardnum = MBI.meetingboardnum)
+		ORDER BY MB.meetingboardnum DESC
 	</select>
+	
+	<resultMap type="MeetingBoardDTO" id="getMeetingBoardListResult">
+		<id column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		<result column="MEETINGBOARDWRITER" property="meetingBoardWriter"/>
+		<result column="MEETINGBOARDTITLE" property="meetingBoardTitle"/>
+		<result column="MEETINGBOARDDUEDATE" property="meetingBoardDueDate"/>
+		<result column="MEETINGBOARDTOTALCOST" property="meetingBoardTotalCost"/>
+		<result column="MEETINGBOARDLOCATION" property="meetingBoardLocation"/>
+		<result column="MEETINGBOARDCURRENTMEMBER" property="meetingBoardCurrentMember"/>
+		<result column="MEETINGBOARDMAXMEMBER" property="meetingBoardMaxMember"/>
+		<result column="MEETINGBOARDCATEGORY" property="meetingBoardCategory"/>
+		
+		<association property="memberDTO" javaType="MemberDTO">
+			<result column="NICKNAME" property="nickname"/>
+		</association>
+		
+		<association property="meetingBoardImageDTO" javaType="MeetingBoardImageDTO">
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		
+	</resultMap>
 	
 	<insert id="setMeetingBoardAdd" parameterType="MeetingBoardDTO">
 		<selectKey order="BEFORE" keyProperty="meetingBoardNum" resultType="Long">

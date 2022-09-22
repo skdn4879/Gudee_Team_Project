@@ -37,7 +37,14 @@ public class MeetingBoardController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("meetingBoardList", meetingBoardService.getMeetingBoardList());
 		mv.setViewName("meetingboard/list");
+		
 		return mv;
+	}
+	
+	@GetMapping("detail")
+	public String getMeetingBoardDetail(Long num) throws Exception {
+		System.out.println(num);
+		return "meetingboard/detail";
 	}
 	
 	@GetMapping("add")

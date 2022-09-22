@@ -23,24 +23,30 @@
 					<p class="meetingBoardListItemWriter">닉네임</p>
 					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게</a>
 					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스</p>
-					<div>
-						<p class="meetingBoardListItemTotalCost">
-							<span class="badge text-bg-success">총 비용</span>
-							40000
-						</p>
-						<p class="meetingBoardListItemPersonalCost">
-							<span class="badge text-bg-success">1인 비용</span>
-							10000
-						</p>
-						<p class="meetingBoardListItemEnjoyMember">
-							<span class="badge text-bg-success">참여자</span>
-							1 / 4
-						</p>
+					<div class="d-flex flex-row">
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success">총 비용</div>
+							<div class="meetingBoardListItemTotalCost">40000</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success ms-3">1인 비용</div>
+							<div class="meetingBoardListItemPersonalCost">10000</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success ms-3">참여자</div>
+							<div class="meetingBoardListItemEnjoyMember">1 / 4</div>
+						</div>
 					</div>
-					<p class="meetingBoardListItemCategory">
-						<span class="badge text-bg-success">카테고리</span>
-						운동/액티비티
-					</p>
+					<div class="d-flex flex-row">
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success">카테고리</div>
+							<div class="meetingBoardListItemCategory">운동/액티비티</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success">마감기한</div>
+							<div class="meetingBoardListItemDueDate">2022-09-30T15:50</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -50,24 +56,24 @@
 					<p class="meetingBoardListItemWriter">닉네임</p>
 					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게 asdfdsafasdf</a>
 					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스 asdfasdfadsfas</p>
-					<div>
-						<p class="meetingBoardListItemTotalCost">
-							<span class="badge text-bg-success">총 비용</span>
-							4000000000000000
-						</p>
-						<p class="meetingBoardListItemPersonalCost">
-							<span class="badge text-bg-success">1인 비용</span>
-							10000000000000000
-						</p>
-						<p class="meetingBoardListItemEnjoyMember">
-							<span class="badge text-bg-success">참여자</span>
-							1 / 4
-						</p>
+					<div class="d-flex flex-row">
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success">총 비용</div>
+							<div class="meetingBoardListItemTotalCost">4000000000000000</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success ms-3">1인 비용</div>
+							<div class="meetingBoardListItemPersonalCost">10000000000000000</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="badge text-bg-success ms-3">참여자</div>
+							<div class="meetingBoardListItemEnjoyMember">1 / 4</div>
+						</div>
 					</div>
-					<p class="meetingBoardListItemCategory">
-						<span class="badge text-bg-success">카테고리</span>
-						운동/액티비티 asdfasdfasdfadsfasd
-					</p>
+					<div class="d-flex align-items-center">
+						<div class="badge text-bg-success">카테고리</div>
+						<div class="meetingBoardListItemCategory">운동/액티비티 asdfasdfasdfadsfasd</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.goodee.market.member.MemberDTO;
+
 public class MeetingBoardDTO {
 
 	private Long meetingBoardNum;
@@ -24,6 +26,7 @@ public class MeetingBoardDTO {
 	private String meetingBoardHostDemand;
 	private Integer meetingBoardStatus;
 	
+	private MemberDTO memberDTO;
 	private MeetingBoardImageDTO meetingBoardImageDTO;
 	
 	public Long getMeetingBoardNum() {
@@ -104,6 +107,12 @@ public class MeetingBoardDTO {
 	}
 	public void setMeetingBoardStatus(Integer meetingBoardStatus) {
 		this.meetingBoardStatus = meetingBoardStatus;
+	}
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
+	}
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
 	}
 	public MeetingBoardImageDTO getMeetingBoardImageDTO() {
 		return meetingBoardImageDTO;
