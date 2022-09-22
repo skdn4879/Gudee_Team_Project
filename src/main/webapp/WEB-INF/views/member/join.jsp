@@ -10,12 +10,13 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
+  <!-- 헤더 시작 -->
     <div class="container">
 		<nav class="navbar navbar-expand-lg header">
-			<div class="container">
-				<img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo">
-			  <a class="navbar-brand" href="/">구디마켓</a>
-			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<div class="container d-flex">
+				<img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo" class="flex">
+			  <a class="navbar-brand flex" href="/">구디마켓</a>
+			  <button class="navbar-toggler flex" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarNav">
@@ -42,38 +43,46 @@
 			</div>
 		  </nav>
 	</div>
+  <!-- 헤더 끝 -->
 
     <form action="join" method="post" enctype="multipart/form-data" id="form">
         <div style="background-color: #FBF7F2; height: 1300px; font-family: 'MICEGothic Bold';">
             <section class="container col-lg-8 mt-4">
                 <h1>Join Page</h1>
-                
+                <!-- 아이디 입력 -->
                 <div>
                 <p><h3>아이디</h3></p>
                 <p><input class="form-control form-control-lg-8 box" type="text" placeholder="ID" aria-label=".form-control-lg example" name="id" id="id"></p>
                 </div>
                 <div id="idm" class="m"></div>
-                
+
+                <!-- 비밀번호 입력 -->
                 <p><h3>비밀번호</h3></p>
                 <p><input class="form-control form-control-lg box" type="password" placeholder="PW" aria-label=".form-control-lg example" name="password" id="password"></p>
                 <div id="pwm" class="m"></div>
                 
+                <!-- 비밀번호 확인 -->
                 <p><h3>비밀번호 확인</h3></p>
                 <p><input class="form-control form-control-lg box" type="password" placeholder="PW" aria-label=".form-control-lg example" id="password2"></p>
                 <div id="pwm2" class="m"></div>
 
+                <!-- 이름 입력 -->
                 <p><h3>이름</h3></p>
                 <p><input class="form-control form-control-lg cb box" type="text" placeholder="Name" aria-label=".form-control-lg example" name="name" id="name"></p>
                 <div class="ch m"></div>
 
+                <!-- 닉네임 입력 -->
                 <p><h3>닉네임</h3></p>
                 <p><input class="form-control form-control-lg cb box" type="text" placeholder="Nickame" aria-label=".form-control-lg example" name="nickname" id="nickname"></p>
                 <div class="ch m"></div>
 
+                <!-- 이메일 입력 -->
                 <p><h3>이메일</h3></p>
-                <p><input class="form-control form-control-lg cb box" type="email" placeholder="Email" aria-label=".form-control-lg example" name="email" id="email" required></p>
-                <div class="emailform d-flex">
-                  <input class="form-control form-control-lg flex cb" id="domain-txt" type="text"/>
+                <!-- 이메일 select -->
+                <div class="emailform d-flex" style="align-items: center;">
+                  <input class="form-control form-control-lg cb flex" id="email-txt" type="text"/>
+                  <div class="flex">@</div>
+                  <input class="form-control form-control-lg flex" id="domain-txt" type="text"/>
                   <select class="form-select form-control-lg flex" id="domain-list">
                     <option value="type">직접 입력</option>
                     <option value="naver.com">naver.com</option>
@@ -83,16 +92,32 @@
                     <option value="kakao.com">kakao.com</option>
                   </select>
                 </div>
+                <input type="hidden" id="email" name="email">
                 <div class="ch m"></div>
 
+                <!-- 전화번호 입력 -->
                 <p><h3>전화번호</h3></p>
                 <p><input class="form-control form-control-lg cb box" type="text" placeholder="Phone" aria-label=".form-control-lg example" name="phone" id="phone"></p>
                 <div class="ch m"></div>
 
+                <!-- 생년월일 입력 -->
                 <p><h3>생년월일</h3></p>
                 <p><input class="form-control form-control-lg box" type="date" placeholder="Birthday" aria-label=".form-control-lg example" name="birthday" id="birthday"></p>
+                <!-- 생년월일 입력 폼 -->
+                  <div class="d-flex" id="info__birth">
+                    <select class="form-select form-control-lg flex" id="birth-year">
+                      <option disabled selected>출생 연도</option>
+                    </select>
+                    <select class="form-select form-control-lg flex" id="birth-month">
+                      <option disabled selected>월</option>
+                    </select>
+                    <select class="form-select form-control-lg flex" id="birth-day">
+                      <option disabled selected>일</option>
+                    </select>
+                  </div>
                 <div class="birthdaym m"></div>
 
+                <!-- 주소 입력 -->
                 <p><h3>주소</h3></p>
                 <p><input class="form-control form-control-lg box" type="text" aria-label=".form-control-lg example" name="address" id="address"></p>
                 

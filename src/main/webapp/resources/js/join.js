@@ -3,6 +3,7 @@ let pw = document.querySelector('#password');
 let pw2 = document.querySelector('#password2');
 let photo = document.querySelector('#photo');
 let birthday = document.querySelector('#birthday');
+let email = document.querySelector('#email');
 let btn = document.querySelector('#btn');
 let form = document.querySelector('#form');
 let idm = document.querySelector('#idm');
@@ -13,6 +14,13 @@ let photom = document.querySelector('.photom');
 let cb = document.querySelectorAll('.cb');
 let ch = document.querySelectorAll('.ch');
 let br = document.createElement('br');
+const email_txt = document.querySelector('#email-txt');
+const domainList = document.querySelector('#domain-list');
+const domainInput = document.querySelector('#domain-txt');
+const birth_year = document.querySelector('#birth-year');
+const birth_month = document.querySelector('#birth-month');
+const birth_day = document.querySelector('#birth-day');
+
 
 function joinCheck(){
     //아이디 조건 메세지
@@ -75,6 +83,20 @@ function joinCheck(){
         }
     })
 
+    //생년월일 option
+    //년도
+    // let y = '';
+    for(let i = 2022; i >= 1900; i--){
+        let y = document.createElement('option');
+        let y_value = document.createAttribute('value');
+        y_value.value = i;
+        // y = y + '<option>' + i + '</option>';
+        y.setAttributeNode(y_value);
+        let y_content = document.createTextNode(i);
+        y.appendChild(y_content);
+        birth_year.append(y);
+    }
+
     //프로필 사진 추가 조건 메세지
     photo.addEventListener('blur',function(){
        console.log(photo.value);
@@ -83,6 +105,25 @@ function joinCheck(){
        }else{
             photom.innerHTML = '';
        }
+    })
+
+    //이메일 select
+    domainList.addEventListener('change',function(event){
+        console.log(event);
+        //option에 있는 domain 선택 시
+        if(event.target.value != 'type'){
+            //선택한 domain을 input에 입력하고 disabled
+            domainInput.value = event.target.value;
+            domainInput.setAttribute('readonly',true);
+        }else{//직접 입력 시
+            // input 내용 초기화 & 입력 가능하도록 변경
+            console.log('else');
+            domainInput.value = '';
+            //readonly 속성 제거
+            domainInput.removeAttribute("readonly");
+            // domainInput.readonly = false;
+        }
+
     })
     
     // 회원가입 버튼 클릭시 각각의 조건이 충족여부 확인
@@ -94,7 +135,10 @@ function joinCheck(){
                 break;
             }
         }
-            
+        
+        //이메일 문자 합치기
+        email.value = email_txt.value + '@' + domainInput.value
+
         if(id.value.length > 2 && pw.value.length > 4 && check){
             form.submit();
         }else{
