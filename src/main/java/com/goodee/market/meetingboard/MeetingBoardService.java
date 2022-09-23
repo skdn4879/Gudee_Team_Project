@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.goodee.market.meetingboard.util.MeetingBoardPager;
+
 @Service
 public class MeetingBoardService {
 
@@ -17,8 +19,12 @@ public class MeetingBoardService {
 	@Autowired
 	private MeetingBoardFileManager meetingBoardFileManager;
 	
-	public List<MeetingBoardDTO> getMeetingBoardList() throws Exception {
-		return meetingBoardDAO.getMeetingBoardList();
+	public List<MeetingBoardDTO> getMeetingBoardList(MeetingBoardPager pager) throws Exception {
+		Long totalCount = meetingBoardDAO.getCount(pager);
+		pager.getNum(totalCount);
+		pager.getRowNum();
+		
+		return meetingBoardDAO.getMeetingBoardList(pager);
 	}
 	
 	public int setMeetingBoardAdd(MeetingBoardDTO meetingBoardDTO, MultipartFile meetingBoardThumnail, ServletContext servletContext) throws Exception{

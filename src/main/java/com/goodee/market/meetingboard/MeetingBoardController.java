@@ -2,6 +2,7 @@ package com.goodee.market.meetingboard;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.goodee.market.meetingboard.util.MeetingBoardPager;
 import com.goodee.market.member.MemberDTO;
 
 @Controller
@@ -33,9 +36,11 @@ public class MeetingBoardController {
 	}
 	
 	@GetMapping("list")
-	public ModelAndView getMeetingBoardList() throws Exception{
+	public ModelAndView getMeetingBoardList(MeetingBoardPager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("meetingBoardList", meetingBoardService.getMeetingBoardList());
+		List<MeetingBoardDTO> meetingBoardList = meetingBoardService.getMeetingBoardList(pager);
+		mv.addObject("meetingBoardList", meetingBoardList);
+		mv.addObject("pager", pager);
 		mv.setViewName("meetingboard/list");
 		
 		return mv;

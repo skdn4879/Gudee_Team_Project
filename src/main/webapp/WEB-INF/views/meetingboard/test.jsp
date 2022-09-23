@@ -16,64 +16,56 @@
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 
 	<section class="container-fluid col-10" id="listMainSection">
-		<div id="meetingBoardListFrame">
-			<div class="meetingBoardListItem">
-				<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" class="meetingBoardListItemThumnail">
-				<div>
-					<p class="meetingBoardListItemWriter">닉네임</p>
-					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게</a>
-					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스</p>
-					<div class="d-flex flex-row">
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success">총 비용</div>
-							<div class="meetingBoardListItemTotalCost">40000</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success ms-3">1인 비용</div>
-							<div class="meetingBoardListItemPersonalCost">10000</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success ms-3">참여자</div>
-							<div class="meetingBoardListItemEnjoyMember">1 / 4</div>
-						</div>
-					</div>
-					<div class="d-flex flex-row">
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success">카테고리</div>
-							<div class="meetingBoardListItemCategory">운동/액티비티</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success">마감기한</div>
-							<div class="meetingBoardListItemDueDate">2022-09-30T15:50</div>
-						</div>
-					</div>
+		<div id="detailTopFrame">
+			<div id="meetingBoardDetailThumnailFrame">
+				<img alt="" src="/resources/images/meetingboard/detail_test_image.jpg" id="meetingBoardDetailThumnail">
+			</div>
+			<div id="detailInfoFrame">
+				
+				<div class="detailInfoSingleFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_group_icon.svg" style="width:3rem; height:3rem;">
+					<span>4명</span>
+				</div>
+				
+				<div class="detailInfoSingleFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_cash_icon.svg" style="width:3rem; height:3rem;">
+					<span>10000원</span>
+				</div>
+				
+				<div class="detailInfoSingleFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" style="width:3rem; height:3rem;">
+					<span>2500원</span>
+				</div>
+				
+				<div class="detailInfoSingleFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_calendar_clock_icon.svg" style="width:3rem; height:3rem;">
+					<span>2022-10-21 15:30</span>
+				</div>
+				
+				<div class="detailInfoSingleFrame">
+					<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" style="width:3rem; height:3rem;">
+					<span>서울특별시 금천구 가산디지털1로 128 에스티엑스브이타워 1층 스타벅스</span>
 				</div>
 			</div>
-			
-			<div class="meetingBoardListItem">
-				<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" class="meetingBoardListItemThumnail">
-				<div>
-					<p class="meetingBoardListItemWriter">닉네임</p>
-					<a class="meetingBoardListItemTitle">제목이 들어갈 자리입니다. 테스트를 위해 길게 asdfdsafasdf</a>
-					<p class="meetingBoardListItemAddress">서울특별시 금천구 가산디지털1로 186 제이플라츠 1층 투썸플레이스 asdfasdfadsfas</p>
-					<div class="d-flex flex-row">
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success">총 비용</div>
-							<div class="meetingBoardListItemTotalCost">4000000000000000</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success ms-3">1인 비용</div>
-							<div class="meetingBoardListItemPersonalCost">10000000000000000</div>
-						</div>
-						<div class="d-flex align-items-center">
-							<div class="badge text-bg-success ms-3">참여자</div>
-							<div class="meetingBoardListItemEnjoyMember">1 / 4</div>
-						</div>
-					</div>
-					<div class="d-flex align-items-center">
-						<div class="badge text-bg-success">카테고리</div>
-						<div class="meetingBoardListItemCategory">운동/액티비티 asdfasdfasdfadsfasd</div>
-					</div>
+		</div>
+		
+		<div id="detailCenterFrame">
+			<div id="detailTitleFrame">
+				<div id="detailTitleUserFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" style="width:5rem; height:5rem;">
+					<span>유저닉네임</span>
+				</div>
+				<div id="detailTitle">타이틀이 들어갈 자리입니다. 테스트를 위해 길게</div>
+			</div>
+			<div id="detailContentsFrame">
+				<div id="detailContents">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni veniam vero minus, vitae repellat earum quas aliquam aliquid fugiat sequi laborum aut reprehenderit necessitatibus, repellendus accusamus quisquam recusandae dolorem.
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, expedita sunt consequatur nobis veritatis reiciendis fugiat necessitatibus doloribus voluptate inventore corporis facilis molestias beatae! Ipsam beatae asperiores adipisci. Modi, explicabo!
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo iure fugiat sit consectetur molestias nobis temporibus sapiente, repellendus laudantium, aliquam recusandae sequi in officia veritatis et voluptatum, iste voluptates accusantium.
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis atque ea vero non quia minima aspernatur? Natus facilis tempora, praesentium ducimus nostrum quam, dolore itaque quis sapiente quaerat quia inventore.
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit quod omnis, nulla cum hic quo, eligendi necessitatibus mollitia minima nemo, esse nesciunt incidunt maiores dolorem. Officiis adipisci cum enim facere?
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa minima necessitatibus maxime voluptates rerum praesentium nihil ratione! Doloremque, sequi porro blanditiis totam quisquam, laboriosam illum facere animi, explicabo maiores vitae.
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam suscipit corrupti maxime aliquam aut. Consequatur voluptatem neque quod rerum sequi nulla consectetur omnis quae cumque, exercitationem qui tenetur totam ab?
 				</div>
 			</div>
 		</div>

@@ -22,8 +22,16 @@ body {
 	background-image: url('/resources/images/meetingboard/circle-scatter-listitem.svg');
 }
 
+#listSearchFrame {
+	margin: 5rem auto 0 auto;
+	width: 30%
+}
+#kind {
+	width: 40%;
+}
+
 #listMainSection {
-	margin: 4rem auto 0 auto;
+	margin: 1rem auto 0 auto;
 }
 
 #meetingBoardListFrame{

@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <title>Meeting Add Page</title>
 <c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
+<c:import url="../template/meetingboard/jQueryJs.jsp"></c:import>
+<c:import url="../template/meetingboard/summerNote.jsp"></c:import>
 <link rel="stylesheet" href="/resources/css/meetingboard/add.css">
 </head>
 <body>
@@ -130,6 +132,10 @@
 				{storeAddress}
 			</div>
 		</div>
+	</script>
+	
+	<script type="text/javascript">
+		$("#meetingBoardContents").summernote();
 	</script>
 
 </body>

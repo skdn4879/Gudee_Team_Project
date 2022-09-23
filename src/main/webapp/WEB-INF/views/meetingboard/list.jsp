@@ -16,6 +16,28 @@
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 
 	<a class="btn btn-primary" id="addBtn" href="./add">모집글 작성</a>
+	
+	<section class="container-fluid" id="listSearchFrame">
+		<div>
+			<form method="get" action="./list" class="d-flex justify-contents-center align-items-center">
+				
+				<label class="visually-hidden" for="kind">Kind</label>
+				<select name="kind" class="form-select" id="kind">
+				  <option value="title">제목</option>
+				  <option value="nickname">닉네임</option>
+				  <option value="category">카테고리</option>
+				</select>
+			    
+				<label class="visually-hidden" for="search">검색어</label>
+				<!-- 라벨의 for와 input의 id를 같게하면 같은 영역으로 인식되서 편리하다. -->
+				<div class="input-group" id="searchFrame">
+				  <input type="text" class="form-control" id="search" name="search">
+				</div>
+				
+				<button type="submit" class="btn btn-info">Search</button>
+			</form>
+		</div>
+	</section>
 
 	<section class="container-fluid col-10" id="listMainSection">
 		<c:forEach items="${requestScope.meetingBoardList }" var="listItem">
@@ -60,12 +82,44 @@
 			</div>
 		</c:forEach>
 	</section>
+	
+	<section class="container-fluid col-10 mt-4 mb-4">
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+		  	<li class="page-item ${pager.pre ? '' : 'disabled' }">
+		  		<a class="page-link" href="./list?page=${pager.startNum - 1 }&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+				   <span aria-hidden="true">&laquo;</span>
+				</a>
+		  	</li>
+		    <c:forEach begin="${pager.startNum }" end="${pager.lastNum }" step="1" var="i">
+		    	<li class="page-item"><a class="page-link" href="./list?page=${i }&kind=${pager.kind}&search=${pager.search}">${i }</a></li>
+		    </c:forEach>
+		    <li class="page-item ${pager.next ? '' : 'disabled' }">
+			   <a class="page-link" href="./list?page=${pager.lastNum + 1 }&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
+			      <span aria-hidden="true">&raquo;</span>
+			   </a>
+			</li>
+		  </ul>
+		</nav>
+	</section>
 
 	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 
 	<script src="/resources/js/meetingboard/list.js"></script>
+	
+	<script type="text/template" id="searchCategory_template">
+		<select name="search" class="form-select" id="search">
+		  <option value="문화/예술">문화/예술</option>
+		  <option value="운동/액티비티">운동/액티비티</option>
+		  <option value="푸드/드링크">푸드/드링크</option>
+		  <option value="취미">취미</option>
+		  <option value="여행/나들이">여행/나들이</option>
+		  <option value="창작">창작</option>
+		  <option value="성장/자기계발">성장/자기계발</option>
+		</select>
+	</script>
 	
 </body>
 </html>

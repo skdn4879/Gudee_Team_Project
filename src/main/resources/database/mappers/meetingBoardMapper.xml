@@ -5,14 +5,38 @@
 		    
 <mapper namespace="com.goodee.market.meetingboard.MeetingBoardDAO">
 
-	<select id="getMeetingBoardList" resultMap="getMeetingBoardListResult">
-		SELECT M.nickname, MB.*, MBI.filename 
-		FROM MEMBER M
-		INNER JOIN MEETINGBOARD MB
-		ON(M.membernum = MB.meetingboardwriter)
-		LEFT JOIN MEETINGBOARDIMAGE MBI
-		ON(MB.meetingboardnum = MBI.meetingboardnum)
-		ORDER BY MB.meetingboardnum DESC
+	<select id="getCount" parameterType="MeetingBoardPager" resultType="Long">
+		SELECT COUNT(meetingboardnum) FROM MEETINGBOARD MB
+		INNER JOIN MEMBER M
+		ON(MB.meetingboardwriter = M.membernum)
+		WHERE
+			<choose>
+				<when test="kind == 'category'">meetingboardcategory</when>
+				<when test="kind == 'nickname'">nickname</when>
+				<otherwise>meetingboardtitle</otherwise>
+			</choose>
+			LIKE '%' || #{search} || '%'
+	</select>
+
+	<select id="getMeetingBoardList" parameterType="MeetingBoardPager" resultMap="getMeetingBoardListResult">
+		SELECT * FROM
+		(
+		    SELECT ROWNUM R, N.* FROM
+		    (SELECT MB.*, M.nickname, MBI.filename
+		    FROM MEETINGBOARD MB
+		    INNER JOIN MEMBER M
+		    ON(MB.meetingboardwriter = M.membernum)
+		    LEFT JOIN MEETINGBOARDIMAGE MBI
+		    ON(MB.meetingboardnum = MBI.meetingboardnum)
+		    WHERE
+		    	<choose>
+		    		<when test="kind == 'category'">meetingboardcategory</when>
+		    		<when test="kind == 'nickname'">nickname</when>
+		    		<otherwise>meetingboardtitle</otherwise>
+		    	</choose>
+		    	LIKE '%' || #{search} || '%'
+		    ORDER BY MB.meetingboardnum DESC) N)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
 	<resultMap type="MeetingBoardDTO" id="getMeetingBoardListResult">

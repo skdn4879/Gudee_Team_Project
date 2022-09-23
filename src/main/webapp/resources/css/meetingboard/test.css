@@ -21,92 +21,90 @@
 #listMainSection {
 	margin: 4rem auto 0 auto;
 	background-color: aqua;
-	height: 100vh;
 }
 
-#meetingBoardListFrame{
-	width: 50%;
-	padding-top: 1rem;
-}
-
-.meetingBoardListItem {
-	border: 1px solid red;
-	margin: 1rem auto;
-	padding: 0.5rem;
+#detailTopFrame{
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	padding: 2rem 0 0 0;
 }
 
-.meetingBoardListItem > div {
+#meetingBoardDetailThumnailFrame{
+	width: 50%;
+	background-color: orange;
+}
+
+#meetingBoardDetailThumnail{
+	width: 100%;
+	height: 50vh;
+	object-fit: contain;
+}
+
+#detailInfoFrame {
 	display: flex;
 	flex-direction: column;
-	padding-top: 0.5rem;
-	margin: 0 0 0 0.5rem;
+	width: 50%;
+	height: 50vh;
+	background-color: red;
+	padding: 0.5rem;
 }
 
-.meetingBoardListItemThumnail {
-	width: 8rem;
-	height: 8rem;
+.detailInfoSingleFrame {
+	margin-top: 0.5rem;
 }
 
-.meetingBoardListItemTitle {
-	font-family: 'MICEGothic Bold';
-	font-size: 1.5rem;
-	text-decoration: none;
-	cursor: pointer;
-	height: 2.3rem;
-	overflow: hidden;
+.detailInfoSingleFrame > span {
+	font-family: 'MICEMyungjo';
+	font-size: 1.1rem;
+	margin-left: 0.5rem;
 }
 
-.meetingBoardListItemWriter {
-	display: inline-block;
-	margin: 0 0 0 0;
+#detailCenterFrame {
+	width: 100%;
+	background-color: lime;
+	margin: 1rem 0 1rem 0;
+}
+
+#detailTitleFrame {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: purple;
+}
+
+#detailTitleUserFrame {
+	display: flex;
+	align-items: center;
+}
+
+#detailTitleUserFrame > span {
 	font-family: 'HS-Regular';
+	font-size: 1.8rem;
+	margin-left: 0.5rem;
+}
+
+#detailTitle {
+	font-family: 'MICEGothic Bold';
+	font-size: 2rem;
+	padding: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+#detailContentsFrame {
+	margin: 1rem 0 1rem 0;
+	background-color: gray;
+	padding: 1rem;
+}
+
+#detailContents {
+	font-family: 'MICEMyungjo';
 	font-size: 1.3rem;
 }
 
-.meetingBoardListItemAddress {
-	display: inline-block;
-	margin-top: 0.5rem;
-	margin-bottom: 0;
-	font-family: 'MICEMyungjo';
-	font-size: 1rem;
-	width: 100%;
-	height: 1.7rem;
-	overflow: hidden;
-}
 
-.meetingBoardListItemTotalCost {
-	display: inline-block;
-	margin: 0 0 0 0.3rem;
-	width: 3.3rem;
-	height: 1.6rem;
-	overflow: hidden;
-}
-.meetingBoardListItemPersonalCost {
-	display: inline-block;
-	margin: 0 0 0 0.3rem;
-	width: 3.3rem;
-	height: 1.6rem;
-	overflow: hidden;
-}
-.meetingBoardListItemEnjoyMember {
-	display: inline-block;
-	margin: 0 0 0 0.3rem;
-	width: 3.3rem;
-	height: 1.6rem;
-	overflow: hidden;
-}
-.meetingBoardListItemCategory {
-	display: inline-block;
-	margin: 0 0.3rem 0 0.3rem;
-	height: 1.6rem;
-}
-.meetingBoardListItemDueDate {
-	display: inline-block;
-	margin: 0 0 0 0.3rem;
-	height: 1.6rem;
-}
+
 
 
 
