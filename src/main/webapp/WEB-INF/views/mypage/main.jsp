@@ -21,96 +21,21 @@
 
 <body>
 	<form action="/mypage/main" method="get">
-	<br>
-	<h4 class="align-center"> 중고 마이페이지 - 이따 삭제~! </h4>
 	
-	<br><br>
-	<h6 class="align-left">판매 상품 목록</h6>
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">카테고리</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">가격</th>
-		      <th scope="col">거래상태</th>
-		    </tr>
-		  </thead>
-		  
-		  <tbody>
-		  	<c:forEach items="${list}" var="dto">
-		  	<tr>
-		  		<td>${dto.itemnum}</td>
-		  		<td>${dto.category}</td>
-		  		<td>${dto.title}</td>
-		  		<td>${dto.itemprice}</td>
-		  		<td>${dto.itemstatus}</td>
-		  	</tr>
-		  	</c:forEach>
-		  </tbody>
-		  
-		</table>
-		</div>
-	</section>	
+		<h4 class="align-center"> 중고 마이페이지 - 이따 삭제~! </h4>
 		
-	<br><br>
-	<h6 class="align-left">구매 상품 목록</h6>
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">가격</th>
-		      <th scope="col">판매자</th>
-		      <th scope="col">거래상태</th>
-		    </tr>
-		  </thead>
-		  
-		  <tbody>
-		  	<tr>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  	</tr>
-		  </tbody>
-		</table>
-		</div>
-	</section>	
+		<c:import url="sellitemlist.jsp"></c:import>
+		<br><br>
+			
+		<c:import url="buyitemlist.jsp"></c:import>
+		<br><br>
 		
-	<br><br>
-	<h6 class="align-left">작성한 후기 목록</h6>
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">카테고리</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">판매자</th>
-		      <th scope="col">조회수</th>
-		    </tr>
-		  </thead>
-		  
-		  <tbody>
-		  	<tr>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  		<td>1</td>
-		  	</tr>
-		  </tbody>
-		  
-		</table>	
-		</div>
-	</section>
+		<c:import url="reviewlist.jsp"></c:import>
+	
+	
+	
+	
+	
 	</form>
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>

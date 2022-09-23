@@ -3,13 +3,13 @@
 		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 		    
-<mapper namespace="com.goodee.market.trade.myPage.myPageDAO">
+<mapper namespace="com.goodee.market.trade.myPage.MyPageDAO">
 
 	<!-- 판매리스트 -->
 	<select id="getSellItemList" resultType="ItemDTO" parameterType="ItemDTO">	
 		SELECT ITEMNUM, ITEMCATEGORY, ITEMTITLE, ITEMPRICE, ITEMSTATUS FROM ITEM
 		    WHERE ITEMNUM
-		        =(SELECT ITEMNUM FROM SELLITEMLIST WHERE MEMBERNUM = #{membernum})
+		        =(SELECT ITEMNUM FROM SELLITEMLIST WHERE MEMBERNUM = 3)
 	</select>
 	
 	
@@ -17,14 +17,14 @@
 	<select id="getBuyItemList" resultType="ItemDTO" parameterType="BuyerDTO">
 		SELECT ITEMCATEGORY, ITEMTITLE, ITEMPRICE, MEMBERNUM, ITEMSTATUS FROM ITEM
 		    WHERE ITEMNUM
-		        =(SELECT ITEMNUM FROM BUYITEMLIST WHERE REALBUYER = #{realbuyer})
+		        =(SELECT ITEMNUM FROM BUYITEMLIST WHERE REALBUYER = 5)
 	</select>
 	
 	
 	<!-- 후기리스트 -->
-	<select id="getReviewList" resultType="ReviewDTO" parameterType="BuyerDTO">
+	<select id="getReviewList" resultType="ReviewDTO" parameterType="ReviewDTO">
 		SELECT REVIEWNUM, REVIEWTITLE, MEMBERNUM, ITEMNUM FROM REVIEW
-			WHERE REALBUYER = #{realbuyer}
+			WHERE REALBUYER = 5
 	</select>
 	
 </mapper>	

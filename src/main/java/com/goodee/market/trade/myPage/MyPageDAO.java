@@ -45,7 +45,7 @@ public class MyPageDAO implements MyPageInterface{
 	@Override
 	public List<ReviewDTO> getReviewList() throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE+"gerReviewList");
+		return sqlSession.selectList(NAMESPACE+"getReviewList");
 	}
 	
 	
