@@ -19,9 +19,13 @@
 	            카테고리
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="#">Action</a></li>
-	            <li><a class="dropdown-item" href="#">Another action</a></li>
-	            <li><a class="dropdown-item" href="#">Something else here</a></li>
+	            <li><a class="dropdown-item" href="#">의류</a></li>
+	            <li><a class="dropdown-item" href="#">식품류</a></li>
+	            <li><a class="dropdown-item" href="#">도서/문구</a></li>
+	            <li><a class="dropdown-item" href="#">뷰티/미용</a></li>
+	            <li><a class="dropdown-item" href="#">생활/디지털</a></li>
+	            <li><a class="dropdown-item" href="#">반려동물 용품</a></li>
+	            <li><a class="dropdown-item" href="#">가구/인테리어</a></li>
 	          </ul>
 	        </li>
 	        
@@ -30,9 +34,13 @@
 	            후기
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="#">Action</a></li>
-	            <li><a class="dropdown-item" href="#">Another action</a></li>
-	            <li><a class="dropdown-item" href="#">Something else here</a></li>
+	            <li><a class="dropdown-item" href="#">의류</a></li>
+	            <li><a class="dropdown-item" href="#">식품류</a></li>
+	            <li><a class="dropdown-item" href="#">도서/문구</a></li>
+	            <li><a class="dropdown-item" href="#">뷰티/미용</a></li>
+	            <li><a class="dropdown-item" href="#">생활/디지털</a></li>
+	            <li><a class="dropdown-item" href="#">반려동물 용품</a></li>
+	            <li><a class="dropdown-item" href="#">가구/인테리어</a></li>
 	          </ul>
 	        </li>
 	        
@@ -41,14 +49,25 @@
 	            공지사항
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="#">Action</a></li>
-	            <li><a class="dropdown-item" href="#">Another action</a></li>
-	            <li><a class="dropdown-item" href="#">Something else here</a></li>
+	            <li><a class="dropdown-item" href="#">공지사항</a></li>
+	            <li><a class="dropdown-item" href="#">자주하는 질문</a></li>
+	            <li><a class="dropdown-item" href="#">1:1 문의</a></li>
 	          </ul>
 	        </li>
-	      
 	      </ul>
-	    </div>
+	    </div> <!-- dropdown -->
+	    
+	    <div> <!-- 검색 -->
+	    	<nav class="navbar bg-light">
+		  	<div class="container-fluid">
+		    	<form class="d-flex" role="search">
+		      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+		      		<button class="btn btn-outline-success" type="submit">Search</button>
+		    	</form>
+		</div>		    	
+  </div>
+</nav>
+
 	  </div>
 	</nav>
 </header>
