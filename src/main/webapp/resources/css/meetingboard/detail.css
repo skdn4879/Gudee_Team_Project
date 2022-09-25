@@ -20,7 +20,9 @@
 
 #detailMainSection {
 	margin: 4rem auto 0 auto;
-	background-color: aqua;
+	padding-bottom: 1rem;
+	background-color: #CCFFEE;
+	border-radius: 15px;
 }
 
 #detailTopFrame{
@@ -32,7 +34,6 @@
 
 #meetingBoardDetailThumnailFrame{
 	width: 50%;
-	background-color: orange;
 }
 
 #meetingBoardDetailThumnail{
@@ -46,7 +47,6 @@
 	flex-direction: column;
 	width: 50%;
 	height: 50vh;
-	background-color: red;
 	padding: 0.5rem;
 }
 
@@ -60,10 +60,15 @@
 	margin-left: 0.5rem;
 }
 
+#detailFindLocation{
+	cursor: pointer;
+}
+
 #detailCenterFrame {
 	width: 100%;
-	background-color: lime;
 	margin: 1rem 0 1rem 0;
+	background-color: #EEF9FF;
+	border-radius: 15px;
 }
 
 #detailTitleFrame {
@@ -72,7 +77,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: purple;
+	background-color: #B8DFE6;
+	border-radius: 15px;
 }
 
 #detailTitleUserFrame {
@@ -94,7 +100,6 @@
 
 #detailContentsFrame {
 	margin: 1rem 0 1rem 0;
-	background-color: gray;
 	padding: 1rem;
 }
 
@@ -102,12 +107,3 @@
 	font-family: 'MICEMyungjo';
 	font-size: 1.3rem;
 }
-
-
-
-
-
-
-
-
-

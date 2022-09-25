@@ -5,6 +5,45 @@
 		    
 <mapper namespace="com.goodee.market.meetingboard.MeetingBoardDAO">
 
+	<select id="getMeetingBoardDetail" parameterType="MeetingBoardDTO" resultMap="getDetailResult">
+		SELECT MB.*, M.*, MBI.filenum, MBI.filename
+		FROM MEETINGBOARD MB
+		INNER JOIN MEMBER M
+		ON(MB.meetingboardwriter = M.membernum)
+		LEFT JOIN MEETINGBOARDIMAGE MBI
+		ON(MB.meetingboardnum = MBI.meetingboardnum)
+		WHERE MB.meetingboardnum = #{meetingBoardNum}
+	</select>
+	
+	<resultMap type="MeetingBoardDTO" id="getDetailResult">
+		<id column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		<result column="MEETINGBOARDWRITER" property="meetingBoardWriter"/>
+		<result column="MEETINGBOARDTITLE" property="meetingBoardTitle"/>
+		<result column="MEETINGBOARDCONTENTS" property="meetingBoardContents"/>
+		<result column="MEETINGBOARDDUEDATE" property="meetingBoardDueDate"/>
+		<result column="MEETINGBOARDTOTALCOST" property="meetingBoardTotalCost"/>
+		<result column="MEETINGBOARDLOCATION" property="meetingBoardLocation"/>
+		<result column="MEETINGBOARDCURRENTMEMBER" property="meetingBoardCurrentMember"/>
+		<result column="MEETINGBOARDMAXMEMBER" property="meetingBoardMaxMember"/>
+		<result column="MEETINGBOARDCATEGORY" property="meetingBoardCategory"/>
+		<result column="MEETINGBOARDHOSTDEMAND" property="meetingBoardHostDemand"/>
+		
+		<association property="memberDTO" javaType="MemberDTO">
+			<id column="MEMBERNUM" property="memberNum"/>
+			<result column="ID" property="id"/>
+			<result column="NAME" property="name"/>
+			<result column="NICKNAME" property="nickname"/>
+			<result column="PHONE" property="phone"/>
+			<result column="CASH" property="cash"/>
+		</association>
+		
+		<association property="meetingBoardImageDTO" javaType="MeetingBoardImageDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		
+	</resultMap>
+
 	<select id="getCount" parameterType="MeetingBoardPager" resultType="Long">
 		SELECT COUNT(meetingboardnum) FROM MEETINGBOARD MB
 		INNER JOIN MEMBER M

@@ -5,6 +5,8 @@ import java.util.List;
 import com.goodee.market.meetingboard.util.MeetingBoardPager;
 
 public interface MeetingBoardInterface {
+	
+	public MeetingBoardDTO getMeetingBoardDetail(MeetingBoardDTO meetingBoardDTO) throws Exception;
 
 	public List<MeetingBoardDTO> getMeetingBoardList(MeetingBoardPager pager) throws Exception;
 	

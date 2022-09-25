@@ -47,9 +47,15 @@ public class MeetingBoardController {
 	}
 	
 	@GetMapping("detail")
-	public String getMeetingBoardDetail(Long num) throws Exception {
-		System.out.println(num);
-		return "meetingboard/detail";
+	public ModelAndView getMeetingBoardDetail(Long num) throws Exception {
+		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
+		meetingBoardDTO.setMeetingBoardNum(num);
+		meetingBoardDTO = meetingBoardService.getMeetingBoardDetail(meetingBoardDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("meetingBoardDetail", meetingBoardDTO);
+		mv.setViewName("meetingboard/detail");
+		return mv;
 	}
 	
 	@GetMapping("add")

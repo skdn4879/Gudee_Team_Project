@@ -16,6 +16,12 @@ public class MeetingBoardDAO implements MeetingBoardInterface {
 	private final String NAMESPACE = "com.goodee.market.meetingboard.MeetingBoardDAO.";
 	
 	@Override
+	public MeetingBoardDTO getMeetingBoardDetail(MeetingBoardDTO meetingBoardDTO) throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE + "getMeetingBoardDetail", meetingBoardDTO);
+	}
+	
+	@Override
 	public List<MeetingBoardDTO> getMeetingBoardList(MeetingBoardPager pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE + "getMeetingBoardList", pager);
 	}

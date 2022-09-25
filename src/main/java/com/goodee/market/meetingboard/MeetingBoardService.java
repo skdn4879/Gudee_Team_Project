@@ -19,6 +19,10 @@ public class MeetingBoardService {
 	@Autowired
 	private MeetingBoardFileManager meetingBoardFileManager;
 	
+	public MeetingBoardDTO getMeetingBoardDetail(MeetingBoardDTO meetingBoardDTO) throws Exception {
+		return meetingBoardDAO.getMeetingBoardDetail(meetingBoardDTO);
+	}
+	
 	public List<MeetingBoardDTO> getMeetingBoardList(MeetingBoardPager pager) throws Exception {
 		Long totalCount = meetingBoardDAO.getCount(pager);
 		pager.getNum(totalCount);

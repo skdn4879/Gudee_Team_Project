@@ -15,7 +15,7 @@
 
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 
-	<section class="container-fluid col-10" id="listMainSection">
+	<section class="container-fluid col-10" id="detailMainSection">
 		<div id="detailTopFrame">
 			<div id="meetingBoardDetailThumnailFrame">
 				<img alt="" src="/resources/images/meetingboard/detail_test_image.jpg" id="meetingBoardDetailThumnail">
