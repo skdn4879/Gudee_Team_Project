@@ -20,6 +20,15 @@ public class MemberDAO implements MemberInterface{
 	public int setJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "setJoin", memberDTO);
 	}
+
+	@Override
+	public int setAddFile(MemberFileDTO memberFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setAddFile", memberFileDTO);
+	}
+	
+	
+	
+	
 	
 	
 	

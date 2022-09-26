@@ -9,9 +9,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT ID, NAME, NICKNAME, MEMBERNUM FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="setJoin" parameterType="MemberDTO">
+	<!-- Sequence를 미리 해나 빼서 memberNum에 저장 -->
+	<selectKey keyProperty="memberNum" order="BEFORE" resultType="Long">
+            SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
+      </selectKey>
 		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, ADDRESS)
-		VALUES(MEMBER_SEQ.NEXTVAL, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address});
+		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address})
 	</insert>
+	
+	<!-- 파일추가 -->
+	<insert id="setAddFile" parameterType="MemberFileDTO">
+		INSERT INTO MEMBERIMAGE(FILENUM, FILENAME, ORINAME, MEMBERNUM)
+		VALUES (MEMBERIMAGE_SEQ.NEXTVAL, #{fileName}, #{oriName}, #{memberNum})
+	</insert>
+	
+	<!-- 이메일 인증번호 Update -->
+	<update id="setUpdateMailKey" parameterType="MemberDTO">
+		UPDATE MEMBER SET MAIL_KEY=#{mail_Key} WHERE EMAIL=#{email} AND ID=#{id}
+	</update>
+	
+	<!-- 이메일 인증 여부 Update/ 인증되었으면 1 아니면 0 -->
+	<update id="setUpdateMailAuth" parameterType="MemberDto">
+		UPDATE MEMBER SET MAIL_AUTH = 1 WHERE EMAIL=#{email} AND MAIL_KEY=#{mail_Key}
+	</update>
+	
+	<!-- 이메일 인증 여부 체크 -->
+	<select id="emailAuthFail" parameterType="String" resultType="Long">
+		SELECT COUNT(*) FROM MEMBER WHERE ID=#{id} AND MAIL_AUTH=1
+	</select>
+	
+	
 
 </mapper>

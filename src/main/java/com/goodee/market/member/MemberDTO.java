@@ -1,6 +1,7 @@
 package com.goodee.market.member;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -19,6 +20,7 @@ public class MemberDTO {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String address;
+	private List<MemberFileDTO> memberFileDTOs;
 	
 	public Long getMemberNum() {
 		return memberNum;
@@ -86,4 +88,13 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public List<MemberFileDTO> getMemberFileDTOs() {
+		return memberFileDTOs;
+	}
+	public void setMemberFileDTOs(List<MemberFileDTO> memberFileDTOs) {
+		this.memberFileDTOs = memberFileDTOs;
+	}
+	
+	
 }
