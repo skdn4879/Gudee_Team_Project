@@ -42,5 +42,10 @@ public class MemberService {
 		return result;
 	}
 	
+	//회원정보 수정시 정보 불러오기
+	public MemberDTO getMemberDetail(MemberDTO memberDTO)throws Exception{
+		return memberDAO.getMemberDetail(memberDTO);
+	}
+	
 
 }

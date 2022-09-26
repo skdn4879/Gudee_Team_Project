@@ -20,7 +20,8 @@ public class MemberDTO {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String address;
-	private List<MemberFileDTO> memberFileDTOs;
+	private String postcode;
+	private MemberFileDTO memberFileDTO;
 	
 	public Long getMemberNum() {
 		return memberNum;
@@ -89,12 +90,20 @@ public class MemberDTO {
 		this.address = address;
 	}
 
-	public List<MemberFileDTO> getMemberFileDTOs() {
-		return memberFileDTOs;
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
 	}
-	public void setMemberFileDTOs(List<MemberFileDTO> memberFileDTOs) {
-		this.memberFileDTOs = memberFileDTOs;
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
 	}
+	public String getPostcode() {
+		return postcode;
+	}
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+	
+	
 	
 	
 }

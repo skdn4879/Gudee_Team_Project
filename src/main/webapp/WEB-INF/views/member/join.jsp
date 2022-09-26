@@ -120,13 +120,12 @@
                 <!-- 주소 입력 -->
                 <p><h3>주소</h3></p>
                 <div class="d-flex flex-row">
-                  <input class="form-control p-2 box" type="text" id="postcode" placeholder="우편번호">
+                  <input class="form-control p-2 box" type="text" id="postcode" placeholder="우편번호" name="postcode">
                   <input class="btn btn-secondary p-2" type="button" onclick="checkPost()" value="우편번호 찾기">
                 </div>
                 <input class="form-control box" type="text" id="mainAddress" placeholder="주소">
                 <div class="d-flex flex-row">
                   <input class="form-control p-2 box" type="text" id="detailAddress" placeholder="상세주소">
-                  <input class="form-control p-2 box" type="text" id="extraAddress" placeholder="참고항목">
                 </div>
                 <input type="hidden" id="address" name="address">
                 <div class="addressm m"></div>
@@ -137,14 +136,11 @@
                   <p><input class="form-control form-control-lg box" type="file" aria-label=".form-control-lg example" name="files" id="photo"></p>
                 </div>
                 <div class="photom m"></div>
-                <div>
-                  
-                </div>
                 
                 <button type="button" class="btn btn-primary" id="btn">회원가입</button>
               </section>
             </form>
-          </div>
+        </div>
           
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="/resources/js/join.js"></script>

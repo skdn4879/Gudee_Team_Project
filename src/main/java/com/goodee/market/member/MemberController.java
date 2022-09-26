@@ -64,5 +64,43 @@ public class MemberController {
 		return mv;
 		
 	}
+	
+	@GetMapping("logout")
+	public String logout(HttpSession session)throws Exception{
+		System.out.println("로그아웃 실행");
+		session.invalidate();
+		return "redirect: /";
+	}
+	
+	@GetMapping("myPage")
+	public ModelAndView myPage(HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		memberDTO = memberService.getMemberDetail(memberDTO);
+		mv.addObject("myPage", memberDTO);
+		mv.setViewName("member/myPage");
+		System.out.println(memberDTO.getMemberFileDTO().getFileName());
+		return mv;
+		
+	}
+	
+	@GetMapping("infoUpdate")
+	public MemberDTO infoUpdate(Long memberNum)throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		//마이페이지에서 회원정보 수정으로 갈 때 파라미터로 보내준 memberNum을 새로 만든 DTO 객체에 set
+		memberDTO.setMemberNum(memberNum);
+		//그리고 다시 이 memberNum을 통해 기존 회원정보를 수정을 위해 불러오기
+		memberDTO = memberService.getMemberDetail(memberDTO);
+		return memberDTO;
+	}
+	
+	@PostMapping("infoUpdate")
+	public ModelAndView infoUpdate(MemberDTO memberDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("memberDTO", memberDTO);
+		mv.setViewName("redirect: myPage");
+		return mv;
+	}
+	
 
 }

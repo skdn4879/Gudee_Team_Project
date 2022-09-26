@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.goodee.market.member.MemberDAO">
 
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT ID, NAME, NICKNAME, MEMBERNUM FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
+		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
 	
 	<!-- 회원가입 -->
@@ -15,8 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<selectKey keyProperty="memberNum" order="BEFORE" resultType="Long">
             SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
       </selectKey>
-		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, ADDRESS)
-		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address})
+		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, ADDRESS, POSTCODE)
+		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address}, #{postcode})
 	</insert>
 	
 	<!-- 파일추가 -->
@@ -25,20 +25,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES (MEMBERIMAGE_SEQ.NEXTVAL, #{fileName}, #{oriName}, #{memberNum})
 	</insert>
 	
-	<!-- 이메일 인증번호 Update -->
-	<update id="setUpdateMailKey" parameterType="MemberDTO">
-		UPDATE MEMBER SET MAIL_KEY=#{mail_Key} WHERE EMAIL=#{email} AND ID=#{id}
-	</update>
-	
-	<!-- 이메일 인증 여부 Update/ 인증되었으면 1 아니면 0 -->
-	<update id="setUpdateMailAuth" parameterType="MemberDto">
-		UPDATE MEMBER SET MAIL_AUTH = 1 WHERE EMAIL=#{email} AND MAIL_KEY=#{mail_Key}
-	</update>
-	
-	<!-- 이메일 인증 여부 체크 -->
-	<select id="emailAuthFail" parameterType="String" resultType="Long">
-		SELECT COUNT(*) FROM MEMBER WHERE ID=#{id} AND MAIL_AUTH=1
+	<!-- 회원정보 수정 시 불러오는 회원정보 -->
+	<select id="getMemberDetail" parameterType="MemberDTO" resultMap="getMyPageResult">
+		SELECT * FROM 
+		MEMBER M
+		INNER JOIN
+		MEMBERIMAGE MI
+		ON M.MEMBERNUM = MI.MEMBERNUM
+		WHERE M.MEMBERNUM = #{memberNum}
 	</select>
+	
+	<resultMap type="MemberDTO" id="getMyPageResult">
+		<id column="MEMBERNUM" property="memberNum"/>
+		<result column="ID" property="id"/>
+		<result column="PASSWORD" property="password"/>
+		<result column="NAME" property="name"/>
+		<result column="NICKNAME" property="nickname"/>
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<result column="ADDRESS" property="address"/>
+		<result column="POSTCODE" property="postcode"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+	</resultMap>
 	
 	
 

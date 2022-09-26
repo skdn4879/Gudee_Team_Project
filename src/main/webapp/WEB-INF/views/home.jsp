@@ -29,17 +29,34 @@
 			  </div>
 			  <div>
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-					  <li class="nav-item">
-						<a class="nav-link" href="/member/login">로그인</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="/member/agree">회원가입</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="/mb/home">고객문의</a>
-					  </li>
-					</ul>
+					<c:choose>
+						<c:when test="${not empty member}">
+							<ul class="navbar-nav">
+							  <li class="nav-item">
+								<a class="nav-link" href="/member/logout">로그아웃</a>
+							  </li>
+							  <li class="nav-item">
+								<a class="nav-link" href="/member/myPage">마이페이지</a>
+							  <li class="nav-item">
+							  <li class="nav-item">
+								<a class="nav-link" href="/mb/home">고객문의</a>
+							  </li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="navbar-nav">
+							  <li class="nav-item">
+								<a class="nav-link" href="/member/login">로그인</a>
+							  </li>
+							  <li class="nav-item">
+								<a class="nav-link" href="/member/agree">회원가입</a>
+							  </li>
+							  <li>
+								<a class="nav-link" href="/mb/home">고객문의</a>
+							  </li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 			  </div>
 			</div>
 		  </nav>

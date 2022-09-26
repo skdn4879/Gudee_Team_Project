@@ -25,6 +25,21 @@ public class MemberDAO implements MemberInterface{
 	public int setAddFile(MemberFileDTO memberFileDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "setAddFile", memberFileDTO);
 	}
+
+	@Override
+	public MemberDTO getMemberDetail(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMemberDetail", memberDTO);
+	}
+
+	@Override
+	public int setInfoUpdate(MemberDTO memberDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+	
 	
 	
 	

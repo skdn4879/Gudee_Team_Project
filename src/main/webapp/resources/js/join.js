@@ -25,7 +25,6 @@ const addressm = document.querySelector('.addressm');
 const postcode = document.getElementById('postcode');
 const mainAddress = document.getElementById("mainAddress");
 const detailAddress = document.getElementById("detailAddress")
-const extraAddress = document.getElementById("extraAddress")
 const emailm = document.querySelector('.emailm');
 
 
@@ -234,7 +233,7 @@ function joinCheck(){
         birthday.value = birth_year.value + '-' + birth_month.value + '-' + birth_day.value;
 
         //주소 합치기
-        address.value = postcode.value + ' ' + mainAddress.value + ' ' + detailAddress.value + ' ' + extraAddress.value;
+        address.value = mainAddress.value + ' ' + detailAddress.value;
         console.log(id.value.length >= 2);
         console.log(pw.value.length >= 4);
         console.log(check);
@@ -288,10 +287,10 @@ function checkPost() {
                     extraAddr = ' (' + extraAddr + ')';
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
-                extraAddress.value = extraAddr;
+                detailAddress.value = extraAddr;
             
             } else {
-                extraAddress.value = '';
+                detailAddress.value = '';
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
