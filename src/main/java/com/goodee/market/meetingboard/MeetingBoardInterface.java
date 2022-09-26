@@ -16,4 +16,12 @@ public interface MeetingBoardInterface {
 	
 	public Long getCount(MeetingBoardPager pager) throws Exception;
 	
+	public int setMeetingBoardUpdate(MeetingBoardDTO meetingBoardDTO) throws Exception;
+	
+	public MeetingBoardImageDTO getMeetingBoardThumnailDetail(MeetingBoardImageDTO meetingBoardImageDTO) throws Exception;
+	
+	public int setMeetingBoardThumnailDelete(MeetingBoardImageDTO meetingBoardImageDTO) throws Exception;
+	
+	public int setMeetingBoardDelete(MeetingBoardDTO meetingBoardDTO) throws Exception;
+	
 }

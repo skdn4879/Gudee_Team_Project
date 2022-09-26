@@ -76,5 +76,43 @@ public class MeetingBoardController {
 		
 		return "redirect:./list";
 	}
+	
+	@GetMapping("update")
+	public ModelAndView getUpdatePage(Long num) throws Exception {
+		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
+		meetingBoardDTO.setMeetingBoardNum(num);
+		meetingBoardDTO = meetingBoardService.getMeetingBoardDetail(meetingBoardDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("meetingBoardDTO", meetingBoardDTO);
+		mv.setViewName("meetingboard/update");
+		
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public String setUpdatePage(MeetingBoardDTO meetingBoardDTO, MultipartFile meetingBoardThumnail, HttpSession session) throws Exception {
+		int result = meetingBoardService.setMeetingBoardUpdate(meetingBoardDTO, meetingBoardThumnail, session.getServletContext());
+		
+		if(result == 0) {
+			System.out.println("업데이트 실패");
+		}
+		
+		return "redirect: ./list";
+	}
+	
+	@GetMapping("delete")
+	public String setDeletePage(Long num, HttpSession session) throws Exception{
+		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
+		meetingBoardDTO.setMeetingBoardNum(num);
+		
+		int result = meetingBoardService.setMeetingBoardDelete(meetingBoardDTO, session.getServletContext());
+		
+		if(result == 0) {
+			System.out.println("삭제 실패");
+		}
+		
+		return "redirect: ./list";
+	}
 
 }

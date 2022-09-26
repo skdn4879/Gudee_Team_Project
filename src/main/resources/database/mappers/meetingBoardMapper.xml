@@ -5,6 +5,22 @@
 		    
 <mapper namespace="com.goodee.market.meetingboard.MeetingBoardDAO">
 
+	<delete id="setMeetingBoardDelete" parameterType="MeetingBoardDTO">
+		DELETE FROM meetingboard WHERE meetingboardnum = #{meetingBoardNum}
+	</delete>
+
+	<update id="setMeetingBoardUpdate" parameterType="MeetingBoardDTO">
+		UPDATE meetingboard SET meetingboardtitle = #{meetingBoardTitle},
+		meetingboardcontents = #{meetingBoardContents},
+		meetingboardduedate = #{meetingBoardDueDate},
+		meetingboardtotalcost = #{meetingBoardTotalCost},
+		meetingboardlocation = #{meetingBoardLocation},
+		meetingboardmaxmember = #{meetingBoardMaxMember},
+		meetingboardcategory = #{meetingBoardCategory},
+		meetingboardhostdemand = #{meetingBoardHostDemand}
+		WHERE meetingboardnum = #{meetingBoardNum}
+	</update>
+
 	<select id="getMeetingBoardDetail" parameterType="MeetingBoardDTO" resultMap="getDetailResult">
 		SELECT MB.*, M.*, MBI.filenum, MBI.filename
 		FROM MEETINGBOARD MB
@@ -112,5 +128,13 @@
 	<insert id="setMeetingBoardThumnailAdd" parameterType="MeetingBoardImageDTO">
 		INSERT INTO meetingboardimage(meetingboardnum, filename, oriname) VALUES (#{meetingBoardNum}, #{fileName}, #{oriName})
 	</insert>
+	
+	<select id="getMeetingBoardThumnailDetail" parameterType="MeetingBoardImageDTO" resultType="MeetingBoardImageDTO">
+		SELECT * FROM meetingboardimage WHERE filenum = #{fileNum}
+	</select>
+	
+	<delete id="setMeetingBoardThumnailDelete" parameterType="MeetingBoardImageDTO">
+		DELETE FROM meetingboardimage WHERE filenum = #{fileNum}
+	</delete>
 
 </mapper>

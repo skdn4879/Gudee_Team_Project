@@ -43,4 +43,28 @@ public class MeetingBoardDAO implements MeetingBoardInterface {
 		
 		return sqlSession.selectOne(NAMESPACE + "getCount", pager);
 	}
+	
+	@Override
+	public int setMeetingBoardUpdate(MeetingBoardDTO meetingBoardDTO) throws Exception {
+		
+		return sqlSession.update(NAMESPACE + "setMeetingBoardUpdate", meetingBoardDTO);
+	}
+	
+	@Override
+	public MeetingBoardImageDTO getMeetingBoardThumnailDetail(MeetingBoardImageDTO meetingBoardImageDTO)
+			throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMeetingBoardThumnailDetail", meetingBoardImageDTO);
+	}
+	
+	@Override
+	public int setMeetingBoardThumnailDelete(MeetingBoardImageDTO meetingBoardImageDTO) throws Exception {
+		
+		return sqlSession.delete(NAMESPACE + "setMeetingBoardThumnailDelete", meetingBoardImageDTO);
+	}
+	
+	@Override
+	public int setMeetingBoardDelete(MeetingBoardDTO meetingBoardDTO) throws Exception {
+		
+		return sqlSession.delete(NAMESPACE + "setMeetingBoardDelete", meetingBoardDTO);
+	}
 }
