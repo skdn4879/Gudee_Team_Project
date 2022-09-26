@@ -14,6 +14,15 @@
 <body>
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 	
+	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
+		<form>
+			<input type="hidden" id="mbNum" value=${meetingBoardDetail.meetingBoardNum }>
+			<input type="hidden" id="mNum" value="${sessionScope.member.memberNum }">
+		</form>
+		<img alt="" src="/resources/images/meetingboard/detail_star_icon.svg" id="likeBtn">
+		<img alt="" src="/resources/images/meetingboard/detail_person_plus_icon.svg" id="joinBtn">
+	</c:if>
+	
 	<section class="container-fluid col-10" id="detailMainSection">
 		<div id="detailTopFrame">
 			<div id="meetingBoardDetailThumnailFrame">
@@ -25,7 +34,6 @@
 				</c:if>
 			</div>
 			<div id="detailInfoFrame">
-				
 				<div class="detailInfoSingleFrame">
 					<img alt="" src="/resources/images/meetingboard/detail_group_icon.svg" style="width:3rem; height:3rem;">
 					<span>${meetingBoardDetail.meetingBoardMaxMember }</span>
@@ -83,6 +91,10 @@
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 	
 	<script src="/resources/js/meetingboard/detail.js"></script>
+	
+	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
+		<script type="text/javascript" src="/resources/js/meetingboard/detail_like_join.js"></script>
+	</c:if>
 	
 	<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni veniam vero minus, vitae repellat earum quas aliquam aliquid fugiat sequi laborum aut reprehenderit necessitatibus, repellendus accusamus quisquam recusandae dolorem.
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, expedita sunt consequatur nobis veritatis reiciendis fugiat necessitatibus doloribus voluptate inventore corporis facilis molestias beatae! Ipsam beatae asperiores adipisci. Modi, explicabo!

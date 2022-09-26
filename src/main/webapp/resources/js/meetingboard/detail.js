@@ -36,15 +36,3 @@ detailFindLocation.addEventListener("click", function(){
         } 
     });
 });
-
-const updateBtn = document.querySelector("#updateBtn");
-const deleteBtn = document.querySelector("#deleteBtn");
-
-updateBtn.addEventListener("click", function(){
-    let meetingBoardNum = updateBtn.getAttribute("data-num");
-    console.log(meetingBoardNum);
-});
-
-deleteBtn.addEventListener("click", function(){
-    console.log("Delete click");
-});
