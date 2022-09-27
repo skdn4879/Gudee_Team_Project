@@ -150,6 +150,10 @@
 			color: #252525;
 			font-weight: 700;
 		}
+
+		.carousel-item {
+			background-color: cornflowerblue;
+		}
 	</style>	
 		
 		
@@ -157,6 +161,40 @@
 
 <body>   
     <c:import url="./common/header.jsp"></c:import>
+	
+	<section class="container-fluid col-lg-8 mt-5">
+		<div id="carouselExampleDark" class="carousel carousel-dark slide"
+			data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleDark"
+					data-bs-slide-to="0" class="active" aria-current="true"
+					aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleDark"
+					data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleDark"
+					data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleDark"
+					data-bs-slide-to="3" aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active" data-bs-interval="2000">
+					<img src="/resources/images/trade/banner_1.png" class="d-block w-400"
+						alt="">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleDark" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</section>
+    
     
     <section class="featured spad">
         <div class="container">
@@ -168,7 +206,7 @@
             <div class="row featured__filter" id="MixItUp2D9833">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/knit.jpg" img src="/resources/images/trade/knit.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/1_knit.jpg" style="background-image: url(&quot;/resources/images/trade/1_knit.jpg&quot;);">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -183,7 +221,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/1_set.jpg" img src="/resources/images/trade/1_set.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/1_set.jpg" style="background-image: url(&quot;/resources/images/trade/1_set.jpg&quot;);">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -198,7 +236,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/2_manggo.jpg" img src="/resources/images/trade/2_manggo.jpg">
+                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/2_manggo.jpg" style="background-image: url(&quot;/resources/images/trade/2_manggo.jpg&quot;);">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -237,6 +275,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">형광펜 5개입</a></h6>
+                            <h5>2,000원</h5>
                         </div>
                     </div>
                 </div>
@@ -257,7 +296,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/party.jpag" style="background-image: url(&quot;/resources/images/trade/party.jpg&quot;);">
+                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_party.jpag" style="background-image: url(&quot;/resources/images/trade/3_party.jpg&quot;);">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
