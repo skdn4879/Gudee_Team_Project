@@ -16,8 +16,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.goodee.market.trade.tradingItem.TradingItemDTO" alias="TradingItemDTO"/>
 		<typeAlias type="com.goodee.market.util.FileDTO" alias="FileDTO"/>
 		<typeAlias type="com.goodee.market.member.MemberFileDTO" alias="MemberFileDTO"/>
-		<typeAlias type="java.lang.Long" alias="Long"/>
+		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardDTO" alias="MeetingBoardDTO"/>
+		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardImageDTO" alias="MeetingBoardImageDTO"/>
+		<typeAlias type="com.goodee.market.meetingboard.util.MeetingBoardPager" alias="MeetingBoardPager"/>
+		
 		<typeAlias type="java.lang.String" alias="String"/>
+		<typeAlias type="java.lang.Integer" alias="Integer"/>
+		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="java.lang.Long" alias="Long"/>
+
 	</typeAliases>
 
 </configuration>
