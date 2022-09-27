@@ -13,10 +13,12 @@ public class MemberService {
 	@Autowired
 	private MemberFileManager memberFileManager;
 	
+	//로그인
 	public MemberDTO getLogin(MemberDTO memberDTO)throws Exception{
 		return memberDAO.getLogin(memberDTO);
 	}
 	
+	//회원가입
 	public int setJoin(MemberDTO memberDTO, MultipartFile [] files, ServletContext servletContext) throws Exception {
 		//사진파일이 가입된 회원의 memebernum을 참조해야 하므로 먼저 회원가입 메서드 실행
 		int result = memberDAO.setJoin(memberDTO);
@@ -46,6 +48,10 @@ public class MemberService {
 	public MemberDTO getMemberDetail(MemberDTO memberDTO)throws Exception{
 		return memberDAO.getMemberDetail(memberDTO);
 	}
+	
+	
+	
+	
 	
 
 }

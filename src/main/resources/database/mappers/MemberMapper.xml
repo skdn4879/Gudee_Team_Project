@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.goodee.market.member.MemberDAO">
 
+	<!-- 로그인 -->
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
@@ -51,6 +52,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="FILENAME" property="fileName"/>
 		</association>
 	</resultMap>
+	
+	
+	<!-- 프로필사진 정보 불러오기 -->
+	<select id="getFileDetail" parameterType="MemberFileDTO">
+	 	SELECT * FROM MEMBERIMAGE WHERE FILENUM = #{fileNum}
+	</select>
+	
+	<!-- 프로필사진 삭제 -->
+	<delete id="setFileDelete" parameterType="MemberFileDTO">
+	 	DELETE MEMBERIMAGE WHERE FILENUM = #{fileNum}
+	</delete>
+	
+	<update id="setInfoUpdate" parameterType="MemberDTO">
+		UPDATE MEMBER SET PASSWORD = #{password}, NAME = #{name}, NICKNAME = #{nickname}, 
+	</update>
 	
 	
 

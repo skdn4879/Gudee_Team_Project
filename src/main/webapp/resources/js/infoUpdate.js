@@ -1,13 +1,11 @@
 let id = document.querySelector('#id');
 let pw = document.querySelector('#password');
 let photo = document.querySelector('#photo');
-let birthday = document.querySelector('#birthday');
 let email = document.querySelector('#email');
 let btn = document.querySelector('#btn');
 let form = document.querySelector('#form');
 let idm = document.querySelector('#idm');
 let pwm = document.querySelector('#pwm');
-let birthdaym = document.querySelector('.birthdaym');
 let photom = document.querySelector('.photom');
 let cb = document.querySelectorAll('.cb');
 let ch = document.querySelectorAll('.ch');
@@ -15,9 +13,6 @@ let br = document.createElement('br');
 const email_txt = document.querySelector('#email-txt');
 const domainList = document.querySelector('#domain-list');
 const domainInput = document.querySelector('#domain-txt');
-const birth_year = document.querySelector('#birth-year');
-const birth_month = document.querySelector('#birth-month');
-const birth_day = document.querySelector('#birth-day');
 const address = document.querySelector('#address');
 const addressm = document.querySelector('.addressm');
 const postcode = document.getElementById('postcode');
@@ -32,15 +27,8 @@ function init(){
     email_txt.value = emailValue[0];
     domainInput.value = emailValue[1];
 
-    //생년월일 쪼개서 각각 input 태그에 기존 value 넣기
-    let birthdayValue = birthday.value.split('-');
-    console.log(birth_year.value = birthdayValue[0]);
-    console.log(birth_month.value = birthdayValue[1]);
-    console.log(birth_day.value = birthdayValue[2]);
-    console.log(birthdayValue[0]);
-    console.log(birthdayValue[1]);
-    console.log(birthdayValue[2]);
-
+    //주소 쪼개서 각각 input 태그에 기존 value 넣기
+    
 
 }
 
@@ -88,92 +76,6 @@ function joinCheck(){
     //     })
     // }
 
-    //생년월일 조건 메세지
-    birthday.addEventListener('blur',function(){
-        console.log(birthday.value);
-        if(birthday.value == ''){
-            birthdaym.innerHTML = '날짜를 선택해주세요';
-        }else{
-            birthdaym.innerHTML = '';
-        }
-    })
-
-    //생년월일 option
-    //생년월일 : 년도
-    for(let i = 2022; i >= 1900; i--){
-        //<option> 태그, element 생성
-        let y = document.createElement('option');
-        //<option>태그의 속성인 value atttribute 생성(이 값이 파라미터로 넘어감)
-        let y_value = document.createAttribute('value');
-        //value에 i를 대입(실제 파라미터로 넘어갈 년도)
-        y_value.value = i;
-        y.setAttributeNode(y_value);
-        //client에게 보여질 년도 숫자
-        let y_content = document.createTextNode(i);
-        y.appendChild(y_content);
-        //최종적으로 birth_year에 append
-        birth_year.append(y);
-    }
-
-    //생년월일 : 월
-    for(let i = 1; i <=12; i++){
-        let m = document.createElement('option');
-        let m_value = document.createAttribute('value');
-        m_value.value = i;
-        m.setAttributeNode(m_value);
-        let m_content = document.createTextNode(i);
-        m.appendChild(m_content);
-        birth_month.append(m);
-    }
-    
-    //생년월일 : 일
-    function day(m){
-        //월에 따라 일수를 나타내기 전에 그 전에 append 됐던 내용들을 삭제
-        //birthday의 선택자 자식 element들을 선택하고 일 선택시 기존에 '일' 글자만 빼고 삭제
-        let children = birth_day.children;
-        for(let i = 1; i < children.length;){
-            children[i].remove();
-        }
-        // 31일까지 있는 월 표현
-        if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12){
-            for(let j = 1; j <= 31; j++){
-                let d = document.createElement('option');
-                let d_value = document.createAttribute('value');
-                d_value.value = j;
-                d.setAttributeNode(d_value);
-                let d_content = document.createTextNode(j);
-                d.appendChild(d_content);
-                birth_day.append(d);
-            }
-        //2월
-        }else if(m == 2){
-            console.log('2월');
-            for(let j = 1; j <= 28; j++){
-                let d = document.createElement('option');
-                let d_value = document.createAttribute('value');
-                d_value.value = j;
-                d.setAttributeNode(d_value);
-                let d_content = document.createTextNode(j);
-                d.appendChild(d_content);
-                birth_day.append(d);
-            }
-            //나머지 월들
-        }else{
-            for(let j = 1; j <= 30; j++){
-                let d = document.createElement('option');
-                let d_value = document.createAttribute('value');
-                d_value.value = j;
-                d.setAttributeNode(d_value);
-                let d_content = document.createTextNode(j);
-                d.appendChild(d_content);
-                birth_day.append(d);
-            }
-        }
-    }
-
-    birth_month.addEventListener('change',function(event){
-       day(event.target.value);
-    })
     //코드 잘못 쓰면 무한루프...
 
     //프로필 사진 추가 조건 메세지
@@ -225,7 +127,7 @@ function joinCheck(){
         }
     })
     
-    // 회원가입 버튼 클릭시 각각의 조건이 충족여부 확인
+    // 수정 버튼 클릭시 각각의 조건이 충족여부 확인
     btn.addEventListener('click',function(){
         let check = true;
         for(i = 0;i < cb.length; i++){
@@ -238,8 +140,7 @@ function joinCheck(){
         //이메일 문자 합치기
         email.value = email_txt.value + '@' + domainInput.value;
 
-        //생년월일 합치기
-        birthday.value = birth_year.value + '-' + birth_month.value + '-' + birth_day.value;
+        console.log(email.value);
 
         //주소 합치기
         address.value = mainAddress.value + ' ' + detailAddress.value;
@@ -254,8 +155,8 @@ function joinCheck(){
             console.log(cb[i].value);
         }
         
-        if(id.value.length >= 2 && pw.value.length >= 4 && check && photo.value != '' && birthday.value != '' && address.value != '' && email.value != ''){
-            form.submit();
+        if(id.value.length >= 2 && pw.value.length >= 4 && check && photo.value != '' && address.value != '' && email.value != ''){
+            // form.submit();
         }else{
             alert('입력조건을 확인해주세요');
         }

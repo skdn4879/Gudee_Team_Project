@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,10 @@
 	
 	<div style="background-color: #FBF7F2; height: 1500px; font-family: 'MICEGothic Bold';">
     <section class="container col-lg-8 mt-4">
-        <h1>Join Page</h1>
         <!-- 아이디 입력 -->
         <div>
         <p><h3>아이디</h3></p>
-        <p><input class="form-control form-control-lg box" type="text" placeholder="ID" aria-label=".form-control-lg example" name="id" id="id" value="${memberDTO.id}"></p>
+        <p><input class="form-control form-control-lg box" readonly = "readonly" type="text" placeholder="ID" aria-label=".form-control-lg example" name="id" id="id" value="${memberDTO.id}"></p>
         </div>
         <div id="idm" class="m"></div>
 
@@ -58,23 +58,6 @@
         <p><input class="form-control form-control-lg cb box" type="text" placeholder="Phone" aria-label=".form-control-lg example" name="phone" id="phone" value="${memberDTO.phone}"></p>
         <div class="ch m"></div>
 
-        <!-- 생년월일 입력 -->
-        <p><h3>생년월일</h3></p>
-        <!-- 생년월일 입력 폼 -->
-          <div class="d-flex">
-            <select class="form-select form-select-lg flex" id="birth-year">
-              <option disabled selected>출생 연도</option>
-            </select>
-            <select class="form-select form-select-lg flex" id="birth-month">
-              <option disabled selected>월</option>
-            </select>
-            <select class="form-select form-select-lg flex" id="birth-day">
-              <option disabled selected value="0">일</option>
-            </select>
-          </div>
-          <input type="hidden" id="birthday" name="birthday" value="${memberDTO.birthday}">
-          <div class="birthdaym m"></div>
-
         <!-- 주소 입력 -->
         <p><h3>주소</h3></p>
         <div class="d-flex flex-row">
@@ -91,10 +74,18 @@
         
         <div>
           <p><h3>프로필 사진</h3></p>
+          <c:if test="${memberDTO.memberFileDTO == null}">
+            기본 이미지입니다
+            <img src="/resources/images/Default Image.png" alt="">
+          </c:if>
+          <c:if test="${memberDTO.memberFileDTO != null}">
+            기존 이미지입니다
+            <img src="/resources/upload/member/${memberDTO.memberFileDTO.fileName}" alt="">
+          </c:if>
           <p><input class="form-control form-control-lg box" type="file" aria-label=".form-control-lg example" name="files" id="photo"></p>
         </div>
         <div class="photom m"></div>
-        <button type="button" class="btn btn-primary" id="btn">회원가입</button>
+        <button type="button" class="btn btn-primary" id="btn">수정</button>
       </section>
     </form>
 </div>
