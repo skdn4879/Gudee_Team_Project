@@ -20,7 +20,7 @@
 			  <div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 				  <li class="nav-item">
-					<a class="nav-link" href="#">중고거래</a>
+					<a class="nav-link" href="./trade/main">중고거래</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="/mb/home">소셜링</a>
@@ -104,8 +104,8 @@
 			</div>
 
 		</div>
-
 	</section>
+
 	<script src="/resources/js/home.js"></script>
 	<script src="/resources/css/home.css"></script>
 </body>
