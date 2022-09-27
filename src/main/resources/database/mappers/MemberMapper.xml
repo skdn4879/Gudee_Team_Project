@@ -45,6 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="PHONE" property="phone"/>
 		<result column="ADDRESS" property="address"/>
 		<result column="POSTCODE" property="postcode"/>
+		<result column="BIRTHDAY" property="birthday"/>
 		<association property="memberFileDTO" javaType="MemberFileDTO">
 			<id column="FILENUM" property="fileNum"/>
 			<result column="FILENAME" property="fileName"/>

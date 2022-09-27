@@ -100,6 +100,7 @@
 </div>
 <script src="/resources/js/infoUpdate.js"></script>
 <script>
+  joinCheck();
   init();
 </script>
 </body>
