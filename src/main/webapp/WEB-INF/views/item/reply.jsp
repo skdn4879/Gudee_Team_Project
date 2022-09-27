@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>목록</title>
+<title>응답</title>
 </head>
 <body>
 
