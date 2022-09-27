@@ -8,8 +8,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.goodee.market.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.goodee.market.item.ItemDTO" alias="ItemDTO"/>
 		<typeAlias type="com.goodee.market.item.ItemDAO" alias="ItemDAO"/>
-			<typeAlias type="java.lang.Long" alias="Long"/>
-	
 		<typeAlias type="com.goodee.market.member.MemberFileDTO" alias="MemberFileDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardDTO" alias="MeetingBoardDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardImageDTO" alias="MeetingBoardImageDTO"/>
