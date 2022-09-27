@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header class="header">
-	<nav class="navbar navbar-expand-lg bg-light">
+	<nav class="navbar">
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="../trade/main.jsp">구디마켓</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
 	          <a class="nav-link active" aria-current="page" href="#">홈</a>
 	          
 	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
 	            카테고리
 	          </a>
 	          <ul class="dropdown-menu">
@@ -30,7 +30,7 @@
 	        </li>
 	        
 	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
 	            후기
 	          </a>
 	          <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
 	        </li>
 	        
 	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
 	            공지사항
 	          </a>
 	          <ul class="dropdown-menu">
@@ -61,8 +61,8 @@
 	    	<nav class="navbar bg-light">
 		  	<div class="container-fluid">
 		    	<form class="d-flex" role="search">
-		      		<input class="form-control me-2" type="search" placeholder="어떤 상품을 찾으시나요?" aria-label="">
-		      		<button class="btn btn-outline-secondary" type="submit">검색왜세로로?</button>
+		      		<input class="form-control me-2" type="search" placeholder="어떤 상품을 찾으시나요?" aria-label="Search">
+		      		<button class="btn btn-outline-secondary" type="submit">검색</button>
 		    	</form>
 		</div>		    	
   </div>

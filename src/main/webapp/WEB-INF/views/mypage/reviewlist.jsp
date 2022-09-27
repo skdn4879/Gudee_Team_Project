@@ -40,17 +40,17 @@
 		    </tr>
 		  </thead>
 		  
-<%-- 		  <tbody>
+ 		  <tbody>
 		  	<c:forEach items="${sellitemlist}" var="sellItem">
 		  	<tr>
-		  		<td>${sellitemlist.itemnum}</td>
-		  		<td>${sellitemlist.category}</td>
-		  		<td>${sellitemlist.title}</td>
-		  		<td>${sellitemlist.itemprice}</td>
-		  		<td>${sellitemlist.itemstatus}</td>
+		  		<td>${sellitem.itemNum}</td>
+		  		<td>${sellitem.category}</td>
+		  		<td>${sellitem.title}</td>
+		  		<td>${sellitem.itemPrice}</td>
+		  		<td>${sellitem.itemStatus}</td>
 		  	</tr>
 		  	</c:forEach>
-		  </tbody> --%>
+		  </tbody>
 		  
 		</table>
 		</div>

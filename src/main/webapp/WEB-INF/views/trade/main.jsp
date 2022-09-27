@@ -6,6 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Trade Main</title>
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -154,6 +155,11 @@
 		.carousel-item {
 			background-color: cornflowerblue;
 		}
+
+		.w-full {
+			width: auto;
+		}
+		
 	</style>	
 		
 		
@@ -174,14 +180,27 @@
 				<button type="button" data-bs-target="#carouselExampleDark"
 					data-bs-slide-to="2" aria-label="Slide 3"></button>
 				<button type="button" data-bs-target="#carouselExampleDark"
-					data-bs-slide-to="3" aria-label="Slide 4"></button>
+					data-bs-slide-to="3" aria-label="Slide 4"></button>	
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active" data-bs-interval="2000">
-					<img src="/resources/images/trade/banner_1.png" class="d-block w-800"
-						alt="">
+					<img src="/resources/images/trade/banner_1.png" class="d-block w-100"
+						alt="ìì´ë1">
 				</div>
-			</div>
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="/resources/images/trade/banner_2.png" class="d-block w-100"
+						alt="ìì´ë2">
+				</div>
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="/resources/images/trade/banner_3.png" class="d-block w-100"
+						alt="ìì´ë2">
+				</div>
+				<div class="carousel-item" data-bs-interval="2000">
+					<img src="/resources/images/trade/banner_4.png" class="d-block w-100"
+						alt="ìì´ë2">
+				</div>
+			</div>	
+				
 			<button class="carousel-control-prev" type="button"
 				data-bs-target="#carouselExampleDark" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
