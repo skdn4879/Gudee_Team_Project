@@ -61,8 +61,8 @@
 	    	<nav class="navbar bg-light">
 		  	<div class="container-fluid">
 		    	<form class="d-flex" role="search">
-		      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="어떤 상품을 찾으시나요?">
-		      		<button class="btn btn-outline-secondary" type="submit">검색</button>
+		      		<input class="form-control me-2" type="search" placeholder="어떤 상품을 찾으시나요?" aria-label="">
+		      		<button class="btn btn-outline-secondary" type="submit">검색왜세로로?</button>
 		    	</form>
 		</div>		    	
   </div>

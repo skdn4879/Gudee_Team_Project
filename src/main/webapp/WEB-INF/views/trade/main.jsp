@@ -178,7 +178,7 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active" data-bs-interval="2000">
-					<img src="/resources/images/trade/banner_1.png" class="d-block w-400"
+					<img src="/resources/images/trade/banner_1.png" class="d-block w-800"
 						alt="">
 				</div>
 			</div>
