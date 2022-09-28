@@ -19,7 +19,12 @@
 			<input type="hidden" id="mbNum" value=${meetingBoardDetail.meetingBoardNum }>
 			<input type="hidden" id="mNum" value="${sessionScope.member.memberNum }">
 		</form>
-		<img alt="" src="/resources/images/meetingboard/detail_star_icon.svg" id="likeBtn">
+		<c:if test="${!isLikeExist }">
+			<img alt="" src="/resources/images/meetingboard/detail_star_icon.svg" id="likeBtn">
+		</c:if>
+		<c:if test="${isLikeExist }">
+			<img alt="" src="/resources/images/meetingboard/detail_star_xmas_icon.svg" id="unlikeBtn">
+		</c:if>
 		<img alt="" src="/resources/images/meetingboard/detail_person_plus_icon.svg" id="joinBtn">
 	</c:if>
 	
@@ -94,6 +99,16 @@
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<script type="text/javascript" src="/resources/js/meetingboard/detail_like_join.js"></script>
+		<c:if test="${!isLikeExist }">
+			<script type="text/javascript">
+				likeBtnFunction();
+			</script>
+		</c:if>
+		<c:if test="${isLikeExist }">
+			<script type="text/javascript">
+				unlikeBtnFunction();
+			</script>
+		</c:if>
 	</c:if>
 	
 	<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni veniam vero minus, vitae repellat earum quas aliquam aliquid fugiat sequi laborum aut reprehenderit necessitatibus, repellendus accusamus quisquam recusandae dolorem.

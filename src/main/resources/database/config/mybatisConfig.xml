@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardDTO" alias="MeetingBoardDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.MeetingBoardImageDTO" alias="MeetingBoardImageDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.util.MeetingBoardPager" alias="MeetingBoardPager"/>
+		<typeAlias type="com.goodee.market.meetingboard.like.MeetingLikeDTO" alias="MeetingLikeDTO"/>
 		
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>

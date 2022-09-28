@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.goodee.market.meetingboard.like.MeetingLikeDTO;
+import com.goodee.market.meetingboard.like.MeetingLikeService;
 import com.goodee.market.meetingboard.util.MeetingBoardPager;
 import com.goodee.market.member.MemberDTO;
 
@@ -24,6 +26,9 @@ public class MeetingBoardController {
 	
 	@Autowired
 	private MeetingBoardService meetingBoardService;
+	
+	@Autowired
+	private MeetingLikeService meetingLikeService;
 	
 	@GetMapping("test")
 	public String getTest() throws Exception {
@@ -47,13 +52,22 @@ public class MeetingBoardController {
 	}
 	
 	@GetMapping("detail")
-	public ModelAndView getMeetingBoardDetail(Long num) throws Exception {
+	public ModelAndView getMeetingBoardDetail(Long num, HttpSession session) throws Exception {
 		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
 		meetingBoardDTO.setMeetingBoardNum(num);
 		meetingBoardDTO = meetingBoardService.getMeetingBoardDetail(meetingBoardDTO);
 		
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		
+		MeetingLikeDTO meetingLikeDTO = new MeetingLikeDTO();
+		meetingLikeDTO.setMeetingBoardNum(num);
+		meetingLikeDTO.setMemberNum(memberDTO.getMemberNum());
+		
+		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("meetingBoardDetail", meetingBoardDTO);
+		mv.addObject("isLikeExist", isLikeExist);
 		mv.setViewName("meetingboard/detail");
 		return mv;
 	}
