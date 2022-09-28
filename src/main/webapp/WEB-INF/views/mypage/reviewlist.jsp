@@ -41,13 +41,12 @@
 		  </thead>
 		  
  		  <tbody>
-		  	<c:forEach items="${sellitemlist}" var="sellItem">
+		  	<c:forEach items="${reviewlist}" var="review">
 		  	<tr>
-		  		<td>${sellitem.itemNum}</td>
-		  		<td>${sellitem.category}</td>
-		  		<td>${sellitem.title}</td>
-		  		<td>${sellitem.itemPrice}</td>
-		  		<td>${sellitem.itemStatus}</td>
+		  		<td>${review.reviewNum}</td>
+		  		<td>${review.reviewTitle}</td>
+		  		<td>${review.memberNum}</td>
+		  		<td>${review.itemNum}</td>
 		  	</tr>
 		  	</c:forEach>
 		  </tbody>

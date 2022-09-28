@@ -15,6 +15,26 @@
 		crossorigin="anonymous">
 		
 	<style type="text/css">
+		/*--------------------
+			Header
+		----------------------*/
+		.container-fluid{    
+		    display: flex;
+		    flex-wrap: wrap;
+		    margin-right: -15px;
+		    margin-left: -15px;
+		    justify-content: space-around
+		}
+		
+		.navbar-brand{
+			padding : 15px 0;
+		}
+		
+		.d-felx{
+			padding : 24px 0;
+		}
+	
+	
 		/*---------------------
 		  Featured
 		-----------------------*/
@@ -159,6 +179,7 @@
 		.w-full {
 			width: auto;
 		}
+	
 		
 	</style>	
 		
