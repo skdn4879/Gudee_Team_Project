@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class CommentDTO {
 	
 	private Long num;
-	private String writer;
+	private Long writer;
 	private String contents;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date regDate;
@@ -17,10 +17,10 @@ public class CommentDTO {
 	public void setNum(Long num) {
 		this.num = num;
 	}
-	public String getWriter() {
+	public Long getWriter() {
 		return writer;
 	}
-	public void setWriter(String writer) {
+	public void setWriter(Long writer) {
 		this.writer = writer;
 	}
 	public String getContents() {
