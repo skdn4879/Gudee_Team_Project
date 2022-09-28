@@ -30,8 +30,7 @@ public class MemberDAO implements MemberInterface{
 	//회원 정보 수정
 	@Override
 	public int setInfoUpdate(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "setInfoUpdate", memberDTO);
 	}
 	
 	//파일 추가

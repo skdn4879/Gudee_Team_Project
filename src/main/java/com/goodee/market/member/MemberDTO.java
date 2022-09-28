@@ -19,7 +19,8 @@ public class MemberDTO {
 	private Long cash;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
-	private String address;
+	private String main_address;
+	private String detail_address;
 	private String postcode;
 	private MemberFileDTO memberFileDTO;
 	
@@ -83,13 +84,19 @@ public class MemberDTO {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
+	public String getMain_address() {
+		return main_address;
+	}
+	public void setMain_address(String main_address) {
+		this.main_address = main_address;
+	}
+	public String getDetail_address() {
+		return detail_address;
+	}
+	public void setDetail_address(String detail_address) {
+		this.detail_address = detail_address;
+	}
 	public MemberFileDTO getMemberFileDTO() {
 		return memberFileDTO;
 	}

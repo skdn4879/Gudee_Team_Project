@@ -14,15 +14,23 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>USERNAME</th><th>NAME</th><th>EMAIL</th><th>PHONE</th>
+				<th>ID</th><th>NAME</th><th>NICKNAME</th><th>EMAIL</th><th>PHONE</th><th>CASH</th><th>BIRTHDAY</th>
+				<th>MAIN_ADDRESS</th><th>DETAIL_ADDRESS</th><th>POSTCODE</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td><p>${sessionScope.member.id}</p></td>
 				<td><p>${sessionScope.member.name}</p></td>
+				<td><p>${sessionScope.member.nickname}</p></td>
 				<td><p>${sessionScope.member.email}</p></td>
 				<td><p>${sessionScope.member.phone}</p></td>
+				<td><p>${sessionScope.member.cash}</p></td>
+				<td><p>${sessionScope.member.birthday}</p></td>
+				<td><p>${sessionScope.member.main_address}</p></td>
+				<td><p>${sessionScope.member.detail_address}</p></td>
+				<td><p>${sessionScope.member.postcode}</p></td>
+				<td><p><img src="/resources/upload/member/${myPage.memberFileDTO.fileName}" alt="" style="width: 100px; height: 100px;"></p></td>
 			</tr>
 		</tbody>
 	</table>

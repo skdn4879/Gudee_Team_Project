@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 로그인 -->
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
+		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, BIRTHDAY, CASH, MAIN_ADDRESS, DETAIL_ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
 	
 	<!-- 회원가입 -->
@@ -16,8 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<selectKey keyProperty="memberNum" order="BEFORE" resultType="Long">
             SELECT MEMBER_SEQ.NEXTVAL FROM DUAL
       </selectKey>
-		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, ADDRESS, POSTCODE)
-		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{address}, #{postcode})
+		INSERT INTO MEMBER(MEMBERNUM, ID, PASSWORD, NAME, NICKNAME, EMAIL, PHONE, JOINDATE, CASH, BIRTHDAY, MAIN_ADDRESS, DETAIL_ADDRESS, POSTCODE)
+		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{main_address}, #{detail_address}, #{postcode})
 	</insert>
 	
 	<!-- 파일추가 -->
@@ -44,7 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="NICKNAME" property="nickname"/>
 		<result column="EMAIL" property="email"/>
 		<result column="PHONE" property="phone"/>
-		<result column="ADDRESS" property="address"/>
+		<result column="MAIN_ADDRESS" property="main_address"/>
+		<result column="DETAIL_ADDRESS" property="detail_address"/>
 		<result column="POSTCODE" property="postcode"/>
 		<result column="BIRTHDAY" property="birthday"/>
 		<association property="memberFileDTO" javaType="MemberFileDTO">
@@ -66,6 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="setInfoUpdate" parameterType="MemberDTO">
 		UPDATE MEMBER SET PASSWORD = #{password}, NAME = #{name}, NICKNAME = #{nickname}, 
+		EMAIL = #{email}, PHONE = #{phone}, MAIN_ADDRESS = #{main_address}, DETAIL_ADDRESS = #{detail_address}, POSTCODE = #{postcode}
+		WHERE MEMBERNUM = #{memberNum}
 	</update>
 	
 	

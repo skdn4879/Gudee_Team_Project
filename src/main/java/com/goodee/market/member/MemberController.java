@@ -95,11 +95,10 @@ public class MemberController {
 	}
 	
 	@PostMapping("infoUpdate")
-	public ModelAndView infoUpdate(MemberDTO memberDTO)throws Exception{
+	public String infoUpdate(MemberDTO memberDTO, MultipartFile[] files, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("memberDTO", memberDTO);
-		mv.setViewName("redirect: myPage");
-		return mv;
+		int result = memberService.setInfoUpdate(memberDTO, files, session.getServletContext());
+		return "redirect: myPage?memberNum=" + memberDTO.getMemberNum();
 	}
 	
 
