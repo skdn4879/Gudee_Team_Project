@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<form action="/mypage/sellitemlist" method="get">
+	<form action="/mypage/trade/sellitemlist" method="get">
 	
 	<br>
 	<h6 class="align-left">판매 상품 목록</h6>
@@ -57,3 +57,5 @@
 		</table>
 		</div>
 	</section>	
+	
+</form>	

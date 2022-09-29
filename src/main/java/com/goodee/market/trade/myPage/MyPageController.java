@@ -14,7 +14,7 @@ import com.goodee.market.trade.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 
 @Controller  //return 값은 내부 파일명
-@RequestMapping(value = "/mypage/*")
+@RequestMapping(value = "/mypage/trade/*")
 public class MyPageController {
 	
 	@Autowired
@@ -22,9 +22,17 @@ public class MyPageController {
 	
 	
 	@GetMapping(value = "main")
-	public String getMypage () throws Exception{
+	public String getMypage (Model model) throws Exception{
+		List<ItemDTO> ar = myPageService.getSellItemList();
+		model.addAttribute("sellitemlist", ar);
+		
+		ar = myPageService.getBuyItemList();
+		model.addAttribute("buyitemlist", ar);
+		
+		List<ReviewDTO> ar2 = myPageService.getReviewList();
+		model.addAttribute("reviewlist", ar2);
 		System.out.println("중고 마이페이지");
-		return "mypage/main";
+		return "mypage/trade/main";
 	}
 	
 	
@@ -36,7 +44,7 @@ public class MyPageController {
 		List<ItemDTO> ar = myPageService.getSellItemList();
 		model.addAttribute("sellitemlist", ar);
 		System.out.println("중고 마이페이지 - sell List 접속");
-		return "mypage/sellitemlist";
+		return "mypage/trade/sellitemlist";
 	}
 	
 	
@@ -45,7 +53,7 @@ public class MyPageController {
 		List<ItemDTO> ar = myPageService.getBuyItemList();
 		model.addAttribute("buyitemlist", ar);
 		System.out.println("중고 마이페이지 - buy List 접속");
-		return "mypage/buyitemlist";
+		return "mypage/trade/buyitemlist";
 	}
 	
 //	
@@ -65,7 +73,7 @@ public class MyPageController {
 		List<ReviewDTO> ar = myPageService.getReviewList();
 		model.addAttribute("reviewlist", ar);
 		System.out.println("중고 마이페이지 - review List 접속");
-		return "mypage/reviewlist";
+		return "mypage/trade/reviewlist";
 	}
 
 }
