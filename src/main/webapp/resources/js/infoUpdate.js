@@ -189,3 +189,50 @@ function checkPost() {
     }).open();
 }
 
+const fileDelete = document.querySelectorAll('.fileDelete');
+const notNullImage = document.querySelector('#notNullImage');
+
+try {
+    fileDelete.forEach(function(f){
+        f.addEventListener('click', function(){
+            console.log('fileDelete');
+             let check = window.confirm('삭제하시겠습니까?');
+             if(!check){
+                return;
+             }
+        
+             let fileNum = f.getAttribute('data-file-num');
+             console.log(fileNum);
+        
+             //ajax
+             //1. request 객체 생성
+             const xhttp = new XMLHttpRequest();
+        
+             //2. 메서드, URL 작성
+             xhttp.open('POST', 'fileDelete');
+        
+             //3. encType
+             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+             //4. 요청
+             xhttp.send("fileNum=" + fileNum);
+        
+             //5. 응답처리
+             xhttp.onreadystatechange=function(){
+                if(xhttp.readyState==4 && xhttp.status==200){
+                    let result = xhttp.responseText.trim();
+                    if(result == 1){
+                        console.log('삭제실행');
+                        notNullImage.setAttribute('src', '/resources/images/Default Image.png');
+                    }else{
+                        console.log('삭제실행 안됨');
+                    }
+                }
+             }
+        })
+    })
+} catch (error) {
+    
+}
+
+

@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.goodee.market.meetingboard.MeetingBoardDTO;
+import com.goodee.market.meetingboard.like.MeetingLikeDTO;
 
 public class MemberDTO {
 	
@@ -23,6 +25,8 @@ public class MemberDTO {
 	private String detail_address;
 	private String postcode;
 	private MemberFileDTO memberFileDTO;
+	private List<MeetingLikeDTO> meetingLikeDTOs;
+	private List<MeetingBoardDTO> meetingBoardDTOs;
 	
 	public Long getMemberNum() {
 		return memberNum;
@@ -109,7 +113,18 @@ public class MemberDTO {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
-	
+	public List<MeetingLikeDTO> getMeetingLikeDTOs() {
+		return meetingLikeDTOs;
+	}
+	public void setMeetingLikeDTOs(List<MeetingLikeDTO> meetingLikeDTOs) {
+		this.meetingLikeDTOs = meetingLikeDTOs;
+	}
+	public List<MeetingBoardDTO> getMeetingBoardDTOs() {
+		return meetingBoardDTOs;
+	}
+	public void setMeetingBoardDTOs(List<MeetingBoardDTO> meetingBoardDTOs) {
+		this.meetingBoardDTOs = meetingBoardDTOs;
+	}
 	
 	
 	

@@ -77,15 +77,19 @@
           
           <div>
             <p><h3>프로필 사진</h3></p>
-            <c:if test="${memberDTO.memberFileDTO == null}">
-              기본 이미지입니다
-              <img src="/resources/images/Default Image.png" alt="">
-            </c:if>
-            <c:if test="${memberDTO.memberFileDTO != null}">
-              기존 이미지입니다
-              <img src="/resources/upload/member/${memberDTO.memberFileDTO.fileName}" alt="">
-            </c:if>
-            <button type="button" class="btn btn-danger" id="delete">삭제</button>
+            <div id="nullImage">
+              <c:if test="${memberDTO.memberFileDTO == null}">
+                기본 이미지입니다
+                <img src="/resources/images/Default Image.png" alt="">
+              </c:if>
+            </div>
+            <div>
+              <c:if test="${memberDTO.memberFileDTO != null}">
+                기존 이미지입니다
+                <img src="/resources/upload/member/${memberDTO.memberFileDTO.fileName}" id="notNullImage" alt="">
+              </c:if>
+            </div>
+            <button type="button" class="btn btn-danger fileDelete" id="delete" data-file-num="${memberDTO.memberFileDTO.fileNum}">삭제</button>
             <button type="button" class="btn btn-primary" id="edit">변경</button>
             <p><input class="form-control form-control-lg box" type="file" aria-label=".form-control-lg example" name="files" id="photo"></p>
           </div>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -76,10 +77,10 @@ public class MemberController {
 	public ModelAndView myPage(HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		memberDTO = memberService.getMemberDetail(memberDTO);
+		memberDTO = memberService.getMLList(memberDTO);
 		mv.addObject("myPage", memberDTO);
 		mv.setViewName("member/myPage");
-		System.out.println(memberDTO.getMemberFileDTO().getFileName());
+//		System.out.println(memberDTO.getMemberFileDTO().getFileName());
 		return mv;
 		
 	}
@@ -99,6 +100,14 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		int result = memberService.setInfoUpdate(memberDTO, files, session.getServletContext());
 		return "redirect: myPage?memberNum=" + memberDTO.getMemberNum();
+	}
+	
+	@PostMapping("fileDelete")
+	@ResponseBody
+	public int setFileDelete(MemberFileDTO memberFileDTO, HttpSession session)throws Exception{
+		System.out.println("MemberController 실행");
+		int jasonResult = memberService.setFileDelete(memberFileDTO, session.getServletContext());
+		return jasonResult;
 	}
 	
 

@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<!-- 프로필사진 정보 불러오기 -->
-	<select id="getFileDetail" parameterType="MemberFileDTO">
+	<select id="getFileDetail" parameterType="MemberFileDTO" resultType="MemberFileDTO">
 	 	SELECT * FROM MEMBERIMAGE WHERE FILENUM = #{fileNum}
 	</select>
 	
@@ -70,6 +70,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		EMAIL = #{email}, PHONE = #{phone}, MAIN_ADDRESS = #{main_address}, DETAIL_ADDRESS = #{detail_address}, POSTCODE = #{postcode}
 		WHERE MEMBERNUM = #{memberNum}
 	</update>
+	
+	<select id="getMLList" parameterType="MemberDTO" resultMap="getMLList">
+		SELECT M.MEMBERNUM, M.ID, M.PASSWORD , M.NAME, M.NICKNAME, M.EMAIL, M.PHONE, 
+		M.MAIN_ADDRESS, M.DETAIL_ADDRESS, M.POSTCODE, M.BIRTHDAY, MI.FILENUM, MI.FILENAME, 
+		ML.MLMNUM , ML.MEETINGBOARDNUM , MB.MEETINGBOARDTITLE 
+		FROM 
+		MEMBER M
+		INNER JOIN
+		MEMBERIMAGE MI
+		ON M.MEMBERNUM = MI.MEMBERNUM
+		INNER JOIN
+		MEETINGLIKE_MEMBER ML
+		ON M.MEMBERNUM = ML.MEMBERNUM
+		INNER JOIN
+		MEETINGBOARD MB
+		ON ML.MEETINGBOARDNUM = MB.MEETINGBOARDNUM 
+		WHERE M.MEMBERNUM = #{memberNum}
+	</select>
+	
+	<resultMap type="MemberDTO" id="getMLList">
+		<id column="MEMBERNUM" property="memberNum"/>
+		<result column="ID" property="id"/>
+		<result column="PASSWORD" property="password"/>
+		<result column="NAME" property="name"/>
+		<result column="NICKNAME" property="nickname"/>
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<result column="MAIN_ADDRESS" property="main_address"/>
+		<result column="DETAIL_ADDRESS" property="detail_address"/>
+		<result column="POSTCODE" property="postcode"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		<collection javaType="List" ofType="MeetingLikeDTO" property="meetingLikeDTOs">
+			<id column="MLMNUM" property="mlmNum"/>
+			<result column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		</collection>
+		<collection  javaType="List" ofType="MeetingBoardDTO" property="meetingBoardDTOs">
+			<result column="MEETINGBOARDTITLE" property="meetingBoardTitle"/>
+			<result column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		</collection>
+	</resultMap>
 	
 	
 

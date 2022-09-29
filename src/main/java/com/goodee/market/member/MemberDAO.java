@@ -50,6 +50,14 @@ public class MemberDAO implements MemberInterface{
 	public MemberFileDTO getFileDetail(MemberFileDTO memberFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getFileDetail", memberFileDTO);
 	}
+
+	//찜목록 불러오기
+	@Override
+	public MemberDTO getMLList(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMLList", memberDTO);
+	}
+	
+	
 	
 	
 	

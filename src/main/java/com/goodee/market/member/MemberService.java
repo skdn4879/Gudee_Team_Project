@@ -63,11 +63,30 @@ public class MemberService {
 				MemberFileDTO memberFileDTO = new MemberFileDTO();
 				memberFileDTO.setMemberNum(memberDTO.getMemberNum());
 				memberFileDTO.setFileName(fileName);
-				memberFileDTO.setOriName(memberDTO.getMemberFileDTO().getOriName());
+				memberFileDTO.setOriName(multipartFile.getOriginalFilename());
 				memberDAO.setAddFile(memberFileDTO);
 			}
 		}
 		return result;
+	}
+	
+	public int setFileDelete(MemberFileDTO memberFileDTO, ServletContext servletContext)throws Exception{
+		System.out.println("MemberService 실행");
+		//DB에서 파일 제거
+		memberFileDTO = memberDAO.getFileDetail(memberFileDTO);
+		int result = memberDAO.setFileDelete(memberFileDTO);
+		//HDD에서 파일 제거
+		String path = "/resources/upload/member";
+		//실제로 DB에서 파일이 제거되었을때만 HDD에서 같은 파일을 제거해야 하므로
+		if(result > 0) {
+			memberFileManager.deleteFile(servletContext, path, memberFileDTO);
+		}
+		return result;
+	}
+	
+	public MemberDTO getMLList(MemberDTO memberDTO)throws Exception{
+		memberDTO = memberDAO.getMLList(memberDTO);
+		return memberDTO;
 	}
 	
 	
