@@ -53,11 +53,18 @@ public class MeetingBoardController {
 	
 	@GetMapping("detail")
 	public ModelAndView getMeetingBoardDetail(Long num, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
 		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
 		meetingBoardDTO.setMeetingBoardNum(num);
 		meetingBoardDTO = meetingBoardService.getMeetingBoardDetail(meetingBoardDTO);
 		
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		
+		if(memberDTO == null) {
+			mv.setViewName("redirect: /member/login");
+			return mv;
+		}
 		
 		MeetingLikeDTO meetingLikeDTO = new MeetingLikeDTO();
 		meetingLikeDTO.setMeetingBoardNum(num);
@@ -65,7 +72,6 @@ public class MeetingBoardController {
 		
 		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);
 		
-		ModelAndView mv = new ModelAndView();
 		mv.addObject("meetingBoardDetail", meetingBoardDTO);
 		mv.addObject("isLikeExist", isLikeExist);
 		mv.setViewName("meetingboard/detail");

@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="/resources/css/meetingboard/detail.css?after" />
 <link rel="stylesheet" href="/resources/css/meetingboard/header.css">
 <link rel="stylesheet" href="/resources/css/meetingboard/footer.css">
+<c:import url="../template/meetingboard/jQueryJs.jsp"></c:import>
+<c:import url="../template/meetingboard/summerNote.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
@@ -87,15 +89,58 @@
 	</section>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter == sessionScope.member.memberNum }">
+		<section class="container-fluid col-10 buttonSection">
 		<a class="btn btn-primary" id="updateBtn" href="./update?num=${meetingBoardDetail.meetingBoardNum }">수정</a>
 		<a class="btn btn-primary" id="deleteBtn" href="./delete?num=${meetingBoardDetail.meetingBoardNum }">삭제</a>
+		</section>
 	</c:if>
+	
+	<section class="container-fluid col-10" id="commentSection">
+		<div class="input-group mb-3" id="commentInputFrame">
+		  <textarea class="form-control" id="commentContents"></textarea>
+		  <button type="button" id="commentAddBtn" class="btn btn-primary" data-m-num="${sessionScope.member.memberNum }" data-mb-num="${meetingBoardDetail.meetingBoardNum }">댓글 작성</button>
+		</div>
+	</section>
+	
+	<section class="container-fluid col-10 buttonSection">
+		<button type="button" class="btn btn-success" id="commentMoreBtn">댓글 더보기</button>
+	</section>
+	
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestApprovalModal" data-bs-whatever="@getbootstrap" id="requestApprovalModalOpenBtn"></button>
+
+	<div class="modal fade" id="requestApprovalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="requestApprovalTitle">참여 신청하기</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="mb-3">
+	            <label for="recipient-name" class="col-form-label">주최자 질문:</label>
+	            <input type="text" class="form-control" id="recipient-name" readonly="readonly" value="${meetingBoardDetail.meetingBoardHostDemand }">
+	          </div>
+	          <div class="mb-3">
+	            <label for="approvalContents" class="col-form-label">답변:</label>
+	            <textarea class="form-control" id="approvalContents" name="approvalContents"></textarea>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-primary" id="requestApprovalModalSendBtn">신청하기</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 	<c:import url="../template/meetingboard/kakaoMapApi.jsp"></c:import>
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 	
 	<script src="/resources/js/meetingboard/detail.js"></script>
+	<script src="/resources/js/meetingboard/detail_comment.js"></script>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<script type="text/javascript" src="/resources/js/meetingboard/detail_like_join.js"></script>
@@ -111,12 +156,22 @@
 		</c:if>
 	</c:if>
 	
-	<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi magni veniam vero minus, vitae repellat earum quas aliquam aliquid fugiat sequi laborum aut reprehenderit necessitatibus, repellendus accusamus quisquam recusandae dolorem.
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, expedita sunt consequatur nobis veritatis reiciendis fugiat necessitatibus doloribus voluptate inventore corporis facilis molestias beatae! Ipsam beatae asperiores adipisci. Modi, explicabo!
-		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo iure fugiat sit consectetur molestias nobis temporibus sapiente, repellendus laudantium, aliquam recusandae sequi in officia veritatis et voluptatum, iste voluptates accusantium.
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis atque ea vero non quia minima aspernatur? Natus facilis tempora, praesentium ducimus nostrum quam, dolore itaque quis sapiente quaerat quia inventore.
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit quod omnis, nulla cum hic quo, eligendi necessitatibus mollitia minima nemo, esse nesciunt incidunt maiores dolorem. Officiis adipisci cum enim facere?
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa minima necessitatibus maxime voluptates rerum praesentium nihil ratione! Doloremque, sequi porro blanditiis totam quisquam, laboriosam illum facere animi, explicabo maiores vitae.
-		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam suscipit corrupti maxime aliquam aut. Consequatur voluptatem neque quod rerum sequi nulla consectetur omnis quae cumque, exercitationem qui tenetur totam ab? -->
+	<script type="text/javascript">
+		$("#commentContents").summernote();
+	</script>
+	
+	<script type="text/template" id="commentListTemplate">
+		<div class="commentListItem">
+			<div class="commentItemInfoFrame">
+				<div class="commentItemInfoWriterFrame">
+					<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" class="commentWriterImage">
+					<div class="commentWriterNickname">{nickname}</div>
+				</div>
+				<div class="commentItemContents">{commentContents}</div>
+			</div>
+			<div class="commentItemDate">{commentDate}</div>
+		</div>
+	</script>
+	
 </body>
 </html>

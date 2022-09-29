@@ -1,6 +1,7 @@
 const likeBtn = document.querySelector("#likeBtn");
 const unlikeBtn = document.querySelector("#unlikeBtn");
 const joinBtn = document.querySelector("#joinBtn");
+const requestApprovalModalOpenBtn = document.querySelector("#requestApprovalModalOpenBtn");
 const mbNum = document.querySelector("#mbNum");
 const mNum = document.querySelector("#mNum");
 
@@ -73,5 +74,13 @@ function unlikeBtnFunction(){
 }
 
 joinBtn.addEventListener("click", function(){
-    console.log("join");
+    
+    let joinCheck = confirm("이 모임에 참여합니까?");
+
+    if(!joinCheck){
+        return;
+    }
+
+    requestApprovalModalOpenBtn.click();
+
 });
