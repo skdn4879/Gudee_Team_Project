@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.goodee.market.meetingboard.util.MeetingBoardCommentPager;
+
 @Repository
 public class MeetingBoardCommentDAO {
 	
@@ -18,12 +20,16 @@ public class MeetingBoardCommentDAO {
 		return sqlSession.insert(NAMESPACE + "commentAdd", meetingBoardCommentDTO);
 	}
 	
-	public List<MeetingBoardCommentDTO> getCommentList(MeetingBoardCommentDTO meetingBoardCommentDTO) throws Exception {
-		return sqlSession.selectList(NAMESPACE + "getCommentList", meetingBoardCommentDTO);
+	public List<MeetingBoardCommentDTO> getCommentList(MeetingBoardCommentPager meetingBoardCommentPager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getCommentList", meetingBoardCommentPager);
 	}
 	
 	public int setCommentDelete(MeetingBoardCommentDTO meetingBoardCommentDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE + "setCommentDelete", meetingBoardCommentDTO);
+	}
+	
+	public Long getTotalCount(MeetingBoardCommentPager meetingBoardCommentPager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getTotalCount", meetingBoardCommentPager);
 	}
 	
 }

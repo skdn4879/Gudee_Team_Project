@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO MEETINGBOARDCOMMENT(MBCWRITER, MBCMEETINGBOARDNUM, MBCCONTENTS) VALUES(#{writer}, #{meetingBoardNum}, #{contents})
 	</insert>
 	
-	<select id="getCommentList" parameterType="MeetingBoardCommentDTO" resultMap="getListResult">
+	<select id="getCommentList" parameterType="MeetingBoardCommentPager" resultMap="getListResult">
 		SELECT *
 		FROM (
 		    SELECT ROWNUM R, J.*
@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		        WHERE MBC.mbcmeetingboardnum = #{meetingBoardNum}
 		        ORDER BY MBC.mbcnum DESC
 		    ) J)
+		    WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
 	<resultMap type="MeetingBoardCommentDTO" id="getListResult">
@@ -42,5 +43,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="setCommentDelete" parameterType="MeetingBoardCommentDTO">
 		DELETE FROM MEETINGBOARDCOMMENT WHERE MBCNUM = #{num}
 	</delete>
+	
+	<select id="getTotalCount" parameterType="MeetingBoardCommentPager" resultType="Long">
+		SELECT COUNT(mbcnum) FROM meetingboardcomment WHERE mbcmeetingboardnum = #{meetingBoardNum}
+	</select>
 
 </mapper>

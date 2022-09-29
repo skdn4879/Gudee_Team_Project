@@ -89,8 +89,10 @@
 	</section>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter == sessionScope.member.memberNum }">
+		<section class="container-fluid col-10 buttonSection">
 		<a class="btn btn-primary" id="updateBtn" href="./update?num=${meetingBoardDetail.meetingBoardNum }">수정</a>
 		<a class="btn btn-primary" id="deleteBtn" href="./delete?num=${meetingBoardDetail.meetingBoardNum }">삭제</a>
+		</section>
 	</c:if>
 	
 	<section class="container-fluid col-10" id="commentSection">
@@ -99,6 +101,39 @@
 		  <button type="button" id="commentAddBtn" class="btn btn-primary" data-m-num="${sessionScope.member.memberNum }" data-mb-num="${meetingBoardDetail.meetingBoardNum }">댓글 작성</button>
 		</div>
 	</section>
+	
+	<section class="container-fluid col-10 buttonSection">
+		<button type="button" class="btn btn-success" id="commentMoreBtn">댓글 더보기</button>
+	</section>
+	
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestApprovalModal" data-bs-whatever="@getbootstrap" id="requestApprovalModalOpenBtn"></button>
+
+	<div class="modal fade" id="requestApprovalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="requestApprovalTitle">참여 신청하기</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="mb-3">
+	            <label for="recipient-name" class="col-form-label">주최자 질문:</label>
+	            <input type="text" class="form-control" id="recipient-name" readonly="readonly" value="${meetingBoardDetail.meetingBoardHostDemand }">
+	          </div>
+	          <div class="mb-3">
+	            <label for="approvalContents" class="col-form-label">답변:</label>
+	            <textarea class="form-control" id="approvalContents" name="approvalContents"></textarea>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-primary" id="requestApprovalModalSendBtn">신청하기</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	
 	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 	<c:import url="../template/meetingboard/kakaoMapApi.jsp"></c:import>

@@ -1,6 +1,8 @@
 const commentAddBtn = document.querySelector("#commentAddBtn");
 const commentContents = document.querySelector("#commentContents");
 const commentSection = document.querySelector("#commentSection");
+const commentMoreBtn = document.querySelector("#commentMoreBtn");
+let page = 1;
 
 commentAddBtn.addEventListener("click", function(){
 
@@ -34,20 +36,23 @@ commentAddBtn.addEventListener("click", function(){
                 alert("댓글 작성 실패");
             }
 
-            location.reload();
+            commentContents.innerText = "";
+            terminateComments();
+            page = 1;
+            getCommentList(page);
 
         }
     }
 
 });
 
-function getCommentList(){
+function getCommentList(page){
     let writer = commentAddBtn.getAttribute("data-m-num");
     let boardNum = commentAddBtn.getAttribute("data-mb-num");
     
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "/mbc/list?meetingBoardNum=" + boardNum);
+    xhttp.open("GET", "/mbc/list?meetingBoardNum=" + boardNum + "&page=" + page);
 
     xhttp.send();
 
@@ -56,7 +61,7 @@ function getCommentList(){
             let result = this.responseText.trim();
             result = JSON.parse(result);
 
-            console.log(result);
+            //console.log(result);
 
             let comments = result.commentList;
             
@@ -76,50 +81,79 @@ function getCommentList(){
                     let deleteBtn = document.createElement("button");
                     deleteBtn.setAttribute("class", "btn btn-danger commentDeleteBtn");
                     deleteBtn.setAttribute("data-mbc-num", comments[i].num);
+                    deleteBtn.setAttribute("ischecked", 0);
                     deleteBtn.appendChild(document.createTextNode("댓글 삭제"));
                     dummychild.appendChild(deleteBtn);
                 }
 
                 commentSection.append(dummychild);
-            }
 
-            commentDelete();
+                if(page >= result.meetingBoardCommentPager.totalPage){
+                    commentMoreBtn.setAttribute("disabled", true);
+                } else {
+                    commentMoreBtn.removeAttribute("disabled");
+                }
+            }
             
+            //console.log(commentSection.children); //콜백함수가 중첩해서 걸리는게 문제인듯
+            commentDelete();
+
         }
     }
 
 }
 
-getCommentList();
+getCommentList(page);
 
 function commentDelete(){
-    const deleteBtnList = document.querySelectorAll(".commentDeleteBtn");
+    let deleteBtnList = document.querySelectorAll(".commentDeleteBtn");
 
     deleteBtnList.forEach(function(e){
-        e.addEventListener("click", function(){
-            //console.log(e.getAttribute("data-mbc-num"));
 
-            const xhttp = new XMLHttpRequest();
+        if(e.getAttribute("ischecked") == 0){
+            e.setAttribute("ischecked", 1);
 
-            xhttp.open("POST", "/mbc/delete");
+            e.addEventListener("click", function(){
+                const xhttp = new XMLHttpRequest();
 
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.open("POST", "/mbc/delete");
 
-            xhttp.send("num=" + e.getAttribute("data-mbc-num"));
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-            xhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                    let result = this.responseText.trim();
+                xhttp.send("num=" + e.getAttribute("data-mbc-num"));
 
-                    if(result > 0){
-                        alert("댓글 삭제 성공");
-                    } else{
-                        alert("댓글 삭제 실패");
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        let result = this.responseText.trim();
+
+                        if(result > 0){
+                            alert("댓글 삭제 성공");
+                        } else{
+                            alert("댓글 삭제 실패");
+                        }
+
+                        terminateComments();
+                        page = 1;
+                        getCommentList(page);
                     }
-
-                    location.reload();
                 }
-            }
-        });
+            });
+
+        }
     });
+}
+
+commentMoreBtn.addEventListener("click", function(){
+    page++;
+    getCommentList(page);
+});
+
+function terminateComments() {
+
+    let existedComments = commentSection.children;
+
+    for(let i = 1; i < existedComments.length;){
+        existedComments[i].remove();
+    }
+
 }

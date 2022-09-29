@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.goodee.market.meetingboard.util.MeetingBoardCommentPager;
+
 @Controller
 @RequestMapping(value = "/mbc/*")
 public class MeetingBoardCommentController {
@@ -34,12 +36,13 @@ public class MeetingBoardCommentController {
 	
 	@GetMapping("list")
 	@ResponseBody
-	public Map<String, Object> getCommentList(MeetingBoardCommentDTO meetingBoardCommentDTO) throws Exception {
+	public Map<String, Object> getCommentList(MeetingBoardCommentPager meetingBoardCommentPager) throws Exception {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		List<MeetingBoardCommentDTO> commentList = meetingBoardCommentService.getCommentList(meetingBoardCommentDTO);
+		List<MeetingBoardCommentDTO> commentList = meetingBoardCommentService.getCommentList(meetingBoardCommentPager);
 		
 		map.put("commentList", commentList);
+		map.put("meetingBoardCommentPager", meetingBoardCommentPager);
 		
 		return map;
 		
