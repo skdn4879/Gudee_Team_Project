@@ -123,7 +123,7 @@
 	          </div>
 	          <div class="mb-3">
 	            <label for="approvalContents" class="col-form-label">답변:</label>
-	            <textarea class="form-control" id="approvalContents" name="approvalContents"></textarea>
+	            <textarea class="form-control" id="approvalContents" name="approvalContents" data-hostnum="${meetingBoardDetail.meetingBoardWriter }"></textarea>
 	          </div>
 	        </form>
 	      </div>

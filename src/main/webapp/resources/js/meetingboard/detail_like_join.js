@@ -2,6 +2,7 @@ const likeBtn = document.querySelector("#likeBtn");
 const unlikeBtn = document.querySelector("#unlikeBtn");
 const joinBtn = document.querySelector("#joinBtn");
 const requestApprovalModalOpenBtn = document.querySelector("#requestApprovalModalOpenBtn");
+const requestApprovalModalSendBtn = document.querySelector("#requestApprovalModalSendBtn");
 const mbNum = document.querySelector("#mbNum");
 const mNum = document.querySelector("#mNum");
 
@@ -82,5 +83,28 @@ joinBtn.addEventListener("click", function(){
     }
 
     requestApprovalModalOpenBtn.click();
+
+});
+
+requestApprovalModalSendBtn.addEventListener("click", function(){
+    const approvalContents = document.querySelector("#approvalContents");
+    let sendingContents = approvalContents.value;
+    let hostNum = approvalContents.getAttribute("data-hostnum");
+
+    //console.log(sendingContents, hostNum, mNum.value, mbNum.value);
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open("POST", "/mbm/add");
+
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhttp.send("requestMemberNum=" + mNum.value + "&meetingBoardNum=" + mbNum.value + "&approvalContents=" + sendingContents + "&hostMemberNum" + hostNum);
+
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            
+        }
+    }
 
 });
