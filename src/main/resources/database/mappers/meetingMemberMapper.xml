@@ -14,5 +14,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO MEETINGBOARD_MEMBER(HOSTMEMBERNUM, MEETINGBOARDNUM, REQUESTMEMBERNUM, APPROVALSTATUS)
 		VALUES(#{hostMemberNum}, #{meetingBoardNum}, #{requestMemberNum}, 1)
 	</insert>
+	
+	<select id="getJoinExist" parameterType="MeetingBoardMemberDTO" resultType="Long">
+		SELECT COUNT(MBMNUM) FROM meetingboard_member WHERE meetingboardnum = #{meetingBoardNum} AND requestmembernum = #{requestMemberNum}
+	</select>
+	
+	<delete id="setDeleteMeetingBoardMember" parameterType="MeetingBoardMemberDTO">
+		DELETE FROM meetingboard_member WHERE HOSTMEMBERNUM = #{hostMemberNum} AND meetingboardnum = #{meetingBoardNum} AND requestmembernum = #{requestMemberNum}
+	</delete>
 
 </mapper>

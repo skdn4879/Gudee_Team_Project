@@ -27,7 +27,12 @@
 		<c:if test="${isLikeExist }">
 			<img alt="" src="/resources/images/meetingboard/detail_star_xmas_icon.svg" id="unlikeBtn">
 		</c:if>
-		<img alt="" src="/resources/images/meetingboard/detail_person_plus_icon.svg" id="joinBtn">
+		<c:if test="${!isJoinExist }">
+			<img alt="" src="/resources/images/meetingboard/detail_person_plus_icon.svg" id="joinBtn">
+		</c:if>
+		<c:if test="${isJoinExist }">
+			<img alt="" src="/resources/images/meetingboard/detail_person_minus_icon.svg" id="unjoinBtn" data-hostnum="${meetingBoardDetail.meetingBoardWriter }">
+		</c:if>
 	</c:if>
 	
 	<section class="container-fluid col-10" id="detailMainSection">
@@ -75,7 +80,12 @@
 		<div id="detailCenterFrame">
 			<div id="detailTitleFrame">
 				<div id="detailTitleUserFrame">
-					<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" style="width:5rem; height:5rem;">
+					<c:if test="${meetingBoardDetail.memberDTO.memberFileDTO == null }">
+						<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" style="width:5rem; height:5rem;">
+					</c:if>
+					<c:if test="${meetingBoardDetail.memberDTO.memberFileDTO != null }">
+						<img alt="" src="../resources/upload/member/${meetingBoardDetail.memberDTO.memberFileDTO.fileName }" style="width:5rem; height:5rem; border-radius: 70%; overflow: hidden;">
+					</c:if>
 					<span>${meetingBoardDetail.memberDTO.nickname }</span>
 				</div>
 				<div id="detailTitle">${meetingBoardDetail.meetingBoardTitle }</div>
@@ -128,7 +138,7 @@
 	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="requestApprovalModalCloseBtn">닫기</button>
 	        <button type="button" class="btn btn-primary" id="requestApprovalModalSendBtn">신청하기</button>
 	      </div>
 	    </div>
@@ -152,6 +162,16 @@
 		<c:if test="${isLikeExist }">
 			<script type="text/javascript">
 				unlikeBtnFunction();
+			</script>
+		</c:if>
+		<c:if test="${!isJoinExist }">
+			<script type="text/javascript">
+				joinBtnFunction();
+			</script>
+		</c:if>
+		<c:if test="${isJoinExist }">
+			<script type="text/javascript">
+				unjoinBtnFuction();
 			</script>
 		</c:if>
 	</c:if>

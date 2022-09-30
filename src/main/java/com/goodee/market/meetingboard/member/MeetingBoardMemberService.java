@@ -17,4 +17,20 @@ public class MeetingBoardMemberService {
 		return meetingBoardMemberDAO.setAddOwnerMeetingBoardMember(meetingBoardMemberDTO);
 	}
 
+	public boolean getJoinExist(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		Long result = meetingBoardMemberDAO.getJoinExist(meetingBoardMemberDTO);
+		boolean isExist = false;
+		
+		if(result > 0) {
+			isExist = true;
+		}
+		
+		return isExist;
+		
+	}
+	
+	public int setDeleteMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.setDeleteMeetingBoardMember(meetingBoardMemberDTO);
+	}
+	
 }

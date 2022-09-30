@@ -33,4 +33,16 @@ public class MeetingBoardMemberController {
 		
 	}
 	
+	@PostMapping("delete")
+	@ResponseBody
+	public Map<String, Integer> setDeleteApproval(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		int result = meetingBoardMemberService.setDeleteMeetingBoardMember(meetingBoardMemberDTO);
+		map.put("result", result);
+		
+		return map;
+		
+	}
+	
 }

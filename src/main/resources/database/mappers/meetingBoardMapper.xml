@@ -22,12 +22,14 @@
 	</update>
 
 	<select id="getMeetingBoardDetail" parameterType="MeetingBoardDTO" resultMap="getDetailResult">
-		SELECT MB.*, M.*, MBI.filenum, MBI.filename
+		SELECT MB.*, M.*, MBI.filenum, MBI.filename, MI.filenum AS PROFILENUM, MI.filename AS PROFILENAME
 		FROM MEETINGBOARD MB
 		INNER JOIN MEMBER M
 		ON(MB.meetingboardwriter = M.membernum)
 		LEFT JOIN MEETINGBOARDIMAGE MBI
 		ON(MB.meetingboardnum = MBI.meetingboardnum)
+        LEFT JOIN MEMBERIMAGE MI
+        ON(M.membernum = MI.membernum)
 		WHERE MB.meetingboardnum = #{meetingBoardNum}
 	</select>
 	
@@ -51,6 +53,12 @@
 			<result column="NICKNAME" property="nickname"/>
 			<result column="PHONE" property="phone"/>
 			<result column="CASH" property="cash"/>
+			
+			<association property="memberFileDTO" javaType="MemberFileDTO">
+				<id column="PROFILENUM" property="fileNum"/>
+				<result column="PROFILENAME" property="fileName"/>
+			</association>
+			
 		</association>
 		
 		<association property="meetingBoardImageDTO" javaType="MeetingBoardImageDTO">

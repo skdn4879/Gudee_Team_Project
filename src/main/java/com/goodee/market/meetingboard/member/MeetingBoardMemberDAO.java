@@ -20,4 +20,12 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.insert(NAMESPACE + "setAddOwnerMeetingBoardMember", meetingBoardMemberDTO);
 	}
 	
+	public Long getJoinExist(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getJoinExist", meetingBoardMemberDTO);
+	}
+	
+	public int setDeleteMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE + "setDeleteMeetingBoardMember", meetingBoardMemberDTO);
+	}
+	
 }
