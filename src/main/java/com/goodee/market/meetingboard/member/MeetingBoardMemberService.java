@@ -14,7 +14,7 @@ public class MeetingBoardMemberService {
 	}
 	
 	public int setAddOwnerMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
-		
+		return meetingBoardMemberDAO.setAddOwnerMeetingBoardMember(meetingBoardMemberDTO);
 	}
 
 }
