@@ -32,4 +32,8 @@ public class MeetingBoardCommentDAO {
 		return sqlSession.selectOne(NAMESPACE + "getTotalCount", meetingBoardCommentPager);
 	}
 	
+	public List<MeetingBoardCommentDTO> getMyCommentList(MeetingBoardCommentDTO meetingBoardCommentDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getMyCommentList", meetingBoardCommentDTO);
+	}
+	
 }

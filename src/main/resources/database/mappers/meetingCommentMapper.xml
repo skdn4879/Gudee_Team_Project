@@ -47,5 +47,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalCount" parameterType="MeetingBoardCommentPager" resultType="Long">
 		SELECT COUNT(mbcnum) FROM meetingboardcomment WHERE mbcmeetingboardnum = #{meetingBoardNum}
 	</select>
+	
+	<select id="getMyCommentList" parameterType="MeetingBoardCommentDTO" resultType="MeetingBoardCommentDTO">
+		SELECT * FROM meetingboardcomment WHERE mbcwriter = #{writer}
+	</select>
 
 </mapper>
