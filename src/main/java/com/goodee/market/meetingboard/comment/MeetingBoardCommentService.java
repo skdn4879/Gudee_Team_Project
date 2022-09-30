@@ -30,4 +30,8 @@ public class MeetingBoardCommentService {
 		return meetingBoardCommentDAO.setCommentDelete(meetingBoardCommentDTO);
 	}
 	
+	public List<MeetingBoardCommentDTO> getMyCommentList(MeetingBoardCommentDTO meetingBoardCommentDTO) throws Exception {
+		return meetingBoardCommentDAO.getMyCommentList(meetingBoardCommentDTO);
+	}
+	
 }
