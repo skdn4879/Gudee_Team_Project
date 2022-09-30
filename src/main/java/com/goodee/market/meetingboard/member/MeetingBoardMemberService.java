@@ -8,5 +8,13 @@ public class MeetingBoardMemberService {
 
 	@Autowired
 	private MeetingBoardMemberDAO meetingBoardMemberDAO;
+	
+	public int setAddMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.setAddMeetingBoardMember(meetingBoardMemberDTO);
+	}
+	
+	public int setAddOwnerMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		
+	}
 
 }

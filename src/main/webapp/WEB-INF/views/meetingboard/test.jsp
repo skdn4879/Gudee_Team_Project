@@ -13,6 +13,10 @@
 </head>
 <body>
 
+	<c:forEach items="${myCommentList }" var="comment">
+		<div>${comment.contents }</div>
+	</c:forEach>
+
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 
 	<section class="container-fluid col-10" id="detailMainSection">

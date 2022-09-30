@@ -48,8 +48,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(mbcnum) FROM meetingboardcomment WHERE mbcmeetingboardnum = #{meetingBoardNum}
 	</select>
 	
-	<select id="getMyCommentList" parameterType="MeetingBoardCommentDTO" resultType="MeetingBoardCommentDTO">
+	<select id="getMyCommentList" parameterType="MeetingBoardCommentDTO" resultMap="getMyCommentListResult">
 		SELECT * FROM meetingboardcomment WHERE mbcwriter = #{writer}
 	</select>
+	
+	<resultMap type="MeetingBoardCommentDTO" id="getMyCommentListResult">
+		<id column="MBCNUM" property="num"/>
+		<result column="MBCWRITER" property="writer"/>
+		<result column="MBCMEETINGBOARDNUM" property="meetingBoardNum"/>
+		<result column="MBCCONTENTS" property="contents"/>
+		<result column="MBCREGDATE" property="regDate"/>
+	</resultMap>
 
 </mapper>

@@ -70,7 +70,7 @@ public class MeetingBoardCommentController {
 		List<MeetingBoardCommentDTO> myCommentList = meetingBoardCommentService.getMyCommentList(meetingBoardCommentDTO);
 		
 		mv.addObject("myCommentList", myCommentList);
-		mv.setViewName("member/socialMyPage");
+		mv.setViewName("meetingboard/test");
 		
 		return mv;
 	}
