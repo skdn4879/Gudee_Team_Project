@@ -72,8 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<select id="getMLList" parameterType="MemberDTO" resultMap="getMLList">
-		SELECT M.MEMBERNUM, M.ID, M.PASSWORD , M.NAME, M.NICKNAME, M.EMAIL, M.PHONE, 
-		M.MAIN_ADDRESS, M.DETAIL_ADDRESS, M.POSTCODE, M.BIRTHDAY, MI.FILENUM, MI.FILENAME, 
+		SELECT M.MEMBERNUM, MI.FILENUM, MI.FILENAME, 
 		ML.MLMNUM , ML.MEETINGBOARDNUM , MB.MEETINGBOARDTITLE 
 		FROM 
 		MEMBER M
@@ -91,16 +90,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<resultMap type="MemberDTO" id="getMLList">
 		<id column="MEMBERNUM" property="memberNum"/>
-		<result column="ID" property="id"/>
-		<result column="PASSWORD" property="password"/>
-		<result column="NAME" property="name"/>
-		<result column="NICKNAME" property="nickname"/>
-		<result column="EMAIL" property="email"/>
-		<result column="PHONE" property="phone"/>
-		<result column="MAIN_ADDRESS" property="main_address"/>
-		<result column="DETAIL_ADDRESS" property="detail_address"/>
-		<result column="POSTCODE" property="postcode"/>
-		<result column="BIRTHDAY" property="birthday"/>
 		<association property="memberFileDTO" javaType="MemberFileDTO">
 			<id column="FILENUM" property="fileNum"/>
 			<result column="FILENAME" property="fileName"/>
@@ -114,6 +103,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="MEETINGBOARDNUM" property="meetingBoardNum"/>
 		</collection>
 	</resultMap>
+	
+	<select id="getComment" parameterType="meetingBoardCommentDTO" resultType="meetingBoardCommentDTO">
+		
+	</select>
 	
 	
 

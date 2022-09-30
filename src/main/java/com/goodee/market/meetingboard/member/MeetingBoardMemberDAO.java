@@ -17,7 +17,7 @@ public class MeetingBoardMemberDAO {
 	}
 	
 	public int setAddOwnerMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE + "setAddOwnerMeetingBoardMember", meetingBoardMemberDTO)
+		return sqlSession.insert(NAMESPACE + "setAddOwnerMeetingBoardMember", meetingBoardMemberDTO);
 	}
 	
 }
