@@ -13,6 +13,9 @@ public class ItemDTO {
 	   private Integer itemPrice;
 	   private Date itemDueDate;
 	   private Integer itemStatus;
+	   private Integer itemHit;
+	   
+	   
 	public Long getItemNum() {
 		return itemNum;
 	}
@@ -61,7 +64,14 @@ public class ItemDTO {
 	public void setItemStatus(Integer itemStatus) {
 		this.itemStatus = itemStatus;
 	}
-		
+	public Integer getItemHit() {
+		return itemHit;
+	}
+	public void setItemHit(Integer itemHit) {
+		this.itemHit = itemHit;
+	}
+	
+	
 	
 	   
 	   

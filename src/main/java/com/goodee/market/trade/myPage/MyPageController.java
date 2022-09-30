@@ -2,6 +2,7 @@ package com.goodee.market.trade.myPage;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.goodee.market.trade.item.ItemDTO;
+import com.goodee.market.item.ItemDAO;
+import com.goodee.market.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 
 @Controller  //return 값은 내부 파일명

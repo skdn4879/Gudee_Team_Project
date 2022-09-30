@@ -1,6 +1,6 @@
 package com.goodee.market.trade.review;
 
-import com.goodee.market.trade.item.ItemDTO;
+import com.goodee.market.item.ItemDTO;
 
 public class ReviewDTO extends ItemDTO{
 	
@@ -11,6 +11,7 @@ public class ReviewDTO extends ItemDTO{
 	private Long realBuyer;
 	private String reviewTitle;
 	private String reviewContent;
+	private Integer reviewHit;
 	
 //-----------------------------------------------	
 	public Long getReviewNum() {
@@ -36,6 +37,12 @@ public class ReviewDTO extends ItemDTO{
 	}
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
+	}
+	public Integer getReviewHit() {
+		return reviewHit;
+	}
+	public void setReviewHit(Integer reviewHit) {
+		this.reviewHit = reviewHit;
 	}
 	
 	
