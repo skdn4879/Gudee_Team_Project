@@ -23,6 +23,7 @@
 <body>
 	<form action="/mypage/trade/main" method="get">
 	
+	<c:import url="./common/header.jsp"></c:import>
 	<br>
 	<h6 class="align-left">판매 상품 목록</h6>
 	<a href="sellitemlist">
@@ -105,7 +106,7 @@
 		      <th scope="col">게시글 번호</th>
 		      <th scope="col">제목</th>
 		      <th scope="col">판매자</th>
-		      <th scope="col">아이템 번호</th>
+		      <th scope="col">조회수</th>
 		    </tr>
 		  </thead>
 		  
@@ -115,7 +116,7 @@
 		  		<td>${review.reviewNum}</td>
 		  		<td>${review.reviewTitle}</td>
 		  		<td>${review.memberNum}</td>
-		  		<td>${review.itemNum}</td>
+		  		<td>${review.reviewHit}</td>
 		  	</tr>
 		  	</c:forEach>
 		  </tbody>

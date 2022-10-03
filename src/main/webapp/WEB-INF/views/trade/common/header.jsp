@@ -2,54 +2,89 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<header class="header">
-	
-	<nav class="navbar navbar-expand-lg bg-light">
-	<section>
-		<div class="container-fluid">	     
-	    <a class="navbar-brand" href="#">Navbar</a>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-	    
-	      <form class="d-flex" role="search">
-	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-	        <button class="btn btn-outline-success" type="submit">Search</button>
-	      </form>
-	    </div>
-	  </section>
-	</nav>  
-	 
-	<!-- 카테고리 -->
-	<nav class="navbar navbar-expand-lg bg-light">
-	<section>	
-	  <div class="container-fluid">
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="#">Home</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="#">Link</a>
-	        </li>
-	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	            Dropdown
-	          </a>
-	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="#">Action</a></li>
-	            <li><a class="dropdown-item" href="#">Another action</a></li>
-	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="#">Something else here</a></li>
-	          </ul>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link disabled">Disabled</a>
-	        </li>
-	      </ul>
-	  </div>
-	</div>
-</section>
 
-	</nav>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="./trade/main">홈</a></li>
+                        <li class="active"><a href="./shop-grid.html">중고거래</a></li>
+                        <li><a href="#">카테고리</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="./trade/category/cloth">의류</a></li>
+                                <li><a href="./shoping-cart.html">식품류</a></li>
+                                <li><a href="./checkout.html">도서/문구</a></li>
+                                <li><a href="./blog-details.html">뷰티/미용</a></li>
+                                <li><a href="./blog-details.html">생활/디지털</a></li>
+                                <li><a href="./blog-details.html">반려동물 용품</a></li>
+                                <li><a href="./blog-details.html">가구/인테리어</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./trade/review">후기</a></li>
+                        <li><a href="./contact.html">공지사항</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a href="../trade/heartlist.goodee"><i class="fa fa-heart"></i> <span>2</span></a></li>
+                        <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
 </header>
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>모든 카테고리</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">의류</a></li>
+                        <li><a href="#">식품류</a></li>
+                        <li><a href="#">도서/문구</a></li>
+                        <li><a href="#">뷰티/미용</a></li>
+                        <li><a href="#">생활/디지털</a></li>
+                        <li><a href="#">반려동물 용품</a></li>
+                        <li><a href="#">가구/인테리어</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                모든 카테고리
+                                <span class="arrow_carrot-down">
+                                </span>
+                            </div>
+                            <input type="text" placeholder="어떤 물건이 필요하신가요?">
+                            <button type="submit" class="site-btn">검색하기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
