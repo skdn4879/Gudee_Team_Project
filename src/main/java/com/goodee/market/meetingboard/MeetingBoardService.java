@@ -21,7 +21,14 @@ public class MeetingBoardService {
 	private MeetingBoardFileManager meetingBoardFileManager;
 	
 	public MeetingBoardDTO getMeetingBoardDetail(MeetingBoardDTO meetingBoardDTO) throws Exception {
-		return meetingBoardDAO.getMeetingBoardDetail(meetingBoardDTO);
+		
+		meetingBoardDTO = meetingBoardDAO.getMeetingBoardDetail(meetingBoardDTO);
+		
+		if(meetingBoardDTO.getMeetingBoardHostDemand() == null) {
+			meetingBoardDTO.setMeetingBoardHostDemand("주최자 질문 없음");
+		}
+		
+		return meetingBoardDTO;
 	}
 	
 	public List<MeetingBoardDTO> getMeetingBoardList(MeetingBoardPager pager) throws Exception {

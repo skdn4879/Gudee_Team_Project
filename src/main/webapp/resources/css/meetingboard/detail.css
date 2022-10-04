@@ -88,6 +88,7 @@ body {
 #detailTitleUserFrame {
 	display: flex;
 	align-items: center;
+	padding-top: 0.5rem;
 }
 
 #detailTitleUserFrame > span {
@@ -131,6 +132,15 @@ body {
 }
 
 #joinBtn {
+	width:4rem;
+	height:4rem;
+	float: left;
+	cursor: pointer;
+	margin-left: 2.5rem;
+	margin-top: 1rem;
+}
+
+#unjoinBtn {
 	width:4rem;
 	height:4rem;
 	float: left;

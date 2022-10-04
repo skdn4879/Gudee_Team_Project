@@ -73,6 +73,12 @@ function getCommentList(page){
                 .replace("{commentContents}", comments[i].contents)
                 .replace("{commentDate}", comments[i].regDate);
 
+                if(comments[i].memberFileDTO != null){
+                    template = template.replace("{imagePath}", `../resources/upload/member/${comments[i].memberFileDTO.fileName}`);
+                } else {
+                    template = template.replace("{imagePath}", "/resources/images/meetingboard/detail_person_icon.svg");
+                }
+
                 let dummychild = document.createElement("div");
                 dummychild.setAttribute("class", "dummychild");
                 dummychild.innerHTML = template;
