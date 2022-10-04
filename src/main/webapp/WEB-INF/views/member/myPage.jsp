@@ -13,6 +13,7 @@
 	<h1>myPage</h1>
 	
 	<a href="/member/infoUpdate?memberNum=${myPage.memberNum}">회원정보 수정</a>
+	<a href="/member/socialMyPage?memberNum=${myPage.memberNum}">소셜링 마이페이지</a>
 
 	<table class="table table-striped">
 		<thead>
@@ -37,12 +38,6 @@
 			</tr>
 		</tbody>
 	</table>
-
-	찜목록<br>
-	모임글제목<br>
-		<c:forEach items="${myPage.meetingBoardDTOs}" var="BoardDTO">
-			<a href="/mb/detail?num=${BoardDTO.meetingBoardNum}">${BoardDTO.meetingBoardTitle}</a><br>
-		</c:forEach>
 
 
 
