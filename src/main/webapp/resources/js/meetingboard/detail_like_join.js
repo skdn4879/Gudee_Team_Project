@@ -99,11 +99,20 @@ requestApprovalModalSendBtn.addEventListener("click", function(){
 
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    xhttp.send("requestMemberNum=" + mNum.value + "&meetingBoardNum=" + mbNum.value + "&approvalContents=" + sendingContents + "&hostMemberNum" + hostNum);
+    xhttp.send("requestMemberNum=" + mNum.value + "&meetingBoardNum=" + mbNum.value + "&approvalContents=" + sendingContents + "&hostMemberNum=" + hostNum);
 
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            
+            let result = this.responseText.trim();
+            result = JSON.parse(result);
+
+            if(result.result > 0){
+                alert("참여 신청 성공");
+            } else {
+                alert("참여 신청 실패");
+            }
+
+            location.reload();
         }
     }
 
