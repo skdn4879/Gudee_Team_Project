@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.goodee.market.meetingboard.like.MeetingLikeDTO;
 import com.goodee.market.meetingboard.like.MeetingLikeService;
+import com.goodee.market.meetingboard.member.MeetingBoardMemberDTO;
+import com.goodee.market.meetingboard.member.MeetingBoardMemberService;
 import com.goodee.market.meetingboard.util.MeetingBoardPager;
 import com.goodee.market.member.MemberDTO;
 
@@ -29,6 +31,9 @@ public class MeetingBoardController {
 	
 	@Autowired
 	private MeetingLikeService meetingLikeService;
+	
+	@Autowired
+	private MeetingBoardMemberService meetingBoardMemberService;
 	
 	@GetMapping("test")
 	public String getTest() throws Exception {
@@ -72,8 +77,15 @@ public class MeetingBoardController {
 		
 		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);
 		
+		MeetingBoardMemberDTO meetingBoardMemberDTO = new MeetingBoardMemberDTO();
+		meetingBoardMemberDTO.setMeetingBoardNum(num);
+		meetingBoardMemberDTO.setRequestMemberNum(memberDTO.getMemberNum());
+		
+		boolean isJoinExist = meetingBoardMemberService.getJoinExist(meetingBoardMemberDTO);
+		
 		mv.addObject("meetingBoardDetail", meetingBoardDTO);
 		mv.addObject("isLikeExist", isLikeExist);
+		mv.addObject("isJoinExist", isJoinExist);
 		mv.setViewName("meetingboard/detail");
 		return mv;
 	}
@@ -92,7 +104,16 @@ public class MeetingBoardController {
 	@PostMapping("add")
 	public String setAddPage(MeetingBoardDTO meetingBoardDTO, MultipartFile meetingBoardThumnail, HttpSession session) throws Exception {
 		
-		meetingBoardService.setMeetingBoardAdd(meetingBoardDTO, meetingBoardThumnail, session.getServletContext());
+		int result = meetingBoardService.setMeetingBoardAdd(meetingBoardDTO, meetingBoardThumnail, session.getServletContext());
+		
+		if(result > 0) {
+			MeetingBoardMemberDTO meetingBoardMemberDTO = new MeetingBoardMemberDTO();
+			meetingBoardMemberDTO.setMeetingBoardNum(meetingBoardDTO.getMeetingBoardNum());
+			meetingBoardMemberDTO.setHostMemberNum(meetingBoardDTO.getMeetingBoardWriter());
+			meetingBoardMemberDTO.setRequestMemberNum(meetingBoardDTO.getMeetingBoardWriter());
+			
+			meetingBoardMemberService.setAddOwnerMeetingBoardMember(meetingBoardMemberDTO);
+		}
 		
 		return "redirect:./list";
 	}

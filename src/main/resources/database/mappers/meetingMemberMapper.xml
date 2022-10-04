@@ -11,8 +11,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="setAddOwnerMeetingBoardMember" parameterType="MeetingBoardMemberDTO">
-		INSERT INTO MEETINGBOARD_MEMBER(HOSTMEMBERNUM, MEETINGBOARDNUM, REQUESTMEMBERNUM, APPROVALSTATUS, APPROVALCONTENTS)
-		VALUES(#{hostMemberNum}, #{meetingBoardNum}, #{requestMemberNum}, 1, #{approvalContents})
+		INSERT INTO MEETINGBOARD_MEMBER(HOSTMEMBERNUM, MEETINGBOARDNUM, REQUESTMEMBERNUM, APPROVALSTATUS)
+		VALUES(#{hostMemberNum}, #{meetingBoardNum}, #{requestMemberNum}, 1)
 	</insert>
+	
+	<select id="getJoinExist" parameterType="MeetingBoardMemberDTO" resultType="Long">
+		SELECT COUNT(MBMNUM) FROM meetingboard_member WHERE meetingboardnum = #{meetingBoardNum} AND requestmembernum = #{requestMemberNum}
+	</select>
+	
+	<delete id="setDeleteMeetingBoardMember" parameterType="MeetingBoardMemberDTO">
+		DELETE FROM meetingboard_member WHERE HOSTMEMBERNUM = #{hostMemberNum} AND meetingboardnum = #{meetingBoardNum} AND requestmembernum = #{requestMemberNum}
+	</delete>
+	
+	<select id="getMyList" parameterType="MeetingBoardMemberPager" resultMap="getMyListResult">
+		SELECT * 
+		FROM (
+		    SELECT ROWNUM R, MB.*, MBI.filenum, MBI.filename
+		    FROM MEETINGBOARD MB
+		    LEFT JOIN MEETINGBOARDIMAGE MBI
+		    ON (MB.MEETINGBOARDNUM = MBI.MEETINGBOARDNUM)
+		    WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDDUEDATE >= sysdate AND MEETINGBOARDSTATUS = 0
+		    	AND <choose>
+		    		<when test="kind == 'category'">meetingboardcategory</when>
+		    		<otherwise>meetingboardtitle</otherwise>
+		    	</choose>
+		    	LIKE '%' || #{search} || '%'
+		    ORDER BY MB.MEETINGBOARDNUM DESC
+		) WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<resultMap type="MeetingBoardDTO" id="getMyListResult">
+		<id column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		<result column="MEETINGBOARDWRITER" property="meetingBoardWriter"/>
+		<result column="MEETINGBOARDTITLE" property="meetingBoardTitle"/>
+		<result column="MEETINGBOARDCONTENTS" property="meetingBoardContents"/>
+		<result column="MEETINGBOARDDUEDATE" property="meetingBoardDueDate"/>
+		<result column="MEETINGBOARDTOTALCOST" property="meetingBoardTotalCost"/>
+		<result column="MEETINGBOARDLOCATION" property="meetingBoardLocation"/>
+		<result column="MEETINGBOARDCURRENTMEMBER" property="meetingBoardCurrentMember"/>
+		<result column="MEETINGBOARDMAXMEMBER" property="meetingBoardMaxMember"/>
+		<result column="MEETINGBOARDCATEGORY" property="meetingBoardCategory"/>
+		<result column="MEETINGBOARDHOSTDEMAND" property="meetingBoardHostDemand"/>
+		
+		<association property="meetingBoardImageDTO" javaType="MeetingBoardImageDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		
+	</resultMap>
+	
+	<select id="getMyListCount" parameterType="MeetingBoardMemberPager" resultType="Long">
+		SELECT COUNT(MEETINGBOARDNUM) FROM MEETINGBOARD WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDDUEDATE >= sysdate AND MEETINGBOARDSTATUS = 0
+	</select>
 
 </mapper>
