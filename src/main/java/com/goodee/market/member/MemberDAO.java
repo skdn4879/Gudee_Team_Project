@@ -30,8 +30,7 @@ public class MemberDAO implements MemberInterface{
 	//회원 정보 수정
 	@Override
 	public int setInfoUpdate(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "setInfoUpdate", memberDTO);
 	}
 	
 	//파일 추가
@@ -51,6 +50,14 @@ public class MemberDAO implements MemberInterface{
 	public MemberFileDTO getFileDetail(MemberFileDTO memberFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getFileDetail", memberFileDTO);
 	}
+
+	//찜목록 불러오기
+	@Override
+	public MemberDTO getMLList(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMLList", memberDTO);
+	}
+	
+	
 	
 	
 	
