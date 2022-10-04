@@ -63,5 +63,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMyListCount" parameterType="MeetingBoardMemberPager" resultType="Long">
 		SELECT COUNT(MEETINGBOARDNUM) FROM MEETINGBOARD WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDDUEDATE >= sysdate AND MEETINGBOARDSTATUS = 0
 	</select>
+	
+	<select id="getMyApprovalCount" parameterType="MeetingBoardMemberDTO" resultType="Long">
+		SELECT COUNT(MBMNUM) FROM MEETINGBOARD_MEMBER WHERE HOSTMEMBERNUM = #{hostMemberNum} AND MEETINGBOARDNUM = #{meetingBoardNum} AND APPROVALSTATUS = 0
+	</select>
 
 </mapper>

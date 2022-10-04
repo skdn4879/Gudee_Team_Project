@@ -48,4 +48,8 @@ public class MeetingBoardMemberService {
 		return meetingBoardMemberDAO.getMyList(pager);
 	}
 	
+	public Long getMyApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.getMyApprovalCount(meetingBoardMemberDTO);
+	}
+	
 }

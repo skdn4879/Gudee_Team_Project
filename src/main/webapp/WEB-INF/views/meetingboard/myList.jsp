@@ -40,7 +40,7 @@
 	<section class="container-fluid col-10" id="listMainSection">
 		<c:forEach items="${requestScope.myList }" var="listItem">
 			<div id="meetingBoardListFrame">
-				<div class="meetingBoardListItem" data-meetingboard-num="${listItem.meetingBoardNum }">
+				<div class="meetingBoardListItem" data-meetingboard-num="${listItem.meetingBoardNum }" data-hostnum="${sessionScope.member.memberNum }">
 					<c:if test="${listItem.meetingBoardImageDTO == null }">
 						<img alt="" src="/resources/images/meetingboard/map_marker_icon.svg" class="meetingBoardListItemThumnail">
 					</c:if>

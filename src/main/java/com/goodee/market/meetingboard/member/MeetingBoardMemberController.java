@@ -62,4 +62,11 @@ public class MeetingBoardMemberController {
 		return mv;
 	}
 	
+	@GetMapping("myApprovalCount")
+	@ResponseBody
+	public Long getMyApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		long result = meetingBoardMemberService.getMyApprovalCount(meetingBoardMemberDTO);
+		return result;
+	}
+	
 }

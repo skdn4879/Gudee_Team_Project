@@ -41,4 +41,8 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.selectOne(NAMESPACE + "getMyListCount", pager);
 	}
 	
+	public Long getMyApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMyApprovalCount", meetingBoardMemberDTO);
+	}
+	
 }
