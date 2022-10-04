@@ -35,61 +35,6 @@
 	
 	<c:import url="./common/header.jsp"></c:import>
 
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>모든 카테고리</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">의류</a></li>
-                            <li><a href="#">식품류</a></li>
-                            <li><a href="#">도서/문구</a></li>
-                            <li><a href="#">뷰티/미용</a></li>
-                            <li><a href="#">생활/디지털</a></li>
-                            <li><a href="#">반려동물 용품</a></li>
-                            <li><a href="#">가구/인테리어</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    모든 카테고리
-                                    <span class="arrow_carrot-down">
-                                    </span>
-                                </div>
-                                <input type="text" placeholder="어떤 물건이 필요하신가요?">
-                                <button type="submit" class="site-btn">검색하기</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>카테고리</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
@@ -114,18 +59,18 @@
                                 <h4> 최근 게시글 </h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
-                                        <a href="#" class="latest-product__item">
+                                        <div a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="">
+                                                <img src="/resources/images/trade/1_knit.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>화이트 티셔츠</h6>
                                                 <span>5,000</span>
                                             </div>
-                                        </a>
+                                        </div>>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-2.jpg" alt="">
+                                                <img src="/resources/images/trade/1_mtm.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>데님 반바지</h6>
@@ -134,7 +79,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-3.jpg" alt="">
+                                                <img src="/resources/images/trade/1_onepiece.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>머그잔</h6>
@@ -145,7 +90,7 @@
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-1.jpg" alt="">
+                                                <img src="/resources/images/trade/1_pants.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>향수</h6>
@@ -154,7 +99,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-2.jpg" alt="">
+                                                <img src="/resources/images/trade/1_set.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>조리도구 세트</h6>
@@ -163,7 +108,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/lp-3.jpg" alt="">
+                                                <img src="/resources/images/trade/1_shirt.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>필로우 미스트</h6>
@@ -176,6 +121,7 @@
                         </div>
                     </div>
                 </div>
+              
                 
                 
                 <div class="col-lg-9 col-md-7">
@@ -197,7 +143,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-1.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-1.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -210,7 +156,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-2.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-2.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -223,7 +169,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-3.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-3.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -236,7 +182,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-4.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-4.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -249,7 +195,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-5.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-5.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -262,7 +208,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-6.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-6.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -275,7 +221,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-7.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-7.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -288,7 +234,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-8.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-8.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -301,7 +247,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-9.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-9.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-9.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
