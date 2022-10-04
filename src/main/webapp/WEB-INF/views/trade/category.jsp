@@ -64,7 +64,7 @@
                                                 <img src="/resources/images/trade/1_knit.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
-                                                <h6>화이트 티셔츠</h6>
+                                                <h6>${dto.itemTitle}</h6>
                                                 <span>5,000</span>
                                             </div>
                                         </div>>
@@ -149,7 +149,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">미니 조명</a></h6>
+                                    <h6><a href="./detail?num=${dto.num}">${dto.title}</a></h6>
                                     <h5>32,000</h5>
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="/home"><img src="/resources/images/trade/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>주소 : 서울특별시 금천구 가산디지털2로 115 (가산동, 대륭테크노타운3차) 1109-1호</li>

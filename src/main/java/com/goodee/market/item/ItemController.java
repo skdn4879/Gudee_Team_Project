@@ -24,9 +24,15 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 	
-	//파일 삭제
-//	public int setFileDelete(ItemDTO itemDTO)throws Exception{
-//	}
+	// 글 목록
+	@GetMapping(value = "list")
+	public ModelAndView getList(Pager pager)throws Exception {
+		ModelAndView mv =new ModelAndView();
+		List<ItemDTO> ar =itemService.getList(pager);
+		mv.addObject("list", ar);	
+		mv.addObject("pager", pager);
+		mv.setViewName("redirect:./trade/category");
+		return mv;
 	
 	
 	//글상세
