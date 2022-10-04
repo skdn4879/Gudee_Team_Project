@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 글 수정 </title>
+<title> 글 추가 </title>
 <!--summernote jquery  -->
  <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
  <!-- bootStrap -->	
@@ -21,36 +21,53 @@
 <section class="container-fluid col-lg-4">
 	
 	<div class="row">
-		<form action="./add" method="post" enctype="multipart/form-data">
+		<form action="./add" method="POST" enctype="multipart/form-data">
+		
+		
+		<div class="mb-3">
+			  <label for="num" class="form-label"> 멤버 번호 </label>
+			  <input type="text" name="memberNum" class="form-control" id="num" >
+			</div>
 			<div class="mb-3">
-			  <label for="itemTitle" class="form-label">상품 이름</label>
-			  <input type="text" name="itemTitle" class="form-control" id="itemTitle" placeholder="제목 입력">
+			  <label for="title" class="form-label">상품 이름</label>
+			  <input type="text" name="itemTitle" class="form-control" id="title" placeholder="제목 입력">
 			</div>
 			
-			<div id="addFiles">
-				<button type="button" class="btn btn-danger" id="fileAdd">파일 추가</button>
-
+			 <div id="mb-3">
+			<label for="fileadd" class="form-label">첨부파일</label>
+			
+				<input type="file" name="files" class="btn btn-danger" id="fileadd">파일 추가
 			</div>
-						
+				
 			<div class="mb-3">
-			  <label for="itemPrice" class="form-label">가격</label>
-			  <input type="text" name="itemPrice" class="form-control" id="itemPrice" placeholder="가격 입력">
+			  <label for="price" class="form-label">가격</label>
+			  <input type="text" name="itemPrice" class="form-control" id="price" placeholder="가격 입력">
 			</div>
 			
 			<div class="mb-3">
-			  <label for="itemCategory" class="form-label">카테고리</label>
-				<select name="itemCategory">
-				 <option value="num1">하</option>
-				 <option value="num2">하하</option>
-				 <option value="num3">하하하</option>
-				 <option value="num4">하하하하</option>
-				 <option value="num5">하하하하하하</option>
+			  <label for="category" class="form-label">카테고리</label>
+			  			  <input type="text" name="itemCategory" class="form-control" id="price" placeholder="가격 입력">
+			  
+			<!-- 	<select name="itemCategory">
+				 <option name="itemCategory" value="num1">하</option>
+				 <option name="itemCategory" value="num2">하하</option>
+				 <option name="itemCategory" value="num3">하하하</option>
+				 <option name="itemCategory" value="num4">하하하하</option>
+				 <option name="itemCategory" value="num5">하하하하하하</option>
 				</select>
-			</div>
+			</div>  -->
 			
-			<div class="mb-3">
-			  <label for="itemDueDate" class="form-label">거래 날짜</label>
-              <p><input type="date" value="2022-9-28" min="2022-12-10" max="2022-12-25"></p>
+			<!--  <select name="rv_blog" id="rv_blog" class="bloginput" style="width:798px;">
+                <option value="">선택해주세요
+                </option><option value="">블로그 : </option></select>
+			<div class="mb-3"> -->
+			
+			
+			
+			  <label for="date" class="form-label">거래 날짜</label>
+			  			  <input type="text" name="itemDueDate" class="form-control" id="date">
+			   
+             <!--  <p><input type="date" name="itemDueDate" id="date"  value="xxx" min="yyy" max="zzz"></p>
 
               <label for="fromDate">시작일</label>
               <input type="text" name="fromDate" id="fromDate">
@@ -58,20 +75,20 @@
               <label for="toDate">종료일</label>
               <input type="text" name="toDate" id="toDate">
     
-                </div>
+                </div> -->
 			
 			
 			
 			<div class="mb-3">
-			  <label for="itemContents" class="form-label">상품 정보</label>
-			  <textarea class="form-control" name="itemContents" id="itemContents" rows="3"></textarea>
+			  <label for="contents" class="form-label">상품 정보</label>
+			  <textarea class="form-control" name="itemContents" id="contents" rows="3"></textarea>
 			</div>
 
 			
 			<br><br><br>
 			<div class="mb-3">
-			  <label for="itemStatus" class="form-label">거래상태</label>			  
-			  <input type="checkbox" name="itemStatus" class="form-control" id="itemStatus">
+			  <label for="status" class="form-check-label">거래상태</label>			  
+			  <input type="text" name="itemStatus" class="form-control" id="status">
 			</div>
 			
 			<div class="mb-3">
@@ -84,7 +101,6 @@
 
 <!-- bootStrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="/resources/js/board_files.js"></script>
 <script type="text/javascript">
 	$("#contents1").summernote();
 </script>
