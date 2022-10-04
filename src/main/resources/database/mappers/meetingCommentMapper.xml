@@ -14,10 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM (
 		    SELECT ROWNUM R, J.*
 		    FROM (
-		        SELECT M.membernum, M.id, M.name, M.nickname, MBC.*
+		        SELECT M.membernum, M.id, M.name, M.nickname, MBC.*, MI.filenum, MI.filename
 		        FROM member M
 		        INNER JOIN meetingboardcomment MBC
 		        ON(M.membernum = MBC.mbcwriter)
+		        LEFT JOIN MEMBERIMAGE MI
+                ON(M.membernum = MI.membernum)
 		        WHERE MBC.mbcmeetingboardnum = #{meetingBoardNum}
 		        ORDER BY MBC.mbcnum DESC
 		    ) J)
@@ -36,6 +38,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="ID" property="id"/>
 			<result column="NAME" property="name"/>
 			<result column="NICKNAME" property="nickname"/>
+		</association>
+		
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
 		</association>
 		
 	</resultMap>

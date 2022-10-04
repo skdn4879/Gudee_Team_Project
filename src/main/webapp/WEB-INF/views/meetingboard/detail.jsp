@@ -184,7 +184,7 @@
 		<div class="commentListItem">
 			<div class="commentItemInfoFrame">
 				<div class="commentItemInfoWriterFrame">
-					<img alt="" src="/resources/images/meetingboard/detail_person_icon.svg" class="commentWriterImage">
+					<img alt="" src="{imagePath}" class="commentWriterImage" style="border-radius: 70%; overflow: hidden;">
 					<div class="commentWriterNickname">{nickname}</div>
 				</div>
 				<div class="commentItemContents">{commentContents}</div>

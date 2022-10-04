@@ -1,8 +1,13 @@
 package com.goodee.market.meetingboard.member;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.goodee.market.meetingboard.MeetingBoardDTO;
+import com.goodee.market.meetingboard.util.MeetingBoardMemberPager;
 
 @Repository
 public class MeetingBoardMemberDAO {
@@ -26,6 +31,14 @@ public class MeetingBoardMemberDAO {
 	
 	public int setDeleteMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE + "setDeleteMeetingBoardMember", meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardDTO> getMyList(MeetingBoardMemberPager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getMyList", pager);
+	}
+	
+	public Long getMyListCount(MeetingBoardMemberPager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMyListCount", pager);
 	}
 	
 }
