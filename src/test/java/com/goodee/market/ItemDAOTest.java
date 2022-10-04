@@ -45,11 +45,11 @@ public class ItemDAOTest extends MyAbstractTest{
 //	
 //	}
 	
-	@Test
+	/*@Test
 	public void getListTest()throws Exception {
 		ItemDTO itemDTO =new ItemDTO();
 		 List<ItemDTO> ar =itemDAO.getList();
 		 assertEquals(7L, ar.size());
-	}
+	}*/
 
 }
