@@ -22,5 +22,8 @@ public interface MemberInterface {
 	
 	//회원정보 수정
 	public int setInfoUpdate(MemberDTO memberDTO)throws Exception;
+	
+	//찜목록 불러오기
+	public MemberDTO getMLList(MemberDTO memberDTO)throws Exception;
 
 }

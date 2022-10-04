@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <link rel="stylesheet" href="/resources/css/join.css">
+    <link rel="stylesheet" href="/resources/css/member/join.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
@@ -120,14 +120,13 @@
                 <!-- 주소 입력 -->
                 <p><h3>주소</h3></p>
                 <div class="d-flex flex-row">
-                  <input class="form-control p-2 box" type="text" id="postcode" placeholder="우편번호" name="postcode">
+                  <input class="form-control p-2 box" type="text" id="postcode" placeholder="우편번호" readonly="readonly" name="postcode">
                   <input class="btn btn-secondary p-2" type="button" onclick="checkPost()" value="우편번호 찾기">
                 </div>
-                <input class="form-control box" type="text" id="mainAddress" placeholder="주소">
+                <input class="form-control box" type="text" id="mainAddress" placeholder="주소" readonly="readonly" name="main_address">
                 <div class="d-flex flex-row">
-                  <input class="form-control p-2 box" type="text" id="detailAddress" placeholder="상세주소">
+                  <input class="form-control p-2 box" type="text" id="detailAddress" placeholder="상세주소" name="detail_address">
                 </div>
-                <input type="hidden" id="address" name="address">
                 <div class="addressm m"></div>
 
                 
