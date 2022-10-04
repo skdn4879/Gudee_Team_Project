@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="setAddOwnerMeetingBoardMember" parameterType="MeetingBoardMemberDTO">
-		INSERT INTO MEETINGBOARD_MEMBER(HOSTMEMBERNUM, MEETINGBOARDNUM, REQUESTMEMBERNUM, APPROVALSTATUS, APPROVALCONTENTS)
-		VALUES(#{hostMemberNum}, #{meetingBoardNum}, #{requestMemberNum}, 1, #{approvalContents})
+		INSERT INTO MEETINGBOARD_MEMBER(HOSTMEMBERNUM, MEETINGBOARDNUM, REQUESTMEMBERNUM, APPROVALSTATUS)
+		VALUES(#{hostMemberNum}, #{meetingBoardNum}, #{requestMemberNum}, 1)
 	</insert>
 
 </mapper>
