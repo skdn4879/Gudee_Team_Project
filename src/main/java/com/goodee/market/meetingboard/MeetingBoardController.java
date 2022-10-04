@@ -77,8 +77,15 @@ public class MeetingBoardController {
 		
 		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);
 		
+		MeetingBoardMemberDTO meetingBoardMemberDTO = new MeetingBoardMemberDTO();
+		meetingBoardMemberDTO.setMeetingBoardNum(num);
+		meetingBoardMemberDTO.setRequestMemberNum(memberDTO.getMemberNum());
+		
+		boolean isJoinExist = meetingBoardMemberService.getJoinExist(meetingBoardMemberDTO);
+		
 		mv.addObject("meetingBoardDetail", meetingBoardDTO);
 		mv.addObject("isLikeExist", isLikeExist);
+		mv.addObject("isJoinExist", isJoinExist);
 		mv.setViewName("meetingboard/detail");
 		return mv;
 	}
