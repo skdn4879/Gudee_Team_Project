@@ -45,4 +45,16 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.selectOne(NAMESPACE + "getMyApprovalCount", meetingBoardMemberDTO);
 	}
 	
+	public List<MeetingBoardMemberDTO> getMyApprovalList(MeetingBoardMemberPager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getMyApprovalList", pager);
+	}
+	
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setApprovalAccept", meetingBoardMemberDTO);
+	}
+	
+	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setApprovalDenie", meetingBoardMemberDTO);
+	}
+	
 }

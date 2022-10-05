@@ -67,5 +67,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMyApprovalCount" parameterType="MeetingBoardMemberDTO" resultType="Long">
 		SELECT COUNT(MBMNUM) FROM MEETINGBOARD_MEMBER WHERE HOSTMEMBERNUM = #{hostMemberNum} AND MEETINGBOARDNUM = #{meetingBoardNum} AND APPROVALSTATUS = 0
 	</select>
+	
+	<select id="getMyApprovalList" parameterType="MeetingBoardMemberPager" resultMap="getMyApprovalListResult">
+		SELECT * FROM(
+		    SELECT ROWNUM R, MBM.*, M.id, M.name, M.nickname, MB.meetingboardhostdemand, MI.filenum, MI.filename 
+		    FROM MEETINGBOARD_MEMBER MBM
+		    INNER JOIN MEMBER M
+		    ON (MBM.REQUESTMEMBERNUM = M.MEMBERNUM)
+		    INNER JOIN MEETINGBOARD MB
+		    ON (MBM.MEETINGBOARDNUM = MB.MEETINGBOARDNUM)
+		    LEFT JOIN MEMBERIMAGE MI
+		    ON (M.MEMBERNUM = MI.MEMBERNUM)
+		    WHERE MBM.HOSTMEMBERNUM = #{hostMemberNum} AND MBM.MEETINGBOARDNUM = #{meetingBoardNum} AND APPROVALSTATUS = 0)
+	    WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<resultMap type="MeetingBoardMemberDTO" id="getMyApprovalListResult">
+		<id column="MBMNUM" property="mbmNum"/>
+		<result column="HOSTMEMBERNUM" property="hostMemberNum"/>
+		<result column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+		<result column="REQUESTMEMBERNUM" property="requestMemberNum"/>
+		<result column="APPROVALSTATUS" property="approvalStatus"/>
+		<result column="APPROVALCONTENTS" property="approvalContents"/>
+		
+		<association property="memberDTO" javaType="MemberDTO">
+			<result column="ID" property="id"/>
+			<result column="NAME" property="name"/>
+			<result column="NICKNAME" property="nickname"/>
+		</association>
+		
+		<association property="meetingBoardDTO" javaType="MeetingBoardDTO">
+			<result column="MEETINGBOARDHOSTDEMAND" property="meetingBoardHostDemand"/>
+		</association>
+		
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		
+	</resultMap>
+	
+	<update id="setApprovalAccept" parameterType="MeetingBoardMemberDTO">
+		UPDATE MEETINGBOARD_MEMBER SET APPROVALSTATUS = 1 WHERE MBMNUM = #{mbmNum}
+	</update>
+	
+	<update id="setApprovalDenie" parameterType="MeetingBoardMemberDTO">
+		UPDATE MEETINGBOARD_MEMBER SET APPROVALSTATUS = 2 WHERE MBMNUM = #{mbmNum}
+	</update>
 
 </mapper>

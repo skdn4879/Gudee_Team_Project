@@ -69,4 +69,31 @@ public class MeetingBoardMemberController {
 		return result;
 	}
 	
+	@GetMapping("myApprovalList")
+	public ModelAndView getMyApprovalList(MeetingBoardMemberPager pager) throws Exception {
+		List<MeetingBoardMemberDTO> myApprovalList = meetingBoardMemberService.getMyApprovalList(pager);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("myApprovalList", myApprovalList);
+		mv.addObject("pager", pager);
+		mv.setViewName("meetingboard/myApprovalList");
+		
+		return mv;
+	}
+	
+	@PostMapping("myApprovalAccept")
+	@ResponseBody
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int result = meetingBoardMemberService.setApprovalAccept(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@PostMapping("myApprovalDenie")
+	@ResponseBody
+	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int result = meetingBoardMemberService.setApprovalDenie(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
 }

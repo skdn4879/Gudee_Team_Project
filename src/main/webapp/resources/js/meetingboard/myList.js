@@ -71,6 +71,11 @@ function myListInit(){
         element.addEventListener("click", function(){
             //여기서 해당 게시글의 상세 승인 요청 정보 페이지로 이동하면 된다.
             // 파라미터를 넘겨줘야 하니 mapper 설계 후 작성??
+            let meetingBoardNum = element.getAttribute("data-meetingboard-num");
+            let hostNum = element.getAttribute("data-hostnum");
+
+            location.href = "/mbm/myApprovalList?hostMemberNum=" + hostNum + "&meetingBoardNum=" + meetingBoardNum;
+
         });
     });
 

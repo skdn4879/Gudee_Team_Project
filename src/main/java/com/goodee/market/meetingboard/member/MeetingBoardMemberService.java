@@ -52,4 +52,25 @@ public class MeetingBoardMemberService {
 		return meetingBoardMemberDAO.getMyApprovalCount(meetingBoardMemberDTO);
 	}
 	
+	public List<MeetingBoardMemberDTO> getMyApprovalList(MeetingBoardMemberPager pager) throws Exception {
+		MeetingBoardMemberDTO meetingBoardMemberDTO = new MeetingBoardMemberDTO();
+		meetingBoardMemberDTO.setHostMemberNum(pager.getHostMemberNum());
+		meetingBoardMemberDTO.setMeetingBoardNum(pager.getMeetingBoardNum());
+		Long totalApprovalCount = meetingBoardMemberDAO.getMyApprovalCount(meetingBoardMemberDTO);
+		
+		pager.getNum(totalApprovalCount);
+		pager.getRowNum();
+		
+		return meetingBoardMemberDAO.getMyApprovalList(pager);
+		
+	}
+	
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.setApprovalAccept(meetingBoardMemberDTO);
+	}
+	
+	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.setApprovalDenie(meetingBoardMemberDTO);
+	}
+	
 }
