@@ -36,10 +36,6 @@ public class ItemDAO implements ItemInterface {
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
 	
-	@Override
-	public List<ItemDTO>getList(Pager pager) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList",pager);
-	}
 	
 	@Override
 	public ItemDTO getDetail(ItemDTO itemDTO)throws Exception {
@@ -62,6 +58,22 @@ public class ItemDAO implements ItemInterface {
 		return sqlSession.delete(NAMESPACE+"setDelete", itemDTO);
 	}
 
+	
+	@Override
+	public List<ItemDTO> getList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList",pager);
+	}
+
+	@Override
+	public List<ItemDTO> getTradeMain(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getTradeMain", pager);
+	}
+
+	@Override
+	public List<ItemDTO> getHeartList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getHeartList", pager);
+	}
+	
 	
 	
 		

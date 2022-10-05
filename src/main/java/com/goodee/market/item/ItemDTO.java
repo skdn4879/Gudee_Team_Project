@@ -14,7 +14,7 @@ public class ItemDTO {
 	   private Integer itemPrice;
 	   private Date itemDueDate;
 	   private Integer itemStatus;
-     private Integer itemHit;
+	   private Integer itemHit;
 	   private List<ItemImageDTO>itemImageDTOs;
 	   
 	   

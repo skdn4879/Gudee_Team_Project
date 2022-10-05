@@ -4,9 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>중고거래 찜 목록</title>
+	<meta charset="UTF-8">
+	<title>중고거래 찜 목록</title>
+	
+	<!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
 </head>
+
 <body>
 	<c:import url="./common/header.jsp"></c:import>
 	
@@ -43,7 +57,7 @@
                             <tbody>
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
+                                        <img src="/resources/images/trade/3_desk.jpg" alt="">
                                         <h5>필로우 미스트</h5>
                                     </td>
                                     <td class="shoping__cart__price">
@@ -61,7 +75,7 @@
                                 </tr>
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
+                                        <img src="/resources/images/trade/2_peach.jpg" alt="">
                                         <h5>쿠션</h5>
                                     </td>
                                     <td class="shoping__cart__price">
@@ -85,5 +99,17 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    
+    <c:import url="./common/footer.jsp"></c:import>
+    
+    <!-- Js Plugins -->
+    <script src="/resources/js/trade/bootstrap.min.js"></script>
+    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/trade/jquery-ui.min.js"></script>
+    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/trade/jquery.slicknav.js"></script>
+    <script src="/resources/js/trade/main.js"></script>
+    <script src="/resources/js/trade/mixitup.min.js"></script>
+    <script src="/resources/js/trade/owl.carousel.min.js"></script>
 </body>
 </html>

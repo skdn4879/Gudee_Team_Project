@@ -200,8 +200,17 @@
         </div>
     </section>
     
-
-
+	<c:import url="./common/footer.jsp"></c:import>
+	
+	<!-- Js Plugins -->
+    <script src="/resources/js/trade/bootstrap.min.js"></script>
+    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/trade/jquery-ui.min.js"></script>
+    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/trade/jquery.slicknav.js"></script>
+    <script src="/resources/js/trade/main.js"></script>
+    <script src="/resources/js/trade/mixitup.min.js"></script>
+    <script src="/resources/js/trade/owl.carousel.min.js"></script>
 
 </body>
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,25 +23,51 @@ import com.goodee.market.util.Pager;
 import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
-@RequestMapping("/item/*")
+@RequestMapping("/trade/*")
 //http://localhost/market/item/detail
 public class ItemController {
 	
 	@Autowired
 	private ItemService itemService;
 
-	
-	// 글 목록
-	@GetMapping(value = "list")
-	public ModelAndView getList(Pager pager)throws Exception {
-		ModelAndView mv =new ModelAndView();
-		List<ItemDTO> ar =itemService.getList(pager);
+	//메인페이지
+	@GetMapping(value = "main")
+	public ModelAndView getTradeMain(Pager pager)throws Exception {
+		System.out.println("중고 메인~.~");
+		ModelAndView mv = new ModelAndView();
+		List<ItemDTO> ar = itemService.getTradeMain(pager);
 		mv.addObject("list", ar);	
 		mv.addObject("pager", pager);
-		mv.setViewName("item/list");
+		mv.setViewName("trade/main");
 		return mv;
-	
 	}
+	
+	
+	//카테고리 메인
+	@GetMapping(value = "category")
+	public ModelAndView getList(Pager pager)throws Exception {
+		System.out.println("category");
+		ModelAndView mv = new ModelAndView();
+		List<ItemDTO> ar =itemService.getList(pager);
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("trade/category");
+		return mv;
+	}
+	
+	
+	//찜목록
+	@GetMapping(value = "heartlist")
+	public ModelAndView getHeartList(Pager pager)throws Exception {
+		System.out.println("찜.");
+		ModelAndView mv =new ModelAndView();
+		List<ItemDTO> ar = itemService.getHeartList(pager);
+		mv.addObject("list", ar);	
+		mv.addObject("pager", pager);
+		mv.setViewName("trade/heartlist");
+		return mv;
+	}
+
 	
 	//글상세
 	@GetMapping(value="detail")
@@ -50,17 +77,16 @@ public class ItemController {
 		System.out.println("detail 실행");
 		itemDTO = itemService.getDetail(itemDTO);
 		mv.addObject("dto", itemDTO);
-		mv.setViewName("item/detail");
+		mv.setViewName("trade/detail");
 		
-		return mv;
-		
-		
+		return mv;		
 	} 
 	
+
 	//글작성
 	@GetMapping(value="add")
 	public String setAdd(ItemDTO itemDTO) throws Exception {
-		return "item/add";
+		return "trade/add";
 	}
 	
 	@PostMapping(value="add")
@@ -76,7 +102,7 @@ public class ItemController {
 	@GetMapping(value="update")
 	public ModelAndView setUpdate(ItemDTO itemDTO, ModelAndView mv)throws Exception {
 		
-		mv.setViewName("item/update");
+		mv.setViewName("trade/update");
 		return mv;
 	
 	}
@@ -89,7 +115,7 @@ public class ItemController {
 	//글삭제
 	public String setDelete(ItemDTO itemDTO)throws Exception {
 	int result= itemService.setDelete(itemDTO);
-	return "redirect:./list";
+	return "redirect:./category";
 	}
 	
 }
