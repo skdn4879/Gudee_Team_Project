@@ -197,7 +197,14 @@
                     </div>
                     
                     <div class="mb-3">
-                    	<a href="./add" class="btn btn-primary">글쓰기</a>
+                    	<c:choose>
+						<c:when test="${not empty member}">
+	                    	<a href="./add" class="btn btn-primary">글쓰기</a>							
+						</c:when>
+						<c:otherwise>
+							
+						</c:otherwise>
+					</c:choose>
                     </div>
             
             <!-- 페이지 이동 -->        
@@ -205,17 +212,15 @@
                         <nav aria-label="Page navigation example">
 							  <ul class="pagination">
 							  <c:if test="${pager.pre}">
-							    <li class="page-item">
-							      <a class="page-link" href="./category?page=${pager.startNum-1}" aria-label="Previous">
-							        <span aria-hidden="true">&laquo;</span>
-							      </a>
-							    </li>
+							  	<li class="page-item">
+							  		<a class="page-link" href="./category?page=${pager.startNum-1}" aria-label="Previous">
+							        	<span aria-hidden="true">&laquo;</span>
+							      	</a>
+							      </li>
 							    </c:if>
-								
 								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 									<li class="page-item"><a class="page-link" href="./category?page=${i}">${i}</a></li>
 								</c:forEach>
-								
 								</ul>
                           </nav>
                     </div>

@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import com.goodee.market.util.FileDTO;
 

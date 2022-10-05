@@ -48,49 +48,38 @@
                             <thead>
                                 <tr>
                                     <th class="shoping__product">중고 물품</th>
-                                    <th>가격</th>
-                                    <th>판매자</th>
+                                    <th><!-- 사진 --></th>
                                     <th>카테고리</th>
+                                    <th>제목</th>
+                                    <th>판매자</th>
+                                    <th>가격</th>
                                     <th></th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
+                            <c:forEach items="${list}" var="heart">
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="/resources/images/trade/3_desk.jpg" alt="">
-                                        <h5>필로우 미스트</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        27,000원
+                                        ${heart.itemCategory}
                                     </td>
-                                    <td class="shoping__cart__price">
-                                        김떙땡
+                                    <td>
+                                    	<a href="./detail?num=${heart.itemNum}"><h5>${heart.itemTitle}</h5></a>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        뷰티/미용
+                                    <td class="shoping__cart__price"> <!-- seller로 바꾸고 css 수정 -->
+                                        ${heart.memberNum}
+                                    </td>
+                                    <td class="shoping__cart__total"> <!-- category로 변경 -->
+                                        ${heart.itemPrice}
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="/resources/images/trade/2_peach.jpg" alt="">
-                                        <h5>쿠션</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        21,000원
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        최땡땡
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        인테리어
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                            </c:forEach>    
                             </tbody>
                         </table>
                     </div>

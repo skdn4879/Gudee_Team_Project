@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.util.List;

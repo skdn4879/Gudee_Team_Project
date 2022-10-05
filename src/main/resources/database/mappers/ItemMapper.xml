@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.goodee.market.item.ItemDAO">
     
+    	<!-- 메인 -->
     	<select id="getTradeMain" resultType="itemDTO" parameterType="Pager">
     		SELECT * FROM
 		    (
@@ -15,7 +16,7 @@
 			WHERE R BETWEEN #{startRow} and #{lastRow}
     	</select>
     
-    
+    	<!-- 카테고리 메인 -->
 		<select id="getList" resultType="itemDTO" parameterType="Pager">
 		 	SELECT * FROM
 		    (
@@ -27,7 +28,7 @@
 			WHERE R BETWEEN #{startRow} and #{lastRow}		 	
 		</select>
 
-
+		<!-- 찜 목록 -->
 		<select id="getHeartList" resultType="itemDTO" parameterType="itemDTO">
 		 	SELECT IM.NUM,I.ITEMTITLE,I.ITEMCONTENTS,I.ITEMCATEGORY,I.ITEMPRICE
             FROM ITEM I

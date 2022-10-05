@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.goodee.market.item.ItemDAO;
-import com.goodee.market.item.ItemDTO;
+import com.goodee.market.trade.item.ItemDAO;
+import com.goodee.market.trade.item.ItemDTO;
 
 public class ItemDAOTest extends MyAbstractTest{
 

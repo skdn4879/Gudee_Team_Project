@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.io.File;
 import java.util.List;
