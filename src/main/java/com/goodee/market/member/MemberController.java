@@ -1,9 +1,10 @@
 package com.goodee.market.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentDTO;
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentService;
 
@@ -137,5 +137,17 @@ public class MemberController {
 		return jasonResult;
 	}
 	
+	@PostMapping("report")
+	@ResponseBody
+	public Map<String, Integer> setReport(ReportDTO reportDTO)throws Exception{
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		int count = memberService.countReport(reportDTO);
+		int jasonResult = 0;
+		if(count < 3) {
+			jasonResult = memberService.setReport(reportDTO);
+		}
+		map.put("result", jasonResult);
+		return map;
+	}
 
 }

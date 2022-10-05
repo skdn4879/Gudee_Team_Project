@@ -89,6 +89,14 @@ public class MemberService {
 		return memberDTO;
 	}
 	
+	public int setReport(ReportDTO reportDTO)throws Exception{
+		return memberDAO.setReport(reportDTO);
+	}
+	
+	public int countReport(ReportDTO reportDTO)throws Exception{
+		return memberDAO.countReport(reportDTO);
+	}
+	
 	
 	
 	

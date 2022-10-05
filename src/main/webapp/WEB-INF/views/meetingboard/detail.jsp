@@ -144,13 +144,50 @@
 	    </div>
 	  </div>
 	</div>
-	
+
+	<!-- 회원신고 버튼 -->
+	<form action="/member/report" method="post" id="formReport">
+		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#requestReportModal" data-bs-whatever="@getbootstrap" id="requestReportModalOpenBtn">신고하기</button>
+
+		<div class="modal fade" id="requestReportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="requestReportTitle">신고하기</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+				<div class="mb-3">
+					<label for="reportMemberName" class="col-form-label">신고자</label>
+					<input type="text" class="form-control" id="reportMemberName" readonly="readonly" value="${sessionScope.member.nickname}">
+				</div>
+				<div class="mb-3">
+					<label for="reportedMemberName" class="col-form-label">피신고자</label>
+					<input type="text" class="form-control" id="reportedMemberName" readonly="readonly" value="${meetingBoardDetail.memberDTO.nickname}">
+				</div>
+				<div class="mb-3">
+					<label for="reportContent" class="col-form-label">신고내용</label>
+					<textarea class="form-control" id="reportContent" name="reportContent" data-hostnum="${sessionScope.member.memberNum}" data-guestnum="${meetingBoardDetail.meetingBoardWriter}"></textarea>
+				</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="requestReportModalCloseBtn">닫기</button>
+				<button type="button" class="btn btn-danger" id="requestReportModalSendBtn">신고하기</button>
+			</div>
+			</div>
+		</div>
+		</div>
+	</form>
+
 	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 	<c:import url="../template/meetingboard/kakaoMapApi.jsp"></c:import>
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 	
 	<script src="/resources/js/meetingboard/detail.js"></script>
 	<script src="/resources/js/meetingboard/detail_comment.js"></script>
+	<script src="/resources/js/report.js"></script>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<script type="text/javascript" src="/resources/js/meetingboard/detail_like_join.js"></script>
