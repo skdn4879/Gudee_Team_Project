@@ -74,46 +74,40 @@
             <div class="col-lg-3">
                 <div class="hero__categories">
                     <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>모든 카테고리</span>
-                    </div>
-                    <ul>
-                        <li><a href="/trade/category?category=1&page=1">의류</a></li>
-                        <li><a href="#">식품류</a></li>
-                        <li><a href="#">도서/문구</a></li>
-                        <li><a href="#">뷰티/미용</a></li>
-                        <li><a href="#">생활/디지털</a></li>
-                        <li><a href="#">반려동물 용품</a></li>
-                        <li><a href="#">가구/인테리어</a></li>
-                    </ul>
-                </div>
+                    	<i class="fa fa-bars"></i>
+                    		<select>
+                    			<option selected>전체</option>
+                    			<option>의류</option>
+                    			<option>식품류</option>
+                    			<option>도서/문구</option>
+                    			<option>뷰티/미용</option>
+                    			<option>생활/디지털</option>
+                    			<option>반려동물 용품</option>
+                    			<option>가구/인테리어</option>
+                    		</select>
+                	</div>
+            	</div>
             </div>
+            
+            
+                
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <label class="visually-hidden" for="select">Select</label>
-						    <select name="select" class="form-select" id="select">
-						      <option selected>전체</option>
-						      <option class="select" id="title" value="title">제목</option>
-						      <option class="select" id="contents" value="contents">내용</option>
-						      <option class="select" id="writer" value="writer">작성자</option>
-						    </select>
-					</div>
-						  
-						 <div class="col-12">
-						    <label class="visually-hidden" for="search">검색어를 입력하세요.</label>
-						    <div class="input-group">
-						      <input type="text" name="search" value="${param.search}" class="form-control" id="search">
-						    </div>
-						  </div>
-						
-						  <div class="col-12">
-						    <button type="submit" class="btn btn-primary">검색</button>
-						  </div>  
+                		<form action="#">
+                        	<select name="select" class="hero__search__categories">
+                        		<option selected>전체</option>
+                        		<option class="select" id="title" value="title">제목</option>
+						        <option class="select" id="contents" value="contents">내용</option>
+						        <option class="select" id="writer" value="writer">작성자</option>
+                            </select>
+                            <input type="text" placeholder="어떤 상품을 찾으시나요?" name="search" value="${param.search}">
+                            <button type="submit" class="site-btn">검색</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 </section>
 <!-- Hero Section End -->
