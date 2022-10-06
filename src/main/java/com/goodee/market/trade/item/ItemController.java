@@ -1,35 +1,28 @@
 package com.goodee.market.trade.item;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.goodee.market.member.MemberDTO;
 import com.goodee.market.util.Pager;
-
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("/trade/*")
 //http://localhost/market/item/detail
-public class ItemController {
+public class ItemController{
 	
 	@Autowired
 	private ItemService itemService;
-
+	
+	
 	//메인페이지
 	@GetMapping(value = "main")
 	public ModelAndView getTradeMain(Pager pager)throws Exception {

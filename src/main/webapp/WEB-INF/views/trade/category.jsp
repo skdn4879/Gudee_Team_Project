@@ -65,13 +65,10 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>정렬</span>
-                                    <select>
-                                    	<option value="0">최신순</option>
-                                    	<option value="0">인기순</option>
-                                        <option value="0">높은 가격순</option>
-                                        <option value="0">낮은 가격순</option>
-                                    </select>
+                                    <a href="listSort?page=1order_by=num desc">최신순</a>
+                                    <a href="listSort?page=1order_by=hit desc">인기순</a>
+                                    <a href="listSort?page=1order_by=price desc">높은 가격순</a>
+                                    <a href="listSort?page=1order_by=price esc">낮은 가격순</a>
                                 </div>
                             </div>
                         </div>
