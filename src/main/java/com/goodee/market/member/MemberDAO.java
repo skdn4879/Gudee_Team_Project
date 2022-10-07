@@ -56,6 +56,18 @@ public class MemberDAO implements MemberInterface{
 	public MemberDTO getMLList(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getMLList", memberDTO);
 	}
+
+	//회원 신고하기
+	@Override
+	public int setReport(ReportDTO reportDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setReport", reportDTO);
+	}
+	
+	//같은 회원 신고 횟수 count
+	public int countReport(ReportDTO reportDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "countReport", reportDTO);
+	}
+	
 	
 	
 	

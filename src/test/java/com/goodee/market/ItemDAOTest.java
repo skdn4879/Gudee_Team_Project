@@ -1,5 +1,6 @@
 package com.goodee.market;
 
+
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -12,8 +13,9 @@ import com.goodee.market.trade.item.ItemDTO;
 
 public class ItemDAOTest extends MyAbstractTest{
 
-	@Autowired
-	private ItemDAO itemDAO;
+
+//	@Autowired
+//	private ItemDAO itemDAO;
 	
 //	@Test
 //	public void getDtailTest()throws Exception {
@@ -45,6 +47,7 @@ public class ItemDAOTest extends MyAbstractTest{
 //	
 //	}
 	
+  
 	@Test
 	public void getListTest()throws Exception {
 		ItemDTO itemDTO =new ItemDTO();
@@ -53,3 +56,4 @@ public class ItemDAOTest extends MyAbstractTest{
 	}
 
 }
+
