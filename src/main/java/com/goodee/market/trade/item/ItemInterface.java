@@ -30,4 +30,5 @@ public interface ItemInterface {
 	public int setUpdate(ItemDTO itemDTO) throws Exception;
 	
 	public int setDelete(ItemDTO itemDTO) throws Exception;
+
 }

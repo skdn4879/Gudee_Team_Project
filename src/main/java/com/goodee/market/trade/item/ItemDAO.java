@@ -73,9 +73,7 @@ public class ItemDAO implements ItemInterface {
 	public List<ItemDTO> getHeartList(Pager pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getHeartList", pager);
 	}
-	
-	
-	
+
 		
 	}
 

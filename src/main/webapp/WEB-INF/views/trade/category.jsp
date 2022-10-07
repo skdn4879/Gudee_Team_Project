@@ -42,9 +42,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-5">
+                
+                <!-- 사이드바 카테고리 -->
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>카테고리</h4>
+                            <h4>전체 카테고리</h4>
                             <ul>
                             	<li><a href="#">의류</a></li>
 	                            <li><a href="#">식품류</a></li>
@@ -61,6 +63,8 @@
                 
                 
                 <div class="col-lg-9 col-md-7">
+                	
+                	<!-- 정렬 젭라 -->
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
@@ -73,11 +77,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    
+                    <!-- 제품 목록 -->
+                    <div class="row">                    
                     <c:forEach var="item" items="${list}">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-2.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-2.jpg&quot;);">
+                                <div class="product__item__pic set-bg" data-setbg="" style="background-image:">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
@@ -88,113 +94,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-2.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-2.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-3.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-3.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-4.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-4.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-5.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-5.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-6.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-6.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-7.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-7.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-8.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-8.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-9.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-9.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
-                                </div>
-                            </div>
-                        </div>  
-                    </c:forEach>    
+					</c:forEach>
                     </div>
                     
+                    <!-- 로그인 시 글 쓰기 -->
                     <div class="mb-3">
                     	<c:choose>
 						<c:when test="${not empty member}">
@@ -204,7 +107,7 @@
 							
 						</c:otherwise>
 					</c:choose>
-                    </div>
+                    </div>  
             
             <!-- 페이지 이동 -->        
                     <div class="product__pagination">
@@ -222,11 +125,11 @@
 								</c:forEach>
 								</ul>
                           </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </div>    
+	            </div>
+	        </div>
+		</div>
+	</section>
     <!-- Product Section End -->
 
 	<c:import url="./common/footer.jsp"></c:import>

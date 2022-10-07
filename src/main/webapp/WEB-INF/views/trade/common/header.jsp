@@ -76,7 +76,7 @@
                     <div class="hero__categories__all">
                     	<i class="fa fa-bars"></i>
                     		<select>
-                    			<option selected>전체</option>
+                    			<option selected>전체 카테고리</option>
                     			<option>의류</option>
                     			<option>식품류</option>
                     			<option>도서/문구</option>
