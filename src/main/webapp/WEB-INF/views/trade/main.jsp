@@ -5,33 +5,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Ogani Template">
-	<meta name="keywords" content="Ogani, unica, creative, html">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title> 구디마켓 중고거래 </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 구디마켓 중고거래 </title>
 
-	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-	<!-- Css Styles -->
-	<link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
-	<link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-		crossorigin="anonymous">
-		
-	
-		
-		
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
 </head>
 
 <body>   
@@ -172,7 +166,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_party.jpag" style="background-image: url(&quot;/resources/images/trade/3_party.jpg&quot;);">
+                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_party.jpg" style="background-image: url(&quot;/resources/images/trade/3_party.jpg&quot;);">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             </ul>
@@ -200,8 +194,17 @@
         </div>
     </section>
     
-
-
+	<c:import url="./common/footer.jsp"></c:import>
+	
+	<!-- Js Plugins -->
+    <script src="/resources/js/trade/bootstrap.min.js"></script>
+    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/trade/jquery-ui.min.js"></script>
+    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/trade/jquery.slicknav.js"></script>
+    <script src="/resources/js/trade/main.js"></script>
+    <script src="/resources/js/trade/mixitup.min.js"></script>
+    <script src="/resources/js/trade/owl.carousel.min.js"></script>
 
 </body>
 

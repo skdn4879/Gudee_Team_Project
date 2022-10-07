@@ -1,10 +1,10 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.sql.Date;
 import java.util.List;
 
 
-public class ItemDTO {
+public class ItemDTO implements Comparable<ItemDTO> {
 	
 	   private Long itemNum;
 	   private Long memberNum;
@@ -14,11 +14,20 @@ public class ItemDTO {
 	   private Integer itemPrice;
 	   private Date itemDueDate;
 	   private Integer itemStatus;
-     private Integer itemHit;
+	   private Integer itemHit;
 	   private List<ItemImageDTO>itemImageDTOs;
 	   
 	   
-	 public List<ItemImageDTO> getItemImageDTOs() {
+	//정렬   
+	@Override
+	public int compareTo(ItemDTO o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	 
+	 
+	 
+	public List<ItemImageDTO> getItemImageDTOs() {
 	 return itemImageDTOs;
 	}
 	public void setItemImageDTOs(List<ItemImageDTO> itemImageDTOs) {
