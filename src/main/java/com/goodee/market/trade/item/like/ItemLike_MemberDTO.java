@@ -1,4 +1,4 @@
-package com.goodee.market.item.like;
+package com.goodee.market.trade.item.like;
 
 public class ItemLike_MemberDTO {
 	
