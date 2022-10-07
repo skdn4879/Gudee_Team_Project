@@ -82,10 +82,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>BEST</h2>
+                    <h2>인기 상품</h2>
+                    <h6>다른 사람들은 이 상품을 보고 있어요!</h6>
                 </div>
             </div>
             <div class="row featured__filter" id="MixItUp2D9833">
+            <c:forEach var="item" items="${list}">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/1_knit.jpg" style="background-image: url(&quot;/resources/images/trade/1_knit.jpg&quot;);">
@@ -94,102 +96,12 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">블랙 카라 니트</a></h6>
-                            <h5>15,000원</h5>
+                            <h6><a href="../item/detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
+                            <h5>${item.itemPrice}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/1_set.jpg" style="background-image: url(&quot;/resources/images/trade/1_set.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">트레이닝복 세트</a></h6>
-                            <h5>20,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="/resources/images/trade/2_manggo.jpg" style="background-image: url(&quot;/resources/images/trade/2_manggo.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">애플망고 1kg</a></h6>
-                            <h5>30,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/2_tomato.jpg" style="background-image: url(&quot;/resources/images/trade/2_tomato.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">토마토 한박스</a></h6>
-                            <h5>13,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_pen.jpg" style="background-image: url(&quot;/resources/images/trade/3_pen.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">형광펜 5개입</a></h6>
-                            <h5>2,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_desk.jpg" style="background-image: url(&quot;/resources/images/trade/3_desk.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">데스크 매트 아이보리</a></h6>
-                            <h5>60,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/3_party.jpg" style="background-image: url(&quot;/resources/images/trade/3_party.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">파티 풍선 세트</a></h6>
-                            <h5>3,000원</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="images/trade/2_peach.jpg" style="background-image: url(&quot;/resources/images/trade/2_peach.jpg&quot;);">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">복숭아 10개</a></h6>
-                            <h5>8,000원</h5>
-                        </div>
-                    </div>
-                </div>
+            </c:forEach>    
             </div>
         </div>
     </section>

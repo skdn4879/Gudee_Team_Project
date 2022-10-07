@@ -67,7 +67,7 @@
                                         ${heart.itemCategory}
                                     </td>
                                     <td>
-                                    	<a href="./detail?num=${heart.itemNum}"><h5>${heart.itemTitle}</h5></a>
+                                    	<a href="../item/detail?num=${heart.itemNum}"><h5>${heart.itemTitle}</h5></a>
                                     </td>
                                     <td class="shoping__cart__price"> <!-- seller로 바꾸고 css 수정 -->
                                         ${heart.memberNum}

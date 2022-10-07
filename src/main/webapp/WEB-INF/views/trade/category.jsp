@@ -37,13 +37,16 @@
 	
 	<c:import url="./common/header.jsp"></c:import>
 
+
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5">
-                
-                <!-- 사이드바 카테고리 -->
+
+                <!-- 사이드바 -->
+                <div class="col-lg-3 col-md-5"> 
+                  
+                	<!-- 카테고리 -->             
                     <div class="sidebar">
                         <div class="sidebar__item">
                             <h4>전체 카테고리</h4>
@@ -58,17 +61,22 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <!-- 가격 -->
+                    <!-- radio로 하기 -->
+                    <!-- 00이상 - 00원 이하 -->
                 </div>
-              
+                
                 
                 
                 <div class="col-lg-9 col-md-7">
-                	
+                
                 	<!-- 정렬 젭라 -->
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
+                                	<!-- 정렬 안된다면 /trade/new 로 하기 -->
                                     <a href="listSort?page=1order_by=num desc">최신순</a>
                                     <a href="listSort?page=1order_by=hit desc">인기순</a>
                                     <a href="listSort?page=1order_by=price desc">높은 가격순</a>
@@ -89,7 +97,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
+                                    <h6><a href="../item/detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
                                     <h5>${item.itemPrice}</h5>
                                 </div>
                             </div>

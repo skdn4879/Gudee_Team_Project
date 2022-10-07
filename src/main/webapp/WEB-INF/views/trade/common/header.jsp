@@ -42,7 +42,7 @@
 							  </li>
 							  <li class="nav-item">
 								<a class="nav-link" href="/trade/heartlist">
-									<i class="fa fa-heart"></i> <span>2</span>
+									❤️<span>2</span>
 								</a>
 							  </li>
 							  <li class="nav-item">
