@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,11 +34,15 @@
 			  <input type="text" name="itemTitle" class="form-control" id="title" placeholder="제목 입력">
 			</div>
 			
-			 <div id="mb-3">
-			<label for="fileadd" class="form-label">첨부파일</label>
 			
-				<input type="file" name="files" class="btn btn-danger" id="fileadd">파일 추가
+			
+			
+			 <div id="addFiles">
+			<button type="button" class="btn btn-danger" id="fileAdd">추가</button>
+	
 			</div>
+		
+				
 				
 			<div class="mb-3">
 			  <label for="price" class="form-label">가격</label>
@@ -101,8 +106,7 @@
 
 <!-- bootStrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$("#contents1").summernote();
-</script>
+<script src="/resources/js/itemfile.js"></script>
+
 </body>
 </html>

@@ -35,9 +35,12 @@ public class ItemController {
 	public ModelAndView getList(Pager pager)throws Exception {
 		ModelAndView mv =new ModelAndView();
 		List<ItemDTO> ar =itemService.getList(pager);
+		for(ItemDTO a: ar) {
+			System.out.println(a.getItemNum());
+		}
 		mv.addObject("list", ar);	
 		mv.addObject("pager", pager);
-		mv.setViewName("item/list");
+		mv.setViewName("trade/category");
 		return mv;
 	
 	}

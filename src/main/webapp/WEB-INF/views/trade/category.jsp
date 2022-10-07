@@ -28,6 +28,13 @@
 </head>
 
 <body>
+
+<div class="mb-3">
+		<a href="./add" class="btn btn-primary">글쓰기</a>
+		
+	</div>
+	
+	
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -141,32 +148,39 @@
                         </div>
                     </div>
                     <div class="row">
+                    <div>                    
+                    <c:forEach items="${list}" var="dto">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-1.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-1.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="./detail?num=${dto.itemNum}"><i class="fa fa-heart"></i></a></li>
                                     </ul>
                                 </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">미니 조명</a></h6>
-                                    <h5>32,000</h5>
+                                 <div class="product__item__text">
+                                    <h6><a href="./detail?num=${dto.itemNum}">${dto.itemTitle}</a></h6>
+                                    <h5>${dto.itemPrice}</h5>
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
+                        </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
+                            <c:forEach items="${list}" var="dto">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-2.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-2.jpg&quot;);">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="./detail?num=${dto.itemNum}"><i class="fa fa-heart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">정품 충전기</a></h6>
-                                    <h5>25,000</h5>
+                                    <h6><a href="#">${dto.itemTitle }</a></h6>
+                                    <h5>${dto.itemPrice}</h5>
                                 </div>
                             </div>
                         </div>
+                       </c:forEach>
+                        
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/images/trade/product/product-3.jpg" style="background-image:url(&quot;/resources/images/trade/product/product-3.jpg&quot;);">

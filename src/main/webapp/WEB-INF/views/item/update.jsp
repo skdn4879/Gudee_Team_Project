@@ -31,11 +31,7 @@
 			  <input type="text" name="itemTitle" value="${itemDTO.itemTitle}" class="form-control" id="itemTitle" placeholder="제목 입력">
 			</div>
 			
-			<div id="addFiles">
-				<button type="button" class="btn btn-danger" id="fileAdd">파일 추가</button>
-
-			</div>
-			
+						
 			<div class="mb-3">
 			  <label for="itemPrice" class="form-label">itemPrice</label>
 			  <input type="text" name="itemPrice" value="${itemDTO.itemPrice}" disabled="disabled" class="form-control" id="itemPrice" placeholder="작성자 입력">
@@ -56,7 +52,9 @@
 			  <label for="itemDueDate" class="form-label">거래 날짜</label>
               <p><input type="date" value="2022-9-28" min="2022-12-10" max="2022-12-25"></p>
 			
-			
+		<%-- 	<label for="files" class="form-label">첨부파일</label>
+			<input type="file" name="files" value="${itemImageDTO.oriName}"class="form-control" id="files">
+			 --%>
 			
 			<div class="mb-3">
 			  <label for="itemContents" class="form-label">Contents</label>
