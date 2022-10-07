@@ -79,10 +79,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INNER JOIN
 		MEMBERIMAGE MI
 		ON M.MEMBERNUM = MI.MEMBERNUM
-		INNER JOIN
+		LEFT JOIN
 		MEETINGLIKE_MEMBER ML
 		ON M.MEMBERNUM = ML.MEMBERNUM
-		INNER JOIN
+		LEFT JOIN
 		MEETINGBOARD MB
 		ON ML.MEETINGBOARDNUM = MB.MEETINGBOARDNUM 
 		WHERE M.MEMBERNUM = #{memberNum}
@@ -104,10 +104,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</collection>
 	</resultMap>
 	
-	<select id="getComment" parameterType="meetingBoardCommentDTO" resultType="meetingBoardCommentDTO">
-		
+	<insert id="setReport" parameterType="ReportDTO">
+		INSERT INTO MEMBERREPORT (REPORTMEMBERNUM, REPORTEDMEMBERNUM, REPORTCONTENT)
+		VALUES (#{reportMemberNum}, #{reportedMemberNum}, #{reportContent})
+	</insert>
+	
+	<select id="countReport" parameterType="ReportDTO" resultType="Integer">
+	 	SELECT COUNT(REPORTMEMBERNUM) FROM MEMBERREPORT 
+	 	WHERE REPORTMEMBERNUM = #{reportMemberNum} AND REPORTEDMEMBERNUM = #{reportedMemberNum}
 	</select>
 	
+	<!-- <select id="getreportList" parameterType="MemberDTO" resultMap="getReportList">
+		
+	</select> -->
 	
 
 </mapper>
