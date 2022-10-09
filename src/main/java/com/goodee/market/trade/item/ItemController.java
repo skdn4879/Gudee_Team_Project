@@ -82,14 +82,16 @@ public class ItemController{
 		return "trade/add";
 	}
 	
+	
 	@PostMapping(value="add")
 	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession sessin) throws Exception {
 		ModelAndView mv = new ModelAndView(); 
 		int item= itemService.setAdd(itemDTO,files,sessin.getServletContext());
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect:./category");
 		return mv;
 		
 	}
+	
 	
 	//글수정
 	@GetMapping(value="update")
@@ -97,13 +99,15 @@ public class ItemController{
 		
 		mv.setViewName("trade/update");
 		return mv;
-	
 	}
+	
+	
 	@PostMapping(value="update")
 	public String setUpdate(ItemDTO itemDTO)throws Exception {
 		int result= itemService.setUpdate(itemDTO);
 	return "redirect:./detail?itemNum="+itemDTO.getItemNum();
 	}
+	
 	
 	//글삭제
 	public String setDelete(ItemDTO itemDTO)throws Exception {

@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 
-public class ItemDTO implements Comparable<ItemDTO> {
+public class ItemDTO{
 	
 	   private Long itemNum;
 	   private Long memberNum;
@@ -18,14 +18,7 @@ public class ItemDTO implements Comparable<ItemDTO> {
 	   private List<ItemImageDTO>itemImageDTOs;
 	   
 	   
-	//정렬   
-	@Override
-	public int compareTo(ItemDTO o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	 
-	 
+
 	 
 	public List<ItemImageDTO> getItemImageDTOs() {
 	 return itemImageDTOs;

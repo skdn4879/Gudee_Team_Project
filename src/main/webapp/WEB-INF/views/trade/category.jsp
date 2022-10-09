@@ -11,12 +11,17 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 구디마켓 중고거래 </title>
+    <title> 구디마켓 중고거래📦</title>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+	</style>
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
@@ -27,18 +32,16 @@
     <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
+    
+  	<link rel="stylesheet" href="/resources/css/trade/header.css" />
+    <link rel="stylesheet" href="/resources/css/trade/footer.css" />
+    
 </head>
 
+<c:import url="../template/trade/header.jsp"></c:import>
+
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-	
-	<c:import url="./common/header.jsp"></c:import>
 
-
-    <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
             <div class="row">
@@ -140,7 +143,7 @@
 	</section>
     <!-- Product Section End -->
 
-	<c:import url="./common/footer.jsp"></c:import>
+	<c:import url="../template/trade/footer.jsp"></c:import>
 
     <!-- Js Plugins -->
     <script src="/resources/js/trade/bootstrap.min.js"></script>
