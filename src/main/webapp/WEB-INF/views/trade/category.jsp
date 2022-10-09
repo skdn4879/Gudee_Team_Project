@@ -11,12 +11,17 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 구디마켓 중고거래 </title>
+    <title> 구디마켓 중고거래📦</title>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+	</style>
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
@@ -27,23 +32,24 @@
     <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
+    
+  	<link rel="stylesheet" href="/resources/css/trade/header.css" />
+    <link rel="stylesheet" href="/resources/css/trade/footer.css" />
+    
 </head>
 
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-	
-	<c:import url="./common/header.jsp"></c:import>
+<c:import url="../template/trade/header.jsp"></c:import>
 
-    <!-- Product Section Begin -->
+<body>
+
     <section class="product spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5">
-                
-                <!-- 사이드바 카테고리 -->
+
+                <!-- 사이드바 -->
+                <div class="col-lg-3 col-md-5"> 
+                  
+                	<!-- 카테고리 -->             
                     <div class="sidebar">
                         <div class="sidebar__item">
                             <h4>전체 카테고리</h4>
@@ -58,17 +64,22 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <!-- 가격 -->
+                    <!-- radio로 하기 -->
+                    <!-- 00이상 - 00원 이하 -->
                 </div>
-              
+                
                 
                 
                 <div class="col-lg-9 col-md-7">
-                	
+                
                 	<!-- 정렬 젭라 -->
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
+                                	<!-- 정렬 안된다면 /trade/new 로 하기 -->
                                     <a href="listSort?page=1order_by=num desc">최신순</a>
                                     <a href="listSort?page=1order_by=hit desc">인기순</a>
                                     <a href="listSort?page=1order_by=price desc">높은 가격순</a>
@@ -89,7 +100,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="./detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
+                                    <h6><a href="../item/detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
                                     <h5>${item.itemPrice}</h5>
                                 </div>
                             </div>
@@ -132,7 +143,7 @@
 	</section>
     <!-- Product Section End -->
 
-	<c:import url="./common/footer.jsp"></c:import>
+	<c:import url="../template/trade/footer.jsp"></c:import>
 
     <!-- Js Plugins -->
     <script src="/resources/js/trade/bootstrap.min.js"></script>
