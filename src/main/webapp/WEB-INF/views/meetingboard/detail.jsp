@@ -159,12 +159,20 @@
 			<div class="modal-body">
 				<form>
 				<div class="mb-3">
-					<label for="reportMemberName" class="col-form-label">신고자</label>
-					<input type="text" class="form-control" id="reportMemberName" readonly="readonly" value="${sessionScope.member.nickname}">
+					<label for="reportNickName" class="col-form-label">신고자</label>
+					<input type="text" class="form-control" id="reportNickname" readonly="readonly" value="${sessionScope.member.nickname}">
+					<input type="hidden" id="reportName" value="${sessionScope.member.name}">
+					<input type="hidden" id="reportJoinDate" value="${sessionScope.member.joinDate}">
 				</div>
 				<div class="mb-3">
-					<label for="reportedMemberName" class="col-form-label">피신고자</label>
-					<input type="text" class="form-control" id="reportedMemberName" readonly="readonly" value="${meetingBoardDetail.memberDTO.nickname}">
+					<label for="reportedNickName" class="col-form-label">피신고자</label>
+					<input type="text" class="form-control" id="reportedNickname" readonly="readonly" value="${meetingBoardDetail.memberDTO.nickname}">
+					<input type="hidden" id="reportedName" value="${meetingBoardDetail.memberDTO.name}">
+					<input type="hidden" id="reportedJoinDate" value="${meetingBoardDetail.memberDTO.joinDate}">
+				</div>
+				<div class="mb-3">
+					<label for="reportTitle" class="col-form-label">신고제목</label>
+					<input type="text" class="form-control" id="reportTitle" name="reportTitle">
 				</div>
 				<div class="mb-3">
 					<label for="reportContent" class="col-form-label">신고내용</label>

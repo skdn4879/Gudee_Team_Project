@@ -31,17 +31,33 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<c:choose>
 						<c:when test="${not empty member}">
-							<ul class="navbar-nav">
-							  <li class="nav-item">
-								<a class="nav-link" href="/member/logout">로그아웃</a>
-							  </li>
-							  <li class="nav-item">
-								<a class="nav-link" href="/member/myPage">마이페이지</a>
-							  <li class="nav-item">
-							  <li class="nav-item">
-								<a class="nav-link" href="/mb/home">고객문의</a>
-							  </li>
-							</ul>
+							
+								<c:if test="${sessionScope.memberIsAdmin == 1}">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="/member/logout">로그아웃</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="/member/adminMyPage">마이페이지</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="/mb/home">고객문의</a>
+										</li>
+									</ul>
+								</c:if>
+								<c:if test="${sessionScope.memberIsAdmin == 0}">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="/member/logout">로그아웃</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="/member/myPage">마이페이지</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="/mb/home">고객문의</a>
+										</li>
+									</ul>
+								</c:if>	
 						</c:when>
 						<c:otherwise>
 							<ul class="navbar-nav">
@@ -51,7 +67,7 @@
 							  <li class="nav-item">
 								<a class="nav-link" href="/member/agree">회원가입</a>
 							  </li>
-							  <li>
+							  <li class="nav-item">
 								<a class="nav-link" href="/mb/home">고객문의</a>
 							  </li>
 							</ul>

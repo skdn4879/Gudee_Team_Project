@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentDTO;
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentService;
+import com.goodee.market.util.Pager;
 
 @Controller
 @RequestMapping("/member/*")
@@ -37,6 +40,12 @@ public class MemberController {
 		
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getLogin(memberDTO);
+		session.setAttribute("memberIsAdmin", 0);
+		for(int i = 0; i < memberDTO.getRoleDTOs().size(); i++) {
+			if(memberDTO.getRoleDTOs().get(i).getRoleNum() == 1) {
+				session.setAttribute("memberIsAdmin", 1);
+			}
+		}
 		session.setAttribute("member", memberDTO);
 		
 		String message = "로그인 실패";
@@ -88,6 +97,30 @@ public class MemberController {
 		mv.addObject("myPage", memberDTO);
 		mv.setViewName("member/myPage");
 //		System.out.println(memberDTO.getMemberFileDTO().getFileName());
+		return mv;
+	}
+	
+	@GetMapping("adminMyPage")
+	public ModelAndView adminMyPage(HttpSession session, Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		mv.addObject("memberDTO", memberDTO);
+		mv.setViewName("member/adminMyPage");
+		return mv;
+	}
+	
+	@GetMapping("socialAdminMyPage")
+	public ModelAndView socialAdminMyPage(HttpSession session, Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		List<ReportDTO> reportDTOs = memberService.getReportList(pager);
+		for(int i = 0; i < reportDTOs.size(); i++) {
+			System.out.println(reportDTOs.get(i).getReportedName());
+		}
+		mv.addObject("pager", pager);
+		mv.addObject("reportDTOs", reportDTOs);
+		mv.addObject("memberDTO", memberDTO);
+		mv.setViewName("member/socialAdminMyPage");
 		return mv;
 	}
 	

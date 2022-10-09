@@ -1,8 +1,11 @@
 package com.goodee.market.member;
 
+import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.goodee.market.util.Pager;
 
 @Repository
 public class MemberDAO implements MemberInterface{
@@ -67,6 +70,18 @@ public class MemberDAO implements MemberInterface{
 	public int countReport(ReportDTO reportDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "countReport", reportDTO);
 	}
+
+	//신고 글 목록 불러오기
+	@Override
+	public List<ReportDTO> getReportList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getReportList", pager);
+	}
+	
+	//신고글 총 갯수 계산
+	public Long getCount()throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "getCount");
+	}
+	
 	
 	
 	

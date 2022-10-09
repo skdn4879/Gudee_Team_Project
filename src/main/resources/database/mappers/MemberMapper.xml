@@ -6,9 +6,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.goodee.market.member.MemberDAO">
 
 	<!-- 로그인 -->
-	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, BIRTHDAY, CASH, MAIN_ADDRESS, DETAIL_ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
+	<select id="getLogin" parameterType="MemberDTO" resultMap="getLogin">
+		SELECT M.ID, M.NAME, M.NICKNAME, M.MEMBERNUM, M.EMAIL, M.PHONE, M.BIRTHDAY, M.CASH, 
+		M.MAIN_ADDRESS, M.DETAIL_ADDRESS, M.POSTCODE, M.JOINDATE, R.ROLENUM, R.ROLENAME FROM 
+		MEMBER M
+		INNER JOIN
+		MEMBER_ROLES MR 
+		ON M.MEMBERNUM = MR.MEMBERNUM 
+		INNER JOIN
+		ROLES R 
+		ON MR.ROLENUM = R.ROLENUM
+		WHERE ID = #{id} AND password = #{password}
 	</select>
+	
+	<resultMap type="MemberDTO" id="getLogin">
+		<id column="MEMBERNUM" property="memberNum"/>
+		<result column="ID" property="id"/>
+		<result column="PASSWORD" property="password"/>
+		<result column="NAME" property="name"/>
+		<result column="NICKNAME" property="nickname"/>
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<result column="MAIN_ADDRESS" property="main_address"/>
+		<result column="DETAIL_ADDRESS" property="detail_address"/>
+		<result column="POSTCODE" property="postcode"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<result column="CASH" property="cash"/>
+		<result column="JOINDATE" property="joinDate"/>
+		<collection property="roleDTOs" javaType="List" ofType="RoleDTO">
+			<id column="ROLENUM" property="roleNum"/>
+			<result column="ROLENAME" property="roleName"/>
+		</collection>
+	</resultMap>
 	
 	<!-- 회원가입 -->
 	<insert id="setJoin" parameterType="MemberDTO">
@@ -105,18 +134,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<insert id="setReport" parameterType="ReportDTO">
-		INSERT INTO MEMBERREPORT (REPORTMEMBERNUM, REPORTEDMEMBERNUM, REPORTCONTENT)
-		VALUES (#{reportMemberNum}, #{reportedMemberNum}, #{reportContent})
+		INSERT INTO MEMBERREPORT (NUM, REPORTMEMBERNUM, REPORTNAME, REPORTNICKNAME, REPORTJOINDATE,
+		 REPORTEDMEMBERNUM, REPORTEDNAME, REPORTEDNICKNAME, REPORTEDJOINDATE, REPORTTITLE, REPORTCONTENT)
+		VALUES (MEMBERREPORT_SEQ.NEXTVAL, #{reportMemberNum}, #{reportName}, #{reportNickname},
+		 #{reportJoinDate}, #{reportedMemberNum}, #{reportedName}, #{reportedNickname},
+		 #{reportedJoinDate} ,#{reportTitle}, #{reportContent})
 	</insert>
 	
 	<select id="countReport" parameterType="ReportDTO" resultType="Integer">
-	 	SELECT COUNT(REPORTMEMBERNUM) FROM MEMBERREPORT 
+	 	SELECT COUNT(NUM) FROM MEMBERREPORT 
 	 	WHERE REPORTMEMBERNUM = #{reportMemberNum} AND REPORTEDMEMBERNUM = #{reportedMemberNum}
 	</select>
 	
-	<!-- <select id="getreportList" parameterType="MemberDTO" resultMap="getReportList">
-		
-	</select> -->
+	<select id="getReportList" parameterType="Pager" resultType="ReportDTO">
+		SELECT * FROM
+			(SELECT ROWNUM R , N.* FROM
+			(SELECT * FROM MEMBERREPORT) N)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<!-- <resultMap type="MemberDTO" id="getReportList">
+		<id column="MEMBERNUM" property="memberNum"/>
+		<result column="NAME" property="name"/>
+		<result column="REPORTEDNAME" property="reportedName"/>
+		<result column="REPORTEDNICKNAME" property="reportedNickname"/>
+		<result column="REPORTEDJOINDATE" property="reportedJoinDate"/>
+		<result column="NICKNAME" property="nickname"/>
+		<result column="JOINDATE" property="joinDate"/>
+		<collection property="reportDTOs" javaType="List" ofType="ReportDTO">
+			<id column="NUM" property="num"/>
+			<result column="REPORTTITLE" property="reportTitle"/>
+			<result column="REPORTEDMEMBERNUM" property="reportedMemberNum"/>
+			<result column="REPORTCONTENT" property="reportContent"/>
+		</collection>
+	</resultMap> -->
+	
+	<select id="getCount" resultType="Long">
+		SELECT COUNT(REPORTMEMBERNUM) FROM MEMBERREPORT
+	</select>
 	
 
 </mapper>

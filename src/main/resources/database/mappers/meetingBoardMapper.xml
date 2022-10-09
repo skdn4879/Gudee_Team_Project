@@ -53,6 +53,7 @@
 			<result column="NICKNAME" property="nickname"/>
 			<result column="PHONE" property="phone"/>
 			<result column="CASH" property="cash"/>
+			<result column="JOINDATE" property="joinDate"/>
 			
 			<association property="memberFileDTO" javaType="MemberFileDTO">
 				<id column="PROFILENUM" property="fileNum"/>

@@ -1,11 +1,14 @@
 package com.goodee.market.member;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.goodee.market.util.Pager;
 
 @Service
 public class MemberService {
@@ -95,6 +98,15 @@ public class MemberService {
 	
 	public int countReport(ReportDTO reportDTO)throws Exception{
 		return memberDAO.countReport(reportDTO);
+	}
+
+	public List<ReportDTO> getReportList(Pager pager)throws Exception{
+		pager.getRowNum();
+		Long totalCount = memberDAO.getCount();
+		pager.getNum(totalCount);
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
+		return memberDAO.getReportList(pager);
 	}
 	
 	

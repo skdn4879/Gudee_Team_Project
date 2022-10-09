@@ -1,5 +1,9 @@
 package com.goodee.market.member;
 
+import java.util.List;
+
+import com.goodee.market.util.Pager;
+
 public interface MemberInterface {
 	
 	//로그인
@@ -28,5 +32,8 @@ public interface MemberInterface {
 	
 	//회원 신고하기
 	public int setReport(ReportDTO reportDTO)throws Exception;
+	
+	//신고 글 목록 불러오기
+	public List<ReportDTO> getReportList(Pager pager)throws Exception;
 
 }
