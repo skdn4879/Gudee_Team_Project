@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.goodee.market.item.ItemDAO;
-import com.goodee.market.item.ItemDTO;
+import com.goodee.market.trade.item.ItemDAO;
+import com.goodee.market.trade.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 
 @Controller  //return 값은 내부 파일명

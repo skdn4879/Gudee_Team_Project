@@ -4,9 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>중고거래 찜 목록</title>
+	<meta charset="UTF-8">
+	<title>중고거래 찜 목록</title>
+	
+	<!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
 </head>
+
 <body>
 	<c:import url="./common/header.jsp"></c:import>
 	
@@ -34,49 +48,38 @@
                             <thead>
                                 <tr>
                                     <th class="shoping__product">중고 물품</th>
-                                    <th>가격</th>
-                                    <th>판매자</th>
+                                    <th><!-- 사진 --></th>
                                     <th>카테고리</th>
+                                    <th>제목</th>
+                                    <th>판매자</th>
+                                    <th>가격</th>
                                     <th></th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
+                            <c:forEach items="${list}" var="heart">
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>필로우 미스트</h5>
+                                        <img src="/resources/images/trade/3_desk.jpg" alt="">
                                     </td>
                                     <td class="shoping__cart__price">
-                                        27,000원
+                                        ${heart.itemCategory}
                                     </td>
-                                    <td class="shoping__cart__price">
-                                        김떙땡
+                                    <td>
+                                    	<a href="../item/detail?num=${heart.itemNum}"><h5>${heart.itemTitle}</h5></a>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        뷰티/미용
+                                    <td class="shoping__cart__price"> <!-- seller로 바꾸고 css 수정 -->
+                                        ${heart.memberNum}
+                                    </td>
+                                    <td class="shoping__cart__total"> <!-- category로 변경 -->
+                                        ${heart.itemPrice}
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>쿠션</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        21,000원
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        최땡땡
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        인테리어
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                            </c:forEach>    
                             </tbody>
                         </table>
                     </div>
@@ -85,5 +88,17 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    
+    <c:import url="./common/footer.jsp"></c:import>
+    
+    <!-- Js Plugins -->
+    <script src="/resources/js/trade/bootstrap.min.js"></script>
+    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
+    <script src="/resources/js/trade/jquery-ui.min.js"></script>
+    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
+    <script src="/resources/js/trade/jquery.slicknav.js"></script>
+    <script src="/resources/js/trade/main.js"></script>
+    <script src="/resources/js/trade/mixitup.min.js"></script>
+    <script src="/resources/js/trade/owl.carousel.min.js"></script>
 </body>
 </html>

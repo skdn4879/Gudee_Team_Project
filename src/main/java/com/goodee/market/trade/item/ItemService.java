@@ -1,4 +1,4 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.io.File;
 import java.util.List;
@@ -23,19 +23,37 @@ public class ItemService {
 	@Autowired
 	private FileManager fileManager;
 
+	public List<ItemDTO> getTradeMain(Pager pager)throws Exception{
+		Long totalCount=itemDAO.getCount(pager);
+		pager.getNum(totalCount);
+		pager.getRowNum();
+		return itemDAO.getTradeMain(pager);
+	}
+	
 	
 	public List<ItemDTO> getList(Pager pager)throws Exception{
 		Long totalCount=itemDAO.getCount(pager);
 		pager.getNum(totalCount);
 		pager.getRowNum();
-		
 		return itemDAO.getList(pager);
 	}
+	
+	
+	public List<ItemDTO> getHeartList(Pager pager)throws Exception{
+		Long totalCount=itemDAO.getCount(pager);
+		pager.getNum(totalCount);
+		pager.getRowNum();
+		return itemDAO.getHeartList(pager);
+	}
+	
+	
 	
 	public ItemDTO getDetail(ItemDTO itemDTO)throws Exception {
 		return itemDAO.getDetail(itemDTO);
 	} 
 
+	
+	
 	public int setAdd(ItemDTO itemDTO, MultipartFile[] files,ServletContext servletContext)throws Exception {
 		
 		int result=itemDAO.setAdd(itemDTO, files, servletContext); // 먼저 추가되어야 글번호 생성됨
@@ -55,9 +73,13 @@ public class ItemService {
 		return result;
 	}
 	
+	
+	
 	public int setUpdate(ItemDTO itemDTO)throws Exception {
 		return itemDAO.setUpdate(itemDTO);
 	}
+	
+	
 	
 	public int setDelete(ItemDTO itemDTO)throws Exception {
 		return itemDAO.setDelete(itemDTO);

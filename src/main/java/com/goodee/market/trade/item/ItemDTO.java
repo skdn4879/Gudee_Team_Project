@@ -1,10 +1,10 @@
-package com.goodee.market.item;
+package com.goodee.market.trade.item;
 
 import java.sql.Date;
 import java.util.List;
 
 
-public class ItemDTO {
+public class ItemDTO{
 	
 	   private Long itemNum;
 	   private Long memberNum;
@@ -14,11 +14,13 @@ public class ItemDTO {
 	   private Integer itemPrice;
 	   private Date itemDueDate;
 	   private Integer itemStatus;
-     private Integer itemHit;
+	   private Integer itemHit;
 	   private List<ItemImageDTO>itemImageDTOs;
 	   
 	   
-	 public List<ItemImageDTO> getItemImageDTOs() {
+
+	 
+	public List<ItemImageDTO> getItemImageDTOs() {
 	 return itemImageDTOs;
 	}
 	public void setItemImageDTOs(List<ItemImageDTO> itemImageDTOs) {

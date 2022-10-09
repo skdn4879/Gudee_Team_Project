@@ -37,7 +37,7 @@
 							  </li>
 							  <li class="nav-item">
 								<a class="nav-link" href="/member/myPage">마이페이지</a>
-							  <li class="nav-item">
+							  </li>
 							  <li class="nav-item">
 								<a class="nav-link" href="/mb/home">고객문의</a>
 							  </li>
@@ -51,7 +51,7 @@
 							  <li class="nav-item">
 								<a class="nav-link" href="/member/agree">회원가입</a>
 							  </li>
-							  <li>
+							  <li class="nav-item">
 								<a class="nav-link" href="/mb/home">고객문의</a>
 							  </li>
 							</ul>
