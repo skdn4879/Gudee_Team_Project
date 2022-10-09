@@ -22,17 +22,7 @@ public class ItemController{
 	@Autowired
 	private ItemService itemService;
 	
-	// 글 목록
-	@GetMapping(value = "list")
-	public ModelAndView getList(Pager pager)throws Exception {
-		ModelAndView mv =new ModelAndView();
-		List<ItemDTO> ar =itemService.getList(pager);
-		for(ItemDTO a: ar) {
-			System.out.println(a.getItemNum());
-		}
-		mv.addObject("list", ar);	
-		mv.addObject("pager", pager);
-		mv.setViewName("trade/category");
+	
 	
 	//메인페이지
 	@GetMapping(value = "main")
@@ -49,9 +39,11 @@ public class ItemController{
 	
 	//카테고리 메인
 	@GetMapping(value = "category")
-	public ModelAndView getList(Pager pager)throws Exception {
+	public ModelAndView getList(Long num, Pager pager)throws Exception {
 		System.out.println("category");
 		ModelAndView mv = new ModelAndView();
+		ItemDTO itemDTO = new ItemDTO();
+		itemDTO.setItemNum(num);
 		List<ItemDTO> ar =itemService.getList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);

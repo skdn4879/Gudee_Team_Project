@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 글 추가 </title>
+<title> 상품페이지 </title>
 <!--summernote jquery  -->
  <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
  <!-- bootStrap -->	
@@ -16,7 +16,7 @@
     *:focus { outline:none;} 
     
     #wrap{margin:0px;padding:0px ;background-color:#fff}
-    .layout_inner{position:relative;width:1146px; margin:0px auto; }
+    .layout_inner{position:relative;width:1050px; margin:0px auto; }
     /*top_menu*/
     .top_menu{ width:100%;height:37px; border-bottom:solid 1px #DCDCDC; background-color:#FFFFFF;}
     .top_menu .left_menu {float:left; overflow:hidden; margin-top:12px;}
@@ -306,56 +306,7 @@
         
             <!-- header -->
             <div id="header">
-        
 
-                <!-- gnb_logo_section -->
-        
-        
-                              <div class="search">
-                            <form method="get" id="fitem_search" action="search.php">
-                                <input type="text" name="keyword" value="" class="search_in" placeholder="검색어를 입력해주세요">
-                                <input type="image" src="./skin/demo/img/ser_btn.png" class="ser_btn">
-                            </form>
-                        </div>
-                            
-                    </div>
-                    <div style="clear:both;"></div>
-                </div>
-        
-                <!-- //gnb_logo_section -->
-        
-            </div>
-            <!-- //header -->
-        
-        
-        <div style="width:1146px; margin:0px auto; min-height:850px; ">
-     
-        <script type="text/javascript">
-        
-        
-        
-        
-        $(document).ready(function() {
-        
-            $('#rv_msg').on('keyup', function() {
-                $("#rv_msg_counter").html($(this).val().length);
-                if($(this).val().length > 500){
-                    $(this).val($(this).val().substring(0, 500));
-                }
-            });
-        
-            $('#rv_memo').on('keyup', function() {
-                $("#rv_memo_counter").html($(this).val().length);
-                if($(this).val().length > 500){
-                    $(this).val($(this).val().substring(0, 500));
-                }
-            });
-        
-        });
-        
-        //-->
-        </script>
-        </div>
         <!-- 리뷰어신청하기 -->
         
         

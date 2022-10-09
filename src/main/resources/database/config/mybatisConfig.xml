@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.goodee.market.member.MemberDTO" alias="MemberDTO"/>
 
 		<typeAlias type="com.goodee.market.member.MemberFileDTO" alias="MemberFileDTO"/>
+		<typeAlias type="com.goodee.market.member.ReportDTO" alias="ReportDTO"/>
 
 		<typeAlias type="com.goodee.market.trade.item.ItemDTO" alias="ItemDTO"/>
 		<typeAlias type="com.goodee.market.trade.item.ItemDAO" alias="ItemDAO"/>

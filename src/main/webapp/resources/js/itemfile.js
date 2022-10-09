@@ -74,7 +74,7 @@ addFiles.addEventListener("click", function(event){
     let button = event.target
 
     if(event.target.className=='del'){
-        document.getElementById("file"+button.title).remove();
+     document.getElementById("file"+button.title).remove();
         
             count--;
     }
