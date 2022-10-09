@@ -82,6 +82,7 @@ public class MemberController {
 		
 	}
 	
+	//로그아웃
 	@GetMapping("logout")
 	public String logout(HttpSession session)throws Exception{
 		System.out.println("로그아웃 실행");
@@ -89,6 +90,7 @@ public class MemberController {
 		return "redirect: /";
 	}
 	
+	//마이페이지
 	@GetMapping("myPage")
 	public ModelAndView myPage(HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -100,6 +102,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//관리자 페이지
 	@GetMapping("adminMyPage")
 	public ModelAndView adminMyPage(HttpSession session, Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -109,6 +112,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//소셜관리자 페이지
 	@GetMapping("socialAdminMyPage")
 	public ModelAndView socialAdminMyPage(HttpSession session, Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -124,6 +128,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//소셜마이페이지 불러오기
 	@GetMapping("socialMyPage")
 	public ModelAndView socialMyPage(HttpSession session)throws Exception{
 		//찜목록
@@ -145,6 +150,7 @@ public class MemberController {
 		return mv;
 	}
 	
+	//회원정보 수정
 	@GetMapping("infoUpdate")
 	public MemberDTO infoUpdate(Long memberNum)throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
@@ -162,6 +168,7 @@ public class MemberController {
 		return "redirect: myPage?memberNum=" + memberDTO.getMemberNum();
 	}
 	
+	//이미지 파일 제거
 	@PostMapping("fileDelete")
 	@ResponseBody
 	public int setFileDelete(MemberFileDTO memberFileDTO, HttpSession session)throws Exception{
@@ -170,6 +177,7 @@ public class MemberController {
 		return jasonResult;
 	}
 	
+	//신고글 작성
 	@PostMapping("report")
 	@ResponseBody
 	public Map<String, Integer> setReport(ReportDTO reportDTO)throws Exception{
@@ -181,6 +189,13 @@ public class MemberController {
 		}
 		map.put("result", jasonResult);
 		return map;
+	}
+	
+	@PostMapping
+	@ResponseBody
+	public int inquiry(InquiryDTO inquiryDTO)throws Exception{
+		int result = memberService.setInquiry(inquiryDTO);
+		return result;
 	}
 
 }

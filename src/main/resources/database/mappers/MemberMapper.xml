@@ -173,5 +173,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(REPORTMEMBERNUM) FROM MEMBERREPORT
 	</select>
 	
+	<insert id="setInquiry" parameterType="InquiryDTO">
+		<selectKey keyProperty="num" order="BEFORE" resultType="Long">
+			SELECT INQUIRY_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO INQUIRY (NUM, WRITER, TITLE, CONTENTS, REGDATE, REF, STEP)
+		VALUES (#{num}, #{writer}, #{title}, #{contents}, SYSDATE, #{num}, 0)
+	</insert>
+	
+	<insert id="setInquiryReply" parameterType="InquiryDTO">
+		INSERT INTO INQUIRY (NUM, WRITER, TITLE, CONTENTS, REGDATE, REF, STEP)
+		VALUES (INQUIRY_SEQ.NEXT, #{writer}, #{title}, #{contents}, #{regDate}, #{ref}, #{step})
+	</insert>
+	
+	<update id="setStepUpdate" parameterType="InquiryDTO">
+		UPDATE INQUIRY SET STEP=STEP+1 WHERE REF=#{ref} AND STEP > 0
+	</update>
+	
 
 </mapper>

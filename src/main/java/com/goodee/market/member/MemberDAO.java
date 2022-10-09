@@ -81,6 +81,28 @@ public class MemberDAO implements MemberInterface{
 	public Long getCount()throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "getCount");
 	}
+
+	//1대1 문의글 작성
+	@Override
+	public int setInquiry(InquiryDTO inquiryDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setInquiry", inquiryDTO);
+	}
+
+	//답글 STEP 업데이트
+	@Override
+	public int setStepUpdate(InquiryDTO inquiryDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setStepUpdate", inquiryDTO);
+	}
+
+	//1대1 문의글 답글 작성
+	@Override
+	public int setInquiryReply(InquiryDTO inquiryDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setInquiryReply", inquiryDTO);
+	}
+	
+	
+	
+	
 	
 	
 	

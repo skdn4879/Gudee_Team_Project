@@ -35,5 +35,14 @@ public interface MemberInterface {
 	
 	//신고 글 목록 불러오기
 	public List<ReportDTO> getReportList(Pager pager)throws Exception;
+	
+	//1대1 문의글 작성
+	public int setInquiry(InquiryDTO inquiryDTO)throws Exception;
+	
+	//문의글 답글 STEP 업데이트
+	public int setStepUpdate(InquiryDTO inquiryDTO)throws Exception;
+	
+	//문의글 답글 작성
+	public int setInquiryReply(InquiryDTO inquiryDTO)throws Exception;
 
 }

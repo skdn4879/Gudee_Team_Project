@@ -87,19 +87,23 @@ public class MemberService {
 		return result;
 	}
 	
+	//좋아요 리스트 불러오기
 	public MemberDTO getMLList(MemberDTO memberDTO)throws Exception{
 		memberDTO = memberDAO.getMLList(memberDTO);
 		return memberDTO;
 	}
 	
+	//신고글 작성
 	public int setReport(ReportDTO reportDTO)throws Exception{
 		return memberDAO.setReport(reportDTO);
 	}
 	
+	//신고글 갯수 계산
 	public int countReport(ReportDTO reportDTO)throws Exception{
 		return memberDAO.countReport(reportDTO);
 	}
 
+	//신고글 리스트 불러오기
 	public List<ReportDTO> getReportList(Pager pager)throws Exception{
 		pager.getRowNum();
 		Long totalCount = memberDAO.getCount();
@@ -107,6 +111,18 @@ public class MemberService {
 		System.out.println(pager.getStartRow());
 		System.out.println(pager.getLastRow());
 		return memberDAO.getReportList(pager);
+	}
+	
+	//1대1 문의글 작성
+	public int setInquiry(InquiryDTO inquiryDTO)throws Exception{
+		return memberDAO.setInquiry(inquiryDTO);
+	}
+	
+	//1대1 문의글 답글 작성
+	public int setInquiryReply(InquiryDTO inquiryDTO)throws Exception{
+		memberDAO.setStepUpdate(inquiryDTO);
+		int result = memberDAO.setInquiryReply(inquiryDTO);
+		return result;
 	}
 	
 	
