@@ -17,7 +17,7 @@ public class ItemDAO implements ItemInterface {
 
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.goodee.market.item.ItemDAO.";
+	private final String NAMESPACE="com.goodee.market.trade.item.ItemDAO.";
 	
 	   //fileDetail
 //		public ItemImageDTO getFileDetail(ItemImageDTO itemImageDTO)throws Exception;

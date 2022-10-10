@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.goodee.market.item.ItemDAO">
+    <mapper namespace="com.goodee.market.trade.item.ItemDAO">
     
     	<!-- 메인 -->
     	<select id="getTradeMain" resultType="itemDTO" parameterType="Pager">

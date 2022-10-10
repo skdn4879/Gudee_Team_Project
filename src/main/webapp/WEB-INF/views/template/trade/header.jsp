@@ -96,15 +96,15 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/review" role="button" data-bs-toggle="dropdown" aria-expanded="false">후기</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/category" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/review" class="cate-a">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a href="/trade/category/cloth" class="cate-a">의류</a></li>
-						<li><a href="/trade/category/food" class="cate-a">식품류</a></li>
-						<li><a href="/trade/category/book" class="cate-a">도서/문구</a></li>
-						<li><a href="/trade/category/beauty" class="cate-a">뷰티/미용</a></li>
-						<li><a href="/trade/category/digital" class="cate-a">생활/디지털</a></li>
-						<li><a href="/trade/category/pet" class="cate-a">반려동물 용품</a></li>
-						<li><a href="/trade/category/interior" class="cate-a">가구/인테리어</a></li>
+						<li><a href="/trade/review/cloth" class="cate-a">의류</a></li>
+						<li><a href="/trade/review/food" class="cate-a">식품류</a></li>
+						<li><a href="/trade/review/book" class="cate-a">도서/문구</a></li>
+						<li><a href="/trade/review/beauty" class="cate-a">뷰티/미용</a></li>
+						<li><a href="/trade/review/digital" class="cate-a">생활/디지털</a></li>
+						<li><a href="/trade/review/pet" class="cate-a">반려동물 용품</a></li>
+						<li><a href="/trade/review/interior" class="cate-a">가구/인테리어</a></li>
 				  </ul>
 				</li>
 				<li class="cate-li">
