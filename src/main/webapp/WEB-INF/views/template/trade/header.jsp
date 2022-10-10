@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>구디마켓 중고거래📦</title>
+  <title>구디마켓 │ 중고거래📦</title>
 
   <link rel="stylesheet" href="/resources/css/trade/header.css"/>
 

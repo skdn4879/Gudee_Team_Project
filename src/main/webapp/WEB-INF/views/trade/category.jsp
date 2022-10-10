@@ -11,7 +11,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 구디마켓 중고거래📦</title>
+    <title> 구디마켓 │ 중고거래📦</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -22,19 +22,10 @@
     <style>
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 	</style>
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
     
   	<link rel="stylesheet" href="/resources/css/trade/header.css" />
     <link rel="stylesheet" href="/resources/css/trade/footer.css" />
+    <link rel="stylesheet" href="/resources/css/trade/category.css" />
     
 </head>
 
@@ -42,38 +33,37 @@
 
 <body>
 
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
+<div class="categoryBody">
+    <section class="cate-top">
+        <div class="cate-container">
+            <div class="cate-row">
 
                 <!-- 사이드바 -->
                 <div class="col-lg-3 col-md-5"> 
                   
                 	<!-- 카테고리 -->             
                     <div class="sidebar">
-                        <div class="sidebar__item">
-                            <h4>전체 카테고리</h4>
-                            <ul>
-                            	<li><a href="#">의류</a></li>
-	                            <li><a href="#">식품류</a></li>
-	                            <li><a href="#">도서/문구</a></li>
-	                            <li><a href="#">뷰티/미용</a></li>
-	                            <li><a href="#">생활/디지털</a></li>
-	                            <li><a href="#">반려동물 용품</a></li>
-	                            <li><a href="#">가구/인테리어</a></li>							
+                        <div class="sidebar-cate">
+                            <h4 class="sidebar-cate-title">전체 카테고리</h4>
+                            <ul class="sidebar-cate-ul">
+                            	<li class="sideber-cate-li"><a href="#" class="sideber-cate-a">의류</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">식품류</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">도서/문구</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">뷰티/미용</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">생활/디지털</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">반려동물 용품</a></li>
+	                            <li class="sideber-cate-li"><a href="#" class="sideber-cate-a">가구/인테리어</a></li>							
                             </ul>
                         </div>
-                    </div>
-                    
                     <!-- 가격 -->
                     <!-- radio로 하기 -->
                     <!-- 00이상 - 00원 이하 -->
+                    </div>                    
                 </div>
                 
                 
                 
                 <div class="col-lg-9 col-md-7">
-                
                 	<!-- 정렬 젭라 -->
                     <div class="filter__item">
                         <div class="row">
@@ -107,6 +97,8 @@
                         </div>
 					</c:forEach>
                     </div>
+	</section>                    
+</div>                    
                     
                     <!-- 로그인 시 글 쓰기 -->
                     <div class="mb-3">
@@ -140,8 +132,6 @@
 	            </div>
 	        </div>
 		</div>
-	</section>
-    <!-- Product Section End -->
 
 	<c:import url="../template/trade/footer.jsp"></c:import>
 
