@@ -7,8 +7,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>전체 카테고리💚 │ 구디마켓 │ 중고거래📦</title>
@@ -107,7 +105,7 @@
                             <div class="filter-sort">
                                 <ul>
                                     <li class="filter-li"><a href="/trade/category/new" class="filter-a">최신순</a></li>
-                                    <li class="filter-li"><a href="/trade/category/hit" class="filter-a">인기순</a></li>
+                                    <li class="filter-li"><a href="/trade/category/hit" class="filter-a">조회순</a></li>
                                     <li class="filter-li"><a href="/trade/category/high" class="filter-a">높은 가격순</a></li>
                                     <li class="filter-li"><a href="/trade/category/low" class="filter-a">낮은 가격순</a></li>
                                 </ul>
@@ -168,19 +166,6 @@
 </div>        
 
 	<c:import url="../template/trade/footer.jsp"></c:import>
-
-    <!-- Js Plugins -->
-    <script src="/resources/js/trade/bootstrap.min.js"></script>
-    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/trade/jquery-ui.min.js"></script>
-    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
-    <script src="/resources/js/trade/jquery.slicknav.js"></script>
-    <script src="/resources/js/trade/main.js"></script>
-    <script src="/resources/js/trade/mixitup.min.js"></script>
-    <script src="/resources/js/trade/owl.carousel.min.js"></script>
-
-
-
 </body>
 
 </html>
