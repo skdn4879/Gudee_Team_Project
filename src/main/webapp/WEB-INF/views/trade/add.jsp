@@ -94,7 +94,7 @@
 			<div class="mb-3">
 				<button type="submit" class="btn btn-success">등록</button>
 			</div>
-			
+		</div>	
 		</form>
 	</div>
 </section>

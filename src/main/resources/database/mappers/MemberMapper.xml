@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 로그인 -->
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, BIRTHDAY, CASH, MAIN_ADDRESS, DETAIL_ADDRESS, POSTCODE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
+		SELECT ID, NAME, NICKNAME, MEMBERNUM, EMAIL, PHONE, BIRTHDAY, CASH, ADDRESS FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
 	</select>
 	
 	<!-- 회원가입 -->

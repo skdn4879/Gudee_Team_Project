@@ -130,35 +130,44 @@
 					</c:forEach>
                     </div>                 
                     
-                    <!-- 로그인 시 글 쓰기 -->
-                    <div class="mb-3">
-                    	<c:choose>
-						<c:when test="${not empty member}">
-	                    	<a href="./item/add" class="btn btn-primary">글쓰기</a>							
-						</c:when>
-						<c:otherwise>
-							
-						</c:otherwise>
-					</c:choose>
-                    </div>  
-            
-            <!-- 페이지 이동 -->        
+                    
+                    <!-- 페이지 이동 -->        
                     <div class="product-pagination">
-                        <nav aria-label="Page navigation category">
-							  <ul class="pagination">
-							  <c:if test="${pager.pre}">
-							  	<li class="page-item">
-							  		<a class="page-link" href="./category?page=${pager.startNum-1}" aria-label="Previous">
-							        	<span aria-hidden="true">&laquo;</span>
-							      	</a>
-							      </li>
-							    </c:if>
-								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-									<li class="page-item"><a class="page-link" href="./category?page=${i}">${i}</a></li>
-								</c:forEach>
-								</ul>
-                          </nav>
-                    </div>    
+                        <div class="col-lg-12">
+                            <div>
+                                <div class="cate-page">
+                                    <nav aria-label="Page navigation category">
+                                        <ul class="pagination">
+                                        <c:if test="${pager.pre}">
+                                            <li class="page-item">
+                                                <a class="page-link" href="./category?page=${pager.startNum-1}" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            </c:if>
+                                            <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="./category?page=${i}">${i}</a>
+                                                </li>
+                                            </c:forEach>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+                                <!-- 로그인 시 글 쓰기 -->
+                                <div class="cate-login">
+                                    <c:choose>
+                                    <c:when test="${not empty member}">
+                                        <a href="./add" class="add-btn">글쓰기</a>							
+                                    </c:when>
+                                    <c:otherwise>
+                                        
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
+                            </div>    
+                        </div>  
+                    </div>
 	            </div>
 	        </div>
 		</div>

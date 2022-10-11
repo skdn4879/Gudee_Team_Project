@@ -84,12 +84,12 @@ public class ItemController{
 	
 	
 	@PostMapping(value="add")
-	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession sessin) throws Exception {
+	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView(); 
-		int item= itemService.setAdd(itemDTO,files,sessin.getServletContext());
+		int item= itemService.setAdd(itemDTO,files,session.getServletContext());
 		mv.setViewName("redirect:./category");
+		System.out.println("add success");
 		return mv;
-		
 	}
 	
 	
