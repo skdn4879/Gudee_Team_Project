@@ -1,5 +1,7 @@
 const approvalListItemAcceptBtnArray = document.querySelectorAll(".approvalListItemAcceptBtn");
 const approvalListItemDenieBtnArray = document.querySelectorAll(".approvalListItemDenieBtn");
+const listMainSection = document.querySelector("#listMainSection");
+let mbNum = listMainSection.getAttribute("data-meetingboardnum");
 
 approvalListItemAcceptBtnArray.forEach(function(element){
 
@@ -12,7 +14,7 @@ approvalListItemAcceptBtnArray.forEach(function(element){
 
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-        xhttp.send("mbmNum=" + mbmNum);
+        xhttp.send("mbmNum=" + mbmNum + "&mbNum=" + mbNum);
 
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
@@ -21,7 +23,7 @@ approvalListItemAcceptBtnArray.forEach(function(element){
                 if(result > 0){
                     alert("승인 완료");
                 } else{
-                    alert("승인 실패");
+                    alert("승인 실패 또는 인원 수 초과");
                 }
 
                 location.reload();

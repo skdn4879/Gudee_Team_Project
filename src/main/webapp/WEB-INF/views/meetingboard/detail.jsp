@@ -18,7 +18,7 @@
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<form>
-			<input type="hidden" id="mbNum" value=${meetingBoardDetail.meetingBoardNum }>
+			<input type="hidden" id="mbNum" value="${meetingBoardDetail.meetingBoardNum }">
 			<input type="hidden" id="mNum" value="${sessionScope.member.memberNum }">
 		</form>
 		<c:if test="${!isLikeExist }">
@@ -35,7 +35,7 @@
 		</c:if>
 	</c:if>
 	
-	<section class="container-fluid col-10" id="detailMainSection">
+	<section class="container-fluid col-10" id="detailMainSection" data-mbNum="${meetingBoardDetail.meetingBoardNum }">
 		<div id="detailTopFrame">
 			<div id="meetingBoardDetailThumnailFrame">
 				<c:if test="${meetingBoardDetail.meetingBoardImageDTO == null }">
@@ -96,6 +96,9 @@
 				</div>
 			</div>
 		</div>
+	</section>
+	
+	<section class="container-fluid col-10" id="detailJoinListSection">
 	</section>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter == sessionScope.member.memberNum }">

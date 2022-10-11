@@ -57,4 +57,16 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.update(NAMESPACE + "setApprovalDenie", meetingBoardMemberDTO);
 	}
 	
+	public List<MeetingBoardMemberDTO> getDetailJoinList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getDetailJoinList", meetingBoardMemberDTO);
+	}
+	
+	public int getMeetingBoardMemberStatus(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMeetingBoardMemberStatus", meetingBoardMemberDTO);
+	}
+	
+	public int getAllApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getAllApprovalCount", meetingBoardMemberDTO);
+	}
+	
 }

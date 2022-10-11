@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.goodee.market.meetingboard.MeetingBoardDAO;
 import com.goodee.market.meetingboard.MeetingBoardDTO;
 import com.goodee.market.meetingboard.util.MeetingBoardMemberPager;
 import com.goodee.market.meetingboard.util.MeetingBoardPager;
@@ -14,6 +15,9 @@ public class MeetingBoardMemberService {
 
 	@Autowired
 	private MeetingBoardMemberDAO meetingBoardMemberDAO;
+	
+	@Autowired
+	private MeetingBoardDAO meetingBoardDAO;
 	
 	public int setAddMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
 		return meetingBoardMemberDAO.setAddMeetingBoardMember(meetingBoardMemberDTO);
@@ -36,6 +40,14 @@ public class MeetingBoardMemberService {
 	}
 	
 	public int setDeleteMeetingBoardMember(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int status = meetingBoardMemberDAO.getMeetingBoardMemberStatus(meetingBoardMemberDTO);
+		
+		if(status == 1) {
+			MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
+			meetingBoardDTO.setMeetingBoardNum(meetingBoardMemberDTO.getMeetingBoardNum());
+			meetingBoardDAO.setMeetingBoardCurrentMemberUpdateMinus(meetingBoardDTO);
+		}
+		
 		return meetingBoardMemberDAO.setDeleteMeetingBoardMember(meetingBoardMemberDTO);
 	}
 	
@@ -65,12 +77,34 @@ public class MeetingBoardMemberService {
 		
 	}
 	
-	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
-		return meetingBoardMemberDAO.setApprovalAccept(meetingBoardMemberDTO);
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO, Long mbNum) throws Exception {
+		
+		int result = 0;
+		
+		MeetingBoardDTO meetingBoardDTO = new MeetingBoardDTO();
+		meetingBoardDTO.setMeetingBoardNum(mbNum);
+		meetingBoardDTO = meetingBoardDAO.getMeetingBoardDetail(meetingBoardDTO);
+		int curMember = meetingBoardDTO.getMeetingBoardCurrentMember();
+		int maxMember = meetingBoardDTO.getMeetingBoardMaxMember();
+		
+		if(curMember < maxMember) {
+			result = meetingBoardMemberDAO.setApprovalAccept(meetingBoardMemberDTO);
+			meetingBoardDAO.setMeetingBoardCurrentMemberUpdate(meetingBoardDTO);
+		}
+		
+		return result;
 	}
 	
 	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
 		return meetingBoardMemberDAO.setApprovalDenie(meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getDetailJoinList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.getDetailJoinList(meetingBoardMemberDTO);
+	}
+	
+	public int getAllApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.getAllApprovalCount(meetingBoardMemberDTO);
 	}
 	
 }

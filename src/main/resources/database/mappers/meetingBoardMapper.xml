@@ -147,4 +147,12 @@
 		DELETE FROM meetingboardimage WHERE filenum = #{fileNum}
 	</delete>
 
+	<update id="setMeetingBoardCurrentMemberUpdate" parameterType="MeetingBoardDTO">
+		UPDATE MEETINGBOARD SET MEETINGBOARDCURRENTMEMBER = MEETINGBOARDCURRENTMEMBER + 1 WHERE MEETINGBOARDNUM = #{meetingBoardNum}
+	</update>
+	
+	<update id="setMeetingBoardCurrentMemberUpdateMinus" parameterType="MeetingBoardDTO">
+		UPDATE MEETINGBOARD SET MEETINGBOARDCURRENTMEMBER = MEETINGBOARDCURRENTMEMBER - 1 WHERE MEETINGBOARDNUM = #{meetingBoardNum}
+	</update>
+
 </mapper>

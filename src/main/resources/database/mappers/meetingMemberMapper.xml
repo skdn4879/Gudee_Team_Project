@@ -114,5 +114,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="setApprovalDenie" parameterType="MeetingBoardMemberDTO">
 		UPDATE MEETINGBOARD_MEMBER SET APPROVALSTATUS = 2 WHERE MBMNUM = #{mbmNum}
 	</update>
+	
+	<select id="getDetailJoinList" parameterType="MeetingBoardMemberDTO" resultMap="getDetailJoinListResult">
+		SELECT M.MEMBERNUM, M.ID, M.NAME, M.NICKNAME, MBM.MBMNUM, MI.FILENUM, MI.FILENAME 
+		FROM MEMBER M
+		INNER JOIN MEETINGBOARD_MEMBER MBM
+		ON (M.MEMBERNUM = MBM.REQUESTMEMBERNUM)
+		LEFT JOIN MEMBERIMAGE MI
+		ON (M.MEMBERNUM = MI.MEMBERNUM)
+		WHERE MBM.MEETINGBOARDNUM = #{meetingBoardNum} AND MBM.APPROVALSTATUS = 1
+		ORDER BY MBM.MBMNUM ASC
+	</select>
+	
+	<resultMap type="MeetingBoardMemberDTO" id="getDetailJoinListResult">
+		<id column="MBMNUM" property="mbmNum"/>
+		
+		<association property="memberDTO" javaType="MemberDTO">
+			<id column="MEMBERNUM" property="memberNum"/>
+			<result column="ID" property="id"/>
+			<result column="NAME" property="name"/>
+			<result column="NICKNAME" property="nickname"/>
+		</association>
+		
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="FILENUM" property="fileNum"/>
+			<result column="FILENAME" property="fileName"/>
+		</association>
+		
+	</resultMap>
+	
+	<select id="getMeetingBoardMemberStatus" parameterType="MeetingBoardMemberDTO" resultType="Integer">
+		SELECT APPROVALSTATUS FROM MEETINGBOARD_MEMBER WHERE REQUESTMEMBERNUM = #{requestMemberNum} AND MEETINGBOARDNUM = #{meetingBoardNum}
+	</select>
+	
+	<select id="getAllApprovalCount" parameterType="MeetingBoardMemberDTO" resultType="Integer">
+		SELECT COUNT(MBMNUM) FROM MEETINGBOARD_MEMBER WHERE HOSTMEMBERNUM = #{hostMemberNum} AND APPROVALSTATUS = 0
+	</select>
 
 </mapper>

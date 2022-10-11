@@ -14,7 +14,7 @@
 <body>
 	<c:import url="../template/meetingboard/header.jsp"></c:import>
 	
-	<section class="container-fluid col-10" id="listMainSection">
+	<section class="container-fluid col-10" id="listMainSection" data-meetingboardnum="${pager.meetingBoardNum }">
 		<c:forEach items="${requestScope.myApprovalList }" var="listItem">
 			<div id="approvalListFrame">
 				<div class="approvalListItem">

@@ -82,8 +82,8 @@ public class MeetingBoardMemberController {
 	
 	@PostMapping("myApprovalAccept")
 	@ResponseBody
-	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
-		int result = meetingBoardMemberService.setApprovalAccept(meetingBoardMemberDTO);
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO, Long mbNum) throws Exception {
+		int result = meetingBoardMemberService.setApprovalAccept(meetingBoardMemberDTO, mbNum);
 		
 		return result;
 	}
@@ -92,6 +92,22 @@ public class MeetingBoardMemberController {
 	@ResponseBody
 	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
 		int result = meetingBoardMemberService.setApprovalDenie(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@GetMapping("detailJoinList")
+	@ResponseBody
+	public Map<String, Object> getDetailJoinList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("detailJoinList", meetingBoardMemberService.getDetailJoinList(meetingBoardMemberDTO));
+		return map;
+	}
+
+	@GetMapping("allCount")
+	@ResponseBody
+	public int getAllApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception{
+		int result = meetingBoardMemberService.getAllApprovalCount(meetingBoardMemberDTO);
 		
 		return result;
 	}
