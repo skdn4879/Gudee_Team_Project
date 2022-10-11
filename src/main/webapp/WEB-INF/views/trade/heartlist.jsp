@@ -33,36 +33,40 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="hl-title">Products</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th class="hl-title">제목</th>
+                                    <th>가격</th>
+                                    <th>수량</th>
+                                    <th>판매자</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody class="hl-tbody">
-                                <tr>
-                                    <td class="hl-item">
-                                        <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="hl-img">
-                                        <h5 class="hl-text">Vegetable’s Package</h5>
-                                    </td>
-                                    <td class="hl-price">
-                                        $55.00
-                                    </td>
-                                    <td class="hl-quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><span class="dec qtybtn">-</span>
-                                                <input type="text" value="1">
-                                            <span class="inc qtybtn">+</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="hl-seller">
-                                        $110.00
-                                    </td>
-                                    <td class="hl-close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                            	<c:forEach items="${list}" var="item">
+	                                <tr>
+	                                    <td class="hl-item">
+	                                        <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="hl-img">
+	                                        <h5 class="hl-text">${item.itemNum}</h5>
+	                                    </td>
+	                                    <td class="hl-price">
+	                                        ${item.itemPrice}
+	                                    </td>
+	                                    <td class="hl-quantity">
+	                                        <div class="quantity">
+	                                            <div class="pro-qty">
+	                                                <span class="dec qtybtn">-</span>
+	                                                <input type="text" value="1">
+	                                                <span class="inc qtybtn">+</span>
+	                                            </div>
+	                                        </div>
+	                                    </td>
+	                                    <td class="hl-seller">
+	                                        ${item.memberNum}
+	                                    </td>
+	                                    <td class="hl-close">
+	                                        <span class="icon_close"></span>
+	                                    </td>
+	                                </tr>
+	                        	</c:forEach>
                             </tbody>
                         </table>
                     </div>

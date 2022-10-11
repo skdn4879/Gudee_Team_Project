@@ -134,7 +134,7 @@
                     <div class="mb-3">
                     	<c:choose>
 						<c:when test="${not empty member}">
-	                    	<a href="./add" class="btn btn-primary">글쓰기</a>							
+	                    	<a href="./item/add" class="btn btn-primary">글쓰기</a>							
 						</c:when>
 						<c:otherwise>
 							
