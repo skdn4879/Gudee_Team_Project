@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>찜바구니🛍️ │ 구디마켓 │ 중고거래📦</title>
+	<title>찜바구니🛍️│구디마켓│중고거래📦</title>
 	
 	<!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">

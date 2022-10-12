@@ -21,7 +21,7 @@
 <section class="container-fluid col-lg-4">
 	
 	<div class="row">
-		<form action="./trade/add" method="POST" enctype="multipart/form-data">
+		<form action="./add" method="POST" enctype="multipart/form-data">
 		
 		
 		<div class="mb-3">

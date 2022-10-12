@@ -85,7 +85,7 @@
 				SELECT ITEM_SEQ.NEXTVAL FROM DUAL
 			</selectKey>
 			INSERT INTO ITEM
-  			VALUES (#{itemNum},#{memberNum},#{itemTitle},#{itemContents},#{itemCategory},#{itemPrice},#{itemDueDate},#{itemStatus})
+  			VALUES (#{itemNum},#{memberNum},#{itemTitle},#{itemContents},#{itemCategory},#{itemPrice},#{itemDueDate},#{itemStatus},0)
 		</insert>
 	
 		<update id="setUpdate" parameterType="ItemDTO">

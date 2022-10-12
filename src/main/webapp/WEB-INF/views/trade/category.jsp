@@ -56,48 +56,38 @@
 
                         <div class="sidebar-cate">
                             <h4 class="sidebar-cate-title">가격</h4>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" value="option1" checked>
-                              <label class="form-check-label" for="flexRadioDefault2">
-                                전체 가격
-                              </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="option2">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  1만원 이하
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="option3">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  3만원 이하
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="option4">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  5만원 이하
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="option5">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  7만원 이하
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="option6">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  10만원 이하
-                                </label>
+                            <div class="price-check">
+                            	<div class="price-text">
+	                            	<input type="radio" name="form-check-input" value="allprice" class="price-text" checked>
+                                    <h6 class="price-text">전체 가격</h6><br>
+	                        	</div>
+	                        	<div class="price-text">
+	                        		<input type="radio" name="form-check-input" value="1" class="price-text">
+                                    <h6 class="price-text">1만원 이하</h6><br>
+	                        	</div>
+	                        	<div class="price-text">
+	                        		<input type="radio" name="form-check-input" value="3" class="price-text">
+                                    <h6 class="price-text">3만원 이하</h6><br>
+	                        	</div>
+	                        	<div class="price-text">	
+	                        		<input type="radio" name="form-check-input" value="5" class="price-text">
+                                    <h6 class="price-text">5만원 이하</h6><br>
+	                        	</div>
+	                        	<div class="price-text">
+	                        		<input type="radio" name="form-check-input" value="7" class="price-text">
+                                    <h6 class="price-text">7만원 이하</h6><br>
+	                        	</div>
+	                        	<div class="price-text">
+	                        		<input type="radio" name="form-check-input" value="10" class="price-text">
+                                    <h6 class="price-text">10만원 이하</h6>                  	
+                            	</div>
                             </div>
                         </div>
                     </div>                    
                 </div>
                 
                 
-                
+                <!-- 메인바디 -->
                 <div class="col-lg-9 col-md-7">
                 	<!-- 정렬 -->
                     <div class="filter-item">
@@ -119,10 +109,15 @@
                     <c:forEach var="item" items="${list}">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-item">
-                                <div class="featured-item-pic set-bg" data-setbg="" style="background-image:">
+                            	<c:catch>
+                            		<c:forEach  begin="1" end="${item.depth}"></c:forEach>
+                            	</c:catch>
+                                <div class="featured-item-pic set-bg">
+                                	<%-- <img alt="" src="../resources/upload/trade/${list.itemFileDTO.fileName}"> --%>
+                                	<img alt="" src="">
                                 </div>
                                 <div class="featured-item-text">
-                                    <h6><a href="../item/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
+                                    <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
                                     <h5>${item.itemPrice}</h5>
                                 </div>
                             </div>

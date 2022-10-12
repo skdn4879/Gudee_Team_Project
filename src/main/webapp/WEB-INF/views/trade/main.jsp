@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 구디마켓 │ 중고거래📦 </title>
+    <title> 구디마켓│중고거래📦 </title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="item-text">
-                    <h2 class="title-text">👍 인기 상품</h2>
+                    <a href="#" class="title-text">👍 인기 상품</a>
                     <h6 class="sub-text">다른 사람들은 이 상품을 보고 있어요!</h6>
                 </div>
             </div>
@@ -96,7 +96,7 @@
         <div class="container">
             <div class="row">
                 <div class="item-text">
-                    <h2 class="title-text">⏰ 최신 상품</h2>
+                    <a href="#" class="title-text">⏰ 최신 상품</a>
                     <h6 class="sub-text">방금 등록된 상품이에요!</h6>
                 </div>
             </div>

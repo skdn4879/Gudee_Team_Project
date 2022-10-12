@@ -51,11 +51,15 @@
 }
 
 .title-text {
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+    font-weight: 500;
+    font-weight: bold;
+
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-weight: 500;
     line-height: 1.2;
-    font-weight: bold;
 }
 
 .sub-text {

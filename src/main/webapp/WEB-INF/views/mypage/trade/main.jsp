@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>마이페이지🎁 │ 구디마켓 │ 중고거래📦</title>
+    <title>마이페이지🎁│구디마켓│중고거래📦</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -22,113 +22,188 @@
     
   	<link rel="stylesheet" href="/resources/css/trade/header.css" />
     <link rel="stylesheet" href="/resources/css/trade/footer.css" />
-    <link rel="stylesheet" href="/resources/css/trade/category.css" />
+    <link rel="stylesheet" href="/resources/css/trade/myPage.css" />
 
 </head>
 
 <c:import url="../../template/trade/header.jsp"></c:import>
 
 <body>
-	<form action="/mypage/trade/main" method="get">
+	<div class="myPageMainBody">
+		<section class="mp-top">
+			<div class="mp-container">
+				<div class="mp-row">
 	
-	<br>
-	<h6 class="align-left">판매 상품 목록</h6>
-	<h6 class="align-left"><a href="sellitemlist">더보기</a></h6>
-	
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">카테고리</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">가격</th>
-		      <th scope="col">거래상태</th>
-		    </tr>
-		  </thead>
-		  
- 		  <tbody>
-		  	<c:forEach items="${sellitemlist}" var="sellItem">
-		  	<tr>
-		  		<td>${sellItem.itemNum}</td>
-		  		<td>${sellItem.itemCategory}</td>
-		  		<td>${sellItem.itemTitle}</td>
-		  		<td>${sellItem.itemPrice}</td>
-		  		<td>${sellItem.itemStatus}</td>
-		  	</tr>
-		  	</c:forEach>
-		  </tbody>
-		</table>
-		</div>
-	</section>	
-	
-	<h6 class="align-left">구매 상품 목록</h6>
-	<h6 class="align-left"><a href="buyitemlist">더보기</a></h6>
-	
-	
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">카테고리</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">판매자</th>
-		      <th scope="col">거래상태</th>
-		    </tr>
-		  </thead>
-		  
- 		  <tbody>
-		  	<c:forEach items="${buyitemlist}" var="buyItem">
-		  	<tr>
-		  		<td>${buyItem.itemNum}</td>
-		  		<td>${buyItem.itemCategory}</td>
-		  		<td>${buyItem.itemTitle}</td>
-		  		<td>${buyItem.itemPrice}</td>
-		  		<td>${buyItem.itemStatus}</td>
-		  	</tr>
-		  	</c:forEach>
-		  </tbody>
-		</table>
-		</div>
-	</section>	
-	
-	
-	<br>
-	<h6 class="align-left">리뷰 목록</h6>
-	<h6 class="align-left"><a href="reviewlist">더보기</a></h6>
-	
-	
-	<section class="container-fluid col-lg-6">
-		<div class="row">
-		<table class="table">
-		  <thead class="table-dark">
-		    <tr>
-		      <th scope="col">게시글 번호</th>
-		      <th scope="col">제목</th>
-		      <th scope="col">판매자</th>
-		      <th scope="col">조회수</th>
-		    </tr>
-		  </thead>
-		  
- 		  <tbody>
-		  	<c:forEach items="${reviewlist}" var="review">
-		  	<tr>
-		  		<td>${review.reviewNum}</td>
-		  		<td>${review.reviewTitle}</td>
-		  		<td>${review.memberNum}</td>
-		  		<td>${review.reviewHit}</td>
-		  	</tr>
-		  	</c:forEach>
-		  </tbody>
-		  
-		</table>
-		</div>
-	</section>	
-	
-</form>
+					<!-- 사이드바 -->
+					<div class="col-lg-3 col-md-5"> 
+						<div class="sidebar">
+
+							<!-- 회원정보 -->             
+							<div class="sidebar-mp-mb">
+								<h4 class="sidebar-mb-title">마이페이지🎁</h4>
+								<div class="sidebar-mb-con">
+									<img class ="mb-pic" alt="" src="/resources/images/trade/product/product-5.jpg">
+									<h6 class="mp-mb-nk">닉네임 : </h6>
+									<h6 class="mp-mb-nk">이름 : </h6>
+								</div>	
+								<a class="mp-mb-h" href="#">회원정보 수정</a>
+							</div>
+
+							<!-- 중고거래 -->
+							<div class="sidebar-mp">
+								<h4 class="sidebar-mp-title">중고거래📦</h4>
+								<ul class="mp-ul">
+									<li class="mp-li"><a href="/sellitemlist" class="mp-a">내가 판매한 상품</a></li>
+									<li class="mp-li"><a href="/buyitemlist" class="mp-a">내가 구매한 상품</a></li>
+									<li class="mp-li"><a href="/reviewlist" class="mp-a">내가 작성한 후기</a></li>							
+								</ul>
+							</div>
+
+							<!-- 모임 -->
+							<div class="sidebar-mp">
+								<h4 class="sidebar-mp-title">모임🎠</h4>
+								<ul class="mp-ul">
+									<li class="mp-li"><a href="/trade/category" class="mp-a">의류</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">식품류</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">도서/문구</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">뷰티/미용</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">생활/디지털</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">반려동물 용품</a></li>
+									<li class="mp-li"><a href="#" class="mp-a">가구/인테리어</a></li>							
+								</ul>
+							</div>
+						</div>                    
+					</div>
+					<!-- sidebar end -->
+					
+					<!-- main -->
+					<div class="col-lg-9 col-md-7">
+					
+						<!-- 판매 -->
+						<div class="mp-main">
+							<div class="mp-m-main">
+								<h6 class="mp-m-title">내가 판매한 상품</h6>
+								<h6 class="mp-more-h"><a class="mp-more-a" href="sellitemlist">더보기</a></h6>
+							</div>
+							<div class="mp-table">
+						        <table>
+						            <thead class="mp-thead">
+						                <tr>
+						                    <th class="mp-title">제목</th>
+						                    <th class="mp-title">가격</th>
+			                                <th class="mp-title">조회수</th>
+						                    <th class="mp-title">거래상태</th>
+						                </tr>
+						            </thead>
+						            <tbody class="mp-m-tbody">
+						                <c:forEach items="${sellitemlist}" var="sellItem">
+								        <tr>
+								            <td class="mp-item">
+								                <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
+								            	<h6 class="mp-imgtext">${sellItem.itemTitle}</h6>
+								            </td>
+								            <td>
+								                ${sellItem.itemPrice}
+								            </td>
+								            <td>
+								                ${sellItem.itemHit}
+								            </td>
+								            <td>
+								                ${sellItem.itemStatus}
+								            </td>
+								        </tr>  
+							        	</c:forEach>
+						            </tbody>
+						        </table>
+						    </div>
+						</div>
+						
+						
+						<!-- 구매 -->
+						<div class="mp-main">
+							<div class="mp-m-main">
+								<h6 class="mp-m-title">내가 구매한 상품</h6>
+								<h6 class="mp-more-h"><a class="mp-more-a" href="buyitemlist">더보기</a></h6>
+							</div>
+							<div class="mp-table">
+					            <table>
+					                <thead class="mp-thead">
+					                    <tr>
+					                        <th class="mp-title">제목</th>
+						                    <th class="mp-title">가격</th>
+						                    <th class="mp-title">판매자</th>
+						                    <th class="mp-title"></th>
+			                            </tr>
+						            </thead>
+						            <tbody class="mp-m-tbody">
+						            	<c:forEach items="${buyitemlist}" var="buyItem">
+					                    <tr>
+			                                <td class="mp-item">
+							                    <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
+							                    <h6 class="mp-imgtext">${buyItem.itemTitle}</h6>
+					                        </td>
+								            <td>
+								                ${buyItem.itemPrice}
+				                            </td>
+											<td>
+							                    ${buyItem.memberNum}
+				                            </td>
+							                <td class="mp-etctext">
+						 	                   <a href="#" class="mp-etc">리뷰작성</a>
+			                                </td>
+							            </tr>  
+						            	</c:forEach>
+						            </tbody>
+						        </table>
+						    </div>
+						</div>
+						
+						<!-- 리뷰 -->
+						<div class="mp-main">
+							<div class="mp-m-main">
+								<h6 class="mp-m-title">내가 작성한 후기</h6>
+								<h6 class="mp-more-h"><a class="mp-more-a" href="reviewlist">더보기</a></h6>
+							</div>
+							<div class="mp-table">
+						        <table>
+				                    <thead class="mp-thead">
+				                        <tr>
+						                    <th class="mp-title">제목</th>
+						                    <th class="mp-title">별점</th>
+			                                <th class="mp-title">조회수</th>			                                    
+											<th></th>
+						                </tr>
+						            </thead>
+		                            <tbody class="mp-m-tbody">
+				                        <c:forEach items="${reviewlist}" var="reviewItem">
+								            <tr>
+								                <td class="mp-item">
+								                    <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
+								                    <h6 class="mp-imgtext">${reviewItem.reviewTitle}</h6>
+					                            </td>
+				                                <td>
+								                    ${reviewItem.reviewStar}
+								                </td>
+					                            <td>
+					                                ${reviewItem.reviewHit}
+								                </td>
+					                            <td class="mp-etctext">
+						                            <a href="#" class="mp-etc">수정하기</a>
+								                </td>
+						                    </tr>  
+							            </c:forEach>
+						            </tbody>
+						        </table>
+						    </div>	
+						</div>
+						<!-- Review end -->
+					</div>			
+				</div>
+			</div>
+		</section>
+	</div>
+
+
 	<c:import url="../../template/trade/footer.jsp"></c:import>
 </body>
 </html>

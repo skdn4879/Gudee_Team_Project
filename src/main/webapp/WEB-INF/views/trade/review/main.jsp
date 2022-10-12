@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>후기🎁 │ 구디마켓 │ 중고거래📦</title>
+    <title>후기🎁│구디마켓│중고거래📦</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     
 </head>
 
-<c:import url="../template/trade/header.jsp"></c:import>
+<c:import url="../../template/trade/header.jsp"></c:import>
 
 <body>
 
@@ -116,14 +116,14 @@
                     
                     <!-- 제품 목록 -->
                     <div class="item-row">                    
-                    <c:forEach var="review" items="${list}">
+                    <c:forEach var="rv" items="${review}">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-item">
                                 <div class="featured-item-pic set-bg" data-setbg="" style="background-image:">
                                 </div>
                                 <div class="featured-item-text">
-                                    <h6><a href="../item/detail?num=${review.reviewNum}" class="item-name">${review.reviewTitle}</a></h6>
-                                    <%-- <h5>${review.reivewStar}</h5> --%>
+                                    <h6><a href="..trade/review/detail?num=${rv.reviewNum}" class="item-name">${rv.reviewTitle}</a></h6>
+                                    <h5>${rv.reviewStar}</h5>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                                             </c:if>
                                             <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
                                                 <li class="page-item">
-                                                    <a class="page-link" href="./category?page=${i}">${i}</a>
+                                                    <a class="page-link" href="./main?page=${i}">${i}</a>
                                                 </li>
                                             </c:forEach>
                                         </ul>
@@ -157,7 +157,7 @@
                                 <div class="cate-login">
                                     <c:choose>
                                     <c:when test="${not empty member}">
-                                        <a href="./review/add" class="add-btn">글쓰기</a>							
+                                        <a href="./add" class="add-btn">글쓰기</a>							
                                     </c:when>
                                     <c:otherwise>
                                         
@@ -173,7 +173,7 @@
     </section>
 </div>      
 
-	<c:import url="../template/trade/footer.jsp"></c:import>
+	<c:import url="../../template/trade/footer.jsp"></c:import>
 </body>
 
 </html>

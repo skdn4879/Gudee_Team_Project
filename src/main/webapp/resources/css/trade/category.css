@@ -65,10 +65,20 @@
     color: #7fad39;
 }
 
-.form-check {
+.price-check {
     color: #979797;
+    padding-left: 0px;
     padding-bottom: 0.65rem;
     accent-color: #7fad39;
+}
+
+.price-check .price-text {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0.7rem;
+    text-decoration: none;
+    color: #979797;
+    padding-left: 0.5rem;
 }
 
 

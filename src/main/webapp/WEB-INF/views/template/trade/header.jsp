@@ -96,7 +96,7 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/review" role="button" data-bs-toggle="dropdown" aria-expanded="false">후기</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/review" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/review/main" class="cate-a">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a href="/trade/review/cloth" class="cate-a">의류</a></li>
 						<li><a href="/trade/review/food" class="cate-a">식품류</a></li>

@@ -40,8 +40,10 @@ public class ItemController{
 	@GetMapping(value = "category")
 	public ModelAndView getList(Pager pager)throws Exception {
 		System.out.println("category");
+		
 		ModelAndView mv = new ModelAndView();
 		List<ItemDTO> ar =itemService.getList(pager);
+		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("trade/category");

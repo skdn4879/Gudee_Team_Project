@@ -53,6 +53,12 @@ public class ReviewDAO implements ReviewInterface {
 	public int setDelete(ReviewDTO reviewDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE+"setUpdate", reviewDTO);
 	}
+
+
+	@Override
+	public int setAddFile(ReviewImageDTO reviewImageDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setAddFile", reviewImageDTO);
+	}
 	
 	
 
