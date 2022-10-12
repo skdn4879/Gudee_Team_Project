@@ -1,13 +1,10 @@
 package com.goodee.market.member;
 
-import java.io.File;
 import java.util.List;
-
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.goodee.market.util.Pager;
 
 @Service
@@ -124,6 +121,23 @@ public class MemberService {
 		int result = memberDAO.setInquiryReply(inquiryDTO);
 		return result;
 	}
+	
+	public List<InquiryDTO> getInquiryList(Pager pager)throws Exception{
+		pager.getRowNum();
+		Long totalCount = memberDAO.getInquiryCount();
+		pager.getNum(totalCount);
+		return memberDAO.getInquiryList(pager);
+	}
+	
+	//신고글 내용 가져오기
+	public ReportDTO getReportDetail(ReportDTO reportDTO)throws Exception{
+		return memberDAO.getReportDetail(reportDTO);
+	}
+	
+	//문의글 내용 가져오기
+		public InquiryDTO getInquiryDetail(InquiryDTO inquiryDTO)throws Exception{
+			return memberDAO.getInquiryDetail(inquiryDTO);
+		}
 	
 	
 	

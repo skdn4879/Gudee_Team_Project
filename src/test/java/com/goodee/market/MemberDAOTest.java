@@ -5,6 +5,7 @@ import java.sql.Date;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.goodee.market.member.InquiryDTO;
 import com.goodee.market.member.MemberDAO;
 import com.goodee.market.member.ReportDTO;
 
@@ -13,7 +14,7 @@ public class MemberDAOTest extends MyAbstractTest{
 	@Autowired
 	private MemberDAO memberDAO;
 
-	@Test
+//	@Test
 	public void setReportTest()throws Exception {
 		
 		for(int i = 0; i <= 50; i++) {
@@ -34,6 +35,22 @@ public class MemberDAOTest extends MyAbstractTest{
 		System.out.println(reportDTO.getReportTitle());
 		System.out.println(memberDAO);
 		memberDAO.setReport(reportDTO);
+		}
+	}
+	
+	@Test
+	public void setInquiryTest()throws Exception{
+		for(int i = 0; i <= 50; i++) {
+			InquiryDTO inquiryDTO = new InquiryDTO();
+			Date date = Date.valueOf("2022-02-02");
+			inquiryDTO.setNum(23L);
+			inquiryDTO.setWriter(2L);
+			inquiryDTO.setTitle("Inquiry");
+			inquiryDTO.setContents("Inquiry contents");
+			inquiryDTO.setRegDate(date);
+			inquiryDTO.setRef(23L);
+			inquiryDTO.setStep(0L);
+			memberDAO.setInquiry(inquiryDTO);
 		}
 	}
 

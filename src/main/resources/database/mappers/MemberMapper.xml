@@ -149,25 +149,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getReportList" parameterType="Pager" resultType="ReportDTO">
 		SELECT * FROM
 			(SELECT ROWNUM R , N.* FROM
-			(SELECT * FROM MEMBERREPORT) N)
+			(SELECT * FROM MEMBERREPORT ORDER BY NUM DESC) N)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
-	
-	<!-- <resultMap type="MemberDTO" id="getReportList">
-		<id column="MEMBERNUM" property="memberNum"/>
-		<result column="NAME" property="name"/>
-		<result column="REPORTEDNAME" property="reportedName"/>
-		<result column="REPORTEDNICKNAME" property="reportedNickname"/>
-		<result column="REPORTEDJOINDATE" property="reportedJoinDate"/>
-		<result column="NICKNAME" property="nickname"/>
-		<result column="JOINDATE" property="joinDate"/>
-		<collection property="reportDTOs" javaType="List" ofType="ReportDTO">
-			<id column="NUM" property="num"/>
-			<result column="REPORTTITLE" property="reportTitle"/>
-			<result column="REPORTEDMEMBERNUM" property="reportedMemberNum"/>
-			<result column="REPORTCONTENT" property="reportContent"/>
-		</collection>
-	</resultMap> -->
 	
 	<select id="getCount" resultType="Long">
 		SELECT COUNT(REPORTMEMBERNUM) FROM MEMBERREPORT
@@ -189,6 +173,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="setStepUpdate" parameterType="InquiryDTO">
 		UPDATE INQUIRY SET STEP=STEP+1 WHERE REF=#{ref} AND STEP > 0
 	</update>
+	
+	<select id="getInquiryList" parameterType="Pager" resultMap="getInquiryList">
+		SELECT * FROM
+			(SELECT ROWNUM R, N.* FROM
+			(SELECT I.*, M.NAME, M.NICKNAME FROM 
+			MEMBER M
+			INNER JOIN
+			INQUIRY I 
+			ON M.MEMBERNUM = I.WRITER
+			ORDER BY NUM DESC) N)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<resultMap type="InquiryDTO" id="getInquiryList">
+		<id column="NUM" property="num"/>
+		<result column="WRITER" property="writer"/>
+		<result column="TITLE" property="title"/>
+		<result column="CONTENTS" property="contents"/>
+		<result column="REGDATE" property="regDate"/>
+		<result column="REF" property="ref"/>
+		<result column="STEP" property="step"/>
+		<association property="memberDTO" javaType="MemberDTO">
+			<result column="NAME" property="name"/>
+			<result column="NICKNAME" property="nickname"/>
+		</association>
+	</resultMap>
+	
+	<select id="getInquiryCount" resultType="Long">
+		SELECT COUNT(NUM) FROM INQUIRY
+	</select>
+	
+	<select id="getReportDetail" parameterType="ReportDTO" resultType="ReportDTO">
+		SELECT REPORTCONTENT FROM MEMBERREPORT WHERE NUM=#{num}
+	</select>
+	
+	<select id="getInquiryDetail" parameterType="InquiryDTO" resultType="InquiryDTO">
+		SELECT CONTENTS FROM INQUIRY WHERE NUM=#{num}
+	</select>
 	
 
 </mapper>

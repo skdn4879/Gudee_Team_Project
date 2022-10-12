@@ -14,6 +14,7 @@
 	
 	<a href="/member/infoUpdate?memberNum=${myPage.memberNum}">회원정보 수정</a>
 	<a href="/member/socialMyPage?memberNum=${myPage.memberNum}">소셜링 마이페이지</a>
+	<a href="/mbm/mylist?hostMemberNum=${sessionScope.member.memberNum}">내가 만든 모임</a>
 
 	<table class="table table-striped">
 		<thead>

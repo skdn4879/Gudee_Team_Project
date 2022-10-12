@@ -99,6 +99,27 @@ public class MemberDAO implements MemberInterface{
 	public int setInquiryReply(InquiryDTO inquiryDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "setInquiryReply", inquiryDTO);
 	}
+
+	//관리자 페이지에서 문의글 리스트 불러오기
+	@Override
+	public List<InquiryDTO> getInquiryList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getInquiryList", pager);
+	}
+	
+	//문의글 갯수 계산
+	public Long getInquiryCount()throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "getInquiryCount");
+	}
+	
+	//신고글 내용 가져오기
+	public ReportDTO getReportDetail(ReportDTO reportDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "getReportDetail", reportDTO);
+	}
+	
+	//문의글 내용 가져오기
+		public InquiryDTO getInquiryDetail(InquiryDTO inquiryDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE + "getInquiryDetail", inquiryDTO);
+		}
 	
 	
 	

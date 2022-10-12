@@ -7,6 +7,7 @@ public class InquiryDTO extends CommentDTO {
 	private String title;
 	private Long ref;
 	private Long step;
+	private MemberDTO memberDTO;
 	
 	public String getTitle() {
 		return title;
@@ -26,5 +27,13 @@ public class InquiryDTO extends CommentDTO {
 	public void setStep(Long step) {
 		this.step = step;
 	}
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
+	}
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+	}
+	
+	
 
 }

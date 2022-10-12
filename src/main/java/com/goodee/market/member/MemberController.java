@@ -3,7 +3,6 @@ package com.goodee.market.member;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentDTO;
 import com.goodee.market.meetingboard.comment.MeetingBoardCommentService;
 import com.goodee.market.util.Pager;
@@ -112,19 +109,29 @@ public class MemberController {
 		return mv;
 	}
 	
-	//소셜관리자 페이지
+	//소셜관리자 페이지, 신고글만
 	@GetMapping("socialAdminMyPage")
 	public ModelAndView socialAdminMyPage(HttpSession session, Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		List<ReportDTO> reportDTOs = memberService.getReportList(pager);
-		for(int i = 0; i < reportDTOs.size(); i++) {
-			System.out.println(reportDTOs.get(i).getReportedName());
-		}
+		
 		mv.addObject("pager", pager);
 		mv.addObject("reportDTOs", reportDTOs);
 		mv.addObject("memberDTO", memberDTO);
 		mv.setViewName("member/socialAdminMyPage");
+		return mv;
+	}
+	
+	//소셜관리자 페이지, 문의글만
+	@GetMapping
+	public ModelAndView socialAdminInquiry(HttpSession session, Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		List<InquiryDTO> inquiryDTOs = memberService.getInquiryList(pager);
+		mv.addObject("inquiryDTOs", inquiryDTOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("member/socialAdminInquiry");
 		return mv;
 	}
 	
@@ -191,10 +198,19 @@ public class MemberController {
 		return map;
 	}
 	
-	@PostMapping
+	@GetMapping("reportDetail")
 	@ResponseBody
-	public int inquiry(InquiryDTO inquiryDTO)throws Exception{
-		int result = memberService.setInquiry(inquiryDTO);
+	public String reportDetail(ReportDTO reportDTO)throws Exception{
+		reportDTO = memberService.getReportDetail(reportDTO);
+		String result = reportDTO.getReportContent();
+		return result;
+	}
+	
+	@GetMapping("inquiryDetail")
+	@ResponseBody
+	public String inquiryDetail(InquiryDTO inquiryDTO)throws Exception{
+		inquiryDTO = memberService.getInquiryDetail(inquiryDTO);
+		String result = inquiryDTO.getContents();
 		return result;
 	}
 

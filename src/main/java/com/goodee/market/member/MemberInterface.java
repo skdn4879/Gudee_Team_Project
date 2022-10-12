@@ -44,5 +44,8 @@ public interface MemberInterface {
 	
 	//문의글 답글 작성
 	public int setInquiryReply(InquiryDTO inquiryDTO)throws Exception;
+	
+	//관리자 페이지에서 문의글 리스트 불러오기
+	public List<InquiryDTO> getInquiryList(Pager pager)throws Exception;
 
 }
