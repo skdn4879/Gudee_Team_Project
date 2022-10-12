@@ -13,7 +13,7 @@
 			  <div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 				  <li class="nav-item">
-					<a class="nav-link" href="./trade/main">중고거래</a>
+					<a class="nav-link" href="/trade/main">중고거래</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="/mb/home">소셜링</a>
@@ -33,9 +33,6 @@
 										<li class="nav-item">
 											<a class="nav-link" href="/member/adminMyPage">마이페이지</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/mb/home">고객문의</a>
-										</li>
 									</ul>
 								</c:if>
 								<c:if test="${sessionScope.memberIsAdmin == 0}">
@@ -45,9 +42,6 @@
 										</li>
 										<li class="nav-item">
 											<a class="nav-link" href="/member/myPage">마이페이지</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/mb/home">고객문의</a>
 										</li>
 									</ul>
 								</c:if>	
@@ -59,9 +53,6 @@
 							  </li>
 							  <li class="nav-item">
 								<a class="nav-link" href="/member/agree">회원가입</a>
-							  </li>
-							  <li class="nav-item">
-								<a class="nav-link" href="/mb/home">고객문의</a>
 							  </li>
 							</ul>
 						</c:otherwise>

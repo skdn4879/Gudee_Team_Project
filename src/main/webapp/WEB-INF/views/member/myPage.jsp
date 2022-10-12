@@ -14,7 +14,7 @@
 	<c:import url="../template/member/memberHeader.jsp"></c:import>
 	
 	
-	<div class="container" id="main">
+	<section class="container" id="main">
 		<div id="mainContent">
 			<table class="table">
 				<thead>
@@ -94,9 +94,9 @@
 				</nav>	
 			</div>
 				
-	</div>
+	</section>
 			
-			<script src="/resources/js/inquiry.js"></script>
+	<script src="/resources/js/inquiry.js"></script>
 			
-		</body>
-		</html>
+</body>
+</html>
