@@ -112,4 +112,22 @@ public class MeetingBoardMemberController {
 		return result;
 	}
 	
+	@GetMapping("soonListCount")
+	@ResponseBody
+	public int getSoonListCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int result = meetingBoardMemberService.getSoonListCount(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@GetMapping("mySoonList")
+	public ModelAndView getSoonList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		List<MeetingBoardMemberDTO> soonList = meetingBoardMemberService.getSoonList(meetingBoardMemberDTO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("soonList", soonList);
+		mv.setViewName("meetingboard/mySoonList");
+		
+		return mv;
+	}
+	
 }

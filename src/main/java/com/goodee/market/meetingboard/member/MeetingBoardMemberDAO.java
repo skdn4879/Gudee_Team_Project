@@ -69,4 +69,12 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.selectOne(NAMESPACE + "getAllApprovalCount", meetingBoardMemberDTO);
 	}
 	
+	public int getSoonListCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getSoonListCount", meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getSoonList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getSoonList", meetingBoardMemberDTO);
+	}
+	
 }

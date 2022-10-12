@@ -150,5 +150,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getAllApprovalCount" parameterType="MeetingBoardMemberDTO" resultType="Integer">
 		SELECT COUNT(MBMNUM) FROM MEETINGBOARD_MEMBER WHERE HOSTMEMBERNUM = #{hostMemberNum} AND APPROVALSTATUS = 0
 	</select>
+	
+	<select id="getSoonListCount" parameterType="MeetingBoardMemberDTO" resultType="Integer">
+		SELECT COUNT(MBMNUM)
+		FROM MEETINGBOARD_MEMBER MBM
+		INNER JOIN MEETINGBOARD MB
+		ON(MBM.MEETINGBOARDNUM = MB.MEETINGBOARDNUM)
+		WHERE MBM.REQUESTMEMBERNUM = #{requestMemberNum} AND (MB.MEETINGBOARDDUEDATE - sysdate BETWEEN 0 AND 1)
+	</select>
+	
+	<select id="getSoonList" parameterType="MeetingBoardMemberDTO" resultMap="getSoonListResult">
+		SELECT MBM.MBMNUM, MBM.HOSTMEMBERNUM, MB.*, MBI.FILENUM, MBI.FILENAME
+		FROM MEETINGBOARD_MEMBER MBM
+		INNER JOIN MEETINGBOARD MB
+		ON(MBM.MEETINGBOARDNUM = MB.MEETINGBOARDNUM)
+		LEFT JOIN MEETINGBOARDIMAGE MBI
+		ON(MB.MEETINGBOARDNUM = MBI.MEETINGBOARDNUM)
+		WHERE MBM.REQUESTMEMBERNUM = #{requestMemberNum} AND (MB.MEETINGBOARDDUEDATE - sysdate BETWEEN 0 AND 1)
+		ORDER BY MB.MEETINGBOARDDUEDATE ASC
+	</select>
+	
+	<resultMap type="MeetingBoardMemberDTO" id="getSoonListResult">
+		<id column="MBMNUM" property="mbmNum"/>
+		<result column="HOSTMEMBERNUM" property="hostMemberNum"/>
+		
+		<association property="meetingBoardDTO" javaType="MeetingBoardDTO">
+			<id column="MEETINGBOARDNUM" property="meetingBoardNum"/>
+			<result column="MEETINGBOARDWRITER" property="meetingBoardWriter"/>
+			<result column="MEETINGBOARDTITLE" property="meetingBoardTitle"/>
+			<result column="MEETINGBOARDCONTENTS" property="meetingBoardContents"/>
+			<result column="MEETINGBOARDDUEDATE" property="meetingBoardDueDate"/>
+			<result column="MEETINGBOARDTOTALCOST" property="meetingBoardTotalCost"/>
+			<result column="MEETINGBOARDLOCATION" property="meetingBoardLocation"/>
+			<result column="MEETINGBOARDCURRENTMEMBER" property="meetingBoardCurrentMember"/>
+			<result column="MEETINGBOARDMAXMEMBER" property="meetingBoardMaxMember"/>
+			<result column="MEETINGBOARDCATEGORY" property="meetingBoardCategory"/>
+			<result column="MEETINGBOARDHOSTDEMAND" property="meetingBoardHostDemand"/>
+			
+			<association property="meetingBoardImageDTO" javaType="MeetingBoardImageDTO">
+				<id column="FILENUM" property="fileNum"/>
+				<result column="FILENAME" property="fileName"/>
+			</association>
+			
+		</association>
+		
+	</resultMap>
 
 </mapper>

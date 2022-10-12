@@ -38,14 +38,31 @@ function availableApproval(){
       let result = this.responseText.trim();
 
       if(result > 0){
-        notifyAboutApproval();
+        notifyAboutApproval('a');
       }
+
+      availableBooked();
 
     }
   }
 }
 
-function notifyAboutApproval(){
+function availableBooked(){
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "/mbm/soonListCount?requestMemberNum=" + hostNum);
+  xhttp.send();
+  xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      let result = this.responseText.trim();
+
+      if(result > 0){
+        notifyAboutApproval('b');
+      }
+    }
+  }
+}
+
+function notifyAboutApproval(flag){
   let notiPermission = Notification.permission;
 
   if(notiPermission == "denied"){
@@ -57,7 +74,12 @@ function notifyAboutApproval(){
       }
     });
   } else if(notiPermission == "granted"){
-    msgAboutApproval();
+    if(flag == 'a'){
+      msgAboutApproval();
+    } else if(flag == 'b'){
+      msgAboutBooked();
+    }
+    
   }
 }
 
@@ -78,4 +100,20 @@ function msgAboutApproval(){
   setTimeout(function(){
     notification.close();
   }, 10000);
+}
+
+function msgAboutBooked(){
+  let options = {
+    body: "확인해주세요."
+  }
+
+  let notification = new Notification("임박한 모임이 있습니다.", options);
+
+  notification.addEventListener("click", function(){
+    location.href = "/mbm/mySoonList?requestMemberNum=" + hostNum;
+  });
+
+  setTimeout(function(){
+    notification.close();
+  }, 20000);
 }

@@ -107,4 +107,12 @@ public class MeetingBoardMemberService {
 		return meetingBoardMemberDAO.getAllApprovalCount(meetingBoardMemberDTO);
 	}
 	
+	public int getSoonListCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.getSoonListCount(meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getSoonList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return meetingBoardMemberDAO.getSoonList(meetingBoardMemberDTO);
+	}
+	
 }
