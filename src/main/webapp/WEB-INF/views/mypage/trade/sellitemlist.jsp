@@ -53,9 +53,9 @@
 							<div class="sidebar-mp">
 								<h4 class="sidebar-mp-title">중고거래📦</h4>
 								<ul class="mp-ul">
-									<li class="mp-li"><a href="/sellitemlist" class="mp-a">내가 판매한 상품</a></li>
-									<li class="mp-li"><a href="/buyitemlist" class="mp-a">내가 구매한 상품</a></li>
-									<li class="mp-li"><a href="/reviewlist" class="mp-a">내가 작성한 후기</a></li>							
+									<li class="mp-li"><a href="/trade/sellitemlist" class="mp-a">내가 판매한 상품</a></li>
+									<li class="mp-li"><a href="/trade/buyitemlist" class="mp-a">내가 구매한 상품</a></li>
+									<li class="mp-li"><a href="/trade/reviewlist" class="mp-a">내가 작성한 후기</a></li>							
 								</ul>
 							</div>
 
@@ -100,7 +100,7 @@
 								        <tr>
 								            <td class="mp-item">
 								                <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
-								            	<h6 class="mp-imgtext">${sellItem.itemTitle}</h6>
+								            	<h6><a href="../trade/detail?num=${sellItem.itemNum}" class="mp-imgtext">${sellItem.itemTitle}</a></h6>
 								            </td>
 								            <td>${sellItem.itemPrice}</td>
 								            <td>${sellItem.itemHit}</td>
