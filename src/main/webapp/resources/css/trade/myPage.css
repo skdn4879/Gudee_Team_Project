@@ -177,6 +177,10 @@
 
 
 /* 내용 */
+.mp-air {
+    margin-bottom: 4rem;
+}
+
 .mp-table {
     max-width: 960px;
     width: 100%;
@@ -207,9 +211,14 @@
 }
 
 .mp-imgtext {
+    text-decoration: none;
     color: #1c1c1c;
     display: inline-block;
     margin-bottom: 0px;
+}
+
+.mp-m-tbody tr td h6 {
+    display: inline-block;
 }
 
 .mp-text {
