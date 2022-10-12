@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     <div class="container">
 		<nav class="navbar navbar-expand-lg header">
 			<div class="container">
@@ -75,6 +70,3 @@
 			</div>
 		  </nav>
 	</div>
-
-</body>
-</html>
