@@ -114,6 +114,7 @@
                                 		<img alt="" src="../resources/upload/trade/${fileDTO.fileName}">
                                 	</c:forEach>
                                 </div>
+
                                 <div class="featured-item-text">
                                     <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
                                     <h5>${item.itemPrice}</h5>

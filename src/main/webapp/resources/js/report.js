@@ -4,6 +4,7 @@ const formReport = document.querySelector("#formReport");
 
 requestReportModalSendBtn.addEventListener("click", function(){
     const reportContent = document.querySelector("#reportContent");
+
     const reportTitle = document.querySelector("#reportTitle");
     const reportName = document.querySelector("#reportName");
     const reportNickname = document.querySelector('#reportNickname');
@@ -32,11 +33,13 @@ requestReportModalSendBtn.addEventListener("click", function(){
     console.log(guestNickname);
     console.log(guestJoinDate);
 
+
     const xhttp = new XMLHttpRequest();
 
     xhttp.open("POST", "/member/report");
 
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
 
     xhttp.send("reportMemberNum=" + hostNum + "&reportedMemberNum=" + guestNum + "&reportContent=" + sendingContent + "&reportTitle=" + sendingTitle+ "&reportName=" + hostName + "&reportNickname=" + hostNickname + "&reportJoinDate=" + hostJoinDate + "&reportedName=" + guestName + "&reportedNickname=" + guestNickname + "&reportedJoinDate=" + guestJoinDate);
 

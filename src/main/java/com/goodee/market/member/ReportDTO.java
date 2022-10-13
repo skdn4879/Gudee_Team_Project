@@ -1,5 +1,6 @@
 package com.goodee.market.member;
 
+
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -40,6 +41,10 @@ public class ReportDTO {
 	public void setReportContent(String reportContent) {
 		this.reportContent = reportContent;
 	}
+
+
+
+
 	public Long getNum() {
 		return num;
 	}
@@ -88,5 +93,5 @@ public class ReportDTO {
 	public void setReportedJoinDate(Date reportedJoinDate) {
 		this.reportedJoinDate = reportedJoinDate;
 	}
-	
+
 }
