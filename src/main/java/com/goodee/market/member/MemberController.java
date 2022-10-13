@@ -44,6 +44,7 @@ public class MemberController {
 			}
 		}
 		session.setAttribute("member", memberDTO);
+		mv.addObject("memberDTO", memberDTO);
 		
 		String message = "로그인 실패";
 		String url = "login";
@@ -124,13 +125,14 @@ public class MemberController {
 	}
 	
 	//소셜관리자 페이지, 문의글만
-	@GetMapping
+	@GetMapping("socialAdminInquiry")
 	public ModelAndView socialAdminInquiry(HttpSession session, Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		List<InquiryDTO> inquiryDTOs = memberService.getInquiryList(pager);
 		mv.addObject("inquiryDTOs", inquiryDTOs);
 		mv.addObject("pager", pager);
+		mv.addObject("memberDTO", memberDTO);
 		mv.setViewName("member/socialAdminInquiry");
 		return mv;
 	}

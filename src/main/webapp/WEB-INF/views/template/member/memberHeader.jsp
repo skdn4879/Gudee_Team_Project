@@ -31,7 +31,7 @@
 											<a class="nav-link" href="/member/logout">로그아웃</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="/member/adminMyPage">마이페이지</a>
+											<a class="nav-link" href="/member/socialAdminMyPage">마이페이지</a>
 										</li>
 									</ul>
 								</c:if>

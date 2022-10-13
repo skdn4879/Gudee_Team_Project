@@ -26,7 +26,7 @@
                         <a class="nav-link" href="/member/socialAdminMyPage">신고리스트</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/member/socialAdminMyPage" style="font-weight: bold;">문의리스트</a>
+                        <a class="nav-link" href="/member/socialAdminInquiry" style="font-weight: bold;">문의리스트</a>
                     </li>
                     </ul>
 			    </div>
