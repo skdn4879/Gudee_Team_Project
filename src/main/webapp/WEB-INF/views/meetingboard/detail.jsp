@@ -18,7 +18,7 @@
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<form>
-			<input type="hidden" id="mbNum" value=${meetingBoardDetail.meetingBoardNum }>
+			<input type="hidden" id="mbNum" value="${meetingBoardDetail.meetingBoardNum }">
 			<input type="hidden" id="mNum" value="${sessionScope.member.memberNum }">
 		</form>
 		<c:if test="${!isLikeExist }">
@@ -35,7 +35,7 @@
 		</c:if>
 	</c:if>
 	
-	<section class="container-fluid col-10" id="detailMainSection">
+	<section class="container-fluid col-10" id="detailMainSection" data-mbNum="${meetingBoardDetail.meetingBoardNum }">
 		<div id="detailTopFrame">
 			<div id="meetingBoardDetailThumnailFrame">
 				<c:if test="${meetingBoardDetail.meetingBoardImageDTO == null }">
@@ -98,6 +98,9 @@
 		</div>
 	</section>
 	
+	<section class="container-fluid col-10" id="detailJoinListSection">
+	</section>
+	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter == sessionScope.member.memberNum }">
 		<section class="container-fluid col-10 buttonSection">
 		<a class="btn btn-primary" id="updateBtn" href="./update?num=${meetingBoardDetail.meetingBoardNum }">수정</a>
@@ -144,13 +147,58 @@
 	    </div>
 	  </div>
 	</div>
-	
+
+	<!-- 회원신고 버튼 -->
+	<form action="/member/report" method="post" id="formReport">
+		<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#requestReportModal" data-bs-whatever="@getbootstrap" id="requestReportModalOpenBtn">신고하기</button>
+
+		<div class="modal fade" id="requestReportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="requestReportTitle">신고하기</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+				<div class="mb-3">
+					<label for="reportNickName" class="col-form-label">신고자</label>
+					<input type="text" class="form-control" id="reportNickname" readonly="readonly" value="${sessionScope.member.nickname}">
+					<input type="hidden" id="reportName" value="${sessionScope.member.name}">
+					<input type="hidden" id="reportJoinDate" value="${sessionScope.member.joinDate}">
+				</div>
+				<div class="mb-3">
+					<label for="reportedNickName" class="col-form-label">피신고자</label>
+					<input type="text" class="form-control" id="reportedNickname" readonly="readonly" value="${meetingBoardDetail.memberDTO.nickname}">
+					<input type="hidden" id="reportedName" value="${meetingBoardDetail.memberDTO.name}">
+					<input type="hidden" id="reportedJoinDate" value="${meetingBoardDetail.memberDTO.joinDate}">
+				</div>
+				<div class="mb-3">
+					<label for="reportTitle" class="col-form-label">신고제목</label>
+					<input type="text" class="form-control" id="reportTitle" name="reportTitle">
+				</div>
+				<div class="mb-3">
+					<label for="reportContent" class="col-form-label">신고내용</label>
+					<textarea class="form-control" id="reportContent" name="reportContent" data-hostnum="${sessionScope.member.memberNum}" data-guestnum="${meetingBoardDetail.meetingBoardWriter}"></textarea>
+				</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="requestReportModalCloseBtn">닫기</button>
+				<button type="button" class="btn btn-danger" id="requestReportModalSendBtn">신고하기</button>
+			</div>
+			</div>
+		</div>
+		</div>
+	</form>
+
 	<c:import url="../template/meetingboard/footer.jsp"></c:import>
 	<c:import url="../template/meetingboard/kakaoMapApi.jsp"></c:import>
 	<c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 	
 	<script src="/resources/js/meetingboard/detail.js"></script>
 	<script src="/resources/js/meetingboard/detail_comment.js"></script>
+	<script src="/resources/js/report.js"></script>
 	
 	<c:if test="${meetingBoardDetail.meetingBoardWriter != sessionScope.member.memberNum }">
 		<script type="text/javascript" src="/resources/js/meetingboard/detail_like_join.js"></script>

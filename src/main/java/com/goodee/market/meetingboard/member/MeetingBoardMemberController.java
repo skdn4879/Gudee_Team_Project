@@ -62,4 +62,72 @@ public class MeetingBoardMemberController {
 		return mv;
 	}
 	
+	@GetMapping("myApprovalCount")
+	@ResponseBody
+	public Long getMyApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		long result = meetingBoardMemberService.getMyApprovalCount(meetingBoardMemberDTO);
+		return result;
+	}
+	
+	@GetMapping("myApprovalList")
+	public ModelAndView getMyApprovalList(MeetingBoardMemberPager pager) throws Exception {
+		List<MeetingBoardMemberDTO> myApprovalList = meetingBoardMemberService.getMyApprovalList(pager);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("myApprovalList", myApprovalList);
+		mv.addObject("pager", pager);
+		mv.setViewName("meetingboard/myApprovalList");
+		
+		return mv;
+	}
+	
+	@PostMapping("myApprovalAccept")
+	@ResponseBody
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO, Long mbNum) throws Exception {
+		int result = meetingBoardMemberService.setApprovalAccept(meetingBoardMemberDTO, mbNum);
+		
+		return result;
+	}
+	
+	@PostMapping("myApprovalDenie")
+	@ResponseBody
+	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int result = meetingBoardMemberService.setApprovalDenie(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@GetMapping("detailJoinList")
+	@ResponseBody
+	public Map<String, Object> getDetailJoinList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("detailJoinList", meetingBoardMemberService.getDetailJoinList(meetingBoardMemberDTO));
+		return map;
+	}
+
+	@GetMapping("allCount")
+	@ResponseBody
+	public int getAllApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception{
+		int result = meetingBoardMemberService.getAllApprovalCount(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@GetMapping("soonListCount")
+	@ResponseBody
+	public int getSoonListCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		int result = meetingBoardMemberService.getSoonListCount(meetingBoardMemberDTO);
+		
+		return result;
+	}
+	
+	@GetMapping("mySoonList")
+	public ModelAndView getSoonList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		List<MeetingBoardMemberDTO> soonList = meetingBoardMemberService.getSoonList(meetingBoardMemberDTO);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("soonList", soonList);
+		mv.setViewName("meetingboard/mySoonList");
+		
+		return mv;
+	}
+	
 }

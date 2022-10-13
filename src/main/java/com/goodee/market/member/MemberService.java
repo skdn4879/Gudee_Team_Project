@@ -1,11 +1,11 @@
 package com.goodee.market.member;
 
-import java.io.File;
-
+import java.util.List;
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import com.goodee.market.util.Pager;
 
 @Service
 public class MemberService {
@@ -42,6 +42,7 @@ public class MemberService {
 			memberDAO.setAddFile(memberFileDTO);
 			System.out.println("파일추가 실행");
 		}
+		memberDAO.setRoles(memberDTO);
 		
 		return result;
 	}
@@ -84,10 +85,60 @@ public class MemberService {
 		return result;
 	}
 	
+	//좋아요 리스트 불러오기
 	public MemberDTO getMLList(MemberDTO memberDTO)throws Exception{
 		memberDTO = memberDAO.getMLList(memberDTO);
 		return memberDTO;
 	}
+	
+	//신고글 작성
+	public int setReport(ReportDTO reportDTO)throws Exception{
+		return memberDAO.setReport(reportDTO);
+	}
+	
+	//신고글 갯수 계산
+	public int countReport(ReportDTO reportDTO)throws Exception{
+		return memberDAO.countReport(reportDTO);
+	}
+
+	//신고글 리스트 불러오기
+	public List<ReportDTO> getReportList(Pager pager)throws Exception{
+		pager.getRowNum();
+		Long totalCount = memberDAO.getCount();
+		pager.getNum(totalCount);
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
+		return memberDAO.getReportList(pager);
+	}
+	
+	//1대1 문의글 작성
+	public int setInquiry(InquiryDTO inquiryDTO)throws Exception{
+		return memberDAO.setInquiry(inquiryDTO);
+	}
+	
+	//1대1 문의글 답글 작성
+	public int setInquiryReply(InquiryDTO inquiryDTO)throws Exception{
+		memberDAO.setStepUpdate(inquiryDTO);
+		int result = memberDAO.setInquiryReply(inquiryDTO);
+		return result;
+	}
+	
+	public List<InquiryDTO> getInquiryList(Pager pager)throws Exception{
+		pager.getRowNum();
+		Long totalCount = memberDAO.getInquiryCount();
+		pager.getNum(totalCount);
+		return memberDAO.getInquiryList(pager);
+	}
+	
+	//신고글 내용 가져오기
+	public ReportDTO getReportDetail(ReportDTO reportDTO)throws Exception{
+		return memberDAO.getReportDetail(reportDTO);
+	}
+	
+	//문의글 내용 가져오기
+		public InquiryDTO getInquiryDetail(InquiryDTO inquiryDTO)throws Exception{
+			return memberDAO.getInquiryDetail(inquiryDTO);
+		}
 	
 	
 	

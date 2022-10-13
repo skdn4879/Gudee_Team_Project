@@ -213,8 +213,27 @@ body {
 }
 
 
+#detailJoinListSection {
+	padding: 1rem;
+	margin-top: 1rem;
+	background-color: #F4ECFF;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+}
 
 
+.dJoinListFrame {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0.5rem;
+}
+
+.dJoinListItemNickname {
+	font-family: 'HS-Regular';
+	font-size: 1.8rem;
+}
 
 
 
