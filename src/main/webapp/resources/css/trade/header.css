@@ -157,11 +157,25 @@
 .cate-a-all:hover{
   color: black;
 }
+ 
+.cate-li .cate-a-c {
+  display: inline-flex;
+  height: 30px;
+  color:#7fad39;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 20px 40px;
+}
+
+.cate-a-c:hover {
+  color: black;
+}
 
 .cate-disabled {
     display: inline-flex;
     height: 30px;
-    color:#7fad39;
+    color: black;
     justify-content: center;
     align-items: center;
     text-decoration: none;

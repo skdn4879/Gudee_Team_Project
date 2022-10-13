@@ -104,20 +104,15 @@
                     </div>
                     
                     
-                    
-                    
-                    
                     <!-- 제품 목록 -->
                     <div class="item-row">                    
                     <c:forEach var="item" items="${list}">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-item">
-                            	<c:catch>
-                            		<c:forEach  begin="1" end="${item.depth}"></c:forEach>
-                            	</c:catch>
-                                <div class="featured-item-pic set-bg">
-                                	<%-- <img alt="" src="../resources/upload/trade/${list.itemFileDTO.fileName}"> --%>
-                                	<img alt="" src="">
+                                <div class="featured-item-pic">
+                                	<c:forEach items="${item.itemImageDTOs}" var="fileDTO">
+                                		<img alt="" src="../resources/upload/trade/${fileDTO.fileName}">
+                                	</c:forEach>
                                 </div>
                                 <div class="featured-item-text">
                                     <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>

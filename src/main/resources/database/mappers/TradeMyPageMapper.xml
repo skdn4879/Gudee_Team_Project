@@ -17,14 +17,14 @@
 	<select id="getBuyItemList" resultType="ItemDTO" parameterType="BuyerDTO">
 		SELECT * FROM ITEM
 		    WHERE ITEMNUM
-		        =(SELECT ITEMNUM FROM BUYITEMLIST WHERE REALBUYER = 5)
+		        =(SELECT ITEMNUM FROM BUYITEMLIST WHERE REALBUYER = 4)
 	</select>
 	
 	
 	<!-- 후기리스트 -->
 	<select id="getReviewList" resultType="ReviewDTO" parameterType="ReviewDTO">
 		SELECT * FROM REVIEW
-			WHERE REALBUYER = 5
+			WHERE REALBUYER = 4
 	</select>
 	
 </mapper>	
