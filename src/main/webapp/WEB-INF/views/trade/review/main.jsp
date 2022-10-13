@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>전체 카테고리💚│구디마켓│중고거래📦</title>
+    <title>후기🎁│구디마켓│중고거래📦</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     
 </head>
 
-<c:import url="../template/trade/header.jsp"></c:import>
+<c:import url="../../template/trade/header.jsp"></c:import>
 
 <body>
 
@@ -55,39 +55,49 @@
                         </div>
 
                         <div class="sidebar-cate">
-                            <h4 class="sidebar-cate-title">가격</h4>
-                            <div class="price-check">
-                            	<div class="price-text">
-	                            	<input type="radio" name="form-check-input" value="allprice" class="price-text" checked>
-                                    <h6 class="price-text">전체 가격</h6><br>
-	                        	</div>
-	                        	<div class="price-text">
-	                        		<input type="radio" name="form-check-input" value="1" class="price-text">
-                                    <h6 class="price-text">1만원 이하</h6><br>
-	                        	</div>
-	                        	<div class="price-text">
-	                        		<input type="radio" name="form-check-input" value="3" class="price-text">
-                                    <h6 class="price-text">3만원 이하</h6><br>
-	                        	</div>
-	                        	<div class="price-text">	
-	                        		<input type="radio" name="form-check-input" value="5" class="price-text">
-                                    <h6 class="price-text">5만원 이하</h6><br>
-	                        	</div>
-	                        	<div class="price-text">
-	                        		<input type="radio" name="form-check-input" value="7" class="price-text">
-                                    <h6 class="price-text">7만원 이하</h6><br>
-	                        	</div>
-	                        	<div class="price-text">
-	                        		<input type="radio" name="form-check-input" value="10" class="price-text">
-                                    <h6 class="price-text">10만원 이하</h6>                  	
-                            	</div>
+                            <h4 class="sidebar-cate-title">별점</h4>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" value="option1" checked>
+                              <label class="form-check-label" for="flexRadioDefault2">
+                                전체 별점
+                              </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="option2">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  ⭐
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="option3">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  ⭐⭐
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="option4">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  ⭐⭐⭐
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="option5">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  ⭐⭐⭐⭐
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="option6">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  ⭐⭐⭐⭐⭐
+                                </label>
                             </div>
                         </div>
                     </div>                    
                 </div>
                 
                 
-                <!-- 메인바디 -->
+                
                 <div class="col-lg-9 col-md-7">
                 	<!-- 정렬 -->
                     <div class="filter-item">
@@ -96,8 +106,8 @@
                                 <ul>
                                     <li class="filter-li"><a href="/trade/category/new" class="filter-a">최신순</a></li>
                                     <li class="filter-li"><a href="/trade/category/hit" class="filter-a">조회순</a></li>
-                                    <li class="filter-li"><a href="/trade/category/high" class="filter-a">높은 가격순</a></li>
-                                    <li class="filter-li"><a href="/trade/category/low" class="filter-a">낮은 가격순</a></li>
+                                    <li class="filter-li"><a href="/trade/category/high" class="filter-a">높은 별점순</a></li>
+                                    <li class="filter-li"><a href="/trade/category/low" class="filter-a">낮은 별점순</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -106,23 +116,19 @@
                     
                     <!-- 제품 목록 -->
                     <div class="item-row">                    
-                    <c:forEach var="item" items="${list}">
+                    <c:forEach var="rv" items="${review}">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-item">
-                                <div class="featured-item-pic">
-                                	<c:forEach items="${item.itemImageDTOs}" var="fileDTO">
-                                		<img alt="" src="../resources/upload/trade/${fileDTO.fileName}">
-                                	</c:forEach>
+                                <div class="featured-item-pic set-bg" data-setbg="" style="background-image:">
                                 </div>
                                 <div class="featured-item-text">
-                                    <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
-                                    <h5>${item.itemPrice}</h5>
+                                    <h6><a href="..trade/review/detail?num=${rv.reviewNum}" class="item-name">${rv.reviewTitle}</a></h6>
+                                    <h5>${rv.reviewStar}</h5>
                                 </div>
                             </div>
                         </div>
 					</c:forEach>
                     </div>                 
-                    
                     
                     <!-- 페이지 이동 -->        
                     <div class="product-pagination">
@@ -140,7 +146,7 @@
                                             </c:if>
                                             <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
                                                 <li class="page-item">
-                                                    <a class="page-link" href="./category?page=${i}">${i}</a>
+                                                    <a class="page-link" href="./main?page=${i}">${i}</a>
                                                 </li>
                                             </c:forEach>
                                         </ul>
@@ -165,9 +171,9 @@
 	        </div>
 		</div>
     </section>
-</div>        
+</div>      
 
-	<c:import url="../template/trade/footer.jsp"></c:import>
+	<c:import url="../../template/trade/footer.jsp"></c:import>
 </body>
 
 </html>

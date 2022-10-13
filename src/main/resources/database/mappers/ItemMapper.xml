@@ -2,21 +2,23 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.goodee.market.item.ItemDAO">
+    <mapper namespace="com.goodee.market.trade.item.ItemDAO">
     
-    		<insert id="setAddFile" parameterType="ItemImageDTO" >
-    		 INSERT INTO ITEMIMAGE
-    		 VALUES(ITEMIMAGE_SEQ.NEXTVAL,#{itemNum},#{fileName},#{oriName})
-    		
-    		</insert>
-    		
-    		<select id="getCount" resultType="Long" parameterType="Pager">
-    				SELECT COUNT(ITEMNUM) FROM ITEM
-			</select>
-    		
-		 <select id="getList" resultType="itemDTO" parameterType="Pager">
-		 
-			SELECT * FROM
+    	<!-- 메인 -->
+    	<select id="getTradeMain" resultType="itemDTO" parameterType="Pager">
+    		SELECT * FROM
+		    (
+		        SELECT ROWNUM R, I.* FROM
+		            (SELECT * FROM ITEM 
+		            
+		             ORDER BY ITEMNUM DESC) I
+		    )
+			WHERE R BETWEEN #{startRow} and #{lastRow}
+    	</select>
+    
+    	<!-- 카테고리 메인 -->
+		<select id="getList" resultType="itemDTO" parameterType="Pager">
+		 	SELECT * FROM
 		    (
 		        SELECT ROWNUM R, I.* FROM
 		            (SELECT * FROM ITEM 
@@ -24,7 +26,34 @@
 		             ORDER BY ITEMNUM DESC) I
 		    )
 			WHERE R BETWEEN #{startRow} and #{lastRow}		 	
-		 </select>
+		</select>
+
+		<!-- 찜 목록 -->
+		<select id="getHeartList" resultType="itemDTO" parameterType="itemDTO">
+		 	SELECT IM.NUM,I.ITEMTITLE,I.ITEMCONTENTS,I.ITEMCATEGORY,I.ITEMPRICE
+            FROM ITEM I
+            
+            INNER JOIN
+            	ITEMLIKE_MEMBER IM
+            ON I.ITEMNUM= IM.ITEMNUM
+            
+            INNER JOIN
+            	MEMBER M
+            ON M.MEMBERNUM= IM.MEMBERNUM
+            
+            WHERE M.MEMBERNUM=#{memberNum}		 	
+		</select>
+
+
+    	<insert id="setAddFile" parameterType="ItemImageDTO" >
+    		 INSERT INTO ITEMIMAGE
+    		 VALUES(ITEMIMAGE_SEQ.NEXTVAL,#{itemNum},#{fileName},#{oriName})
+    	</insert>
+    		
+    	<select id="getCount" resultType="Long" parameterType="Pager">
+    			SELECT COUNT(ITEMNUM) FROM ITEM
+		</select>
+    		
 
 		<select id="getDetail" parameterType="ItemDTO" resultMap="getDetailResult">
 			 SELECT I.*,IM.*
@@ -34,6 +63,7 @@
 			 ON I.ITEMNUM= IM.ITEMNUM
 			 WHERE I.ITEMNUM= #{itemNum}
 		</select>
+		
 		<resultMap type="ItemDTO" id="getDetailResult">
 		<id column="itemnum" property="itemNum"/>
 				<result column="membernum" property="memberNum"/>
@@ -51,18 +81,18 @@
 		</resultMap>
 		
 		<insert id="setAdd" parameterType="ItemDTO"> 
-		<selectKey order="BEFORE" keyProperty="itemNum" resultType="Long"> 
-			  SELECT ITEM_SEQ.NEXTVAL FROM DUAL
-		</selectKey>
-		INSERT INTO ITEM
-  		VALUES (#{itemNum},#{memberNum},#{itemTitle},#{itemContents},#{itemCategory},#{itemPrice},#{itemDueDate},#{itemStatus})
+			<selectKey order="BEFORE" keyProperty="itemNum" resultType="Long"> 
+				SELECT ITEM_SEQ.NEXTVAL FROM DUAL
+			</selectKey>
+			INSERT INTO ITEM
+  			VALUES (#{itemNum},#{memberNum},#{itemTitle},#{itemContents},#{itemCategory},#{itemPrice},#{itemDueDate},#{itemStatus},0)
 		</insert>
 	
 		<update id="setUpdate" parameterType="ItemDTO">
-		  UPDATE ITEM SET ITEMTITLE = #{itemTitle},ITEMCONTENTS=#{itemContents},ITEMCATEGORY=#{itemCategory},ITEMPRICE=#{itemPrice} WHERE ITEMNUM=#{itemNum}
+			UPDATE ITEM SET ITEMTITLE = #{itemTitle},ITEMCONTENTS=#{itemContents},ITEMCATEGORY=#{itemCategory},ITEMPRICE=#{itemPrice} WHERE ITEMNUM=#{itemNum}
 		</update>
 		
 		<delete id="setDelete" parameterType="ItemDTO">
-		DELETE ITEM WHERE ITEMNUM=#{itemNum}
+			DELETE ITEM WHERE ITEMNUM=#{itemNum}
 		</delete>
 	</mapper>
