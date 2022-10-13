@@ -25,6 +25,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.goodee.market.meetingboard.util.MeetingBoardCommentPager" alias="MeetingBoardCommentPager"/>
 		<typeAlias type="com.goodee.market.meetingboard.member.MeetingBoardMemberDTO" alias="MeetingBoardMemberDTO"/>
 		<typeAlias type="com.goodee.market.meetingboard.util.MeetingBoardMemberPager" alias="MeetingBoardMemberPager"/>
+		<typeAlias type="com.goodee.market.member.ReportDTO" alias="ReportDTO"/>
+		<typeAlias type="com.goodee.market.member.RoleDTO" alias="RoleDTO"/>
+		<typeAlias type="com.goodee.market.member.InquiryDTO" alias="InquiryDTO"/>
 		<typeAlias type="com.goodee.market.util.Pager" alias="Pager"/>
 		
 		<typeAlias type="java.lang.String" alias="String"/>

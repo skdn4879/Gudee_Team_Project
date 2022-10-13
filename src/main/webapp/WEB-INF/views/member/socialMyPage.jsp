@@ -6,20 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/meetingboard/bootstrapCss.jsp"></c:import>
 </head>
 <body>
-	<h1>socialMyPage</h1>
+	<c:import url="../template/member/memberHeader.jsp"></c:import>
 
-    찜목록<br>
-    <c:forEach items="${LikeDTO.meetingBoardDTOs}" var="LikeDTO">
-    	<a href="/mb/detail?num=${LikeDTO.meetingBoardNum}">${LikeDTO.meetingBoardTitle}</a><br>
-    </c:forEach>
-    
-    내가 작성한 댓글 목록<br>
-    <c:forEach items="${myCommentList}" var="comment">
-    	<a href="/mb/detail?num=${comment.meetingBoardNum}">${comment.contents}</a>
-    </c:forEach>
+    <div style="background-color: #FBF7F2; height: 50rem;">
+		<div class="container content">
+			<section class="container lists">
+                <p>내가 찜한 모임 목록</p>
+                <c:forEach items="${LikeDTO.meetingBoardDTOs}" var="LikeDTO">
+                    <p><a href="/mb/detail?num=${LikeDTO.meetingBoardNum}">${LikeDTO.meetingBoardTitle}</a></p>
+                </c:forEach>
+            </section>
+            
+            <section class="container lists" style="margin-top: 5rem;">
+                <p>내가 작성한 댓글 목록</p>
+                <c:forEach items="${myCommentList}" var="comment">
+                    <a href="/mb/detail?num=${comment.meetingBoardNum}">${comment.contents}</a>
+                </c:forEach>
+            </section>
+        </div>
+    </div>  
 
-
+    <link rel="stylesheet" href="/resources/css/member/socialMyPage.css">
+    <c:import url="../template/meetingboard/bootstrapJs.jsp"></c:import>
 </body>
 </html>

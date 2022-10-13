@@ -46,44 +46,44 @@
   <!-- 헤더 끝 -->
 
     <form action="join" method="post" enctype="multipart/form-data" id="form">
-        <div style="background-color: #FBF7F2; height: 1500px; font-family: 'MICEGothic Bold';">
-            <section class="container col-lg-8 mt-4">
-                <h1>Join Page</h1>
+        <div style="background-color: #FBF7F2; height: 75rem;">
+            <section class="container col-lg-5 mt-2">
+                <h1 style="padding-top: 2rem; padding-bottom: 1rem;">회원가입</h1>
                 <!-- 아이디 입력 -->
                 <div>
-                <p><h3>아이디</h3></p>
-                <p><input class="form-control form-control-lg box" type="text" placeholder="ID" aria-label=".form-control-lg example" name="id" id="id"></p>
+                <p class="tfont">아이디</p>
+                <p><input class="form-control form-control box" type="text" placeholder="ID" aria-label=".form-control example" name="id" id="id"></p>
                 </div>
                 <div id="idm" class="m"></div>
 
                 <!-- 비밀번호 입력 -->
-                <p><h3>비밀번호</h3></p>
-                <p><input class="form-control form-control-lg box" type="password" placeholder="PW" aria-label=".form-control-lg example" name="password" id="password"></p>
+                <p class="tfont">비밀번호</p>
+                <p><input class="form-control form-control box" type="password" placeholder="PW" aria-label=".form-control example" name="password" id="password"></p>
                 <div id="pwm" class="m"></div>
                 
                 <!-- 비밀번호 확인 -->
-                <p><h3>비밀번호 확인</h3></p>
-                <p><input class="form-control form-control-lg box" type="password" placeholder="PW" aria-label=".form-control-lg example" id="password2"></p>
+                <p class="tfont">비밀번호 확인</p>
+                <p><input class="form-control form-control box" type="password" placeholder="PW" aria-label=".form-control example" id="password2"></p>
                 <div id="pwm2" class="m"></div>
 
                 <!-- 이름 입력 -->
-                <p><h3>이름</h3></p>
-                <p><input class="form-control form-control-lg cb box" type="text" placeholder="Name" aria-label=".form-control-lg example" name="name" id="name"></p>
+                <p class="tfont">이름</p>
+                <p><input class="form-control form-control cb box" type="text" placeholder="Name" aria-label=".form-control example" name="name" id="name"></p>
                 <div class="ch m"></div>
 
                 <!-- 닉네임 입력 -->
-                <p><h3>닉네임</h3></p>
-                <p><input class="form-control form-control-lg cb box" type="text" placeholder="Nickame" aria-label=".form-control-lg example" name="nickname" id="nickname"></p>
+                <p class="tfont">닉네임</p>
+                <p><input class="form-control form-control cb box" type="text" placeholder="Nickame" aria-label=".form-control example" name="nickname" id="nickname"></p>
                 <div class="ch m"></div>
 
                 <!-- 이메일 입력 -->
-                <p><h3>이메일</h3></p>
+                <p class="tfont">이메일</p>
                 <!-- 이메일 select -->
                 <div class="emailform d-flex" style="align-items: center;">
-                  <input class="form-control form-control-lg flex" id="email-txt" type="text"/>
+                  <input class="form-control form-control flex" id="email-txt" type="text"/>
                   <div class="flex">@</div>
-                  <input class="form-control form-control-lg flex" id="domain-txt" type="text"/>
-                  <select class="form-select form-select-lg flex" id="domain-list">
+                  <input class="form-control form-control flex" id="domain-txt" type="text"/>
+                  <select class="form-select form-select flex" id="domain-list">
                     <option value="type">직접 입력</option>
                     <option value="naver.com">naver.com</option>
                     <option value="google.com">google.com</option>
@@ -96,21 +96,21 @@
                 <div class="emailm m"></div>
 
                 <!-- 전화번호 입력 -->
-                <p><h3>전화번호</h3></p>
-                <p><input class="form-control form-control-lg cb box" type="text" placeholder="Phone" aria-label=".form-control-lg example" name="phone" id="phone"></p>
+                <p class="tfont" style="padding-top: 1rem;">전화번호</p>
+                <p><input class="form-control form-control cb box" type="text" placeholder="Phone" aria-label=".form-control example" name="phone" id="phone"></p>
                 <div class="ch m"></div>
 
                 <!-- 생년월일 입력 -->
-                <p><h3>생년월일</h3></p>
+                <p class="tfont">생년월일</p>
                 <!-- 생년월일 입력 폼 -->
                   <div class="d-flex">
-                    <select class="form-select form-select-lg flex" id="birth-year">
+                    <select class="form-select form-select flex" id="birth-year">
                       <option disabled selected>출생 연도</option>
                     </select>
-                    <select class="form-select form-select-lg flex" id="birth-month">
+                    <select class="form-select form-select flex" id="birth-month">
                       <option disabled selected>월</option>
                     </select>
-                    <select class="form-select form-select-lg flex" id="birth-day">
+                    <select class="form-select form-select flex" id="birth-day">
                       <option disabled selected value="0">일</option>
                     </select>
                   </div>
@@ -118,7 +118,7 @@
                   <div class="birthdaym m"></div>
 
                 <!-- 주소 입력 -->
-                <p><h3>주소</h3></p>
+                <p class="tfont" style="padding-top: 1rem;">주소</p>
                 <div class="d-flex flex-row">
                   <input class="form-control p-2 box" type="text" id="postcode" placeholder="우편번호" readonly="readonly" name="postcode">
                   <input class="btn btn-secondary p-2" type="button" onclick="checkPost()" value="우편번호 찾기">
@@ -131,8 +131,8 @@
 
                 
                 <div>
-                  <p><h3>프로필 사진</h3></p>
-                  <p><input class="form-control form-control-lg box" type="file" aria-label=".form-control-lg example" name="files" id="photo"></p>
+                  <p class="tfont" style="padding-top: 1rem;">프로필 사진</p>
+                  <p><input class="form-control form-control box" type="file" aria-label=".form-control example" name="files" id="photo"></p>
                 </div>
                 <div class="photom m"></div>
                 
