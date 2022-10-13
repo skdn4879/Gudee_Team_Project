@@ -8,11 +8,18 @@ import javax.servlet.ServletContext;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.goodee.market.item.ItemImageDTO;
+import com.goodee.market.trade.item.ItemImageDTO;
 
 
 @Component
 public class FileManager {
+	
+	//fileDelete
+	public Boolean deleteFile(ServletContext servletContext, String path, FileDTO fileDTO)throws Exception {
+		String realPath = servletContext.getRealPath(path);
+		File file = new File(realPath, fileDTO.getFileName());
+		return file.delete();
+	}
 	
 
 	// HDD file save

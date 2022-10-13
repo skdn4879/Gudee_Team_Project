@@ -1,16 +1,18 @@
 package com.goodee.market;
 
-//import static org.junit.Assert.*;
-//
-//import java.util.List;
-//
-//import org.junit.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//
-//import com.goodee.market.item.ItemDAO;
-//import com.goodee.market.item.ItemDTO;
-//
-//public class ItemDAOTest extends MyAbstractTest{
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.goodee.market.trade.item.ItemDAO;
+import com.goodee.market.trade.item.ItemDTO;
+
+public class ItemDAOTest extends MyAbstractTest{
+
 
 //	@Autowired
 //	private ItemDAO itemDAO;
@@ -45,11 +47,11 @@ package com.goodee.market;
 //	
 //	}
 	
-	/*@Test
+
+	@Test
 	public void getListTest()throws Exception {
 		ItemDTO itemDTO =new ItemDTO();
-		 List<ItemDTO> ar =itemDAO.getList();
+		 List<ItemDTO> ar =itemDAO.getList(null);
 		 assertEquals(7L, ar.size());
 	}
-
-}*/
+}

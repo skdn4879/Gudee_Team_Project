@@ -4,86 +4,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>중고거래 찜 목록</title>
-</head>
-<body>
-	<c:import url="./common/header.jsp"></c:import>
+	<meta charset="UTF-8">
+	<title>찜바구니🛍️│구디마켓│중고거래📦</title>
 	
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>찜 목록</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+	</style>
+    
+  	<link rel="stylesheet" href="/resources/css/trade/header.css" />
+    <link rel="stylesheet" href="/resources/css/trade/footer.css" />
+    <link rel="stylesheet" href="/resources/css/trade/heartlist.css" />
+    
+</head>
+
+<body>
+	
+	<c:import url="../template/trade/header.jsp"></c:import>
+
+<div class="heartListBody">	
+	<section class="heartList spad">
+        <div class="hl-container">
+            <div class="hl-row">
                 <div class="col-lg-12">
-                    <div class="shoping__cart__table">
+                    <div class="hl-table">
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">중고 물품</th>
+                                    <th class="hl-title">제목</th>
                                     <th>가격</th>
+                                    <th>수량</th>
                                     <th>판매자</th>
-                                    <th>카테고리</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>필로우 미스트</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        27,000원
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        김떙땡
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        뷰티/미용
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>쿠션</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        21,000원
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        최땡땡
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        인테리어
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                            <tbody class="hl-tbody">
+                            	<c:forEach items="${list}" var="item">
+	                                <tr>
+	                                    <td class="hl-item">
+	                                        <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="hl-img">
+	                                        <h5 class="hl-text">${item.itemNum}</h5>
+	                                    </td>
+	                                    <td class="hl-price">
+	                                        ${item.itemPrice}
+	                                    </td>
+	                                    <td class="hl-quantity">
+	                                        <div class="quantity">
+	                                            <div class="pro-qty">
+	                                                <span class="dec qtybtn">-</span>
+	                                                <input type="text" value="1">
+	                                                <span class="inc qtybtn">+</span>
+	                                            </div>
+	                                        </div>
+	                                    </td>
+	                                    <td class="hl-seller">
+	                                        ${item.memberNum}
+	                                    </td>
+	                                    <td class="hl-close">
+	                                        <span class="icon_close"></span>
+	                                    </td>
+	                                </tr>
+	                        	</c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Shoping Cart Section End -->
+    </section>	
+</div>    
+
+    <c:import url="../template/trade/footer.jsp"></c:import>
+ 
 </body>
 </html>

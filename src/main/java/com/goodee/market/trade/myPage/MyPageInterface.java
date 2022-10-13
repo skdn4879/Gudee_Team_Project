@@ -4,7 +4,7 @@ import java.util.List;
 
 
 import com.goodee.market.trade.buyItemList.BuyItemListDTO;
-import com.goodee.market.item.ItemDTO;
+import com.goodee.market.trade.item.ItemDTO;
 import com.goodee.market.trade.review.ReviewDTO;
 import com.goodee.market.trade.sellItemList.SellItemListDTO;
 

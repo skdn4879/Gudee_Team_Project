@@ -162,6 +162,7 @@
 			<div class="modal-body">
 				<form>
 				<div class="mb-3">
+
 					<label for="reportNickName" class="col-form-label">신고자</label>
 					<input type="text" class="form-control" id="reportNickname" readonly="readonly" value="${sessionScope.member.nickname}">
 					<input type="hidden" id="reportName" value="${sessionScope.member.name}">
@@ -176,6 +177,7 @@
 				<div class="mb-3">
 					<label for="reportTitle" class="col-form-label">신고제목</label>
 					<input type="text" class="form-control" id="reportTitle" name="reportTitle">
+
 				</div>
 				<div class="mb-3">
 					<label for="reportContent" class="col-form-label">신고내용</label>
