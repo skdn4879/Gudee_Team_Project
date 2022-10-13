@@ -41,4 +41,40 @@ public class MeetingBoardMemberDAO {
 		return sqlSession.selectOne(NAMESPACE + "getMyListCount", pager);
 	}
 	
+	public Long getMyApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMyApprovalCount", meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getMyApprovalList(MeetingBoardMemberPager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getMyApprovalList", pager);
+	}
+	
+	public int setApprovalAccept(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setApprovalAccept", meetingBoardMemberDTO);
+	}
+	
+	public int setApprovalDenie(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setApprovalDenie", meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getDetailJoinList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getDetailJoinList", meetingBoardMemberDTO);
+	}
+	
+	public int getMeetingBoardMemberStatus(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getMeetingBoardMemberStatus", meetingBoardMemberDTO);
+	}
+	
+	public int getAllApprovalCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getAllApprovalCount", meetingBoardMemberDTO);
+	}
+	
+	public int getSoonListCount(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getSoonListCount", meetingBoardMemberDTO);
+	}
+	
+	public List<MeetingBoardMemberDTO> getSoonList(MeetingBoardMemberDTO meetingBoardMemberDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getSoonList", meetingBoardMemberDTO);
+	}
+	
 }

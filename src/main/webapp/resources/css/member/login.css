@@ -1,0 +1,18 @@
+.loginTop{
+    padding-top: 3rem;
+    background-color: #FBF7F2;
+
+}
+
+.loginFrame{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    width: 30rem;
+    height: 25rem;
+    margin-top: 8rem;
+}
+
+#loginContent{
+    padding-top: 3rem;
+}
