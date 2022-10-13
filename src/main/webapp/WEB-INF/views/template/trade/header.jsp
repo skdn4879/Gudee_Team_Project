@@ -23,8 +23,8 @@
 		<!-- 로고 -->
 		<div class="logo">
 			<a href="/">
-				<svg width="100" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<image href="/resources/images/trade/logo.png" height="200" width="200"/>
+				<svg width="120" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<image href="/resources/images/logo.png" height="200" width="200" class="logo-img"/>
 				</svg>
 			</a>
 		</div>
