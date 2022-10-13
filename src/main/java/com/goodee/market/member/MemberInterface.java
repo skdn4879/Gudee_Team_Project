@@ -32,6 +32,7 @@ public interface MemberInterface {
 	
 	//회원 신고하기
 	public int setReport(ReportDTO reportDTO)throws Exception;
+
 	
 	//신고 글 목록 불러오기
 	public List<ReportDTO> getReportList(Pager pager)throws Exception;
@@ -47,5 +48,6 @@ public interface MemberInterface {
 	
 	//관리자 페이지에서 문의글 리스트 불러오기
 	public List<InquiryDTO> getInquiryList(Pager pager)throws Exception;
+
 
 }

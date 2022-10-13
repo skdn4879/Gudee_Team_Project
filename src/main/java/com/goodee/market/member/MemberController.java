@@ -186,7 +186,7 @@ public class MemberController {
 		return jasonResult;
 	}
 	
-	//신고글 작성
+
 	@PostMapping("report")
 	@ResponseBody
 	public Map<String, Integer> setReport(ReportDTO reportDTO)throws Exception{
@@ -215,5 +215,6 @@ public class MemberController {
 		String result = inquiryDTO.getContents();
 		return result;
 	}
+
 
 }

@@ -15,13 +15,25 @@ import com.goodee.market.util.FileManager;
 import com.goodee.market.util.Pager;
 
 @Service
-public class ItemService {
+public class ItemService{
 	
 	@Autowired
 	private ItemDAO itemDAO;
 	
 	@Autowired
 	private FileManager fileManager;
+	
+	
+	public int setFileDelete(ItemImageDTO itemImageDTO, ServletContext servletContext)throws Exception{
+		 itemImageDTO = itemDAO.getFileDetail(itemImageDTO);
+		 int result = itemDAO.setFileDelete(itemImageDTO);
+			String path="resources/upload/item";
+		 if(result>0) {
+			boolean check= fileManager.deleteFile(servletContext, path, itemImageDTO);
+			 
+		 }
+		return result;	
+	}
 
 	public List<ItemDTO> getTradeMain(Pager pager)throws Exception{
 		Long totalCount=itemDAO.getCount(pager);
@@ -75,8 +87,25 @@ public class ItemService {
 	
 	
 	
-	public int setUpdate(ItemDTO itemDTO)throws Exception {
-		return itemDAO.setUpdate(itemDTO);
+	public int setUpdate(ItemDTO itemDTO, MultipartFile[] files,ServletContext servletContext)throws Exception {
+		int result= itemDAO.setUpdate(itemDTO);
+		String path="resources/upload/item";
+
+		if(result<1) {
+			return result;
+		}
+		for (MultipartFile multipartFile: files) {
+			if(multipartFile.isEmpty()) {
+				continue;
+			}	
+			String fileName= fileManager.saveFile(path, servletContext, multipartFile);
+			ItemImageDTO itemImageDTO = new ItemImageDTO();
+			itemImageDTO.setFileName(fileName);
+			itemImageDTO.setOriName(multipartFile.getOriginalFilename());
+			itemImageDTO.setItemNum(itemDTO.getItemNum());
+			itemDAO.setAddFile(itemImageDTO);
+			}
+		return result;
 	}
 	
 	

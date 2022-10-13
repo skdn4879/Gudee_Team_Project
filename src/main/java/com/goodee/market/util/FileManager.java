@@ -14,6 +14,13 @@ import com.goodee.market.trade.item.ItemImageDTO;
 @Component
 public class FileManager {
 	
+	//fileDelete
+	public Boolean deleteFile(ServletContext servletContext, String path, FileDTO fileDTO)throws Exception {
+		String realPath = servletContext.getRealPath(path);
+		File file = new File(realPath, fileDTO.getFileName());
+		return file.delete();
+	}
+	
 
 	// HDD file save
 	public String saveFile(String path,ServletContext servletContext,MultipartFile multipartFile) throws Exception {

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,10 +23,17 @@ public class ItemController{
 	@Autowired
 	private ItemService itemService;
 	
+	@PostMapping("fileDelete")
+	@ResponseBody
+	public int setFileDelete(ItemImageDTO itemImageDTO, HttpSession session)throws Exception {
+		int result = itemService.setFileDelete(itemImageDTO,session.getServletContext());
+		return result;
+	}
+	
 	
 	//메인페이지
 	@GetMapping(value = "main")
-	public ModelAndView getTradeMain(Pager pager)throws Exception {
+	public ModelAndView getTradeMain( Pager pager)throws Exception {
 		System.out.println("중고 메인~.~");
 		ModelAndView mv = new ModelAndView();
 		List<ItemDTO> ar = itemService.getTradeMain(pager);
@@ -40,10 +48,12 @@ public class ItemController{
 	@GetMapping(value = "category")
 	public ModelAndView getList(Pager pager)throws Exception {
 		System.out.println("category");
+		
 		ModelAndView mv = new ModelAndView();
 		List<ItemDTO> ar =itemService.getList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
+		
 		mv.setViewName("trade/category");
 		return mv;
 	}
@@ -55,6 +65,7 @@ public class ItemController{
 		System.out.println("찜.");
 		ModelAndView mv =new ModelAndView();
 		List<ItemDTO> ar = itemService.getHeartList(pager);
+		
 		mv.addObject("list", ar);	
 		mv.addObject("pager", pager);
 		mv.setViewName("trade/heartlist");
@@ -65,10 +76,10 @@ public class ItemController{
 	//글상세
 	@GetMapping(value="detail")
 	public ModelAndView getDetail(Long num, ModelAndView mv) throws Exception {
-		ItemDTO itemDTO = new ItemDTO();
+		ItemDTO itemDTO =new ItemDTO();
 		itemDTO.setItemNum(num);
-		System.out.println("detail 실행");
 		itemDTO = itemService.getDetail(itemDTO);
+		System.out.println(itemDTO.getItemPrice());
 		mv.addObject("dto", itemDTO);
 		mv.setViewName("trade/detail");
 		
@@ -84,35 +95,43 @@ public class ItemController{
 	
 	
 	@PostMapping(value="add")
-	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession sessin) throws Exception {
+	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView(); 
-		int item= itemService.setAdd(itemDTO,files,sessin.getServletContext());
+		int item= itemService.setAdd(itemDTO,files,session.getServletContext());
 		mv.setViewName("redirect:./category");
+		System.out.println("add success");
 		return mv;
-		
 	}
 	
 	
 	//글수정
 	@GetMapping(value="update")
-	public ModelAndView setUpdate(ItemDTO itemDTO, ModelAndView mv)throws Exception {
-		
+	public ModelAndView setUpdate(Long num, ModelAndView mv)throws Exception {
+		ItemDTO itemDTO = new ItemDTO();
+		itemDTO.setItemNum(num);
+		itemDTO = itemService.getDetail(itemDTO);
+		mv.addObject("itemDTO", itemDTO);
 		mv.setViewName("trade/update");
 		return mv;
+	
 	}
-	
-	
 	@PostMapping(value="update")
-	public String setUpdate(ItemDTO itemDTO)throws Exception {
-		int result= itemService.setUpdate(itemDTO);
-	return "redirect:./detail?itemNum="+itemDTO.getItemNum();
+	public String setUpdate(ItemDTO itemDTO, MultipartFile[] files, HttpSession session)throws Exception {
+		int result= itemService.setUpdate(itemDTO,files,session.getServletContext());
+	return "redirect:./detail?num="+itemDTO.getItemNum();
 	}
+	
 	
 	
 	//글삭제
-	public String setDelete(ItemDTO itemDTO)throws Exception {
+	@GetMapping("delete")
+	public String setDelete(Long num)throws Exception {
+	System.out.println("삭제 들어가");
+	ItemDTO itemDTO = new ItemDTO();
+	itemDTO.setItemNum(num);
 	int result= itemService.setDelete(itemDTO);
-	return "redirect:./category";
+	return "redirect:./main";
 	}
+	
 	
 }

@@ -91,11 +91,13 @@ public class MemberService {
 		return memberDTO;
 	}
 	
+
 	//신고글 작성
 	public int setReport(ReportDTO reportDTO)throws Exception{
 		return memberDAO.setReport(reportDTO);
 	}
 	
+
 	//신고글 갯수 계산
 	public int countReport(ReportDTO reportDTO)throws Exception{
 		return memberDAO.countReport(reportDTO);
@@ -139,10 +141,5 @@ public class MemberService {
 		public InquiryDTO getInquiryDetail(InquiryDTO inquiryDTO)throws Exception{
 			return memberDAO.getInquiryDetail(inquiryDTO);
 		}
-	
-	
-	
-	
-	
 
 }

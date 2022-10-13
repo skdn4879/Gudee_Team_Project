@@ -143,10 +143,5 @@ public class MemberDAO implements MemberInterface{
 	
 	
 	
-	
-	
-	
-	
-	
 
 }

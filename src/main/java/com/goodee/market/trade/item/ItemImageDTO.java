@@ -6,17 +6,6 @@ public class ItemImageDTO extends FileDTO {
 	
 	 private Long itemNum;
 	 
-	 private Long fileNum;
-
-	 
-	 
-	public Long getFileNum() {
-		return fileNum;
-	}
-
-	public void setFileNum(Long fileNum) {
-		this.fileNum = fileNum;
-	}
 
 	public Long getItemNum() {
 		return itemNum;
