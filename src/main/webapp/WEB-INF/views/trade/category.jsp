@@ -100,7 +100,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="../item/detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
+                                    <h6><a href="../trade/detail?num=${item.itemNum}">${item.itemTitle}</a></h6>
                                     <h5>${item.itemPrice}</h5>
                                 </div>
                             </div>

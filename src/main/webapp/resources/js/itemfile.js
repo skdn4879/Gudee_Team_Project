@@ -2,11 +2,70 @@
 
 const fileAdd = document.getElementById("fileAdd")
 const addFiles =document.getElementById("addFiles")
+const fileDelete = document.querySelectorAll(".fileDelete")
+
+
+try{
+fileDelete.forEach(function(f){
+
+    f.addEventListener("click",function(){
+    
+        let check= window.confirm("삭제하시겠습니까?")
+    
+        if(!check){
+           return 
+        }
+
+let fileNum =f.getAttribute("data-file-num")
+const xhttp =new XMLHttpRequest()
+xhttp.open("POST","./fileDelete")
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+xhttp.send("fileNum="+fileNum)
+xhttp.onreadystatechange=function(){
+
+  if(xhttp.readyState==4&&xhttp.status==200){
+    let result =xhttp.responseText.trim();
+
+    if(result==1){
+
+        console.log(result)
+        f.parentNode.remove();
+        count--
+
+    }else{
+
+        console.log(result);
+
+    }
+
+  }  
+}
+}
+)}
+
+)
+}catch(e){
+
+}
+
+
+
+
+
+// file add
+
 
 let count = 0;
 let idx= 0;
 
+function setCount(c){
+    if(c>=0){
 
+    count=c
+}
+}
+
+try{
 fileAdd.addEventListener("click", function(){
     
     if(count>4){
@@ -28,17 +87,11 @@ fileAdd.addEventListener("click", function(){
 
 
         //자식 el label 생성
-       let label = document.createElement("label"); //<label></label>
-       let labelText =document.createTextNode("file"); //"첨부파일"
-       label.appendChild(labelText);////<label>첨부파일</label>
-       /*let labelClass = document.createAttribute("class");// class=""
-       labelClass.value="form-label"; // form-label
-       label.setAttributeNode(labelClass); // class="form-label"
-       let labelfor = document.createAttribute("for");// for=""
-       labelfor.value="files"; //for="files"
-       label.setAttributeNode(labelfor); // */
-       label.setAttribute("class", "form-label");
-       label.setAttribute("for", "files");
+        let label = document.createElement("label"); //<label></label>
+        let labelText =document.createTextNode("file"); //"첨부파일"
+        label.appendChild(labelText);
+        label.setAttribute("class", "form-label");
+        label.setAttribute("for", "files");
 
        div.appendChild(label);
 
@@ -56,7 +109,7 @@ fileAdd.addEventListener("click", function(){
         
         button.setAttribute("type","button")
         button.setAttribute("class","del")
-        button.setAttribute("title","idx")
+        button.setAttribute("title",idx)
         
 
         div.appendChild(button);
@@ -73,11 +126,20 @@ fileAdd.addEventListener("click", function(){
 addFiles.addEventListener("click", function(event){
     let button = event.target
 
-    if(event.target.className=='del'){
-     document.getElementById("file"+button.title).remove();
+    if(button.className=='del'){
+        document.getElementById("file"+button.title).remove();
+        count--
         
-            count--;
     }
-    
+
 
 })
+
+}catch(e){
+
+}
+
+
+
+
+

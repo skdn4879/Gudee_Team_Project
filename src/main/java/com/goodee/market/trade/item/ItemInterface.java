@@ -20,6 +20,8 @@ public interface ItemInterface {
 	
 	public int setAddFile(ItemImageDTO itemImageDTO)throws Exception;
 	
+	public int setFileDelete(ItemImageDTO itemImageDTO)throws Exception;
+	
 	public Long getCount(Pager pager) throws Exception;
 
 	
@@ -27,7 +29,7 @@ public interface ItemInterface {
 	
 	public int setAdd(ItemDTO itemDTO, MultipartFile[] files, ServletContext servletContext)throws Exception;
 	
-	public int setUpdate(ItemDTO itemDTO) throws Exception;
+	public int setUpdate(ItemDTO itemDTO, MultipartFile[] files, ServletContext servletContext) throws Exception;
 	
 	public int setDelete(ItemDTO itemDTO) throws Exception;
 

@@ -25,23 +25,24 @@
 		<form action="./add" method="POST" enctype="multipart/form-data">
 		
 		
-		<div class="mb-3">
-			  <label for="num" class="form-label"> 멤버 번호 </label>
+	
+			<div class="mb-3">
+				<label for="title" class="form-label">사용자번호</label>
 			  <input type="text" name="memberNum" class="form-control" id="num" >
 			</div>
+
+
 			<div class="mb-3">
 			  <label for="title" class="form-label">상품 이름</label>
 			  <input type="text" name="itemTitle" class="form-control" id="title" placeholder="제목 입력">
 			</div>
 			
-			
-			
+
 			
 			 <div id="addFiles">
 			<button type="button" class="btn btn-danger" id="fileAdd">추가</button>
 	
 			</div>
-		
 				
 				
 			<div class="mb-3">
@@ -62,25 +63,6 @@
 				</select>
 			</div>  -->
 			
-			<!--  <select name="rv_blog" id="rv_blog" class="bloginput" style="width:798px;">
-                <option value="">선택해주세요
-                </option><option value="">블로그 : </option></select>
-			<div class="mb-3"> -->
-			
-			
-			
-			  <label for="date" class="form-label">거래 날짜</label>
-			  			  <input type="text" name="itemDueDate" class="form-control" id="date">
-			   
-             <!--  <p><input type="date" name="itemDueDate" id="date"  value="xxx" min="yyy" max="zzz"></p>
-
-              <label for="fromDate">시작일</label>
-              <input type="text" name="fromDate" id="fromDate">
-              ~
-              <label for="toDate">종료일</label>
-              <input type="text" name="toDate" id="toDate">
-    
-                </div> -->
 			
 			
 			
@@ -91,10 +73,7 @@
 
 			
 			<br><br><br>
-			<div class="mb-3">
-			  <label for="status" class="form-check-label">거래상태</label>			  
-			  <input type="text" name="itemStatus" class="form-control" id="status">
-			</div>
+			
 			
 			<div class="mb-3">
 				<button type="submit" class="btn btn-success">등록</button>
@@ -107,6 +86,11 @@
 <!-- bootStrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="/resources/js/itemfile.js"></script>
+<script type="text/javascript">
+	$("#contents").summernote();
+</script>
+	<c:import url="../template/trade/footer.jsp"></c:import>
+
 
 </body>
 </html>

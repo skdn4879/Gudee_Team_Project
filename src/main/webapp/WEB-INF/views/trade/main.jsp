@@ -14,7 +14,7 @@
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-          crossorigin="anonymous">
+          crossorigin="anonymous" >
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -83,7 +83,7 @@
                         	 style="background-image: url(&quot;/resources/images/trade/1_knit.jpg&quot;);">
                         </div>
                         <div class="featured-item-text">
-                            <h6><a href="../item/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
+                            <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
                             <h5>${item.itemPrice}</h5>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                         	 style="background-image: url(&quot;/resources/images/trade/1_knit.jpg&quot;);">
                         </div>
                         <div class="featured-item-text">
-                            <h6><a href="../item/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
+                            <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
                             <h5>${item.itemPrice}</h5>
                         </div>
                     </div>
