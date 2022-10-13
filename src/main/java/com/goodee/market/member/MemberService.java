@@ -42,6 +42,7 @@ public class MemberService {
 			memberDAO.setAddFile(memberFileDTO);
 			System.out.println("파일추가 실행");
 		}
+		memberDAO.setRoles(memberDTO);
 		
 		return result;
 	}

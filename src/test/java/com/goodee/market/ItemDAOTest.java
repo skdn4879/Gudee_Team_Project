@@ -50,6 +50,6 @@ package com.goodee.market;
 		ItemDTO itemDTO =new ItemDTO();
 		 List<ItemDTO> ar =itemDAO.getList();
 		 assertEquals(7L, ar.size());
-	}*/
+	}
 
-}
+}*/

@@ -49,6 +49,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{memberNum}, #{id}, #{password}, #{name}, #{nickname}, #{email}, #{phone}, SYSDATE, 0, #{birthday}, #{main_address}, #{detail_address}, #{postcode})
 	</insert>
 	
+	<insert id="setRoles" parameterType="MemberDTO">
+		INSERT INTO MEMBER_ROLES (ROLENUM, MEMBERNUM)
+		VALUES (2, #{memberNum})
+	</insert>
+	
 	<!-- 파일추가 -->
 	<insert id="setAddFile" parameterType="MemberFileDTO">
 		INSERT INTO MEMBERIMAGE(FILENUM, FILENAME, ORINAME, MEMBERNUM)

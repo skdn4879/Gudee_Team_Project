@@ -121,6 +121,11 @@ public class MemberDAO implements MemberInterface{
 			return sqlSession.selectOne(NAMESPACE + "getInquiryDetail", inquiryDTO);
 		}
 	
+	//멤버등급 인서트
+		public int setRoles(MemberDTO memberDTO)throws Exception{
+			return sqlSession.insert(NAMESPACE + "setRoles", memberDTO);
+		}
+	
 	
 	
 	
