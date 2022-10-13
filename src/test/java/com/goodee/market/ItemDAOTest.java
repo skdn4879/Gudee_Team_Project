@@ -45,11 +45,11 @@ package com.goodee.market;
 //	
 //	}
 	
-//	@Test
-//	public void getListTest()throws Exception {
-//		ItemDTO itemDTO =new ItemDTO();
-//		 List<ItemDTO> ar =itemDAO.getList();
-//		 assertEquals(7L, ar.size());
-//	}
-//
-//}
+	/*@Test
+	public void getListTest()throws Exception {
+		ItemDTO itemDTO =new ItemDTO();
+		 List<ItemDTO> ar =itemDAO.getList();
+		 assertEquals(7L, ar.size());
+	}*/
+
+}
