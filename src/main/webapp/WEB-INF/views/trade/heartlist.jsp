@@ -5,100 +5,78 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>중고거래 찜 목록</title>
+	<title>찜바구니🛍️│구디마켓│중고거래📦</title>
 	
 	<!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="/resources/css/trade/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/trade/style.css" type="text/css">
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+	</style>
+    
+  	<link rel="stylesheet" href="/resources/css/trade/header.css" />
+    <link rel="stylesheet" href="/resources/css/trade/footer.css" />
+    <link rel="stylesheet" href="/resources/css/trade/heartlist.css" />
+    
 </head>
 
 <body>
-	<c:import url="./common/header.jsp"></c:import>
 	
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>찜 목록</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<c:import url="../template/trade/header.jsp"></c:import>
 
-    <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
+<div class="heartListBody">	
+	<section class="heartList spad">
+        <div class="hl-container">
+            <div class="hl-row">
                 <div class="col-lg-12">
-                    <div class="shoping__cart__table">
+                    <div class="hl-table">
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">중고 물품</th>
-                                    <th><!-- 사진 --></th>
-                                    <th>카테고리</th>
-                                    <th>제목</th>
-                                    <th>판매자</th>
+                                    <th class="hl-title">제목</th>
                                     <th>가격</th>
+                                    <th>수량</th>
+                                    <th>판매자</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            
-                            <tbody>
-                            <c:forEach items="${list}" var="heart">
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="/resources/images/trade/3_desk.jpg" alt="">
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        ${heart.itemCategory}
-                                    </td>
-                                    <td>
-                                    	<a href="../item/detail?num=${heart.itemNum}"><h5>${heart.itemTitle}</h5></a>
-                                    </td>
-                                    <td class="shoping__cart__price"> <!-- seller로 바꾸고 css 수정 -->
-                                        ${heart.memberNum}
-                                    </td>
-                                    <td class="shoping__cart__total"> <!-- category로 변경 -->
-                                        ${heart.itemPrice}
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                            </c:forEach>    
+                            <tbody class="hl-tbody">
+                            	<c:forEach items="${list}" var="item">
+	                                <tr>
+	                                    <td class="hl-item">
+	                                        <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="hl-img">
+	                                        <h5 class="hl-text">${item.itemNum}</h5>
+	                                    </td>
+	                                    <td class="hl-price">
+	                                        ${item.itemPrice}
+	                                    </td>
+	                                    <td class="hl-quantity">
+	                                        <div class="quantity">
+	                                            <div class="pro-qty">
+	                                                <span class="dec qtybtn">-</span>
+	                                                <input type="text" value="1">
+	                                                <span class="inc qtybtn">+</span>
+	                                            </div>
+	                                        </div>
+	                                    </td>
+	                                    <td class="hl-seller">
+	                                        ${item.memberNum}
+	                                    </td>
+	                                    <td class="hl-close">
+	                                        <span class="icon_close"></span>
+	                                    </td>
+	                                </tr>
+	                        	</c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Shoping Cart Section End -->
-    
-    <c:import url="./common/footer.jsp"></c:import>
-    
-    <!-- Js Plugins -->
-    <script src="/resources/js/trade/bootstrap.min.js"></script>
-    <script src="/resources/js/trade/jquery-3.3.1.min.js"></script>
-    <script src="/resources/js/trade/jquery-ui.min.js"></script>
-    <script src="/resources/js/trade/jquery.nice-select.min.js"></script>
-    <script src="/resources/js/trade/jquery.slicknav.js"></script>
-    <script src="/resources/js/trade/main.js"></script>
-    <script src="/resources/js/trade/mixitup.min.js"></script>
-    <script src="/resources/js/trade/owl.carousel.min.js"></script>
+    </section>	
+</div>    
+
+    <c:import url="../template/trade/footer.jsp"></c:import>
+ 
 </body>
 </html>

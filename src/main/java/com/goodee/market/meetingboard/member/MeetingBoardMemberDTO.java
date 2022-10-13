@@ -1,5 +1,9 @@
 package com.goodee.market.meetingboard.member;
 
+import com.goodee.market.meetingboard.MeetingBoardDTO;
+import com.goodee.market.member.MemberDTO;
+import com.goodee.market.member.MemberFileDTO;
+
 public class MeetingBoardMemberDTO {
 
 	private Long mbmNum;
@@ -8,6 +12,10 @@ public class MeetingBoardMemberDTO {
 	private Long requestMemberNum;
 	private Integer approvalStatus;
 	private String approvalContents;
+	
+	private MemberDTO memberDTO;
+	private MeetingBoardDTO meetingBoardDTO;
+	private MemberFileDTO memberFileDTO;
 	
 	public Long getMbmNum() {
 		return mbmNum;
@@ -44,6 +52,24 @@ public class MeetingBoardMemberDTO {
 	}
 	public void setApprovalContents(String approvalContents) {
 		this.approvalContents = approvalContents;
+	}
+	public MemberDTO getMemberDTO() {
+		return memberDTO;
+	}
+	public void setMemberDTO(MemberDTO memberDTO) {
+		this.memberDTO = memberDTO;
+	}
+	public MeetingBoardDTO getMeetingBoardDTO() {
+		return meetingBoardDTO;
+	}
+	public void setMeetingBoardDTO(MeetingBoardDTO meetingBoardDTO) {
+		this.meetingBoardDTO = meetingBoardDTO;
+	}
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
 	}
 	
 }

@@ -11,6 +11,7 @@ public class CommentDTO {
 	private String contents;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date regDate;
+	
 	public Long getNum() {
 		return num;
 	}

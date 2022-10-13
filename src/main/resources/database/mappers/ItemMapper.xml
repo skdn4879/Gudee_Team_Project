@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.goodee.market.item.ItemDAO">
+    <mapper namespace="com.goodee.market.trade.item.ItemDAO">
     
     
     
@@ -56,7 +56,7 @@
             	MEMBER M
             ON M.MEMBERNUM= IM.MEMBERNUM
             
-            WHERE M.MEMBERNUM=36		 	
+            WHERE M.MEMBERNUM=#{memberNum}		 	
 		</select>
 
 

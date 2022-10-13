@@ -33,6 +33,7 @@ public class MyPageController {
 		
 		List<ReviewDTO> ar2 = myPageService.getReviewList();
 		model.addAttribute("reviewlist", ar2);
+		
 		System.out.println("중고 마이페이지");
 		return "mypage/trade/main";
 	}

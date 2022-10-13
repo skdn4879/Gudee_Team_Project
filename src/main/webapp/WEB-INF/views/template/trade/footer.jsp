@@ -9,7 +9,7 @@
         <div class="footer-row">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <a href="/"><img src="/resources/images/trade/logo.png" alt=""></a>
+                    <a href="/"><img src="/resources/images/logo.png" alt="" class="footer-logo-img"></a>
                 </div>
                 <ul class="footer-ul">
                     <li class="footer-li">🏢 주소 : 서울특별시 금천구 가산디지털2로 115 (가산동, 대륭테크노타운3차) 1109-1호</li>

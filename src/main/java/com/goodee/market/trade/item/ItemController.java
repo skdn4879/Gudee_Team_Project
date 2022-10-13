@@ -48,10 +48,12 @@ public class ItemController{
 	@GetMapping(value = "category")
 	public ModelAndView getList(Pager pager)throws Exception {
 		System.out.println("category");
+		
 		ModelAndView mv = new ModelAndView();
 		List<ItemDTO> ar =itemService.getList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
+		
 		mv.setViewName("trade/category");
 		return mv;
 	}
@@ -63,6 +65,7 @@ public class ItemController{
 		System.out.println("찜.");
 		ModelAndView mv =new ModelAndView();
 		List<ItemDTO> ar = itemService.getHeartList(pager);
+		
 		mv.addObject("list", ar);	
 		mv.addObject("pager", pager);
 		mv.setViewName("trade/heartlist");
@@ -92,12 +95,12 @@ public class ItemController{
 	
 	
 	@PostMapping(value="add")
-	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession sessin) throws Exception {
+	public ModelAndView setAdd(ItemDTO itemDTO,MultipartFile[] files,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView(); 
-		int item= itemService.setAdd(itemDTO,files,sessin.getServletContext());
-		mv.setViewName("redirect:./main");
+		int item= itemService.setAdd(itemDTO,files,session.getServletContext());
+		mv.setViewName("redirect:./category");
+		System.out.println("add success");
 		return mv;
-		
 	}
 	
 	

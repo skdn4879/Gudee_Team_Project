@@ -7,36 +7,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>구디마켓 중고거래📦</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<title>구디마켓│중고거래📦</title>
 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  
   <link rel="stylesheet" href="/resources/css/trade/header.css"/>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
+		<!-- The Modal -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+				  	<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				
+				<div class="modal-body">
+					<input type="text" name="search" class="form-control" id="search">
+				</div>
+			</div>
+		</div>
+	</div>
+		
 <header class="header">
 	<div class="header-up">
 		<!-- 로고 -->
 		<div class="logo">
 			<a href="/">
-				<svg width="100" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<image href="/resources/images/trade/logo.png" height="200" width="200"/>
+				<svg width="120" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<image href="/resources/images/logo.png" height="200" width="200" class="logo-img"/>
 				</svg>
 			</a>
 		</div>
 
 		<!-- 검색 -->
 		<div class="searchWrap">
-			<button type="button" class="searchBar">어떤 상품을 찾으시나요?</button>
+			<button type="button" class="searchBar" data-bs-toggle="modal" data-bs-target="#myModal">어떤 상품을 찾으시나요?</button>
 			<div class="searchIcon">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="searchBarIcon">
-				<path stroke="currentColor" d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-				<path stroke="currentColor" d="M21 21L17 17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-				</svg>
+				<svg class="searchBarIcon"></svg>
 			</div>
 		</div>
 
@@ -52,7 +66,7 @@
 							<a class="member-a" href="/trade/heartlist">❤️찜 바구니</a>
 						</li>
 						<li class="member-li">
-							<a class="member-a" href="/member/myPage">🎁마이페이지</a>
+							<a class="member-a" href="/mypage/trade/main?memberNum=${myPage.memberNum}">🎁마이페이지</a>
 						</li>
 					</ul>
  				</c:when>
@@ -82,7 +96,7 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/category" role="button" data-bs-toggle="dropdown" aria-expanded="false">카테고리</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/category" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/category" class="cate-a-all">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a href="/trade/category/cloth" class="cate-a">의류</a></li>
 						<li><a href="/trade/category/food" class="cate-a">식품류</a></li>
@@ -96,18 +110,34 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/review" role="button" data-bs-toggle="dropdown" aria-expanded="false">후기</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/category" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/review/main" class="cate-a-all">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a href="/trade/category/cloth" class="cate-a">의류</a></li>
-						<li><a href="/trade/category/food" class="cate-a">식품류</a></li>
-						<li><a href="/trade/category/book" class="cate-a">도서/문구</a></li>
-						<li><a href="/trade/category/beauty" class="cate-a">뷰티/미용</a></li>
-						<li><a href="/trade/category/digital" class="cate-a">생활/디지털</a></li>
-						<li><a href="/trade/category/pet" class="cate-a">반려동물 용품</a></li>
-						<li><a href="/trade/category/interior" class="cate-a">가구/인테리어</a></li>
+						<li><a href="/trade/review/cloth" class="cate-a">의류</a></li>
+						<li><a href="/trade/review/food" class="cate-a">식품류</a></li>
+						<li><a href="/trade/review/book" class="cate-a">도서/문구</a></li>
+						<li><a href="/trade/review/beauty" class="cate-a">뷰티/미용</a></li>
+						<li><a href="/trade/review/digital" class="cate-a">생활/디지털</a></li>
+						<li><a href="/trade/review/pet" class="cate-a">반려동물 용품</a></li>
+						<li><a href="/trade/review/interior" class="cate-a">가구/인테리어</a></li>
 				  </ul>
 				</li>
 				<li class="cate-li">
+					<a class="cate-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						구디마켓 소개
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="cate-a-c" href="/teamMember">MEMBER</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="cate-a-c" href="/workFlow">WORK FLOW</a></li>
+						<li class="cate-disabled">중고거래📦</li><br>
+						<li class="cate-disabled">모임🎈</li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="cate-a-c" href="/erd">ERD</a></li>
+						<li class="cate-disabled">중고거래📦</li><br>
+						<li class="cate-disabled">모임🎈</li>
+					</ul> 
+				</li>
+				<!-- <li class="cate-li">
 					<a class="cate-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						공지사항
 					</a>
@@ -122,7 +152,7 @@
 						<li><a class="cate-a" href="/board/meeting/mylist">1대1문의</a></li>
 						<li><a class="cate-a" href="/board/meeting/faq">자주묻는질문</a></li>
 					</ul> 
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="category-point" style="left: 355px;"></div>

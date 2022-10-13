@@ -17,12 +17,6 @@
 
 <c:import url="../template/trade/header.jsp"></c:import>
 
- <style>
-</style>
-</head>
-<body>
-<h1 class="align-center"> Update Page</h1>
-
 
 <section class="container-fluid col-lg-4">
 	
@@ -71,13 +65,8 @@
 				 <option name="itemCategory" value="num4">하하하하</option>
 				 <option name="itemCategory" value="num5">하하하하하하</option>
 				</select>-->
-			
-			
-	
-			
-			
-			
 			<div class="mb-3">
+
 			  <label for="contents" class="form-label">상품 정보</label>
 			  <textarea class="form-control" name="itemContents" value="${itemDTO.itemContents}" id="contents" rows="3"></textarea>
 			</div>
@@ -91,11 +80,11 @@
 			<div class="mb-3">
 				<button type="submit" class="btn btn-success">등록</button>
 			</div>
-			
 		</form>
 	</div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
 	<c:import url="../template/trade/footer.jsp"></c:import>
 	<script>
 	$("#contents").summernote();
