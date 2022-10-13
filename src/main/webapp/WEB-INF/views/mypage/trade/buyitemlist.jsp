@@ -101,7 +101,7 @@
 					                    <tr>
 			                                <td class="mp-item">
 							                    <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
-							                    <h6><a href="../trade/detail?num=${buyItem.itemNum}" class="item-name">${buyItem.itemTitle}</a></h6>
+							                    <h6><a href="../trade/detail?num=${buyItem.itemNum}" class="mp-imgtext">${buyItem.itemTitle}</a></h6>
 					                        </td>
 								            <td>
 								                ${buyItem.itemPrice}

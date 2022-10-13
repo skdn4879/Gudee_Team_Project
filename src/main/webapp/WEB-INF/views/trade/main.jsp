@@ -42,13 +42,13 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="/resources/images/trade/banner_1.png" class="d-block w-1024" alt="...">
+                    <img src="/resources/images/trade/banner_1.png" class="d-block" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="/resources/images/trade/banner_2.png" class="d-block w-1024" alt="...">
+                    <img src="/resources/images/trade/banner_2.png" class="d-block" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="/resources/images/trade/banner_3.png" class="d-block w-1024" alt="...">
+                    <img src="/resources/images/trade/banner_3.png" class="d-block" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -217,6 +217,10 @@
     margin-bottom: 0px;
 }
 
+.mp-imgtext:hover{
+    color: #7fad39;
+}
+
 .mp-m-tbody tr td h6 {
     display: inline-block;
 }

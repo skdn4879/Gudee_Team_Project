@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>구디마켓 │ 중고거래📦</title>
+  <title>구디마켓│중고거래📦</title>
 
   <link rel="stylesheet" href="/resources/css/trade/header.css"/>
 
@@ -82,7 +82,7 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/category" role="button" data-bs-toggle="dropdown" aria-expanded="false">카테고리</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/category" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/category" class="cate-a-all">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a href="/trade/category/cloth" class="cate-a">의류</a></li>
 						<li><a href="/trade/category/food" class="cate-a">식품류</a></li>
@@ -96,7 +96,7 @@
 				<li class="cate-li">
 				  <a class="cate-a" href="/trade/review" role="button" data-bs-toggle="dropdown" aria-expanded="false">후기</a>
 				  <ul class="dropdown-menu">
-						<li><a href="/trade/review/main" class="cate-a">전체 카테고리</a></li>
+						<li><a href="/trade/review/main" class="cate-a-all">전체 카테고리</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a href="/trade/review/cloth" class="cate-a">의류</a></li>
 						<li><a href="/trade/review/food" class="cate-a">식품류</a></li>
@@ -108,6 +108,22 @@
 				  </ul>
 				</li>
 				<li class="cate-li">
+					<a class="cate-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						구디 소개
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="cate-a" href="/board/trade/mylist">MEMBER</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="cate-disabled">중고거래📦</a></li>
+						<li><a class="cate-a" href="/notice/trade">ERD</a></li>
+						<li><a class="cate-a" href="/board/trade/mylist">WORK FLOW</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li class="cate-disabled">모임🎈</a></li>
+						<li><a class="cate-a" href="/notice/meeting">ERD</a></li>
+						<li><a class="cate-a" href="/board/meeting/mylist">WORK FLOW</a></li>
+					</ul> 
+				</li>
+				<!-- <li class="cate-li">
 					<a class="cate-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						공지사항
 					</a>
@@ -122,7 +138,7 @@
 						<li><a class="cate-a" href="/board/meeting/mylist">1대1문의</a></li>
 						<li><a class="cate-a" href="/board/meeting/faq">자주묻는질문</a></li>
 					</ul> 
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="category-point" style="left: 355px;"></div>

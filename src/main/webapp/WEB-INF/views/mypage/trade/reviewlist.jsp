@@ -100,7 +100,7 @@
 								            <tr>
 								                <td class="mp-item">
 								                    <img src="/resources/images/trade/cart/cart-1.jpg" alt="" class="mp-img">
-								                    <h6><a href="../trade/detail?num=${review.reviewNum}" class="mp-imptext">${reviewItem.reviewTitle}</a></h6>
+								                    <h6><a href="../trade/detail?num=${review.reviewNum}" class="mp-imgtext">${reviewItem.reviewTitle}</a></h6>
 					                            </td>
 				                                <td>
 								                    ${reviewItem.reviewStar}

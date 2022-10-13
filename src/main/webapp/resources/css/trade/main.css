@@ -14,7 +14,7 @@
 .mainWrap {
     width: 100%;
     margin: 0 auto;
-    background-color: beige;
+    background-color: #7fad39;
 }
 
 #visual {
@@ -24,7 +24,17 @@
 
 .carousel-inner {
     height: 416px;
+    overflow: hidden;
+    position: relative;
+    height: 416px;
 }
+
+.carousel-inner img {
+    padding-left: 200px;
+    top: 0;
+    left: 0;
+  }
+
 
 /*main-item 인기글 / 최신글*/
 .main-item {

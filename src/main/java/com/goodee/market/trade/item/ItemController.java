@@ -43,9 +43,9 @@ public class ItemController{
 		
 		ModelAndView mv = new ModelAndView();
 		List<ItemDTO> ar =itemService.getList(pager);
-		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
+		
 		mv.setViewName("trade/category");
 		return mv;
 	}
@@ -57,6 +57,7 @@ public class ItemController{
 		System.out.println("찜.");
 		ModelAndView mv =new ModelAndView();
 		List<ItemDTO> ar = itemService.getHeartList(pager);
+		
 		mv.addObject("list", ar);	
 		mv.addObject("pager", pager);
 		mv.setViewName("trade/heartlist");

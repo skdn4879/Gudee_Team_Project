@@ -104,6 +104,9 @@
                     </div>
                     
                     
+                    
+                    
+                    
                     <!-- 제품 목록 -->
                     <div class="item-row">                    
                     <c:forEach var="item" items="${list}">
