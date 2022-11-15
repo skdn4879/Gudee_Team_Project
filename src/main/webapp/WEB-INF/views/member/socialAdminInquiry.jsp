@@ -15,7 +15,7 @@
 		<nav class="navbar navbar-expand-lg header">
 			<div class="container" id="mainFrame">
 				<img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo">
-			  <a class="navbar-brand" href="/">구디마켓</a>
+			  <a class="navbar-brand" href="/">자소서</a>
               <span>소셜 관리자 페이지</span>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>

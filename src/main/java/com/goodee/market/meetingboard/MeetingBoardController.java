@@ -75,13 +75,13 @@ public class MeetingBoardController {
 		meetingLikeDTO.setMeetingBoardNum(num);
 		meetingLikeDTO.setMemberNum(memberDTO.getMemberNum());
 		
-		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);
+		boolean isLikeExist = meetingLikeService.getLikeExist(meetingLikeDTO);	// 찜을 눌렀는지 체크
 		
 		MeetingBoardMemberDTO meetingBoardMemberDTO = new MeetingBoardMemberDTO();
 		meetingBoardMemberDTO.setMeetingBoardNum(num);
 		meetingBoardMemberDTO.setRequestMemberNum(memberDTO.getMemberNum());
 		
-		boolean isJoinExist = meetingBoardMemberService.getJoinExist(meetingBoardMemberDTO);
+		boolean isJoinExist = meetingBoardMemberService.getJoinExist(meetingBoardMemberDTO);	// 참여신청을했는지 체크
 		
 		mv.addObject("meetingBoardDetail", meetingBoardDTO);
 		mv.addObject("isLikeExist", isLikeExist);

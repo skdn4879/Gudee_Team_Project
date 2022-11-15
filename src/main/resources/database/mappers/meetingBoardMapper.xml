@@ -80,7 +80,6 @@
 				<otherwise>meetingboardtitle</otherwise>
 			</choose>
 			LIKE '%' || #{search} || '%'
-			AND MB.MEETINGBOARDDUEDATE >= sysdate
 	</select>
 
 	<select id="getMeetingBoardList" parameterType="MeetingBoardPager" resultMap="getMeetingBoardListResult">
@@ -100,7 +99,6 @@
 		    		<otherwise>meetingboardtitle</otherwise>
 		    	</choose>
 		    	LIKE '%' || #{search} || '%'
-		    	AND MB.MEETINGBOARDDUEDATE >= sysdate
 		    ORDER BY MB.meetingboardnum DESC) N)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>

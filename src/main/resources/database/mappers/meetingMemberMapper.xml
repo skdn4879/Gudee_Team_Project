@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    FROM MEETINGBOARD MB
 		    LEFT JOIN MEETINGBOARDIMAGE MBI
 		    ON (MB.MEETINGBOARDNUM = MBI.MEETINGBOARDNUM)
-		    WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDDUEDATE >= sysdate AND MEETINGBOARDSTATUS = 0
+		    WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDSTATUS = 0
 		    	AND <choose>
 		    		<when test="kind == 'category'">meetingboardcategory</when>
 		    		<otherwise>meetingboardtitle</otherwise>
@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="getMyListCount" parameterType="MeetingBoardMemberPager" resultType="Long">
-		SELECT COUNT(MEETINGBOARDNUM) FROM MEETINGBOARD WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDDUEDATE >= sysdate AND MEETINGBOARDSTATUS = 0
+		SELECT COUNT(MEETINGBOARDNUM) FROM MEETINGBOARD WHERE MEETINGBOARDWRITER = #{hostMemberNum} AND MEETINGBOARDSTATUS = 0
 	</select>
 	
 	<select id="getMyApprovalCount" parameterType="MeetingBoardMemberDTO" resultType="Long">

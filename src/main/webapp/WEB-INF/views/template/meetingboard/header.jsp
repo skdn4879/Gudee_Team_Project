@@ -5,7 +5,7 @@
 		<nav class="navbar navbar-expand-lg bg-white fixed-top">
 		   <div class="container-fluid">
 		   	<div class="ms-lg-5 ps-lg-5">
-		   		<a class="navbar-brand" href="/" id="mainLogoFrame"><img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo"><span id="logoText">구디마켓</span></a>
+		   		<a class="navbar-brand" href="/" id="mainLogoFrame"><img src="/resources/images/stack-overflow.svg" alt="" id="mainLogo"><span id="logoText">자소서</span></a>
 		   	</div>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkupMeeting" aria-controls="navbarNavAltMarkupMeeting" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
 			        	<a class="nav-link active" aria-current="page" href="/member/logout">로그아웃</a>
 				        <a class="nav-link" href="/member/myPage">마이페이지</a>
 			        </c:if>
-			        <a class="nav-link" href="#">중고거래</a>
+			        <a class="nav-link" href="#">문의하기</a>
 			        <a class="nav-link" href="#">고객센터</a>
 			      </div>
 		      	</div>

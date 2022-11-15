@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.goodee.market.member.MemberDTO" alias="MemberDTO"/>
-		<typeAlias type="com.goodee.market.item.ItemDTO" alias="ItemDTO"/>
-		<typeAlias type="com.goodee.market.item.ItemDAO" alias="ItemDAO"/>
-		<typeAlias type="com.goodee.market.item.ItemImageDTO" alias="ItemImageDTO"/>
-		<typeAlias type="com.goodee.market.item.like.ItemLike_MemberDTO" alias="ItemLike_MemberDTO"/>
+		<!-- <typeAlias type="com.goodee.market.item.trade.ItemDTO" alias="ItemDTO"/>
+		<typeAlias type="com.goodee.market.item.trade.ItemDAO" alias="ItemDAO"/>
+		<typeAlias type="com.goodee.market.item.trade.ItemImageDTO" alias="ItemImageDTO"/>
+		<typeAlias type="com.goodee.market.item.like.ItemLike_MemberDTO" alias="ItemLike_MemberDTO"/> -->
 		<typeAlias type="com.goodee.market.trade.buyer.BuyerDTO" alias="BuyerDTO"/>
 		<typeAlias type="com.goodee.market.trade.sellItemList.SellItemListDTO" alias="SellItemListDTO"/>
 		<typeAlias type="com.goodee.market.trade.buyItemList.BuyItemListDTO" alias="BuyItemListDTO"/>
