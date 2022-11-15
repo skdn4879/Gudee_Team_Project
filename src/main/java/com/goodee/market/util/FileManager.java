@@ -8,8 +8,6 @@ import javax.servlet.ServletContext;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.goodee.market.trade.item.ItemImageDTO;
-
 
 @Component
 public class FileManager {
